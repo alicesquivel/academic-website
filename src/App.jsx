@@ -6,9 +6,20 @@ import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
+  const [activeTab, setActiveTab] = useState('about');
+
   return (
-    <div className="min-h-screen bg-slate-100 p-4">
-      <h1 className="text-2xl text-slate-900">Hello World</h1>
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1">
+        <div className="container py-8">
+          <ProfileHeader />
+          <div className="mt-8">
+            <TabNav activeTab={activeTab} onTabChange={setActiveTab} />
+            <TabContent activeTab={activeTab} />
+          </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }
