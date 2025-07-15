@@ -4,28 +4,28 @@ import { Github, FileText, Mail, Linkedin } from 'lucide-react';
 
 const ProfileHeader = () => {
   return (
-    <Div tag="header" p={{ y: "2rem" }} bg="#F8FAFC">
+    <Div tag="header" p={{ y: "1.5rem" }} bg="#F8FAFC">
       <Container d="flex" flexDir="column" align="flex-start" maxW="1200px">
         <Div
           d="flex"
           flexDir={{ xs: "column", md: "row" }}
-          align="flex-start"
-          justify="flex-start"
-          m={{ b: "2rem" }}
+          align="center"
+          justify="space-between"
           w="100%"
         >
-          <Div
-            h="8rem"
-            w="8rem"
-            bg="#64748B"
-            rounded="circle"
-            d="flex"
-            align="center"
-            justify="center"
-            m={{ r: "2rem", b: { xs: "1.5rem", md: "0" } }}
-            shadow="4"
-            pos="relative"
-            overflow="hidden"
+          <Div d="flex" align="center">
+            <Div
+              h="5rem"
+              w="5rem"
+              bg="#64748B"
+              rounded="circle"
+              d="flex"
+              align="center"
+              justify="center"
+              m={{ r: "1.5rem" }}
+              shadow="sm"
+              pos="relative"
+              overflow="hidden"
           >
             <Text
               textSize="display1"
@@ -47,71 +47,87 @@ const ProfileHeader = () => {
               }}
             />
           </Div>
-          <Div>
+          <Div d="flex" flexDir="column" m={{ r: "auto" }}>
             <Text
               tag="h1"
-              textSize={{ xs: "display1", md: "display2" }}
+              textSize="title"
               textWeight="700"
-              textColor="white"
-              m={{ b: "0.5rem" }}
+              textColor="#1E293B"
+              m={{ b: "0.25rem" }}
             >
               Alicia Esquivel Morel
             </Text>
             <Text
-              textSize="title"
+              textSize="paragraph"
               textWeight="500"
-              textColor="blue300"
+              textColor="#475569"
+              m={{ b: "0.75rem" }}
             >
               PhD Candidate in Computer Science
             </Text>
+            <Div d="flex">
+              <Button
+                bg="transparent"
+                hoverBg="#F1F5F9"
+                textColor="#64748B"
+                rounded="circle"
+                p="0.5rem"
+                m={{ r: "0.5rem" }}
+                onClick={() => window.open("#", "_blank")}
+              >
+                <Github size={18} />
+              </Button>
+              <Button
+                bg="transparent"
+                hoverBg="#F1F5F9"
+                textColor="#64748B"
+                rounded="circle"
+                p="0.5rem"
+                m={{ r: "0.5rem" }}
+                onClick={() => window.open("#", "_blank")}
+              >
+                <Linkedin size={18} />
+              </Button>
+              <Button
+                bg="transparent"
+                hoverBg="#F1F5F9"
+                textColor="#64748B"
+                rounded="circle"
+                p="0.5rem"
+                onClick={() => window.open("mailto:contact@example.com", "_blank")}
+              >
+                <Mail size={18} />
+              </Button>
+            </Div>
           </Div>
-        </Div>
-
-        <Div d="flex" flexDir={{ xs: "column", sm: "row" }} align="center">
-          <Div
-            d="flex"
-            m={{ r: { sm: "1rem" }, b: { xs: "1rem", sm: "0" } }}
-          >
+          <Div d="flex" align="center">
             <Button
-              bg="gray800"
-              hoverBg="gray700"
+              bg="#1E293B"
+              hoverBg="#0F172A"
               textColor="white"
               rounded="lg"
-              p={{ x: "1rem", y: "0.75rem" }}
-              m={{ r: "0.5rem" }}
-              onClick={() => window.open("#", "_blank")}
+              p={{ x: "1.25rem", y: "0.5rem" }}
+              m={{ r: "0.75rem" }}
+              shadow="sm"
+              textSize="caption"
             >
-              <Div m={{ r: "0.5rem" }}>
-                <Github size={20} color="white" />
-              </Div>
-              GitHub
+              Resume
             </Button>
             <Button
-              bg="gray800"
-              hoverBg="gray700"
-              textColor="white"
+              bg="#F8FAFC"
+              hoverBg="#F1F5F9"
+              textColor="#1E293B"
               rounded="lg"
-              p={{ x: "1rem", y: "0.75rem" }}
-              onClick={() => window.open("#", "_blank")}
+              p={{ x: "1.25rem", y: "0.5rem" }}
+              shadow="sm"
+              border="1px solid"
+              borderColor="#E2E8F0"
+              textSize="caption"
             >
-              <Div m={{ r: "0.5rem" }}>
-                <FileText size={20} color="white" />
-              </Div>
               CV
             </Button>
           </Div>
-          <Button
-            bg="info700"
-            hoverBg="info800"
-            rounded="lg"
-            p={{ x: "1rem", y: "0.75rem" }}
-            onClick={() => window.open("#", "_blank")}
-          >
-            <Div m={{ r: "0.5rem" }}>
-              <Download size={20} color="white" />
-            </Div>
-            Download Resume
-          </Button>
+          </Div>
         </Div>
       </Container>
     </Div>
