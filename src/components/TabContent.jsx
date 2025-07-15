@@ -225,7 +225,7 @@ const TabContent = ({ activeTab }) => {
     }
   };
 
-  return <main className="bg-white p-6">{renderContent()}</main>;
+  return <main className="p-0 sm:p-0">{renderContent()}</main>;
 };
 
 export default TabContent;
