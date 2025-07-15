@@ -1,6 +1,6 @@
 import React from "react";
 import { Div, Text, Button } from "atomize";
-import { User, Search, BookmarkCheck, Briefcase } from 'lucide-react';
+import { User, Search, BookmarkCheck, Briefcase } from "lucide-react";
 
 const TabNav = ({ activeTab, onTabChange }) => {
   const tabs = [
@@ -30,7 +30,12 @@ const TabNav = ({ activeTab, onTabChange }) => {
     <Div
       tag="nav"
       p={{ x: { xs: "0.5rem", md: "1.5rem" }, y: "0.5rem" }}
-      style={{ borderBottom: "1px solid #E2E8F0", overflowX: "auto", msOverflowStyle: "none", scrollbarWidth: "none" }}
+      style={{
+        borderBottom: "1px solid #E2E8F0",
+        overflowX: "auto",
+        msOverflowStyle: "none",
+        scrollbarWidth: "none",
+      }}
       d="flex"
       justify="flex-start"
       bg="gray100"
@@ -43,7 +48,10 @@ const TabNav = ({ activeTab, onTabChange }) => {
             bg={activeTab === tab.id ? "white" : "transparent"}
             shadow={activeTab === tab.id ? "2" : "none"}
             textColor={activeTab === tab.id ? "info700" : "gray600"}
-            p={{ x: { xs: "1rem", md: "1.5rem" }, y: { xs: "0.5rem", md: "0.75rem" } }}
+            p={{
+              x: { xs: "1rem", md: "1.5rem" },
+              y: { xs: "0.5rem", md: "0.75rem" },
+            }}
             m={{ r: { xs: "0.5rem", md: "0.75rem" } }}
             rounded="xl"
             d="flex"
@@ -55,7 +63,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
             style={{
               transition: "all 0.2s ease",
               cursor: "pointer",
-              position: "relative"
+              position: "relative",
             }}
           >
             <Div d="flex" align="center">
@@ -63,7 +71,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
                 {React.createElement(tab.icon, {
                   size: { xs: 14, md: 16 },
                   color: activeTab === tab.id ? "#2563EB" : "#64748B",
-                  strokeWidth: 1.5
+                  strokeWidth: 1.5,
                 })}
               </Div>
               <Text
