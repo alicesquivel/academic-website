@@ -4,29 +4,29 @@ import React from "react";
 const ProfileHeader = () => {
   return (
     // On medium screens (md) and up, it's a row. Below that, it stacks.
-    <header className="flex flex-col md:flex-row items-center justify-between py-6 border-b border-gray-200">
+    <header className="flex flex-col md:flex-row items-center justify-between py-6 px-4 sm:px-6 lg:px-8 border-b border-gray-200 bg-white">
       {/* Left side: Avatar, Name, and Title. */}
-      <div className="flex items-center mb-4 md:mb-0">
-        <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center text-xl font-bold text-gray-700 flex-shrink-0">
+      <div className="flex flex-col sm:flex-row items-center mb-4 md:mb-0 text-center sm:text-left">
+        <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center text-xl font-bold text-gray-700 flex-shrink-0 mb-4 sm:mb-0">
           AEM
         </div>
-        <div className="ml-4">
-          <h1 className="text-2xl font-bold text-gray-900">
+        <div className="sm:ml-4">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
             Alicia Esquivel Morel
           </h1>
-          <p className="text-md text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             PhD Candidate in Computer Science
           </p>
         </div>
       </div>
 
       {/* Right side: Social links and buttons. */}
-      <div className="flex items-center space-x-6">
+      <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
         <div className="flex items-center space-x-4 text-gray-500">
           {/* Using SVG for icons for a cleaner look */}
-          <a href="#" className="hover:text-gray-900" title="GitHub">
+          <a href="#" className="hover:text-gray-900 transition-colors duration-200" title="GitHub">
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -38,9 +38,9 @@ const ProfileHeader = () => {
               />
             </svg>
           </a>
-          <a href="#" className="hover:text-gray-900" title="CV">
+          <a href="#" className="hover:text-gray-900 transition-colors duration-200" title="CV">
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ const ProfileHeader = () => {
         </div>
         <a
           href="#"
-          className="bg-gray-800 text-white font-semibold px-5 py-2 rounded-lg hover:bg-gray-700 text-sm"
+          className="bg-gray-800 text-white font-semibold px-4 py-2 sm:px-5 sm:py-2 rounded-lg hover:bg-gray-700 text-sm transition-colors duration-200"
         >
           Resume
         </a>
