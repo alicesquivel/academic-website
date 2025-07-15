@@ -73,10 +73,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
             <Div d="flex" align="center">
               <Div m={{ r: { xs: "0.25rem", md: "0.375rem" } }}>
                 <tab.icon
-                  style={{
-                    width: "15px",
-                    height: "15px",
-                  }}
+                  size="15"
                   color={activeTab === tab.id ? "#2563EB" : "#94A3B8"}
                   weight="light"
                 />

@@ -11,11 +11,7 @@ const Footer = () => {
       m={{ t: "4rem" }}
     >
       <Div d="flex" justify="center">
-        <Text
-          textSize="caption"
-          textColor="blue200"
-          opacity="0.5"
-        >
+        <Text textSize="caption" textColor="blue200" opacity="0.5">
           © 2025 Alicia Esquivel Morel. All Rights Reserved.
         </Text>
       </Div>

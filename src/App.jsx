@@ -16,9 +16,16 @@ function App() {
   return (
     <Div minH="100vh" bg="#F8FAFC" d="flex" flexDir="column">
       <ProfileHeader />
-      <Div tag="main" flex="1" w="100%" maxW="1200px" m={{ x: "auto" }} p={{ x: "1rem", y: "2rem" }}>
-        <Div 
-          bg="white" 
+      <Div
+        tag="main"
+        flex="1"
+        w="100%"
+        maxW="1200px"
+        m={{ x: "auto" }}
+        p={{ x: "1rem", y: "2rem" }}
+      >
+        <Div
+          bg="white"
           rounded="2xl"
           shadow="sm"
           style={{ border: "1px solid #E2E8F0" }}
@@ -32,11 +39,7 @@ function App() {
             <TabContent activeTab={activeTab} />
           </Div>
         </Div>
-        {activeTab === "about" && (
-            <Div>
-              {/* About content goes here */}
-            </Div>
-        )}
+        {activeTab === "about" && <Div>{/* About content goes here */}</Div>}
       </Div>
       <Footer />
     </Div>

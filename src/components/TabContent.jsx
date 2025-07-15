@@ -40,17 +40,17 @@ const TabContent = ({ activeTab }) => {
         </Div>
 
         {/* Expertise Grid - 2x2 layout */}
-        <Div 
+        <Div
           d="grid"
           style={{
             gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "1rem"
+            gap: "1rem",
           }}
           $xs={{
             style: {
               gridTemplateColumns: "1fr",
-              gap: "0.75rem"
-            }
+              gap: "0.75rem",
+            },
           }}
         >
           <Div
@@ -72,9 +72,9 @@ const TabContent = ({ activeTab }) => {
               <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Cybersecurity
             </Text>
-            <Text 
-              textSize={{ xs: "tiny", md: "caption" }} 
-              textColor="gray600" 
+            <Text
+              textSize={{ xs: "tiny", md: "caption" }}
+              textColor="gray600"
               textWeight="400"
               style={{ lineHeight: "1.5" }}
             >
@@ -176,8 +176,8 @@ const TabContent = ({ activeTab }) => {
           >
             Research Interests
           </Text>
-          <Text 
-            textSize={{ xs: "tiny", md: "caption" }} 
+          <Text
+            textSize={{ xs: "tiny", md: "caption" }}
             textColor="gray700"
             style={{ lineHeight: "1.5" }}
           >
@@ -195,7 +195,10 @@ const TabContent = ({ activeTab }) => {
             <Div
               d="flex"
               align="center"
-              p={{ x: { xs: "0.5rem", md: "0.75rem" }, y: { xs: "0.375rem", md: "0.5rem" } }}
+              p={{
+                x: { xs: "0.5rem", md: "0.75rem" },
+                y: { xs: "0.375rem", md: "0.5rem" },
+              }}
               bg="gray800"
             >
               <Div d="flex" align="center">
@@ -213,19 +216,26 @@ const TabContent = ({ activeTab }) => {
                   rounded="circle"
                   m={{ r: "0.5rem" }}
                 />
-                <Div 
+                <Div
                   w={{ xs: "0.625rem", md: "0.75rem" }}
                   h={{ xs: "0.625rem", md: "0.75rem" }}
-                  bg="success500" 
-                  rounded="circle" 
+                  bg="success500"
+                  rounded="circle"
                 />
               </Div>
-              <Text textSize={{ xs: "tiny", md: "caption" }} textColor="gray400" m={{ l: "auto" }}>
+              <Text
+                textSize={{ xs: "tiny", md: "caption" }}
+                textColor="gray400"
+                m={{ l: "auto" }}
+              >
                 terminal
               </Text>
             </Div>
             <Div
-              p={{ x: { xs: "0.75rem", md: "1rem" }, y: { xs: "0.75rem", md: "1rem" } }}
+              p={{
+                x: { xs: "0.75rem", md: "1rem" },
+                y: { xs: "0.75rem", md: "1rem" },
+              }}
               fontFamily="mono"
               textSize={{ xs: "tiny", md: "caption" }}
               textColor="success400"

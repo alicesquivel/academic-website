@@ -4,9 +4,25 @@ import { Github, Mail, Linkedin } from "lucide-react";
 
 const ProfileHeader = () => {
   return (
-    <Div tag="header" p={{ y: { xs: "1rem", md: "2rem" } }} bg="white" shadow="sm">
-      <Container d="flex" flexDir={{ xs: "column", md: "row" }} justify="space-between" align={{ xs: "center", md: "center" }} maxW="1200px">
-        <Div d="flex" flexDir={{ xs: "column", md: "row" }} align="center" w={{ xs: "100%", md: "auto" }}>
+    <Div
+      tag="header"
+      p={{ y: { xs: "1rem", md: "2rem" } }}
+      bg="white"
+      shadow="sm"
+    >
+      <Container
+        d="flex"
+        flexDir={{ xs: "column", md: "row" }}
+        justify="space-between"
+        align={{ xs: "center", md: "center" }}
+        maxW="1200px"
+      >
+        <Div
+          d="flex"
+          flexDir={{ xs: "column", md: "row" }}
+          align="center"
+          w={{ xs: "100%", md: "auto" }}
+        >
           <Div
             h={{ xs: "4rem", md: "4.5rem" }}
             w={{ xs: "4rem", md: "4.5rem" }}
@@ -18,7 +34,11 @@ const ProfileHeader = () => {
             m={{ r: { xs: "0", md: "1.5rem" }, b: { xs: "1rem", md: "0" } }}
             shadow="sm"
           >
-            <Text textSize={{ xs: "title", md: "heading" }} textWeight="700" textColor="white">
+            <Text
+              textSize={{ xs: "title", md: "heading" }}
+              textWeight="700"
+              textColor="white"
+            >
               AEM
             </Text>
           </Div>
@@ -44,7 +64,12 @@ const ProfileHeader = () => {
             >
               PhD Candidate in Computer Science
             </Text>
-            <Div d="flex" align="center" justify={{ xs: "center", md: "flex-start" }} m={{ t: { xs: "1rem", md: "0.5rem" } }}>
+            <Div
+              d="flex"
+              align="center"
+              justify={{ xs: "center", md: "flex-start" }}
+              m={{ t: { xs: "1rem", md: "0.5rem" } }}
+            >
               <Button
                 bg="transparent"
                 textColor="#64748B"
@@ -83,10 +108,10 @@ const ProfileHeader = () => {
             </Div>
           </Div>
         </Div>
-        <Div 
-          d="flex" 
-          flexDir={{ xs: "column", md: "row" }} 
-          align="center" 
+        <Div
+          d="flex"
+          flexDir={{ xs: "column", md: "row" }}
+          align="center"
           w={{ xs: "100%", md: "auto" }}
           m={{ t: { xs: "1.5rem", md: "0" } }}
         >
