@@ -25,19 +25,19 @@ const ProfileHeader = () => {
           <Div d="flex" flexDir="column">
             <Text
               tag="h1"
-              textSize="display2"
+              textSize="display1"
               textWeight="600"
               textColor="#1E293B"
-              m={{ b: "0.5rem" }}
+              m={{ b: "0.1rem" }}
               style={{ letterSpacing: "-0.02em" }}
             >
               Alicia Esquivel Morel
             </Text>
             <Text
-              textSize="subtitle"
+              textSize="paragraph"
               textWeight="500"
               textColor="#64748B"
-              m={{ b: "0.75rem" }}
+              m={{ b: "0.1rem" }}
               style={{ letterSpacing: "0.01em" }}
             >
               PhD Candidate in Computer Science
@@ -53,30 +53,30 @@ const ProfileHeader = () => {
                   window.open("https://github.com/yourusername", "_blank")
                 }
               >
-                <Github size={32} />
+                <Github size={24} />
               </Button>
               <Button
                 bg="transparent"
                 textColor="#64748B"
                 hoverTextColor="#1E293B"
-                p={{ x: "0.5rem", y: "0.5rem" }}
-                m={{ r: "1rem" }}
+                p={{ x: "0.375rem", y: "0.375rem" }}
+                m={{ r: "0.75rem" }}
                 onClick={() =>
                   window.open("https://linkedin.com/in/yourusername", "_blank")
                 }
               >
-                <Linkedin size={32} />
+                <Linkedin size={24} />
               </Button>
               <Button
                 bg="transparent"
                 textColor="#64748B"
                 hoverTextColor="#1E293B"
-                p={{ x: "0.5rem", y: "0.5rem" }}
+                p={{ x: "0.375rem", y: "0.375rem" }}
                 onClick={() =>
                   window.open("mailto:your.email@example.com", "_blank")
                 }
               >
-                <Mail size={32} />
+                <Mail size={24} />
               </Button>
             </Div>
           </Div>

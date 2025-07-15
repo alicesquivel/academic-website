@@ -6,25 +6,13 @@ const TabContent = ({ activeTab }) => {
     <Div>
       <Div m={{ b: "2rem" }}>
         <Div m={{ b: "1rem" }}>
-          <Text
-            textSize="body"
-            textColor="gray800"
-            m={{ b: "1rem" }}
-          >
+          <Text textSize="body" textColor="gray800" m={{ b: "1rem" }}>
             I am a motivated PhD candidate specializing in{" "}
-            <Text
-              tag="span"
-              textWeight="600"
-              textColor="info700"
-            >
+            <Text tag="span" textWeight="600" textColor="info700">
               cloud/edge computing
             </Text>{" "}
             and{" "}
-            <Text
-              tag="span"
-              textWeight="600"
-              textColor="info700"
-            >
+            <Text tag="span" textWeight="600" textColor="info700">
               cybersecurity
             </Text>
             . With a proven ability to lead research, publish papers, and teach
@@ -33,32 +21,17 @@ const TabContent = ({ activeTab }) => {
             design for autonomous systems.
           </Text>
 
-          <Text
-            textSize="body"
-            textColor="gray800"
-          >
+          <Text textSize="body" textColor="gray800">
             I am passionate about leveraging{" "}
-            <Text
-              tag="span"
-              textWeight="600"
-              textColor="info700"
-            >
+            <Text tag="span" textWeight="600" textColor="info700">
               advanced networking
             </Text>
             ,{" "}
-            <Text
-              tag="span"
-              textWeight="600"
-              textColor="info700"
-            >
+            <Text tag="span" textWeight="600" textColor="info700">
               artificial intelligence
             </Text>
             , and{" "}
-            <Text
-              tag="span"
-              textWeight="600"
-              textColor="info700"
-            >
+            <Text tag="span" textWeight="600" textColor="info700">
               testbed-driven validation
             </Text>{" "}
             in cloud and edge environments to create more secure and resilient
@@ -67,11 +40,7 @@ const TabContent = ({ activeTab }) => {
         </Div>
 
         {/* Expertise Grid - 2x2 layout */}
-        <Div
-          d="grid"
-          gridTemplateColumns="repeat(2, 1fr)"
-          gap="1rem"
-        >
+        <Div d="grid" gridTemplateColumns="repeat(2, 1fr)" gap="1rem">
           <Div
             bg="white"
             p="1rem"
@@ -88,16 +57,10 @@ const TabContent = ({ activeTab }) => {
               d="flex"
               align="center"
             >
-              <Text tag="span" m={{ r: "0.5rem" }}>
-                🛡️
-              </Text>
+              <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Cybersecurity
             </Text>
-            <Text
-              textSize="caption"
-              textColor="gray600"
-              textWeight="400"
-            >
+            <Text textSize="caption" textColor="gray600" textWeight="400">
               AI-driven security, Zero Trust Architecture, threat modeling,
               intrusion detection systems
             </Text>
@@ -119,16 +82,10 @@ const TabContent = ({ activeTab }) => {
               d="flex"
               align="center"
             >
-              <Text tag="span" m={{ r: "0.5rem" }}>
-                ☁️
-              </Text>
+              <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Cloud Computing
             </Text>
-            <Text
-              textSize="caption"
-              textColor="gray600"
-              textWeight="400"
-            >
+            <Text textSize="caption" textColor="gray600" textWeight="400">
               Edge computing, distributed systems, resilient architectures,
               containerization
             </Text>
@@ -150,16 +107,10 @@ const TabContent = ({ activeTab }) => {
               d="flex"
               align="center"
             >
-              <Text tag="span" m={{ r: "0.5rem" }}>
-                🤖
-              </Text>
+              <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Machine Learning
             </Text>
-            <Text
-              textSize="caption"
-              textColor="gray600"
-              textWeight="400"
-            >
+            <Text textSize="caption" textColor="gray600" textWeight="400">
               Federated learning, neural networks, intelligent systems, anomaly
               detection
             </Text>
@@ -181,16 +132,10 @@ const TabContent = ({ activeTab }) => {
               d="flex"
               align="center"
             >
-              <Text tag="span" m={{ r: "0.5rem" }}>
-                🌐
-              </Text>
+              <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Networking
             </Text>
-            <Text
-              textSize="caption"
-              textColor="gray600"
-              textWeight="400"
-            >
+            <Text textSize="caption" textColor="gray600" textWeight="400">
               IoT networks, mobile networks, protocol design, network security
             </Text>
           </Div>
@@ -213,10 +158,7 @@ const TabContent = ({ activeTab }) => {
           >
             Research Interests
           </Text>
-          <Text
-            textSize="caption"
-            textColor="gray700"
-          >
+          <Text textSize="caption" textColor="gray700">
             AI-driven security for cloud, edge, IoT, and mobile networks,
             focusing on federated learning, Zero Trust Architecture, intrusion
             detection, threat modeling, and critical infrastructure resilience.
@@ -228,7 +170,12 @@ const TabContent = ({ activeTab }) => {
       <Div m={{ t: "2rem" }}>
         <Div maxW="800px" m={{ x: "auto" }}>
           <Div bg="gray900" rounded="lg" shadow="3" overflow="hidden">
-            <Div d="flex" align="center" p={{ x: "0.75rem", y: "0.5rem" }} bg="gray800">
+            <Div
+              d="flex"
+              align="center"
+              p={{ x: "0.75rem", y: "0.5rem" }}
+              bg="gray800"
+            >
               <Div d="flex" align="center">
                 <Div
                   w="0.75rem"
@@ -244,18 +191,9 @@ const TabContent = ({ activeTab }) => {
                   rounded="circle"
                   m={{ r: "0.5rem" }}
                 />
-                <Div
-                  w="0.75rem"
-                  h="0.75rem"
-                  bg="success500"
-                  rounded="circle"
-                />
+                <Div w="0.75rem" h="0.75rem" bg="success500" rounded="circle" />
               </Div>
-              <Text
-                textSize="tiny"
-                textColor="gray400"
-                m={{ l: "auto" }}
-              >
+              <Text textSize="tiny" textColor="gray400" m={{ l: "auto" }}>
                 terminal
               </Text>
             </Div>
@@ -270,23 +208,35 @@ const TabContent = ({ activeTab }) => {
               style={{ gap: "0.25rem" }}
             >
               <Div>
-                <Text tag="span" textColor="success400">$</Text>{" "}
-                <Text tag="span" textColor="white">whoami</Text>
+                <Text tag="span" textColor="success400">
+                  $
+                </Text>{" "}
+                <Text tag="span" textColor="white">
+                  whoami
+                </Text>
               </Div>
               <Text textColor="gray300">
                 alicia@cs-research:~$ PhD Candidate specializing in
                 cybersecurity
               </Text>
               <Div>
-                <Text tag="span" textColor="success400">$</Text>{" "}
-                <Text tag="span" textColor="white">ls skills/</Text>
+                <Text tag="span" textColor="success400">
+                  $
+                </Text>{" "}
+                <Text tag="span" textColor="white">
+                  ls skills/
+                </Text>
               </Div>
               <Text textColor="gray300">
                 cybersecurity/ cloud-computing/ machine-learning/ networking/
               </Text>
               <Div>
-                <Text tag="span" textColor="success400">$</Text>{" "}
-                <Text tag="span" textColor="white">cat research_focus.txt</Text>
+                <Text tag="span" textColor="success400">
+                  $
+                </Text>{" "}
+                <Text tag="span" textColor="white">
+                  cat research_focus.txt
+                </Text>
               </Div>
               <Text textColor="gray300">
                 AI-driven security for distributed systems
@@ -325,18 +275,10 @@ const TabContent = ({ activeTab }) => {
           m={{ b: "0.75rem" }}
         >
           <Div>
-            <Text
-              textSize="subheader"
-              textWeight="600"
-              textColor="gray900"
-            >
+            <Text textSize="subheader" textWeight="600" textColor="gray900">
               TAMU Fractals Research Team
             </Text>
-            <Text
-              textSize="body"
-              textWeight="500"
-              textColor="info700"
-            >
+            <Text textSize="body" textWeight="500" textColor="info700">
               Texas A&M University
             </Text>
           </Div>
@@ -380,10 +322,7 @@ const TabContent = ({ activeTab }) => {
         >
           Additional Research Projects
         </Text>
-        <Text
-          textSize="body"
-          textColor="gray600"
-        >
+        <Text textSize="body" textColor="gray600">
           Add your other research projects, current work, and academic
           collaborations here.
         </Text>
@@ -418,10 +357,7 @@ const TabContent = ({ activeTab }) => {
         >
           Academic Publications
         </Text>
-        <Text
-          textSize="body"
-          textColor="gray600"
-        >
+        <Text textSize="body" textColor="gray600">
           Your journal articles, conference papers, and other academic
           publications will be listed here.
         </Text>
@@ -456,10 +392,7 @@ const TabContent = ({ activeTab }) => {
         >
           Professional Experience
         </Text>
-        <Text
-          textSize="body"
-          textColor="gray600"
-        >
+        <Text textSize="body" textColor="gray600">
           Your work experience, teaching positions, and academic appointments
           will be displayed here.
         </Text>
