@@ -1,77 +1,77 @@
 import React from "react";
 import { Div, Text, Button } from "atomize";
-import { User, Search, BookmarkCheck, Briefcase } from "lucide-react";
+import { PiIdentificationBadgeLight, PiCodeLight, PiArticleLight, PiBriefcaseLight } from "react-icons/pi";
 
 const TabNav = ({ activeTab, onTabChange }) => {
   const tabs = [
     {
       id: "about",
       label: "About",
-      icon: User,
+      icon: PiIdentificationBadgeLight,
     },
     {
       id: "research",
       label: "Research",
-      icon: Search,
+      icon: PiCodeLight,
     },
     {
       id: "publications",
       label: "Publications",
-      icon: BookmarkCheck,
+      icon: PiArticleLight,
     },
     {
       id: "experience",
       label: "Experience",
-      icon: Briefcase,
+      icon: PiBriefcaseLight,
     },
   ];
 
   return (
     <Div
       tag="nav"
-      p={{ x: { xs: "0.5rem", md: "1.5rem" }, y: "0.5rem" }}
+      p={{ x: { xs: "0.5rem", md: "1.5rem" }, y: "0" }}
       style={{
         borderBottom: "1px solid #E2E8F0",
         overflowX: "auto",
         msOverflowStyle: "none",
         scrollbarWidth: "none",
+        backgroundColor: "#F8FAFC"
       }}
       d="flex"
       justify="flex-start"
-      bg="gray100"
     >
       <Div d="flex" w="100%" justify={{ xs: "flex-start", md: "center" }}>
         {tabs.map((tab) => (
           <Button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            bg={activeTab === tab.id ? "white" : "transparent"}
-            shadow={activeTab === tab.id ? "2" : "none"}
+            bg="transparent"
+            hoverBg={{ xs: "gray100", md: "white" }}
             textColor={activeTab === tab.id ? "info700" : "gray600"}
             p={{
-              x: { xs: "1rem", md: "1.5rem" },
+              x: { xs: "0.75rem", md: "1rem" },
               y: { xs: "0.5rem", md: "0.75rem" },
             }}
-            m={{ r: { xs: "0.5rem", md: "0.75rem" } }}
-            rounded="xl"
+            m={{ r: { xs: "0.25rem", md: "0.5rem" } }}
+            rounded="lg"
             d="flex"
             align="center"
-            border="1px solid"
-            borderColor={activeTab === tab.id ? "gray200" : "transparent"}
-            transform={activeTab === tab.id ? "translateY(-2px)" : "none"}
+            border="none"
+            transform={activeTab === tab.id ? "none" : "none"}
             minW={{ xs: "auto", md: "auto" }}
             style={{
               transition: "all 0.2s ease",
               cursor: "pointer",
               position: "relative",
+              borderBottom: activeTab === tab.id ? "2px solid #2563EB" : "2px solid transparent"
             }}
           >
             <Div d="flex" align="center">
               <Div m={{ r: { xs: "0.25rem", md: "0.375rem" } }}>
                 {React.createElement(tab.icon, {
-                  size: { xs: 14, md: 16 },
-                  color: activeTab === tab.id ? "#2563EB" : "#64748B",
-                  strokeWidth: 1.5,
+                  size: { xs: 16, md: 18 },
+                  color: activeTab === tab.id ? "#2563EB" : "#94A3B8",
+                  weight: "thin"
                 })}
               </Div>
               <Text
