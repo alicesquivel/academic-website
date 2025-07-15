@@ -41,9 +41,17 @@ const TabContent = ({ activeTab }) => {
 
         {/* Expertise Grid - 2x2 layout */}
         <Div 
-          d="grid" 
-          gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} 
-          gap={{ xs: "0.75rem", md: "1rem" }}
+          d="grid"
+          style={{
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "1rem"
+          }}
+          $xs={{
+            style: {
+              gridTemplateColumns: "1fr",
+              gap: "0.75rem"
+            }
+          }}
         >
           <Div
             bg="white"

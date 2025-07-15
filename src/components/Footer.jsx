@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Div
       tag="footer"
-      borderTop="1px solid"
+      border={{ t: "1px solid" }}
       borderColor="gray800"
       p={{ y: "2rem" }}
       m={{ t: "4rem" }}
