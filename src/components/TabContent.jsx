@@ -40,27 +40,36 @@ const TabContent = ({ activeTab }) => {
         </Div>
 
         {/* Expertise Grid - 2x2 layout */}
-        <Div d="grid" gridTemplateColumns="repeat(2, 1fr)" gap="1rem">
+        <Div 
+          d="grid" 
+          gridTemplateColumns={{ xs: "1fr", md: "repeat(2, 1fr)" }} 
+          gap={{ xs: "0.75rem", md: "1rem" }}
+        >
           <Div
             bg="white"
-            p="1rem"
+            p={{ xs: "0.75rem", md: "1rem" }}
             rounded="lg"
             border="1px solid"
             borderColor="gray300"
           >
             <Text
               tag="h4"
-              textSize="subheader"
+              textSize={{ xs: "body", md: "subheader" }}
               textWeight="600"
               textColor="gray900"
-              m={{ b: "0.5rem" }}
+              m={{ b: { xs: "0.375rem", md: "0.5rem" } }}
               d="flex"
               align="center"
             >
               <Text tag="span" m={{ r: "0.5rem" }}></Text>
               Cybersecurity
             </Text>
-            <Text textSize="caption" textColor="gray600" textWeight="400">
+            <Text 
+              textSize={{ xs: "tiny", md: "caption" }} 
+              textColor="gray600" 
+              textWeight="400"
+              style={{ lineHeight: "1.5" }}
+            >
               AI-driven security, Zero Trust Architecture, threat modeling,
               intrusion detection systems
             </Text>
@@ -144,21 +153,26 @@ const TabContent = ({ activeTab }) => {
         {/* Research Interests */}
         <Div
           bg="white"
-          p="1rem"
+          p={{ xs: "0.75rem", md: "1rem" }}
           rounded="lg"
           border="1px solid"
           borderColor="gray300"
+          m={{ t: { xs: "1rem", md: "1.5rem" } }}
         >
           <Text
             tag="h3"
-            textSize="subheader"
+            textSize={{ xs: "body", md: "subheader" }}
             textWeight="600"
             textColor="gray900"
-            m={{ b: "0.75rem" }}
+            m={{ b: { xs: "0.5rem", md: "0.75rem" } }}
           >
             Research Interests
           </Text>
-          <Text textSize="caption" textColor="gray700">
+          <Text 
+            textSize={{ xs: "tiny", md: "caption" }} 
+            textColor="gray700"
+            style={{ lineHeight: "1.5" }}
+          >
             AI-driven security for cloud, edge, IoT, and mobile networks,
             focusing on federated learning, Zero Trust Architecture, intrusion
             detection, threat modeling, and critical infrastructure resilience.
@@ -167,40 +181,45 @@ const TabContent = ({ activeTab }) => {
       </Div>
 
       {/* Terminal Section - below the main card */}
-      <Div m={{ t: "2rem" }}>
-        <Div maxW="800px" m={{ x: "auto" }}>
+      <Div m={{ t: { xs: "1.5rem", md: "2rem" } }}>
+        <Div maxW="800px" m={{ x: "auto" }} p={{ x: { xs: "1rem", md: "0" } }}>
           <Div bg="gray900" rounded="lg" shadow="3" overflow="hidden">
             <Div
               d="flex"
               align="center"
-              p={{ x: "0.75rem", y: "0.5rem" }}
+              p={{ x: { xs: "0.5rem", md: "0.75rem" }, y: { xs: "0.375rem", md: "0.5rem" } }}
               bg="gray800"
             >
               <Div d="flex" align="center">
                 <Div
-                  w="0.75rem"
-                  h="0.75rem"
+                  w={{ xs: "0.625rem", md: "0.75rem" }}
+                  h={{ xs: "0.625rem", md: "0.75rem" }}
                   bg="red500"
                   rounded="circle"
                   m={{ r: "0.5rem" }}
                 />
                 <Div
-                  w="0.75rem"
-                  h="0.75rem"
+                  w={{ xs: "0.625rem", md: "0.75rem" }}
+                  h={{ xs: "0.625rem", md: "0.75rem" }}
                   bg="yellow500"
                   rounded="circle"
                   m={{ r: "0.5rem" }}
                 />
-                <Div w="0.75rem" h="0.75rem" bg="success500" rounded="circle" />
+                <Div 
+                  w={{ xs: "0.625rem", md: "0.75rem" }}
+                  h={{ xs: "0.625rem", md: "0.75rem" }}
+                  bg="success500" 
+                  rounded="circle" 
+                />
               </Div>
-              <Text textSize="tiny" textColor="gray400" m={{ l: "auto" }}>
+              <Text textSize={{ xs: "tiny", md: "caption" }} textColor="gray400" m={{ l: "auto" }}>
                 terminal
               </Text>
             </Div>
             <Div
-              p="1rem"
+              p={{ x: { xs: "0.75rem", md: "1rem" }, y: { xs: "0.75rem", md: "1rem" } }}
               fontFamily="mono"
-              textSize="tiny"
+              textSize={{ xs: "tiny", md: "caption" }}
               textColor="success400"
               d="flex"
               flexDir="column"
