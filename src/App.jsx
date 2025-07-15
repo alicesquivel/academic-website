@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Div, Text } from "atomize";
 import ProfileHeader from "./components/ProfileHeader";
 import TabNav from "./components/TabNav";
 import TabContent from "./components/TabContent";
 import Footer from "./components/Footer";
-import "./App.css";
+import "./index.css";
 
 function App() {
   const [activeTab, setActiveTab] = useState("about");
@@ -14,35 +13,18 @@ function App() {
   };
 
   return (
-    <Div minH="100vh" bg="#F8FAFC" d="flex" flexDir="column">
+    <div className="min-h-screen bg-background flex flex-col">
       <ProfileHeader />
-      <Div
-        tag="main"
-        flex="1"
-        w="100%"
-        maxW="1200px"
-        m={{ x: "auto" }}
-        p={{ x: "1rem", y: "2rem" }}
-      >
-        <Div
-          bg="white"
-          rounded="2xl"
-          shadow="sm"
-          style={{ border: "1px solid #E2E8F0" }}
-          overflow="hidden"
-          transform="translateY(0)"
-          transition="all 0.2s"
-          m={{ b: "1.5rem" }}
-        >
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 py-8 md:px-6">
+        <div className="bg-card rounded-2xl shadow-sm border border-border overflow-hidden transition-all duration-200 mb-6">
           <TabNav activeTab={activeTab} onTabChange={handleTabChange} />
-          <Div p="2rem">
+          <div className="p-4 md:p-8">
             <TabContent activeTab={activeTab} />
-          </Div>
-        </Div>
-        {activeTab === "about" && <Div>{/* About content goes here */}</Div>}
-      </Div>
+          </div>
+        </div>
+      </main>
       <Footer />
-    </Div>
+    </div>
   );
 }
 

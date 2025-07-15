@@ -10,27 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "atomize": "1.0.28",
-    "lucide-react": "^0.525.0",
+    "lucide-react": "^0.292.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0",
-    "react-transition-group": "^4.4.5",
-    "styled-components": "^5.3.11",
-    "styletron-engine-atomic": "1.5.0",
-    "styletron-react": "5.2.7"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.30.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.6.0",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.11",
-    "vite": "^5.4.19"
+    "@fontsource/inter": "^5.0.15",
+    "@fontsource/space-grotesk": "^5.0.15",
+    "@tailwindcss/typography": "^0.5.10",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.16",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "postcss": "^8.4.31",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0"
   }
 }
