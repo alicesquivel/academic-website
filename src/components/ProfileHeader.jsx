@@ -1,8 +1,38 @@
 import React from "react";
 import { Div, Container, Text, Button } from "atomize";
-import { Github, Mail, Linkedin } from "lucide-react";
+import { Github, Mail, Linkedin, Sun, Moon } from "lucide-react";
 
 const ProfileHeader = () => {
+  const [isDark, setIsDark] = React.useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
+
+  React.useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      if (!document.documentElement.hasAttribute('data-theme')) {
+        setIsDark(e.matches);
+        updateTheme(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    updateTheme(isDark);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [isDark]);
+
+  const updateTheme = (dark) => {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  };
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    updateTheme(!isDark);
+  };
+
   return (
     <Div
       tag="header"
@@ -70,6 +100,27 @@ const ProfileHeader = () => {
               justify={{ xs: "center", md: "flex-start" }}
               m={{ t: { xs: "1rem", md: "0.5rem" } }}
             >
+              <Button
+                h="2.25rem"
+                p={{ x: "0.75rem" }}
+                bg={isDark ? "gray800" : "white"}
+                border="1px solid"
+                borderColor={isDark ? "gray700" : "gray300"}
+                rounded="lg"
+                d="flex"
+                align="center"
+                shadow="2"
+                hoverShadow="3"
+                transition="all 0.3s"
+                onClick={toggleTheme}
+                m={{ r: "1rem" }}
+              >
+                {isDark ? (
+                  <Sun size={18} color="#FCD34D" />
+                ) : (
+                  <Moon size={18} color="#1E293B" />
+                )}
+              </Button>
               <Button
                 bg="transparent"
                 textColor="#64748B"

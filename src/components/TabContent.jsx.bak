@@ -1,0 +1,225 @@
+import React from "react";
+import { Div, Text } from "atomize";
+
+const TabContent = ({ activeTab }) => {
+  const renderContent = () => {
+    switch (activeTab) {
+      case "about":
+        return (
+          <Div>
+            <Text textSize="body" textColor="gray800" m={{ b: "2rem" }}>
+              I am a motivated PhD candidate specializing in cloud/edge computing and cybersecurity. With a proven ability to lead research, publish papers, and teach core computer science courses, I am seeking a research or faculty role to apply my expertise in cybersecurity and resilient network design for autonomous systems. I am passionate about leveraging advanced networking, AI, and testbed-driven validation in cloud and edge environments.
+            </Text>
+            <Div>
+              <Text 
+                tag="h2" 
+                textSize="title"
+                textColor="gray900"
+                textWeight="600"
+                m={{ b: "1rem" }}
+              >
+                Research Interests:
+              </Text>
+              <Text textSize="body" textColor="gray800">
+                AI-driven security for cloud, edge, IoT, and mobile networks, focusing on federated learning, Zero Trust Architecture, intrusion detection, threat modeling, and critical infrastructure resilience.
+              </Text>
+            </Div>
+          </Div>
+        );
+      case "research":
+        return (
+          <Div>
+            <Text>Research content coming soon...</Text>
+          </Div>
+        );
+      case "publications":
+        return (
+          <Div>
+            <Text>Publications content coming soon...</Text>
+          </Div>
+        );
+      case "experience":
+        return (
+          <Div>
+            <Text>Experience content coming soon...</Text>
+          </Div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return <Div tag="main">{renderContent()}</Div>;
+};
+
+export default TabContent;
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
+        Research Projects
+      </Text>
+
+      <Div
+        bg="white"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Div
+          d="flex"
+          flexDir={{ xs: "column", sm: "row" }}
+          justify="space-between"
+          align={{ xs: "start", sm: "start" }}
+          m={{ b: "0.75rem" }}
+        >
+          <Div>
+            <Text textSize="subheader" textWeight="600" textColor="gray900">
+              TAMU Fractals Research Team
+            </Text>
+            <Text textSize="body" textWeight="500" textColor="info700">
+              Texas A&M University
+            </Text>
+          </Div>
+          <Text
+            textSize="body"
+            textColor="gray500"
+            m={{ t: { xs: "0.25rem", sm: "0" } }}
+          >
+            Aug 2023 - May 2024
+          </Text>
+        </Div>
+        <Text
+          textSize="body"
+          textColor="gray700"
+          textWeight="400"
+          style={{ lineHeight: "1.625" }}
+        >
+          During my time with the TAMU Fractals Research Team, I explored the
+          fascinating world of fractals, with a particular focus on the
+          Sierpiński gasket. The Sierpiński gasket (also called the Sierpiński
+          triangle) is one of the most famous examples of a fractal, which is a
+          type of mathematical object that has "self-similarity" at all scales.
+          The Sierpiński gasket is named after Polish mathematician Wacław
+          Sierpiński, and can be generated through several different methods.
+        </Text>
+      </Div>
+
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
+          Additional Research Projects
+        </Text>
+        <Text textSize="body" textColor="gray600">
+          Add your other research projects, current work, and academic
+          collaborations here.
+        </Text>
+      </Div>
+    </Div>
+  );
+
+  const renderPublicationsContent = () => (
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
+        Publications
+      </Text>
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
+          Academic Publications
+        </Text>
+        <Text textSize="body" textColor="gray600">
+          Your journal articles, conference papers, and other academic
+          publications will be listed here.
+        </Text>
+      </Div>
+    </Div>
+  );
+
+  const renderExperienceContent = () => (
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
+        Experience
+      </Text>
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
+          Professional Experience
+        </Text>
+        <Text textSize="body" textColor="gray600">
+          Your work experience, teaching positions, and academic appointments
+          will be displayed here.
+        </Text>
+      </Div>
+    </Div>
+  );
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case "about":
+        return renderAboutContent();
+      case "research":
+        return renderResearchContent();
+      case "publications":
+        return renderPublicationsContent();
+      case "experience":
+        return renderExperienceContent();
+      default:
+        return renderAboutContent();
+    }
+  };
+
+  return <Div tag="main">{renderContent()}</Div>;
+};
+
+export default TabContent;
