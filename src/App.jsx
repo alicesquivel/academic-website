@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Div, Text } from "atomize";
 import ProfileHeader from "./components/ProfileHeader";
 import TabNav from "./components/TabNav";
 import TabContent from "./components/TabContent";
@@ -13,54 +14,102 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <Div minH="100vh" bg="gray900" d="flex" flexDir="column">
       <ProfileHeader />
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-12">
-        <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50">
+      <Div tag="main" flex="1" w="100%" maxW="1200px" m={{ x: "auto" }} p={{ x: "1rem", y: "3rem" }}>
+        <Div bg="gray800" rounded="xl" shadow="4" border="1px solid" borderColor="gray700" overflow="hidden">
           <TabNav activeTab={activeTab} onTabChange={handleTabChange} />
-          <div className="p-6">
+          <Div p="1.5rem">
             <TabContent activeTab={activeTab} />
-          </div>
-        </div>
+          </Div>
+        </Div>
         {activeTab === "about" && (
-          <div className="mt-8 bg-gray-800/30 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-700/50 overflow-hidden max-w-3xl mx-auto">
-            <div className="flex items-center px-4 py-2 bg-gray-800/50 border-b border-gray-700/50">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-red-500/80 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500/80 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500/80 rounded-full"></div>
-              </div>
-              <div className="ml-auto text-xs text-blue-200/70">terminal</div>
-            </div>
-            <div className="p-4 font-mono text-sm space-y-2">
-              <div>
-                <span className="text-blue-400">$</span>{" "}
-                <span className="text-blue-200">whoami</span>
-              </div>
-              <div className="text-blue-200/70 mb-2">
-                alicia@cs-research:~$ PhD Candidate specializing in
-                cybersecurity
-              </div>
-              <div>
-                <span className="text-blue-400">$</span>{" "}
-                <span className="text-blue-200">ls skills/</span>
-              </div>
-              <div className="text-blue-200/70 mb-2">
-                cybersecurity/ cloud-computing/ machine-learning/ networking/
-              </div>
-              <div>
-                <span className="text-blue-400">$</span>{" "}
-                <span className="text-blue-200">cat research_focus.txt</span>
-              </div>
-              <div className="text-blue-200/70">
-                AI-driven security for distributed systems
-              </div>
-            </div>
-          </div>
+          <Div
+            m={{ t: "2rem", x: "auto" }}
+            maxW="800px"
+            bg="gray800"
+            opacity="0.9"
+            rounded="xl"
+            shadow="4"
+            border="1px solid"
+            borderColor="gray700"
+            overflow="hidden"
+          >
+            <Div
+              d="flex"
+              align="center"
+              p={{ x: "1rem", y: "0.5rem" }}
+              bg="gray900"
+              borderBottom="1px solid"
+              borderColor="gray700"
+            >
+              <Div d="flex" align="center">
+                <Div
+                  h="0.75rem"
+                  w="0.75rem"
+                  bg="red500"
+                  rounded="circle"
+                  m={{ r: "0.5rem" }}
+                  opacity="0.8"
+                />
+                <Div
+                  h="0.75rem"
+                  w="0.75rem"
+                  bg="yellow500"
+                  rounded="circle"
+                  m={{ r: "0.5rem" }}
+                  opacity="0.8"
+                />
+                <Div
+                  h="0.75rem"
+                  w="0.75rem"
+                  bg="success500"
+                  rounded="circle"
+                  opacity="0.8"
+                />
+              </Div>
+              <Text
+                textColor="blue200"
+                textSize="tiny"
+                opacity="0.7"
+                m={{ l: "auto" }}
+              >
+                terminal
+              </Text>
+            </Div>
+            <Div
+              p="1rem"
+              fontFamily="mono"
+              textSize="body"
+              textColor="gray100"
+            >
+              <Div m={{ b: "1rem" }}>
+                <Text textColor="info400">$ </Text>
+                <Text textColor="blue200">whoami</Text>
+                <Text textColor="blue200" opacity="0.7" d="block" m={{ t: "0.5rem", b: "1rem" }}>
+                  alicia@cs-research:~$ PhD Candidate specializing in cybersecurity
+                </Text>
+              </Div>
+              <Div m={{ b: "1rem" }}>
+                <Text textColor="info400">$ </Text>
+                <Text textColor="blue200">ls skills/</Text>
+                <Text textColor="blue200" opacity="0.7" d="block" m={{ t: "0.5rem", b: "1rem" }}>
+                  cybersecurity/ cloud-computing/ machine-learning/ networking/
+                </Text>
+              </Div>
+              <Div>
+                <Text textColor="info400">$ </Text>
+                <Text textColor="blue200">cat research_focus.txt</Text>
+                <Text textColor="blue200" opacity="0.7" d="block" m={{ t: "0.5rem" }}>
+                  AI-driven security for distributed systems
+                </Text>
+              </Div>
+            </Div>
+          </Div>
         )}
-      </main>
+      </Div>
       <Footer />
-    </div>
+    </Div>
   );
 }
 

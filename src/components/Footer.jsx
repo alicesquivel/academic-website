@@ -1,14 +1,25 @@
 import React from "react";
+import { Div, Text } from "atomize";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray-800 py-8 mt-16">
-      <div className="text-center">
-        <p className="text-sm text-blue-200/50">
+    <Div
+      tag="footer"
+      borderTop="1px solid"
+      borderColor="gray800"
+      p={{ y: "2rem" }}
+      m={{ t: "4rem" }}
+    >
+      <Div d="flex" justify="center">
+        <Text
+          textSize="caption"
+          textColor="blue200"
+          opacity="0.5"
+        >
           © 2025 Alicia Esquivel Morel. All Rights Reserved.
-        </p>
-      </div>
-    </footer>
+        </Text>
+      </Div>
+    </Div>
   );
 };
 

@@ -10,18 +10,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "atomize": "1.0.28",
     "lucide-react": "^0.525.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-transition-group": "^4.4.5",
+    "styled-components": "^5.3.11",
+    "styletron-engine-atomic": "1.5.0",
+    "styletron-react": "5.2.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
-    "@tailwindcss/postcss": "^4.1.11",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
-    "autoprefixer": "^10.4.21",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

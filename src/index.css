@@ -1,11 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* --- EDITED CODE ---
-  The default Vite styles for the body have been removed 
-  to prevent them from conflicting with Tailwind's layout classes.
-*/
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

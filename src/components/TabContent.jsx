@@ -1,163 +1,359 @@
 import React from "react";
+import { Div, Text } from "atomize";
 
 const TabContent = ({ activeTab }) => {
   const renderAboutContent = () => (
-    <>
-      <div className="space-y-6">
-        {/* Introduction paragraphs */}
-        <div className="space-y-4">
-          <p className="text-sm leading-relaxed text-gray-700">
+    <Div>
+      <Div m={{ b: "2rem" }}>
+        <Div m={{ b: "1rem" }}>
+          <Text
+            textSize="body"
+            textColor="gray800"
+            m={{ b: "1rem" }}
+          >
             I am a motivated PhD candidate specializing in{" "}
-            <span className="font-medium text-blue-600">
+            <Text
+              tag="span"
+              textWeight="600"
+              textColor="info700"
+            >
               cloud/edge computing
-            </span>{" "}
-            and <span className="font-medium text-blue-600">cybersecurity</span>
+            </Text>{" "}
+            and{" "}
+            <Text
+              tag="span"
+              textWeight="600"
+              textColor="info700"
+            >
+              cybersecurity
+            </Text>
             . With a proven ability to lead research, publish papers, and teach
             core computer science courses, I am seeking a research or faculty
             role to apply my expertise in cybersecurity and resilient network
             design for autonomous systems.
-          </p>
+          </Text>
 
-          <p className="text-sm leading-relaxed text-gray-700">
+          <Text
+            textSize="body"
+            textColor="gray800"
+          >
             I am passionate about leveraging{" "}
-            <span className="font-medium text-blue-600">
+            <Text
+              tag="span"
+              textWeight="600"
+              textColor="info700"
+            >
               advanced networking
-            </span>
+            </Text>
             ,{" "}
-            <span className="font-medium text-blue-600">
+            <Text
+              tag="span"
+              textWeight="600"
+              textColor="info700"
+            >
               artificial intelligence
-            </span>
+            </Text>
             , and{" "}
-            <span className="font-medium text-blue-600">
+            <Text
+              tag="span"
+              textWeight="600"
+              textColor="info700"
+            >
               testbed-driven validation
-            </span>{" "}
+            </Text>{" "}
             in cloud and edge environments to create more secure and resilient
             systems for the future.
-          </p>
-        </div>
+          </Text>
+        </Div>
 
         {/* Expertise Grid - 2x2 layout */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-              <span className="mr-2">🛡️</span>
+        <Div
+          d="grid"
+          gridTemplateColumns="repeat(2, 1fr)"
+          gap="1rem"
+        >
+          <Div
+            bg="white"
+            p="1rem"
+            rounded="lg"
+            border="1px solid"
+            borderColor="gray300"
+          >
+            <Text
+              tag="h4"
+              textSize="subheader"
+              textWeight="600"
+              textColor="gray900"
+              m={{ b: "0.5rem" }}
+              d="flex"
+              align="center"
+            >
+              <Text tag="span" m={{ r: "0.5rem" }}>
+                🛡️
+              </Text>
               Cybersecurity
-            </h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            </Text>
+            <Text
+              textSize="caption"
+              textColor="gray600"
+              textWeight="400"
+            >
               AI-driven security, Zero Trust Architecture, threat modeling,
               intrusion detection systems
-            </p>
-          </div>
+            </Text>
+          </Div>
 
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-              <span className="mr-2">☁️</span>
+          <Div
+            bg="white"
+            p="1rem"
+            rounded="lg"
+            border="1px solid"
+            borderColor="gray300"
+          >
+            <Text
+              tag="h4"
+              textSize="subheader"
+              textWeight="600"
+              textColor="gray900"
+              m={{ b: "0.5rem" }}
+              d="flex"
+              align="center"
+            >
+              <Text tag="span" m={{ r: "0.5rem" }}>
+                ☁️
+              </Text>
               Cloud Computing
-            </h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            </Text>
+            <Text
+              textSize="caption"
+              textColor="gray600"
+              textWeight="400"
+            >
               Edge computing, distributed systems, resilient architectures,
               containerization
-            </p>
-          </div>
+            </Text>
+          </Div>
 
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-              <span className="mr-2">🤖</span>
+          <Div
+            bg="white"
+            p="1rem"
+            rounded="lg"
+            border="1px solid"
+            borderColor="gray300"
+          >
+            <Text
+              tag="h4"
+              textSize="subheader"
+              textWeight="600"
+              textColor="gray900"
+              m={{ b: "0.5rem" }}
+              d="flex"
+              align="center"
+            >
+              <Text tag="span" m={{ r: "0.5rem" }}>
+                🤖
+              </Text>
               Machine Learning
-            </h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            </Text>
+            <Text
+              textSize="caption"
+              textColor="gray600"
+              textWeight="400"
+            >
               Federated learning, neural networks, intelligent systems, anomaly
               detection
-            </p>
-          </div>
+            </Text>
+          </Div>
 
-          <div className="bg-white p-4 rounded-lg border border-gray-200">
-            <h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center">
-              <span className="mr-2">🌐</span>
+          <Div
+            bg="white"
+            p="1rem"
+            rounded="lg"
+            border="1px solid"
+            borderColor="gray300"
+          >
+            <Text
+              tag="h4"
+              textSize="subheader"
+              textWeight="600"
+              textColor="gray900"
+              m={{ b: "0.5rem" }}
+              d="flex"
+              align="center"
+            >
+              <Text tag="span" m={{ r: "0.5rem" }}>
+                🌐
+              </Text>
               Networking
-            </h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
+            </Text>
+            <Text
+              textSize="caption"
+              textColor="gray600"
+              textWeight="400"
+            >
               IoT networks, mobile networks, protocol design, network security
-            </p>
-          </div>
-        </div>
+            </Text>
+          </Div>
+        </Div>
 
         {/* Research Interests */}
-        <div className="bg-white p-4 rounded-lg border border-gray-200">
-          <h3 className="text-sm font-semibold text-gray-900 mb-3">
+        <Div
+          bg="white"
+          p="1rem"
+          rounded="lg"
+          border="1px solid"
+          borderColor="gray300"
+        >
+          <Text
+            tag="h3"
+            textSize="subheader"
+            textWeight="600"
+            textColor="gray900"
+            m={{ b: "0.75rem" }}
+          >
             Research Interests
-          </h3>
-          <p className="text-xs text-gray-700 leading-relaxed">
+          </Text>
+          <Text
+            textSize="caption"
+            textColor="gray700"
+          >
             AI-driven security for cloud, edge, IoT, and mobile networks,
             focusing on federated learning, Zero Trust Architecture, intrusion
             detection, threat modeling, and critical infrastructure resilience.
-          </p>
-        </div>
-      </div>
+          </Text>
+        </Div>
+      </Div>
 
       {/* Terminal Section - below the main card */}
-      <div className="mt-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-gray-900 rounded-lg overflow-hidden shadow">
-            <div className="flex items-center px-3 py-2 bg-gray-800">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              </div>
-              <div className="ml-auto text-xs text-gray-400">terminal</div>
-            </div>
-            <div className="p-4 font-mono text-xs text-green-400 space-y-1">
-              <div>
-                <span className="text-green-400">$</span>{" "}
-                <span className="text-white">whoami</span>
-              </div>
-              <div className="text-gray-300">
+      <Div m={{ t: "2rem" }}>
+        <Div maxW="800px" m={{ x: "auto" }}>
+          <Div bg="gray900" rounded="lg" shadow="3" overflow="hidden">
+            <Div d="flex" align="center" p={{ x: "0.75rem", y: "0.5rem" }} bg="gray800">
+              <Div d="flex" align="center">
+                <Div
+                  w="0.75rem"
+                  h="0.75rem"
+                  bg="red500"
+                  rounded="circle"
+                  m={{ r: "0.5rem" }}
+                />
+                <Div
+                  w="0.75rem"
+                  h="0.75rem"
+                  bg="yellow500"
+                  rounded="circle"
+                  m={{ r: "0.5rem" }}
+                />
+                <Div
+                  w="0.75rem"
+                  h="0.75rem"
+                  bg="success500"
+                  rounded="circle"
+                />
+              </Div>
+              <Text
+                textSize="tiny"
+                textColor="gray400"
+                m={{ l: "auto" }}
+              >
+                terminal
+              </Text>
+            </Div>
+            <Div
+              p="1rem"
+              fontFamily="mono"
+              textSize="tiny"
+              textColor="success400"
+              d="flex"
+              flexDir="column"
+              textAlign="left"
+              style={{ gap: "0.25rem" }}
+            >
+              <Div>
+                <Text tag="span" textColor="success400">$</Text>{" "}
+                <Text tag="span" textColor="white">whoami</Text>
+              </Div>
+              <Text textColor="gray300">
                 alicia@cs-research:~$ PhD Candidate specializing in
                 cybersecurity
-              </div>
-              <div>
-                <span className="text-green-400">$</span>{" "}
-                <span className="text-white">ls skills/</span>
-              </div>
-              <div className="text-gray-300">
+              </Text>
+              <Div>
+                <Text tag="span" textColor="success400">$</Text>{" "}
+                <Text tag="span" textColor="white">ls skills/</Text>
+              </Div>
+              <Text textColor="gray300">
                 cybersecurity/ cloud-computing/ machine-learning/ networking/
-              </div>
-              <div>
-                <span className="text-green-400">$</span>{" "}
-                <span className="text-white">cat research_focus.txt</span>
-              </div>
-              <div className="text-gray-300">
+              </Text>
+              <Div>
+                <Text tag="span" textColor="success400">$</Text>{" "}
+                <Text tag="span" textColor="white">cat research_focus.txt</Text>
+              </Div>
+              <Text textColor="gray300">
                 AI-driven security for distributed systems
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+              </Text>
+            </Div>
+          </Div>
+        </Div>
+      </Div>
+    </Div>
   );
 
   const renderResearchContent = () => (
-    <div className="space-y-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-4">
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
         Research Projects
-      </h2>
+      </Text>
 
-      <div className="bg-white p-4 rounded-lg border border-gray-200">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
-          <div>
-            <div className="text-base font-semibold text-gray-900">
+      <Div
+        bg="white"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Div
+          d="flex"
+          flexDir={{ xs: "column", sm: "row" }}
+          justify="space-between"
+          align={{ xs: "start", sm: "start" }}
+          m={{ b: "0.75rem" }}
+        >
+          <Div>
+            <Text
+              textSize="subheader"
+              textWeight="600"
+              textColor="gray900"
+            >
               TAMU Fractals Research Team
-            </div>
-            <div className="text-sm text-blue-600 font-medium">
+            </Text>
+            <Text
+              textSize="body"
+              textWeight="500"
+              textColor="info700"
+            >
               Texas A&M University
-            </div>
-          </div>
-          <div className="text-sm text-gray-500 mt-1 sm:mt-0">
+            </Text>
+          </Div>
+          <Text
+            textSize="body"
+            textColor="gray500"
+            m={{ t: { xs: "0.25rem", sm: "0" } }}
+          >
             Aug 2023 - May 2024
-          </div>
-        </div>
-        <div className="text-sm leading-relaxed text-gray-700">
+          </Text>
+        </Div>
+        <Text
+          textSize="body"
+          textColor="gray700"
+          textWeight="400"
+          style={{ lineHeight: "1.625" }}
+        >
           During my time with the TAMU Fractals Research Team, I explored the
           fascinating world of fractals, with a particular focus on the
           Sierpiński gasket. The Sierpiński gasket (also called the Sierpiński
@@ -165,49 +361,110 @@ const TabContent = ({ activeTab }) => {
           type of mathematical object that has "self-similarity" at all scales.
           The Sierpiński gasket is named after Polish mathematician Wacław
           Sierpiński, and can be generated through several different methods.
-        </div>
-      </div>
+        </Text>
+      </Div>
 
-      <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-        <h3 className="text-base font-semibold text-gray-900 mb-3">
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
           Additional Research Projects
-        </h3>
-        <p className="text-sm text-gray-600">
+        </Text>
+        <Text
+          textSize="body"
+          textColor="gray600"
+        >
           Add your other research projects, current work, and academic
           collaborations here.
-        </p>
-      </div>
-    </div>
+        </Text>
+      </Div>
+    </Div>
   );
 
   const renderPublicationsContent = () => (
-    <div className="space-y-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-4">Publications</h2>
-      <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-        <h3 className="text-base font-semibold text-gray-900 mb-3">
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
+        Publications
+      </Text>
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
           Academic Publications
-        </h3>
-        <p className="text-sm text-gray-600">
+        </Text>
+        <Text
+          textSize="body"
+          textColor="gray600"
+        >
           Your journal articles, conference papers, and other academic
           publications will be listed here.
-        </p>
-      </div>
-    </div>
+        </Text>
+      </Div>
+    </Div>
   );
 
   const renderExperienceContent = () => (
-    <div className="space-y-6">
-      <h2 className="text-lg font-bold text-gray-900 mb-4">Experience</h2>
-      <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-        <h3 className="text-base font-semibold text-gray-900 mb-3">
+    <Div d="flex" flexDir="column" style={{ gap: "1.5rem" }}>
+      <Text
+        tag="h2"
+        textSize="title"
+        textWeight="700"
+        textColor="gray900"
+        m={{ b: "1rem" }}
+      >
+        Experience
+      </Text>
+      <Div
+        bg="gray50"
+        p="1rem"
+        rounded="lg"
+        border="1px solid"
+        borderColor="gray200"
+      >
+        <Text
+          tag="h3"
+          textSize="subheader"
+          textWeight="600"
+          textColor="gray900"
+          m={{ b: "0.75rem" }}
+        >
           Professional Experience
-        </h3>
-        <p className="text-sm text-gray-600">
+        </Text>
+        <Text
+          textSize="body"
+          textColor="gray600"
+        >
           Your work experience, teaching positions, and academic appointments
           will be displayed here.
-        </p>
-      </div>
-    </div>
+        </Text>
+      </Div>
+    </Div>
   );
 
   const renderContent = () => {
@@ -225,7 +482,7 @@ const TabContent = ({ activeTab }) => {
     }
   };
 
-  return <main className="p-0 sm:p-0">{renderContent()}</main>;
+  return <Div tag="main">{renderContent()}</Div>;
 };
 
 export default TabContent;
