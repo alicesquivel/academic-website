@@ -1,14 +1,14 @@
 const Footer = () => {
   return (
-    <footer className="py-6 md:px-8 md:py-0">
-      <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-        <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
+    <footer className="fixed bottom-0 left-0 right-0 py-4 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800">
+      <div className="container text-center">
+        <p className="text-sm text-muted-foreground">
           Built by{" "}
           <a
             href="https://github.com/alicesquivel"
             target="_blank"
             rel="noreferrer"
-            className="font-medium underline underline-offset-4"
+            className="hover:underline transition-colors duration-200"
           >
             Alicia Esquivel
           </a>
