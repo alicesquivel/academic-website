@@ -55,25 +55,25 @@ const TabContent = ({ activeTab }) => {
     <div className="py-8 max-w-4xl mx-auto">
       {activeTab === 'about' && (
         <div className="space-y-12">
-          <div className="max-w-3xl prose prose-zinc dark:prose-invert">
+          <div className="max-w-2xl mx-auto prose prose-zinc dark:prose-invert">
             <p className="text-lg leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
-              <span className="font-medium text-primary">cloud/edge computing</span> and{" "}
-              <span className="font-medium text-primary">cybersecurity</span>. 
+              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">cloud/edge computing</span> and{" "}
+              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">cybersecurity</span>. 
               With a proven ability to lead research, publish papers, and teach core computer science courses, 
               I am seeking a research or faculty role to apply my expertise in cybersecurity and resilient 
               network design for autonomous systems.
             </p>
-            <p className="text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed tracking-normal">
               I am passionate about leveraging{" "}
-              <span className="font-medium text-primary">advanced networking</span>,{" "}
-              <span className="font-medium text-primary">AI</span>, and{" "}
-              <span className="font-medium text-primary">testbed-driven validation</span>{" "}
+              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">advanced networking</span>,{" "}
+              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">AI</span>, and{" "}
+              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">testbed-driven validation</span>{" "}
               in cloud and edge environments to create more secure and resilient systems for the future.
             </p>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 max-w-2xl mx-auto">
             <TerminalCard />
           </div>
         </div>
