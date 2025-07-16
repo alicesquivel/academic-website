@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Download, FileText } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const IconLink = ({ href, icon: Icon, label }) => (
@@ -18,7 +18,7 @@ const ProfileHeader = () => {
     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
       <div className="flex flex-col gap-4">
         <div className="space-y-1">
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl text-gray-900 dark:text-gray-100">
+          <h1 className="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">
             Alicia Esquivel m
           </h1>
           <p className="text-base text-gray-600 dark:text-gray-400">
@@ -53,7 +53,6 @@ const ProfileHeader = () => {
           asChild
         >
           <a href="/resume.pdf" download="alicia-esquivel-resume.pdf">
-            <Download className="mr-2 h-3.5 w-3.5" />
             Resume
           </a>
         </Button>
@@ -64,7 +63,6 @@ const ProfileHeader = () => {
           asChild
         >
           <a href="/cv.pdf" download="alicia-esquivel-cv.pdf">
-            <FileText className="mr-2 h-3.5 w-3.5" />
             CV
           </a>
         </Button>

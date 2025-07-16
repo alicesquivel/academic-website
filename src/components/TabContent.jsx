@@ -61,40 +61,40 @@ const TabContent = ({ activeTab }) => {
   return (
     <div className="py-6 max-w-4xl mx-auto">
       {activeTab === "about" && (
-        <div className="space-y-8">
-          <div className="max-w-2xl mx-auto prose prose-zinc dark:prose-invert">
-            <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+        <div className="max-w-2xl mx-auto">
+          <div className="space-y-4">
+            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
                 cloud/edge computing
-              </span>{" "}
+              </a>{" "}
               and{" "}
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
                 cybersecurity
-              </span>
+              </a>
               . With a proven ability to lead research, publish papers, and
               teach core computer science courses, I am seeking a research or
               faculty role to apply my expertise in cybersecurity and resilient
               network design for autonomous systems.
             </p>
-            <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am passionate about leveraging{" "}
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
                 advanced networking
-              </span>
+              </a>
               ,{" "}
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
                 AI
-              </span>
+              </a>
               , and{" "}
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
                 testbed-driven validation
-              </span>{" "}
+              </a>{" "}
               in cloud and edge environments to create more secure and resilient
               systems for the future.
             </p>
           </div>
-          <div className="mt-12 max-w-2xl mx-auto">
+          <div className="mt-8 max-w-2xl">
             <TerminalCard />
           </div>
         </div>
@@ -103,7 +103,7 @@ const TabContent = ({ activeTab }) => {
       {activeTab === "research" && (
         <div className="space-y-12">
           <div className="prose prose-zinc dark:prose-invert max-w-none">
-            <h2 className="text-2xl font-semibold tracking-tight mb-4">
+            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">
               Current Research
             </h2>
             <p className="text-lg leading-relaxed">
@@ -119,7 +119,7 @@ const TabContent = ({ activeTab }) => {
 
           <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div>
-              <h3 className="text-xl font-semibold mb-6">Current Projects</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-6">Current Projects</h3>
               <div className="grid gap-6">
                 <ExperienceCard
                   title="Cloud Security Research Group"
@@ -132,7 +132,7 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             <div className="pt-8">
-              <h3 className="text-xl font-semibold mb-6">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-6">
                 Additional Research
               </h3>
               <div className="space-y-4">
@@ -165,12 +165,12 @@ const TabContent = ({ activeTab }) => {
 
       {activeTab === "publications" && (
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
           </h2>
           <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold">Conference Papers</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">Conference Papers</h3>
               <div className="space-y-6">
                 <Publication
                   title="Zero-Trust Security in Cloud-Native Applications"
@@ -192,7 +192,7 @@ const TabContent = ({ activeTab }) => {
 
       {activeTab === "experience" && (
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">
+          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
           </h2>
           <div className="space-y-6">
@@ -223,7 +223,7 @@ const TabContent = ({ activeTab }) => {
 
       {activeTab === "fun" && (
         <div className="space-y-8">
-          <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+          <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-4">
             Beyond Research
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
