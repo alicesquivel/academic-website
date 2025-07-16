@@ -6,10 +6,8 @@ import React from "react";
  */
 const Container = ({ children }) => {
   return (
-    // 'mx-auto' is the key for horizontal centering.
-    // 'max-w-4xl' prevents the content from becoming too wide on large screens.
-    // 'px-4 sm:px-6 lg:px-8' provides responsive padding for different screen sizes.
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    // Adjusted padding for better mobile experience and smoother transitions
+    <div className="w-full max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
       {children}
     </div>
   );

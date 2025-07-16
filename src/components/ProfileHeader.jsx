@@ -15,7 +15,7 @@ const IconLink = ({ href, icon: Icon, label }) => (
 
 const ProfileHeader = () => {
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-4">
       <div className="flex flex-col gap-4">
         <div className="space-y-1">
           <h1 className="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">

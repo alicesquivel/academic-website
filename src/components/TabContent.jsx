@@ -113,12 +113,12 @@ const TabContent = ({ activeTab, setActiveTab }) => {
     };
   }, [setActiveTab]);
   return (
-    <div className="py-6 px-4 max-w-2xl mx-auto">
+    <div className="py-4 sm:py-6 px-3 sm:px-4 max-w-2xl mx-auto">
       {activeTab === "about" && (
         <div
           id="about"
           data-section
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6"
           ref={el => sectionsRef.current.about = el}>
           <div className="space-y-3">
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
