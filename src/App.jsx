@@ -19,20 +19,21 @@ function App() {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
       <main className="flex-1 container max-w-5xl mx-auto px-4 py-8">
         {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex items-start justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="h-16 w-16 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-xl font-semibold">
+        <div className="mb-8 px-4 md:px-6">
+          <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-6">
+            {/* Profile Info */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 max-w-2xl">
+              <div className="h-20 w-20 md:h-16 md:w-16 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center text-2xl md:text-xl font-semibold shrink-0">
                 AEM
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Alicia Esquivel Morel
                 </h1>
                 <p className="text-lg text-gray-600 dark:text-gray-400 mt-1">
                   PhD Candidate in Computer Science
                 </p>
-                <div className="flex items-center space-x-4 mt-3">
+                <div className="flex items-center justify-center md:justify-start flex-wrap gap-4 mt-4">
                   <a
                     href="https://github.com/alicesquivel"
                     target="_blank"
@@ -62,12 +63,14 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
               <a
                 href="/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <FileText className="h-4 w-4 mr-2" />
                 CV
@@ -76,7 +79,7 @@ function App() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium text-white transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium text-white transition-colors"
               >
                 <FileText className="h-4 w-4 mr-2" />
                 Resume
