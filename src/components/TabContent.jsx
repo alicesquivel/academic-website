@@ -1,8 +1,6 @@
 import React from 'react';
-import { AnimatePresence } from 'framer-motion';
 import TerminalCard from './TerminalCard';
 import ResearchGrid from './ResearchGrid';
-import AnimatedSection from './AnimatedSection';
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="space-y-2">
@@ -55,10 +53,9 @@ const ExperienceCard = ({ title, company, period, description, tags, responsibil
 const TabContent = ({ activeTab }) => {
   return (
     <div className="py-8 max-w-4xl mx-auto">
-      <AnimatePresence mode="wait">
-        {activeTab === 'about' && (
-          <AnimatedSection key="about" className="space-y-12">
-            <div className="max-w-2xl mx-auto prose prose-zinc dark:prose-invert">
+      {activeTab === 'about' && (
+        <div className="space-y-12">
+          <div className="max-w-2xl mx-auto prose prose-zinc dark:prose-invert">
             <p className="text-lg leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
               <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">cloud/edge computing</span> and{" "}
@@ -75,15 +72,14 @@ const TabContent = ({ activeTab }) => {
               in cloud and edge environments to create more secure and resilient systems for the future.
             </p>
           </div>
-
           <div className="mt-12 max-w-2xl mx-auto">
             <TerminalCard />
           </div>
-        </AnimatedSection>
+        </div>
       )}
 
       {activeTab === 'research' && (
-        <AnimatedSection key="research" className="space-y-12">
+        <div className="space-y-12">
           <div className="prose prose-zinc dark:prose-invert max-w-none">
             <h2 className="text-2xl font-semibold tracking-tight mb-4">Current Research</h2>
             <p className="text-lg leading-relaxed">
@@ -134,11 +130,11 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </div>
       )}
 
       {activeTab === 'publications' && (
-        <AnimatedSection key="publications" className="space-y-8">
+        <div className="space-y-8">
           <h2 className="text-2xl font-semibold tracking-tight">Selected Publications</h2>
           <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div className="space-y-6">
@@ -159,11 +155,11 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
           </div>
-        </AnimatedSection>
+        </div>
       )}
 
       {activeTab === 'experience' && (
-        <AnimatedSection key="experience" className="space-y-8">
+        <div className="space-y-8">
           <h2 className="text-2xl font-semibold tracking-tight">Professional Experience</h2>
           <div className="space-y-6">
             <ExperienceCard
@@ -188,9 +184,8 @@ const TabContent = ({ activeTab }) => {
               ]}
             />
           </div>
-        </AnimatedSection>
+        </div>
       )}
-      </AnimatePresence>
     </div>
   );
 };
