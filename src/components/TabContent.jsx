@@ -4,12 +4,16 @@ import ResearchGrid from "./ResearchGrid";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="space-y-2">
-    <h4 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">{title}</h4>
+    <h4 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">
+      {title}
+    </h4>
     <p className="text-[15px] text-gray-600 dark:text-gray-400">
       {venue}, {year}
     </p>
     {description && (
-      <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
+      <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
+        {description}
+      </p>
     )}
   </div>
 );
@@ -25,8 +29,12 @@ const ExperienceCard = ({
   <div className="bg-card rounded-lg border shadow-sm p-4 hover:shadow-md transition-shadow duration-200">
     <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
       <div>
-        <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">{title}</h3>
-        <p className="text-[15px] text-gray-600 dark:text-gray-400 mt-0.5">{company}</p>
+        <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">
+          {title}
+        </h3>
+        <p className="text-[15px] text-gray-600 dark:text-gray-400 mt-0.5">
+          {company}
+        </p>
       </div>
       <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-[15px]">
         {period}
@@ -57,19 +65,53 @@ const ExperienceCard = ({
   </div>
 );
 
-const TabContent = ({ activeTab }) => {
+const TabContent = ({ activeTab, setActiveTab }) => {
+  const observerRef = React.useRef({});
+
+  React.useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          setActiveTab(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.5,
+      rootMargin: "-50px 0px -50px 0px",
+    });
+
+    const sections = document.querySelectorAll("[data-section]");
+    sections.forEach((section) => {
+      observer.observe(section);
+      observerRef.current[section.id] = observer;
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        observerRef.current[section.id]?.unobserve(section);
+      });
+    };
+  }, [setActiveTab]);
   return (
     <div className="py-4 px-4 max-w-2xl mx-auto">
       {activeTab === "about" && (
-        <div className="space-y-4">
+        <div id="about" data-section className="space-y-4">
           <div className="space-y-3">
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
-              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
+              <a
+                href="#"
+                className="text-blue-600 hover:underline underline-offset-2"
+              >
                 cloud/edge computing
               </a>{" "}
               and{" "}
-              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
+              <a
+                href="#"
+                className="text-blue-600 hover:underline underline-offset-2"
+              >
                 cybersecurity
               </a>
               . With a proven ability to lead research, publish papers, and
@@ -79,15 +121,24 @@ const TabContent = ({ activeTab }) => {
             </p>
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am passionate about leveraging{" "}
-              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
+              <a
+                href="#"
+                className="text-blue-600 hover:underline underline-offset-2"
+              >
                 advanced networking
               </a>
               ,{" "}
-              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
+              <a
+                href="#"
+                className="text-blue-600 hover:underline underline-offset-2"
+              >
                 AI
               </a>
               , and{" "}
-              <a href="#" className="text-blue-600 hover:underline underline-offset-2">
+              <a
+                href="#"
+                className="text-blue-600 hover:underline underline-offset-2"
+              >
                 testbed-driven validation
               </a>{" "}
               in cloud and edge environments to create more secure and resilient
@@ -101,7 +152,7 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "research" && (
-        <div className="space-y-6">
+        <div id="research" data-section className="space-y-6">
           <div>
             <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
               Current Research
@@ -119,7 +170,9 @@ const TabContent = ({ activeTab }) => {
 
           <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">Current Projects</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                Current Projects
+              </h3>
               <div className="grid gap-3">
                 <ExperienceCard
                   title="Cloud Security Research Group"
@@ -164,13 +217,15 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "publications" && (
-        <div className="space-y-4">
+        <div id="publications" data-section className="space-y-4">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
           </h2>
           <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div className="space-y-3">
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">Conference Papers</h3>
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                Conference Papers
+              </h3>
               <div className="space-y-4">
                 <Publication
                   title="Zero-Trust Security in Cloud-Native Applications"
@@ -191,7 +246,7 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "experience" && (
-        <div className="space-y-4">
+        <div id="experience" data-section className="space-y-4">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
           </h2>
@@ -222,7 +277,7 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "fun" && (
-        <div className="space-y-4">
+        <div id="fun" data-section className="space-y-4">
           <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
             Beyond Research
           </h2>
@@ -232,7 +287,8 @@ const TabContent = ({ activeTab }) => {
                 Photography
               </h3>
               <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Amateur photographer focusing on landscape and urban photography. Check out my work on Instagram.
+                Amateur photographer focusing on landscape and urban
+                photography. Check out my work on Instagram.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
@@ -240,7 +296,8 @@ const TabContent = ({ activeTab }) => {
                 Rock Climbing
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
-                Regular climber at local bouldering gyms. Always looking for climbing partners!
+                Regular climber at local bouldering gyms. Always looking for
+                climbing partners!
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
@@ -248,7 +305,8 @@ const TabContent = ({ activeTab }) => {
                 Open Source
               </h3>
               <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Contributing to various open-source projects in my free time, mainly focused on developer tools and security.
+                Contributing to various open-source projects in my free time,
+                mainly focused on developer tools and security.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
@@ -256,7 +314,8 @@ const TabContent = ({ activeTab }) => {
                 Reading List
               </h3>
               <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Currently reading books on cybersecurity, system design, and sci-fi novels.
+                Currently reading books on cybersecurity, system design, and
+                sci-fi novels.
               </p>
             </div>
           </div>
