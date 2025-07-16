@@ -46,22 +46,22 @@ const ProfileHeader = () => {
         <Button
           variant="default"
           size="sm"
-          className="bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 text-white hover:scale-102 transition-transform"
+          className="bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700 rounded-md px-3 py-1.5 text-sm transition-colors"
           asChild
         >
           <a href="/resume.pdf" download="alicia-esquivel-resume.pdf">
-            <Download className="mr-2 h-4 w-4" />
+            <Download className="mr-2 h-3.5 w-3.5" />
             Resume
           </a>
         </Button>
         <Button
           variant="outline"
-          size="default"
-          className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:scale-105 transition-transform"
+          size="sm"
+          className="bg-white dark:bg-transparent border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md px-3 py-1.5 text-sm transition-colors"
           asChild
         >
           <a href="/cv.pdf" download="alicia-esquivel-cv.pdf">
-            <FileText className="mr-2 h-4 w-4" />
+            <FileText className="mr-2 h-3.5 w-3.5" />
             CV
           </a>
         </Button>
