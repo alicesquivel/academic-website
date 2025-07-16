@@ -114,6 +114,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
   }, [setActiveTab]);
   return (
     <div className="py-4 sm:py-6 px-3 sm:px-4 max-w-2xl mx-auto">
+      <div className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-lg p-4 sm:p-6">
       {activeTab === "about" && (
         <div
           id="about"
@@ -359,6 +360,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };

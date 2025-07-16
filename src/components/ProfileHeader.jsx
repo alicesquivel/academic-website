@@ -25,7 +25,7 @@ const ProfileHeader = () => {
             PhD Candidate • Cybersecurity and Cloud Computing
           </p>
         </div>
-        
+
         <div className="flex items-center gap-4">
           <IconLink
             href="https://github.com/alicesquivel"

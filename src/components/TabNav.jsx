@@ -26,12 +26,11 @@ const TabNav = ({ activeTab, onTabChange }) => {
   return (
     <div
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 transition-all duration-200",
-        "bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm",
-        isScrolled && "shadow-sm"
+        "w-full transition-all duration-200 mb-6",
+        "bg-transparent"
       )}
     >
-      <nav className="container px-4 py-0">
+      <nav className="container max-w-xl mx-auto px-4 py-0 flex justify-center">
         {/* Mobile Menu Button */}
         <div className="md:hidden flex justify-end">
           <button
