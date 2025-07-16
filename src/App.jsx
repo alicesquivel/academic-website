@@ -89,25 +89,32 @@ function App() {
           </div>
 
           {/* Tabs */}
-          <div className="mt-8 border-b border-gray-200 dark:border-gray-800">
-            <nav className="flex space-x-8">
-              {tabs.map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`${
-                      activeTab === tab.id
-                        ? "border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500"
-                        : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
-                    } flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{tab.label}</span>
-                  </button>
-                );
-              })}
+          <div className="mt-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <nav className="relative">
+              <div className="overflow-x-auto scrollbar-none">
+                <div className="border-b border-gray-200 dark:border-gray-800">
+                  <div className="flex flex-nowrap justify-start sm:justify-center gap-6">
+                    {tabs.map((tab) => {
+                      const Icon = tab.icon;
+                      const isActive = activeTab === tab.id;
+                      return (
+                        <button
+                          key={tab.id}
+                          onClick={() => setActiveTab(tab.id)}
+                          className={`${
+                            isActive
+                              ? "border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500 font-semibold"
+                              : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
+                          } flex items-center gap-2 py-3 px-1 border-b-2 whitespace-nowrap text-sm transition-all`}
+                        >
+                          <Icon className="h-5 w-5 flex-shrink-0" />
+                          <span>{tab.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </nav>
           </div>
         </div>
