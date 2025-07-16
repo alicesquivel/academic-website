@@ -2,38 +2,63 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-16 md:py-24">
-      <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-        PhD Candidate in Computer Science
-      </h1>
-      <p className="mt-4 text-lg text-muted-foreground max-w-2xl text-center">
-        Specializing in Cloud Computing and Cybersecurity
-      </p>
-      <div className="mt-8 flex items-center space-x-6">
+    <div className="text-center sm:text-left pb-8 border-b border-gray-200 dark:border-gray-800">
+      {/* Name and Role */}
+      <div className="space-y-2">
+        <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+          Alicia Esquivel Morel
+        </h1>
+        <p className="text-lg text-gray-600 dark:text-gray-400">
+          Cloud Computing and Cybersecurity
+        </p>
+      </div>
+
+      {/* Social Icons */}
+      <div className="mt-6 flex justify-center sm:justify-start items-center gap-6">
         <a
           href="https://github.com/alicesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          aria-label="GitHub"
         >
-          <Github className="h-6 w-6" />
-          <span className="sr-only">GitHub</span>
+          <Github className="h-5 w-5" />
         </a>
         <a
-          href="https://linkedin.com/in/your-linkedin"
+          href="https://linkedin.com/in/aliciaesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          aria-label="LinkedIn"
         >
-          <Linkedin className="h-6 w-6" />
-          <span className="sr-only">LinkedIn</span>
+          <Linkedin className="h-5 w-5" />
         </a>
         <a
-          href="mailto:your.email@example.com"
-          className="text-muted-foreground hover:text-foreground transition-colors"
+          href="mailto:alicia.esquivel@example.com"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          aria-label="Email"
         >
-          <Mail className="h-6 w-6" />
-          <span className="sr-only">Email</span>
+          <Mail className="h-5 w-5" />
+        </a>
+      </div>
+
+      {/* Resume and CV Buttons */}
+      <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 font-medium transition-colors"
+        >
+          View Resume
+        </a>
+        <a
+          href="/cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-600 text-gray-900 dark:text-gray-100 font-medium transition-colors"
+        >
+          View CV
         </a>
       </div>
     </div>

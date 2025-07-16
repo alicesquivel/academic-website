@@ -1,6 +1,7 @@
 import React from "react";
 import TerminalCard from "./TerminalCard";
 import ResearchGrid from "./ResearchGrid";
+import Hero from "./Hero";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="space-y-2">
@@ -116,6 +117,9 @@ const TabContent = ({ activeTab, setActiveTab }) => {
   return (
     <div ref={containerRef} className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
       <div className="p-6 sm:p-8">
+        {/* Hero Section */}
+        <Hero />
+
         {activeTab === "about" && (
         <div
           id="about"
