@@ -4,12 +4,12 @@ import ResearchGrid from "./ResearchGrid";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="space-y-2">
-    <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-100">{title}</h4>
-    <p className="text-sm text-muted-foreground">
+    <h4 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">{title}</h4>
+    <p className="text-[15px] text-gray-600 dark:text-gray-400">
       {venue}, {year}
     </p>
     {description && (
-      <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed">{description}</p>
+      <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
     )}
   </div>
 );
@@ -22,21 +22,21 @@ const ExperienceCard = ({
   tags,
   responsibilities,
 }) => (
-  <div className="bg-card rounded-lg border shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
-    <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
+  <div className="bg-card rounded-lg border shadow-sm p-4 hover:shadow-md transition-shadow duration-200">
+    <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
       <div>
         <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-        <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-1">{company}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-0.5">{company}</p>
       </div>
       <span className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium">
         {period}
       </span>
     </div>
-    <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+    <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">
       {description}
     </p>
     {responsibilities && (
-      <ul className="list-disc pl-4 space-y-2 text-zinc-600 dark:text-zinc-400">
+      <ul className="list-disc pl-4 space-y-1.5 text-zinc-600 dark:text-zinc-400">
         {responsibilities.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
@@ -59,10 +59,10 @@ const ExperienceCard = ({
 
 const TabContent = ({ activeTab }) => {
   return (
-    <div className="py-6 max-w-4xl mx-auto">
+    <div className="py-4 px-4 max-w-2xl mx-auto">
       {activeTab === "about" && (
-        <div className="max-w-2xl mx-auto">
-          <div className="space-y-4">
+        <div className="space-y-4">
+          <div className="space-y-3">
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
               <a href="#" className="text-blue-600 hover:underline underline-offset-2">
@@ -94,19 +94,19 @@ const TabContent = ({ activeTab }) => {
               systems for the future.
             </p>
           </div>
-          <div className="mt-8 max-w-2xl">
+          <div className="mt-6">
             <TerminalCard />
           </div>
         </div>
       )}
 
       {activeTab === "research" && (
-        <div className="space-y-12">
-          <div className="prose prose-zinc dark:prose-invert max-w-none">
-            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-4">
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
               Current Research
             </h2>
-            <p className="text-lg leading-relaxed">
+            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               My research focuses on developing secure and scalable cloud
               computing systems, with an emphasis on zero-trust architectures
               and AI-driven security solutions. I work at the intersection of
@@ -117,10 +117,10 @@ const TabContent = ({ activeTab }) => {
 
           <ResearchGrid />
 
-          <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
+          <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-6">Current Projects</h3>
-              <div className="grid gap-6">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">Current Projects</h3>
+              <div className="grid gap-3">
                 <ExperienceCard
                   title="Cloud Security Research Group"
                   company="Security Innovation Lab"
@@ -131,28 +131,28 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            <div className="pt-8">
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-6">
+            <div className="pt-4">
+              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
                 Additional Research
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                     Developing advanced intrusion detection systems using
                     federated learning
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                     Investigating resilient network architectures for autonomous
                     systems
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                     Researching secure edge computing frameworks for IoT
                     environments
                   </p>
@@ -164,14 +164,14 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "publications" && (
-        <div className="space-y-8">
+        <div className="space-y-4">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
           </h2>
-          <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
-            <div className="space-y-6">
+          <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
+            <div className="space-y-3">
               <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">Conference Papers</h3>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <Publication
                   title="Zero-Trust Security in Cloud-Native Applications"
                   venue="IEEE Conference on Cloud Computing"
@@ -191,11 +191,11 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "experience" && (
-        <div className="space-y-8">
+        <div className="space-y-4">
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-3">
             <ExperienceCard
               title="Graduate Research Assistant"
               company="Cloud Security Lab"
@@ -222,37 +222,37 @@ const TabContent = ({ activeTab }) => {
       )}
 
       {activeTab === "fun" && (
-        <div className="space-y-8">
-          <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        <div className="space-y-4">
+          <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
             Beyond Research
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Photography
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
                 Amateur photographer focusing on landscape and urban photography. Check out my work on Instagram.
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Rock Climbing
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
                 Regular climber at local bouldering gyms. Always looking for climbing partners!
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Open Source
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
                 Contributing to various open-source projects in my free time, mainly focused on developer tools and security.
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Reading List
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
