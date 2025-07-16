@@ -25,18 +25,18 @@ const ExperienceCard = ({
   <div className="bg-card rounded-lg border shadow-sm p-4 hover:shadow-md transition-shadow duration-200">
     <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
       <div>
-        <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
-        <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-0.5">{company}</p>
+        <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">{title}</h3>
+        <p className="text-[15px] text-gray-600 dark:text-gray-400 mt-0.5">{company}</p>
       </div>
-      <span className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium">
+      <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-[15px]">
         {period}
       </span>
     </div>
-    <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">
+    <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
       {description}
     </p>
     {responsibilities && (
-      <ul className="list-disc pl-4 space-y-1.5 text-zinc-600 dark:text-zinc-400">
+      <ul className="list-disc pl-4 space-y-1.5 text-[15px] text-gray-700 dark:text-gray-300">
         {responsibilities.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
@@ -228,15 +228,15 @@ const TabContent = ({ activeTab }) => {
           </h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Photography
               </h3>
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                 Amateur photographer focusing on landscape and urban photography. Check out my work on Instagram.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Rock Climbing
               </h3>
               <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
@@ -244,18 +244,18 @@ const TabContent = ({ activeTab }) => {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Open Source
               </h3>
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                 Contributing to various open-source projects in my free time, mainly focused on developer tools and security.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2">
+              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
                 Reading List
               </h3>
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
                 Currently reading books on cybersecurity, system design, and sci-fi novels.
               </p>
             </div>
