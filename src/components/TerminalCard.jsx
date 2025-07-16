@@ -10,14 +10,14 @@ import {
 } from "lucide-react";
 
 const Command = ({ command, output }) => (
-  <div className="space-y-2">
-    <div className="flex items-center gap-1.5">
+  <div className="space-y-1.5">
+    <div className="flex items-center gap-1">
       <span className="text-green-500 dark:text-green-500 font-medium text-sm">❯</span>
       <span className="text-blue-600 dark:text-blue-400 font-medium text-sm">
         {command}
       </span>
     </div>
-    <div className="pl-4 text-gray-600 dark:text-gray-400 leading-snug text-sm">
+    <div className="pl-3 text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
       {output}
     </div>
   </div>
@@ -25,19 +25,19 @@ const Command = ({ command, output }) => (
 
 const TerminalCard = () => {
   return (
-    <div className="w-full rounded-lg overflow-hidden bg-[#f9fafb] dark:bg-[#1e1e2e] border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow duration-200">
-      <div className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-zinc-800/90 border-b border-gray-200 dark:border-gray-700">
+    <div className="w-full sm:w-[400px] mx-auto rounded-md overflow-hidden bg-[#f9fafb] dark:bg-[#1e1e2e] border border-gray-200 dark:border-gray-800 shadow-sm">
+      <div className="flex items-center gap-1.5 px-2 py-1.5 bg-white dark:bg-zinc-800/90 border-b border-gray-200 dark:border-gray-700">
         <div className="flex gap-1">
-          <div className="h-2.5 w-2.5 rounded-full bg-red-500/90" />
-          <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/90" />
-          <div className="h-2.5 w-2.5 rounded-full bg-green-500/90" />
+          <div className="h-2 w-2 rounded-full bg-red-500/90" />
+          <div className="h-2 w-2 rounded-full bg-yellow-500/90" />
+          <div className="h-2 w-2 rounded-full bg-green-500/90" />
         </div>
-        <div className="ml-auto flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 font-mono">
-          <Terminal size={12} className="stroke-current" />
+        <div className="ml-auto flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 font-mono">
+          <Terminal size={10} className="stroke-current" />
           <span>terminal</span>
         </div>
       </div>
-      <div className="p-4 font-mono text-sm space-y-4 overflow-x-auto bg-[#f9fafb] dark:bg-[#1e1e2e] leading-snug">
+      <div className="p-3 font-mono text-sm space-y-2 overflow-x-auto bg-[#f9fafb] dark:bg-[#1e1e2e] leading-snug">
         <Command
           command="whoami"
           output={
@@ -55,29 +55,29 @@ const TerminalCard = () => {
         <Command
           command="ls ./skills/"
           output={
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <div className="flex items-center gap-1.5">
-                <Database size={14} className="text-blue-500" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+              <div className="flex items-center gap-1">
+                <Database size={12} className="text-blue-500" />
                 <span className="text-sm">data-analysis</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Shield size={14} className="text-red-500" />
+              <div className="flex items-center gap-1">
+                <Shield size={12} className="text-red-500" />
                 <span className="text-sm">cybersecurity</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Cloud size={14} className="text-purple-500" />
+              <div className="flex items-center gap-1">
+                <Cloud size={12} className="text-purple-500" />
                 <span className="text-sm">cloud-computing</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <BrainCircuit size={14} className="text-green-500" />
+              <div className="flex items-center gap-1">
+                <BrainCircuit size={12} className="text-green-500" />
                 <span className="text-sm">machine-learning</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Network size={14} className="text-yellow-500" />
+              <div className="flex items-center gap-1">
+                <Network size={12} className="text-yellow-500" />
                 <span className="text-sm">networking</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                <FileCode size={14} className="text-pink-500" />
+              <div className="flex items-center gap-1">
+                <FileCode size={12} className="text-pink-500" />
                 <span className="text-sm">technical-writing</span>
               </div>
             </div>
