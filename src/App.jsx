@@ -13,8 +13,7 @@ function App() {
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
       <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       <main className="flex-1">
-        <div className="container mx-auto px-4 py-6 sm:py-8">
-          <ProfileHeader />
+        <div className="max-w-4xl mx-auto px-4 py-8">
           <TabContent activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
       </main>
