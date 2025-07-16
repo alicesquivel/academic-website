@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 import ProfileHeader from "./components/ProfileHeader";
-import TabNav from "./components/TabNav";
 import TabContent from "./components/TabContent";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
+import Navbar from "./components/Navbar";
 import "./index.css";
 
 function App() {
   const [activeTab, setActiveTab] = useState("about");
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground pb-16">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950">
+      <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
       <main className="flex-1">
-        <div className="container max-w-4xl mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-6 sm:py-8">
           <ProfileHeader />
-        </div>
-        <div className="mt-8">
-          <TabNav activeTab={activeTab} onTabChange={setActiveTab} />
-          <div className="container max-w-4xl mx-auto px-4 py-8">
-            <TabContent activeTab={activeTab} />
-          </div>
+          <TabContent activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
       </main>
       <ThemeToggle />

@@ -24,13 +24,8 @@ const TabNav = ({ activeTab, onTabChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div
-      className={cn(
-        "w-full transition-all duration-200 mb-6",
-        "bg-transparent"
-      )}
-    >
-      <nav className="container max-w-xl mx-auto px-4 py-0 flex justify-center">
+    <div className="w-full border-b border-gray-200 dark:border-gray-800">
+      <nav className="flex justify-center -mb-px">
         {/* Mobile Menu Button */}
         <div className="md:hidden flex justify-end">
           <button

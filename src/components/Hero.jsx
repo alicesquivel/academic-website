@@ -7,7 +7,7 @@ const Hero = () => {
         PhD Candidate in Computer Science
       </h1>
       <p className="mt-4 text-lg text-muted-foreground max-w-2xl text-center">
-        Specializing in Cybersecurity and Cloud Computing
+        Specializing in Cloud Computing and Cybersecurity
       </p>
       <div className="mt-8 flex items-center space-x-6">
         <a

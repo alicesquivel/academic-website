@@ -19,10 +19,10 @@ const ProfileHeader = () => {
       <div className="flex flex-col gap-4">
         <div className="space-y-1">
           <h1 className="text-base font-semibold tracking-tight text-gray-900 dark:text-gray-100">
-            Alicia Esquivel m
+            Alicia Esquivel Morel
           </h1>
           <p className="text-base text-gray-600 dark:text-gray-400">
-            PhD Candidate • Cybersecurity and Cloud Computing
+            PhD Candidate • Cloud Computing and Cybersecurity
           </p>
         </div>
 

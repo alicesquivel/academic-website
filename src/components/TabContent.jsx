@@ -68,6 +68,7 @@ const ExperienceCard = ({
 const TabContent = ({ activeTab, setActiveTab }) => {
   const observerRef = React.useRef({});
   const sectionsRef = React.useRef({});
+  const containerRef = React.useRef(null);
 
   // Scroll to section helper function
   const scrollToSection = (sectionId) => {
@@ -113,9 +114,10 @@ const TabContent = ({ activeTab, setActiveTab }) => {
     };
   }, [setActiveTab]);
   return (
-    <div className="py-4 sm:py-6 px-3 sm:px-4 max-w-2xl mx-auto">
-      <div className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-lg p-4 sm:p-6">
-      {activeTab === "about" && (
+    <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div ref={containerRef} className="max-w-5xl mx-auto bg-white dark:bg-gray-900 shadow-md border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden transition-shadow hover:shadow-lg">
+        <div className="p-4 sm:p-6 lg:p-8">
+        {activeTab === "about" && (
         <div
           id="about"
           data-section
@@ -360,6 +362,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
           </div>
         </div>
       )}
+        </div>
       </div>
     </div>
   );
