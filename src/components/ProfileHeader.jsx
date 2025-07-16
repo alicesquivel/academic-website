@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, FileText } from 'lucide-react';
 import { Button } from './ui/Button';
 
 const IconLink = ({ href, icon: Icon, label }) => (
@@ -18,7 +18,7 @@ const ProfileHeader = () => {
     <div className="space-y-8 text-center md:text-left">
       <div className="space-y-4">
         <h1 className="text-5xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-zinc-900/90 to-zinc-900 dark:from-white dark:to-white/80">
-          Alicia Esquivel
+          Alicia Esquivel m
         </h1>
         <p className="text-xl text-muted-foreground font-medium leading-relaxed">
           PhD Candidate • Cybersecurity and Cloud Computing
@@ -43,15 +43,25 @@ const ProfileHeader = () => {
       </div>
       
       <div className="flex items-center gap-4 justify-center md:justify-start">
-        <Button variant="outline" size="default" asChild>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer">
+        <Button 
+          variant="default" 
+          size="default" 
+          className="bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 transition-transform" 
+          asChild
+        >
+          <a href="/resume.pdf" download="alicia-esquivel-resume.pdf">
             <Download className="mr-2 h-4 w-4" />
             Resume
           </a>
         </Button>
-        <Button variant="default" size="default" asChild>
-          <a href="/cv.pdf" target="_blank" rel="noreferrer">
-            <Download className="mr-2 h-4 w-4" />
+        <Button 
+          variant="outline" 
+          size="default" 
+          className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:scale-105 transition-transform" 
+          asChild
+        >
+          <a href="/cv.pdf" download="alicia-esquivel-cv.pdf">
+            <FileText className="mr-2 h-4 w-4" />
             CV
           </a>
         </Button>
