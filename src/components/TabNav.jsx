@@ -47,9 +47,11 @@ const TabNav = ({ activeTab, onTabChange }) => {
             {tabs.map((tab) => {
               const isActive = activeTab === tab.name.toLowerCase();
               return (
-                <button
+                <a
                   key={tab.name}
-                  onClick={() => {
+                  href={`#${tab.name.toLowerCase()}`}
+                  onClick={(e) => {
+                    e.preventDefault();
                     onTabChange(tab.name.toLowerCase());
                     setIsMenuOpen(false);
                   }}
@@ -62,7 +64,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
                 >
                   <tab.icon className="h-4 w-4" />
                   {tab.name}
-                </button>
+                </a>
               );
             })}
           </div>
@@ -72,12 +74,15 @@ const TabNav = ({ activeTab, onTabChange }) => {
         <div className="hidden md:flex justify-center gap-4">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.name.toLowerCase();
-            return (
-              <button
+            return (                <a
                 key={tab.name}
-                onClick={() => onTabChange(tab.name.toLowerCase())}
+                href={`#${tab.name.toLowerCase()}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onTabChange(tab.name.toLowerCase());
+                }}
                 className={cn(
-                  "group px-4 py-2 text-sm transition-all flex items-center gap-2 relative",
+                  "group px-4 py-2 text-sm transition-all flex items-center gap-2 relative cursor-pointer",
                   isActive
                     ? "text-gray-900 dark:text-gray-100 font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gray-900 dark:after:bg-gray-100"
                     : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 font-medium"
@@ -88,7 +93,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
                   {tab.name}
                   <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gray-300 dark:bg-gray-600 scale-x-0 group-hover:scale-x-100 transition-transform" />
                 </span>
-              </button>
+              </a>
             );
           })}
         </div>

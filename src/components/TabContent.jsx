@@ -115,8 +115,8 @@ const TabContent = ({ activeTab, setActiveTab }) => {
     };
   }, [setActiveTab]);
   return (
-    <div ref={containerRef} className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
-      <div className="p-6 sm:p-8">
+    <div ref={containerRef} className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden scroll-smooth">
+      <div className="p-6 sm:p-8 space-y-12">
         {/* Hero Section */}
         <Hero />
 
@@ -124,7 +124,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="about"
           data-section
-          className="space-y-4 sm:space-y-6"
+          className="space-y-6 sm:space-y-8 py-8"
           ref={el => sectionsRef.current.about = el}>
           <div className="space-y-6">
             <div className="prose dark:prose-invert max-w-none">
@@ -183,7 +183,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="research"
           data-section
-          className="space-y-6"
+          className="space-y-6 sm:space-y-8 py-8"
           ref={el => sectionsRef.current.research = el}>
           <div>
             <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
@@ -252,7 +252,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="publications"
           data-section
-          className="space-y-6"
+          className="space-y-6 sm:space-y-8 py-8"
           ref={el => sectionsRef.current.publications = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
@@ -285,7 +285,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="experience"
           data-section
-          className="space-y-6"
+          className="space-y-6 sm:space-y-8 py-8"
           ref={el => sectionsRef.current.experience = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
@@ -320,7 +320,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="fun"
           data-section
-          className="space-y-6"
+          className="space-y-6 sm:space-y-8 py-8"
           ref={el => sectionsRef.current.fun = el}>
           <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
             Beyond Research
