@@ -220,6 +220,48 @@ const TabContent = ({ activeTab }) => {
           </div>
         </div>
       )}
+
+      {activeTab === "fun" && (
+        <div className="space-y-8">
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+            Beyond Research
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+                Photography
+              </h3>
+              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+                Amateur photographer focusing on landscape and urban photography. Check out my work on Instagram.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+                Rock Climbing
+              </h3>
+              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+                Regular climber at local bouldering gyms. Always looking for climbing partners!
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+                Open Source
+              </h3>
+              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+                Contributing to various open-source projects in my free time, mainly focused on developer tools and security.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+              <h3 className="text-base font-medium text-gray-900 dark:text-gray-100 mb-3">
+                Reading List
+              </h3>
+              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
+                Currently reading books on cybersecurity, system design, and sci-fi novels.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
