@@ -113,12 +113,12 @@ const TabContent = ({ activeTab, setActiveTab }) => {
     };
   }, [setActiveTab]);
   return (
-    <div className="py-4 px-4 max-w-2xl mx-auto">
+    <div className="py-6 px-4 max-w-2xl mx-auto">
       {activeTab === "about" && (
         <div
           id="about"
           data-section
-          className="space-y-4"
+          className="space-y-6"
           ref={el => sectionsRef.current.about = el}>
           <div className="space-y-3">
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -246,7 +246,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="publications"
           data-section
-          className="space-y-4"
+          className="space-y-6"
           ref={el => sectionsRef.current.publications = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
@@ -279,7 +279,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="experience"
           data-section
-          className="space-y-4"
+          className="space-y-6"
           ref={el => sectionsRef.current.experience = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
@@ -314,7 +314,7 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         <div
           id="fun"
           data-section
-          className="space-y-4"
+          className="space-y-6"
           ref={el => sectionsRef.current.fun = el}>
           <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
             Beyond Research
