@@ -42,10 +42,10 @@ const TerminalCard = () => {
           command="whoami"
           output={
             <>
-              <p className="text-purple-500 dark:text-purple-400 mb-2">
+              <p className="text-purple-600 dark:text-purple-400 mb-1 text-sm">
                 Alicia Esquivel
               </p>
-              <p className="text-zinc-600 dark:text-zinc-300">
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 PhD Candidate specializing in cybersecurity and cloud computing
                 research
               </p>
@@ -86,7 +86,7 @@ const TerminalCard = () => {
         <Command
           command="cat ./research_interests.txt"
           output={
-            <div className="space-y-2 text-emerald-500 dark:text-emerald-400">
+            <div className="space-y-1 text-emerald-600 dark:text-emerald-400 text-sm">
               <p>• Zero-trust Architecture in Cloud Systems</p>
               <p>• AI-driven Security Solutions</p>
               <p>• Edge Computing Security</p>
