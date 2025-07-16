@@ -17,8 +17,9 @@ const Command = ({ command, output }) => (
         {command}
       </span>
     </div>
-    <div className="pl-4 text-green-400 leading-relaxed opacity-90">
-      {output}
+    <div className="pl-4 text-green-400 leading-relaxed opacity-90 flex items-start">
+      <div className="whitespace-pre overflow-x-auto">{output}</div>
+      <span className="inline-block w-2 h-4 ml-1 bg-green-400 animate-pulse" />
     </div>
   </div>
 );
@@ -37,7 +38,7 @@ const TerminalCard = () => {
           <span>bash</span>
         </div>
       </div>
-      <div className="p-4 font-mono text-sm space-y-3 overflow-x-auto bg-gray-900 text-green-400 leading-relaxed">
+      <div className="p-4 font-mono text-sm space-y-3 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent bg-gray-900 text-green-400 leading-relaxed">
         <Command
           command="echo $USER"
           output="aliciaesquivel@phd-research"
@@ -60,13 +61,17 @@ const TerminalCard = () => {
           }
         />
         <Command
-          command="ls -l *.py"
+          command="ls -la ~/research/projects/"
           output={
-            <div className="text-green-400">
-              -rw-r--r-- 1 alicia research 2.5K Jul 16 10:30 cloud-security-tests.py
-              -rw-r--r-- 1 alicia research 1.8K Jul 16 09:45 zero-trust-architecture.py
-              -rw-r--r-- 1 alicia research 3.2K Jul 15 15:20 ml-security-model.py
-            </div>
+            <pre className="text-green-400">
+{`total 156
+drwxr-xr-x  15 alicia research 4.0K Jul 16 10:30 .
+drwxr-xr-x   8 alicia research 4.0K Jul 16 10:30 ..
+-rw-r--r--   1 alicia research 2.5K Jul 16 10:30 cloud-security-tests.py
+-rw-r--r--   1 alicia research 1.8K Jul 16 09:45 zero-trust-architecture.py
+-rw-r--r--   1 alicia research 3.2K Jul 15 15:20 ml-security-model.py
+drwxr-xr-x   5 alicia research 4.0K Jul 15 14:30 distributed-systems-research/
+drwxr-xr-x   7 alicia research 4.0K Jul 14 16:15 edge-computing-security/`}</pre>
           }
         />
         <Command
