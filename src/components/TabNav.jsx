@@ -83,10 +83,10 @@ const TabNav = ({ activeTab, onTabChange }) => {
                 key={tab.name}
                 onClick={() => onTabChange(tab.name.toLowerCase())}
                 className={cn(
-                  "group px-4 py-2 text-sm font-medium transition-all flex items-center gap-2",
+                  "group px-4 py-2 text-sm transition-all flex items-center gap-2 relative",
                   isActive
-                    ? "text-gray-900 dark:text-gray-100 border-b-2 border-gray-500 dark:border-gray-400"
-                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+                    ? "text-gray-900 dark:text-gray-100 font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gray-900 dark:after:bg-gray-100"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 font-medium"
                 )}
               >
                 <tab.icon className="h-4 w-4" />

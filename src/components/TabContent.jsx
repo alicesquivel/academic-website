@@ -67,6 +67,24 @@ const ExperienceCard = ({
 
 const TabContent = ({ activeTab, setActiveTab }) => {
   const observerRef = React.useRef({});
+  const sectionsRef = React.useRef({});
+
+  // Scroll to section helper function
+  const scrollToSection = (sectionId) => {
+    const section = sectionsRef.current[sectionId];
+    if (section) {
+      const yOffset = -80; // Adjust this value based on your header height
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+  // Effect to handle scroll when activeTab changes
+  React.useEffect(() => {
+    if (activeTab) {
+      scrollToSection(activeTab);
+    }
+  }, [activeTab]);
 
   React.useEffect(() => {
     const observerCallback = (entries) => {
