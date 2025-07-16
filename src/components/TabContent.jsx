@@ -115,7 +115,11 @@ const TabContent = ({ activeTab, setActiveTab }) => {
   return (
     <div className="py-4 px-4 max-w-2xl mx-auto">
       {activeTab === "about" && (
-        <div id="about" data-section className="space-y-4">
+        <div
+          id="about"
+          data-section
+          className="space-y-4"
+          ref={el => sectionsRef.current.about = el}>
           <div className="space-y-3">
             <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
               I am a motivated PhD candidate specializing in{" "}
@@ -170,7 +174,11 @@ const TabContent = ({ activeTab, setActiveTab }) => {
       )}
 
       {activeTab === "research" && (
-        <div id="research" data-section className="space-y-6">
+        <div
+          id="research"
+          data-section
+          className="space-y-6"
+          ref={el => sectionsRef.current.research = el}>
           <div>
             <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
               Current Research
@@ -235,7 +243,11 @@ const TabContent = ({ activeTab, setActiveTab }) => {
       )}
 
       {activeTab === "publications" && (
-        <div id="publications" data-section className="space-y-4">
+        <div
+          id="publications"
+          data-section
+          className="space-y-4"
+          ref={el => sectionsRef.current.publications = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Selected Publications
           </h2>
@@ -264,7 +276,11 @@ const TabContent = ({ activeTab, setActiveTab }) => {
       )}
 
       {activeTab === "experience" && (
-        <div id="experience" data-section className="space-y-4">
+        <div
+          id="experience"
+          data-section
+          className="space-y-4"
+          ref={el => sectionsRef.current.experience = el}>
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Professional Experience
           </h2>
@@ -295,7 +311,11 @@ const TabContent = ({ activeTab, setActiveTab }) => {
       )}
 
       {activeTab === "fun" && (
-        <div id="fun" data-section className="space-y-4">
+        <div
+          id="fun"
+          data-section
+          className="space-y-4"
+          ref={el => sectionsRef.current.fun = el}>
           <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
             Beyond Research
           </h2>
