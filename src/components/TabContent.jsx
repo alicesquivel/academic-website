@@ -126,55 +126,55 @@ const TabContent = ({ activeTab, setActiveTab }) => {
           data-section
           className="space-y-4 sm:space-y-6"
           ref={el => sectionsRef.current.about = el}>
-          <div className="space-y-3">
-            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-              I am a motivated PhD candidate specializing in{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline underline-offset-2"
-              >
-                cloud/edge computing
-              </a>{" "}
-              and{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline underline-offset-2"
-              >
-                cybersecurity
-              </a>
-              . With a proven ability to lead research, publish papers, and
-              teach core computer science courses, I am seeking a research or
-              faculty role to apply my expertise in cybersecurity and resilient
-              network design for autonomous systems.
-            </p>
-            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-              I am passionate about leveraging{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline underline-offset-2"
-              >
-                advanced networking
-              </a>
-              ,{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline underline-offset-2"
-              >
-                AI
-              </a>
-              , and{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline underline-offset-2"
-              >
-                testbed-driven validation
-              </a>{" "}
-              in cloud and edge environments to create more secure and resilient
-              systems for the future.
-            </p>
-          </div>
-          <div className="mt-6">
-            <TerminalCard />
+          <div className="space-y-6">
+            <div className="prose dark:prose-invert max-w-none">
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                I am a <span className="font-medium text-gray-900 dark:text-gray-100">PhD candidate</span> specializing in{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  cloud/edge computing
+                </span>{" "}
+                and{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  cybersecurity
+                </span>
+                . My research focuses on developing secure and scalable distributed systems, with a particular emphasis on{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  zero-trust architectures
+                </span>{" "}
+                and{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  AI-driven security solutions
+                </span>
+                .
+              </p>
+              
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                With expertise in{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  advanced networking
+                </span>
+                ,{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  machine learning
+                </span>
+                , and{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  distributed systems
+                </span>
+                , I work at the intersection of cloud computing and security. My research aims to develop robust solutions for protecting modern infrastructure while enhancing system resilience and performance.
+              </p>
+
+              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                I am passionate about combining theoretical research with practical applications, using{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">
+                  testbed-driven validation
+                </span>{" "}
+                to bridge the gap between academic innovation and real-world deployment. Currently seeking opportunities to apply my expertise in cybersecurity and resilient network design for autonomous systems.
+              </p>
+            </div>
+            <div className="mt-8">
+              <TerminalCard />
+            </div>
           </div>
         </div>
       )}
