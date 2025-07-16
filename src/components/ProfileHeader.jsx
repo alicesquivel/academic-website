@@ -6,9 +6,9 @@ const IconLink = ({ href, icon: Icon, label }) => (
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+    className="inline-flex items-center gap-1 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
   >
-    <Icon className="h-4 w-4" />
+    <Icon className="h-5 w-5" />
     <span className="text-sm">{label}</span>
   </a>
 );
