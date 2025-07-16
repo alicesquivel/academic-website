@@ -6,24 +6,27 @@ const IconLink = ({ href, icon: Icon, label }) => (
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="p-2 text-muted-foreground hover:text-primary transition-colors duration-200 hover:scale-105 transform"
+    className="flex items-center gap-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
   >
-    <Icon className="h-5 w-5" />
-    <span className="sr-only">{label}</span>
+    <Icon className="h-4 w-4" />
+    <span className="text-sm">{label}</span>
   </a>
 );
 
 const ProfileHeader = () => {
   return (
-    <div className="space-y-8 text-center md:text-left">
-      <div className="space-y-4">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
-          Alicia Esquivel m
-        </h1>
-        <p className="text-base text-muted-foreground font-normal leading-relaxed">
-          PhD Candidate • Cybersecurity and Cloud Computing
-        </p>
-        <div className="flex items-center gap-4 justify-center md:justify-start">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+      <div className="flex flex-col gap-4">
+        <div className="space-y-1">
+          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl text-gray-900 dark:text-gray-100">
+            Alicia Esquivel m
+          </h1>
+          <p className="text-base text-gray-600 dark:text-gray-400">
+            PhD Candidate • Cybersecurity and Cloud Computing
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-4">
           <IconLink
             href="https://github.com/alicesquivel"
             icon={Github}
@@ -42,7 +45,7 @@ const ProfileHeader = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-4 justify-center md:justify-start">
+      <div className="flex items-center gap-3">
         <Button
           variant="default"
           size="sm"
