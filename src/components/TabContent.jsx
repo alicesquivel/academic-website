@@ -1,51 +1,34 @@
 import React from "react";
 import TerminalCard from "./TerminalCard";
 import ResearchGrid from "./ResearchGrid";
-import Hero from "./Hero";
+import { Book, FileText, GraduationCap } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
-  <div className="space-y-2">
-    <h4 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">
-      {title}
-    </h4>
-    <p className="text-[15px] text-gray-600 dark:text-gray-400">
-      {venue}, {year}
-    </p>
+  <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
+    <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100">{title}</h4>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{venue}, {year}</p>
     {description && (
-      <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-        {description}
-      </p>
+      <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mt-2">{description}</p>
     )}
   </div>
 );
 
-const ExperienceCard = ({
-  title,
-  company,
-  period,
-  description,
-  tags,
-  responsibilities,
-}) => (
-  <div className="bg-card rounded-lg border shadow-sm p-4 hover:shadow-md transition-shadow duration-200">
+const ExperienceCard = ({ title, company, period, description, tags, responsibilities }) => (
+  <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
     <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
       <div>
-        <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100">
-          {title}
-        </h3>
-        <p className="text-[15px] text-gray-600 dark:text-gray-400 mt-0.5">
-          {company}
-        </p>
+        <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">{title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">{company}</p>
       </div>
-      <span className="px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-[15px]">
+      <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium">
         {period}
       </span>
     </div>
-    <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
-      {description}
-    </p>
+    {description && (
+      <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3">{description}</p>
+    )}
     {responsibilities && (
-      <ul className="list-disc pl-4 space-y-1.5 text-[15px] text-gray-700 dark:text-gray-300">
+      <ul className="list-disc pl-4 space-y-2 text-base text-gray-700 dark:text-gray-300">
         {responsibilities.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
@@ -56,7 +39,7 @@ const ExperienceCard = ({
         {tags.map((tag) => (
           <span
             key={tag}
-            className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded-md text-xs font-medium text-zinc-600 dark:text-zinc-400"
+            className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 transition-all duration-200"
           >
             {tag}
           </span>
@@ -66,317 +49,141 @@ const ExperienceCard = ({
   </div>
 );
 
-const TabContent = ({ activeTab, setActiveTab }) => {
-  const observerRef = React.useRef({});
-  const sectionsRef = React.useRef({});
-  const containerRef = React.useRef(null);
-
-  // Scroll to section helper function
-  const scrollToSection = (sectionId) => {
-    const section = sectionsRef.current[sectionId];
-    if (section) {
-      const yOffset = -80; // Adjust this value based on your header height
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-  };
-
-  // Effect to handle scroll when activeTab changes
-  React.useEffect(() => {
-    if (activeTab) {
-      scrollToSection(activeTab);
-    }
-  }, [activeTab]);
-
-  React.useEffect(() => {
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          setActiveTab(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.5,
-      rootMargin: "-50px 0px -50px 0px",
-    });
-
-    const sections = document.querySelectorAll("[data-section]");
-    sections.forEach((section) => {
-      observer.observe(section);
-      observerRef.current[section.id] = observer;
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        observerRef.current[section.id]?.unobserve(section);
-      });
-    };
-  }, [setActiveTab]);
-  return (
-    <div ref={containerRef} className="bg-white dark:bg-gray-900 shadow-sm border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden scroll-smooth">
-      <div className="p-6 sm:p-8 space-y-12">
-        {/* Hero Section */}
-        <Hero />
-
-        {activeTab === "about" && (
-        <div
-          id="about"
-          data-section
-          className="space-y-6 sm:space-y-8 py-8"
-          ref={el => sectionsRef.current.about = el}>
+const TabContent = ({ activeTab }) => {
+  const renderContent = () => {
+    switch (activeTab) {
+      case "about":
+        return (
           <div className="space-y-6">
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                I am a <span className="font-medium text-gray-900 dark:text-gray-100">PhD candidate</span> specializing in{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  cloud/edge computing
-                </span>{" "}
+                I am a <span className="font-medium text-gray-900 dark:text-gray-100">PhD candidate</span>{" "}
+                specializing in{" "}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">cloud/edge computing</span>{" "}
                 and{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  cybersecurity
-                </span>
-                . My research focuses on developing secure and scalable distributed systems, with a particular emphasis on{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  zero-trust architectures
-                </span>{" "}
-                and{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  AI-driven security solutions
-                </span>
-                .
-              </p>
-              
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                With expertise in{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  advanced networking
-                </span>
-                ,{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  machine learning
-                </span>
-                , and{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  distributed systems
-                </span>
-                , I work at the intersection of cloud computing and security. My research aims to develop robust solutions for protecting modern infrastructure while enhancing system resilience and performance.
-              </p>
-
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                I am passionate about combining theoretical research with practical applications, using{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  testbed-driven validation
-                </span>{" "}
-                to bridge the gap between academic innovation and real-world deployment. Currently seeking opportunities to apply my expertise in cybersecurity and resilient network design for autonomous systems.
+                <span className="text-blue-600 dark:text-blue-400 font-medium">cybersecurity</span>.
+                My research focuses on developing secure and scalable distributed systems.
               </p>
             </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                Research Interests
+              </h3>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Cloud Security</h4>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    Developing secure and scalable cloud computing systems with a focus on zero-trust architectures.
+                  </p>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Edge Computing</h4>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    Investigating efficient resource allocation and security in edge computing environments.
+                  </p>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">AI Security</h4>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    Exploring the intersection of artificial intelligence and cybersecurity.
+                  </p>
+                </div>
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Distributed Systems</h4>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    Building reliable and secure distributed computing systems and protocols.
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-8">
               <TerminalCard />
             </div>
           </div>
-        </div>
-      )}
+        );
 
-      {activeTab === "research" && (
-        <div
-          id="research"
-          data-section
-          className="space-y-6 sm:space-y-8 py-8"
-          ref={el => sectionsRef.current.research = el}>
-          <div>
-            <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-              Current Research
-            </h2>
-            <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-              My research focuses on developing secure and scalable cloud
-              computing systems, with an emphasis on zero-trust architectures
-              and AI-driven security solutions. I work at the intersection of
-              cloud computing, cybersecurity, and artificial intelligence,
-              developing novel approaches to protect modern distributed systems.
+      case "research":
+        return (
+          <div className="space-y-6">
+            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              My research focuses on developing secure and scalable cloud computing systems,
+              with an emphasis on zero-trust architectures and AI-driven security solutions.
             </p>
-          </div>
-
-          <ResearchGrid />
-
-          <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
-            <div>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                Current Projects
-              </h3>
-              <div className="grid gap-3">
+            <ResearchGrid />
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Current Projects</h3>
+              <div className="space-y-4">
                 <ExperienceCard
                   title="Cloud Security Research Group"
                   company="Security Innovation Lab"
                   period="2023 - Present"
-                  description="Leading research initiatives in cloud security, focusing on developing novel approaches to protect distributed systems. Key projects include implementing Zero Trust Architecture in cloud environments and developing AI-driven security monitoring systems."
+                  description="Leading research initiatives in cloud security, focusing on developing novel approaches to protect distributed systems."
                   tags={["Zero Trust", "Cloud Security", "AI Systems"]}
                 />
               </div>
             </div>
-
-            <div className="pt-4">
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                Additional Research
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Developing advanced intrusion detection systems using
-                    federated learning
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Investigating resilient network architectures for autonomous
-                    systems
-                  </p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
-                  <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Researching secure edge computing frameworks for IoT
-                    environments
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      )}
+        );
 
-      {activeTab === "publications" && (
-        <div
-          id="publications"
-          data-section
-          className="space-y-6 sm:space-y-8 py-8"
-          ref={el => sectionsRef.current.publications = el}>
-          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
-            Selected Publications
-          </h2>
-          <div className="space-y-4 divide-y divide-zinc-200 dark:divide-zinc-800">
-            <div className="space-y-3">
-              <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100">
-                Conference Papers
-              </h3>
-              <div className="space-y-4">
+      case "publications":
+        return (
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Conference Papers</h3>
+              <div className="grid gap-4">
                 <Publication
                   title="Zero-Trust Security in Cloud-Native Applications"
                   venue="IEEE Conference on Cloud Computing"
                   year="2024"
-                  description="Presented a novel approach to implementing zero-trust architecture in cloud-native applications, focusing on automated security policy enforcement and continuous validation."
+                  description="Presented a novel approach to implementing zero-trust architecture in cloud-native applications."
                 />
                 <Publication
                   title="AI-Driven Network Intrusion Detection"
                   venue="ACM Workshop on Security and Privacy"
                   year="2024"
-                  description="Developed a new machine learning approach for detecting network intrusions in real-time, achieving superior accuracy while maintaining low computational overhead."
+                  description="Developed a new machine learning approach for detecting network intrusions in real-time."
                 />
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
 
-      {activeTab === "experience" && (
-        <div
-          id="experience"
-          data-section
-          className="space-y-6 sm:space-y-8 py-8"
-          ref={el => sectionsRef.current.experience = el}>
-          <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
-            Professional Experience
-          </h2>
-          <div className="space-y-3">
-            <ExperienceCard
-              title="Graduate Research Assistant"
-              company="Cloud Security Lab"
-              period="2022 - Present"
-              responsibilities={[
-                "Lead research in cloud security and zero-trust architectures",
-                "Developed novel intrusion detection systems using machine learning",
-                "Published papers in top-tier security conferences",
-              ]}
-            />
-
-            <ExperienceCard
-              title="Teaching Assistant"
-              company="Computer Science Department"
-              period="2021 - 2022"
-              responsibilities={[
-                "Taught advanced cybersecurity courses",
-                "Mentored undergraduate research projects",
-                "Developed practical lab exercises for security courses",
-              ]}
-            />
-          </div>
-        </div>
-      )}
-
-      {activeTab === "fun" && (
-        <div
-          id="fun"
-          data-section
-          className="space-y-6 sm:space-y-8 py-8"
-          ref={el => sectionsRef.current.fun = el}>
-          <h2 className="text-base font-semibold text-gray-800 dark:text-gray-200 mb-3">
-            Beyond Research
-          </h2>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
-                Photography
-              </h3>
-              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Amateur photographer focusing on landscape and urban
-                photography. Check out my work on Instagram.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
-                Rock Climbing
-              </h3>
-              <p className="text-[15px] leading-relaxed text-gray-600 dark:text-gray-400">
-                Regular climber at local bouldering gyms. Always looking for
-                climbing partners!
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
-                Open Source
-              </h3>
-              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Contributing to various open-source projects in my free time,
-                mainly focused on developer tools and security.
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-[15px] font-medium text-gray-900 dark:text-gray-100 mb-2">
-                Reading List
-              </h3>
-              <p className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
-                Currently reading books on cybersecurity, system design, and
-                sci-fi novels.
-              </p>
+      case "experience":
+        return (
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <ExperienceCard
+                title="Graduate Research Assistant"
+                company="Cloud Security Lab"
+                period="2022 - Present"
+                responsibilities={[
+                  "Lead research in cloud security and zero-trust architectures",
+                  "Developed novel intrusion detection systems using machine learning",
+                  "Published papers in top-tier security conferences"
+                ]}
+              />
+              <ExperienceCard
+                title="Teaching Assistant"
+                company="Computer Science Department"
+                period="2021 - 2022"
+                responsibilities={[
+                  "Taught advanced cybersecurity courses",
+                  "Mentored undergraduate research projects",
+                  "Developed practical lab exercises for security courses"
+                ]}
+              />
             </div>
           </div>
-        </div>
-      )}
-      </div>
+        );
 
-      {/* Footer */}
-      <div className="border-t border-gray-200 dark:border-gray-800">
-        <div className="py-6 text-center">
-          <p className="text-sm text-gray-400 dark:text-gray-500">
-            © 2025 Alicia Esquivel Morel
-          </p>
-        </div>
-      </div>
-    </div>
-  );
+      default:
+        return null;
+    }
+  };
+
+  return <div className="space-y-6">{renderContent()}</div>;
 };
 
 export default TabContent;
