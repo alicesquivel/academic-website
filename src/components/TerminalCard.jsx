@@ -68,19 +68,20 @@ const TerminalCard = () => {
             </div>
           }
         />
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="text-[#34d399]">$</span>
-            <span className="text-[#e2e8f0]">cat research_focus.txt</span>
-          </div>
-          <div className="pl-6 text-[#94a3b8]">
-            AI-driven security for cloud and edge computing environments.
-            Developing resilient network architectures and Zero Trust systems.
-          </div>
-        </div>
+        <Command
+          command="cat ./research_interests.txt"
+          output={
+            <div className="space-y-2 text-emerald-500 dark:text-emerald-400">
+              <p>• Zero-trust Architecture in Cloud Systems</p>
+              <p>• AI-driven Security Solutions</p>
+              <p>• Edge Computing Security</p>
+              <p>• Distributed Systems Resilience</p>
+            </div>
+          }
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TerminalCard
+export default TerminalCard;
