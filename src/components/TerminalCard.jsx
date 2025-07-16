@@ -1,11 +1,21 @@
-import React from 'react';
-import { Terminal, Database, Shield, Cloud, Network, FileCode, BrainCircuit } from 'lucide-react';
+import React from "react";
+import {
+  Terminal,
+  Database,
+  Shield,
+  Cloud,
+  Network,
+  FileCode,
+  BrainCircuit,
+} from "lucide-react";
 
 const Command = ({ command, output }) => (
   <div className="space-y-3">
     <div className="flex items-center gap-2">
       <span className="text-green-400 dark:text-green-500 font-bold">❯</span>
-      <span className="text-blue-500 dark:text-blue-400 font-semibold">{command}</span>
+      <span className="text-blue-500 dark:text-blue-400 font-semibold">
+        {command}
+      </span>
     </div>
     <div className="pl-6 text-zinc-600 dark:text-zinc-400 leading-loose">
       {output}
@@ -32,8 +42,13 @@ const TerminalCard = () => {
           command="whoami"
           output={
             <>
-              <p className="text-purple-500 dark:text-purple-400 mb-2">Alicia Esquivel</p>
-              <p className="text-zinc-600 dark:text-zinc-300">PhD Candidate specializing in cybersecurity and cloud computing research</p>
+              <p className="text-purple-500 dark:text-purple-400 mb-2">
+                Alicia Esquivel
+              </p>
+              <p className="text-zinc-600 dark:text-zinc-300">
+                PhD Candidate specializing in cybersecurity and cloud computing
+                research
+              </p>
             </>
           }
         />

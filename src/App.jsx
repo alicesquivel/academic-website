@@ -7,11 +7,11 @@ import ThemeToggle from "./components/ThemeToggle";
 import "./index.css";
 
 function App() {
-  const [activeTab, setActiveTab] = useState('about');
+  const [activeTab, setActiveTab] = useState("about");
 
   return (
-      <div className="min-h-screen flex flex-col bg-background text-foreground pb-16">
-        <main className="flex-1">
+    <div className="min-h-screen flex flex-col bg-background text-foreground pb-16">
+      <main className="flex-1">
         <div className="container max-w-4xl mx-auto px-4 py-12">
           <ProfileHeader />
         </div>

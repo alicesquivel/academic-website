@@ -1,5 +1,5 @@
-import { Github, Linkedin, Mail, Download, FileText } from 'lucide-react';
-import { Button } from './ui/Button';
+import { Github, Linkedin, Mail, Download, FileText } from "lucide-react";
+import { Button } from "./ui/Button";
 
 const IconLink = ({ href, icon: Icon, label }) => (
   <a
@@ -17,36 +17,36 @@ const ProfileHeader = () => {
   return (
     <div className="space-y-8 text-center md:text-left">
       <div className="space-y-4">
-        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-zinc-900/90 to-zinc-900 dark:from-white dark:to-white/80">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-foreground">
           Alicia Esquivel m
         </h1>
-        <p className="text-xl text-muted-foreground font-medium leading-relaxed">
+        <p className="text-base text-muted-foreground font-normal leading-relaxed">
           PhD Candidate • Cybersecurity and Cloud Computing
         </p>
         <div className="flex items-center gap-4 justify-center md:justify-start">
-          <IconLink 
+          <IconLink
             href="https://github.com/alicesquivel"
             icon={Github}
             label="GitHub"
           />
-          <IconLink 
+          <IconLink
             href="https://linkedin.com/in/your-linkedin"
             icon={Linkedin}
             label="LinkedIn"
           />
-          <IconLink 
+          <IconLink
             href="mailto:your.email@example.com"
             icon={Mail}
             label="Email"
           />
         </div>
       </div>
-      
+
       <div className="flex items-center gap-4 justify-center md:justify-start">
-        <Button 
-          variant="default" 
-          size="default" 
-          className="bg-blue-600 hover:bg-blue-700 text-white hover:scale-105 transition-transform" 
+        <Button
+          variant="default"
+          size="sm"
+          className="bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 text-white hover:scale-102 transition-transform"
           asChild
         >
           <a href="/resume.pdf" download="alicia-esquivel-resume.pdf">
@@ -54,10 +54,10 @@ const ProfileHeader = () => {
             Resume
           </a>
         </Button>
-        <Button 
-          variant="outline" 
-          size="default" 
-          className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:scale-105 transition-transform" 
+        <Button
+          variant="outline"
+          size="default"
+          className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:scale-105 transition-transform"
           asChild
         >
           <a href="/cv.pdf" download="alicia-esquivel-cv.pdf">

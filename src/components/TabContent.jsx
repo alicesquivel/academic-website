@@ -1,31 +1,38 @@
-import React from 'react';
-import TerminalCard from './TerminalCard';
-import ResearchGrid from './ResearchGrid';
+import React from "react";
+import TerminalCard from "./TerminalCard";
+import ResearchGrid from "./ResearchGrid";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="space-y-2">
-    <h4 className="font-medium">{title}</h4>
+    <h4 className="text-base font-medium text-zinc-900 dark:text-zinc-100">{title}</h4>
     <p className="text-sm text-muted-foreground">
       {venue}, {year}
     </p>
     {description && (
-      <p className="text-sm text-zinc-600 dark:text-zinc-400">{description}</p>
+      <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed">{description}</p>
     )}
   </div>
 );
 
-const ExperienceCard = ({ title, company, period, description, tags, responsibilities }) => (
+const ExperienceCard = ({
+  title,
+  company,
+  period,
+  description,
+  tags,
+  responsibilities,
+}) => (
   <div className="bg-card rounded-lg border shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
     <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
       <div>
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-primary font-medium mt-1">{company}</p>
+        <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">{title}</h3>
+        <p className="text-zinc-600 dark:text-zinc-400 font-medium mt-1">{company}</p>
       </div>
-      <span className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm font-medium">
+      <span className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-medium">
         {period}
       </span>
     </div>
-    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+    <p className="text-[15px] text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
       {description}
     </p>
     {responsibilities && (
@@ -40,7 +47,7 @@ const ExperienceCard = ({ title, company, period, description, tags, responsibil
         {tags.map((tag) => (
           <span
             key={tag}
-            className="px-2 py-1 bg-muted/50 rounded-md text-xs font-medium text-foreground"
+            className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 rounded-md text-xs font-medium text-zinc-600 dark:text-zinc-400"
           >
             {tag}
           </span>
@@ -52,24 +59,39 @@ const ExperienceCard = ({ title, company, period, description, tags, responsibil
 
 const TabContent = ({ activeTab }) => {
   return (
-    <div className="py-8 max-w-4xl mx-auto">
-      {activeTab === 'about' && (
-        <div className="space-y-12">
+    <div className="py-6 max-w-4xl mx-auto">
+      {activeTab === "about" && (
+        <div className="space-y-8">
           <div className="max-w-2xl mx-auto prose prose-zinc dark:prose-invert">
-            <p className="text-lg leading-relaxed">
+            <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
               I am a motivated PhD candidate specializing in{" "}
-              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">cloud/edge computing</span> and{" "}
-              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">cybersecurity</span>. 
-              With a proven ability to lead research, publish papers, and teach core computer science courses, 
-              I am seeking a research or faculty role to apply my expertise in cybersecurity and resilient 
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+                cloud/edge computing
+              </span>{" "}
+              and{" "}
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+                cybersecurity
+              </span>
+              . With a proven ability to lead research, publish papers, and
+              teach core computer science courses, I am seeking a research or
+              faculty role to apply my expertise in cybersecurity and resilient
               network design for autonomous systems.
             </p>
-            <p className="text-lg leading-relaxed tracking-normal">
+            <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
               I am passionate about leveraging{" "}
-              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">advanced networking</span>,{" "}
-              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">AI</span>, and{" "}
-              <span className="bg-blue-50 text-blue-600 px-1.5 rounded-sm">testbed-driven validation</span>{" "}
-              in cloud and edge environments to create more secure and resilient systems for the future.
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+                advanced networking
+              </span>
+              ,{" "}
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+                AI
+              </span>
+              , and{" "}
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 px-1.5 rounded-sm">
+                testbed-driven validation
+              </span>{" "}
+              in cloud and edge environments to create more secure and resilient
+              systems for the future.
             </p>
           </div>
           <div className="mt-12 max-w-2xl mx-auto">
@@ -78,14 +100,17 @@ const TabContent = ({ activeTab }) => {
         </div>
       )}
 
-      {activeTab === 'research' && (
+      {activeTab === "research" && (
         <div className="space-y-12">
           <div className="prose prose-zinc dark:prose-invert max-w-none">
-            <h2 className="text-2xl font-semibold tracking-tight mb-4">Current Research</h2>
+            <h2 className="text-2xl font-semibold tracking-tight mb-4">
+              Current Research
+            </h2>
             <p className="text-lg leading-relaxed">
-              My research focuses on developing secure and scalable cloud computing systems,
-              with an emphasis on zero-trust architectures and AI-driven security solutions.
-              I work at the intersection of cloud computing, cybersecurity, and artificial intelligence,
+              My research focuses on developing secure and scalable cloud
+              computing systems, with an emphasis on zero-trust architectures
+              and AI-driven security solutions. I work at the intersection of
+              cloud computing, cybersecurity, and artificial intelligence,
               developing novel approaches to protect modern distributed systems.
             </p>
           </div>
@@ -101,30 +126,35 @@ const TabContent = ({ activeTab }) => {
                   company="Security Innovation Lab"
                   period="2023 - Present"
                   description="Leading research initiatives in cloud security, focusing on developing novel approaches to protect distributed systems. Key projects include implementing Zero Trust Architecture in cloud environments and developing AI-driven security monitoring systems."
-                  tags={['Zero Trust', 'Cloud Security', 'AI Systems']}
+                  tags={["Zero Trust", "Cloud Security", "AI Systems"]}
                 />
               </div>
             </div>
 
             <div className="pt-8">
-              <h3 className="text-xl font-semibold mb-6">Additional Research</h3>
+              <h3 className="text-xl font-semibold mb-6">
+                Additional Research
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Developing advanced intrusion detection systems using federated learning
+                    Developing advanced intrusion detection systems using
+                    federated learning
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Investigating resilient network architectures for autonomous systems
+                    Investigating resilient network architectures for autonomous
+                    systems
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="h-2 w-2 rounded-full bg-primary mt-2"></span>
                   <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                    Researching secure edge computing frameworks for IoT environments
+                    Researching secure edge computing frameworks for IoT
+                    environments
                   </p>
                 </div>
               </div>
@@ -133,9 +163,11 @@ const TabContent = ({ activeTab }) => {
         </div>
       )}
 
-      {activeTab === 'publications' && (
+      {activeTab === "publications" && (
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">Selected Publications</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Selected Publications
+          </h2>
           <div className="space-y-8 divide-y divide-zinc-200 dark:divide-zinc-800">
             <div className="space-y-6">
               <h3 className="text-lg font-semibold">Conference Papers</h3>
@@ -158,9 +190,11 @@ const TabContent = ({ activeTab }) => {
         </div>
       )}
 
-      {activeTab === 'experience' && (
+      {activeTab === "experience" && (
         <div className="space-y-8">
-          <h2 className="text-2xl font-semibold tracking-tight">Professional Experience</h2>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Professional Experience
+          </h2>
           <div className="space-y-6">
             <ExperienceCard
               title="Graduate Research Assistant"
@@ -169,7 +203,7 @@ const TabContent = ({ activeTab }) => {
               responsibilities={[
                 "Lead research in cloud security and zero-trust architectures",
                 "Developed novel intrusion detection systems using machine learning",
-                "Published papers in top-tier security conferences"
+                "Published papers in top-tier security conferences",
               ]}
             />
 
@@ -180,7 +214,7 @@ const TabContent = ({ activeTab }) => {
               responsibilities={[
                 "Taught advanced cybersecurity courses",
                 "Mentored undergraduate research projects",
-                "Developed practical lab exercises for security courses"
+                "Developed practical lab exercises for security courses",
               ]}
             />
           </div>
