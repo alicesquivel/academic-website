@@ -366,6 +366,15 @@ const TabContent = ({ activeTab, setActiveTab }) => {
         </div>
       )}
       </div>
+
+      {/* Footer */}
+      <div className="border-t border-gray-200 dark:border-gray-800">
+        <div className="py-6 text-center">
+          <p className="text-sm text-gray-400 dark:text-gray-500">
+            © 2025 Alicia Esquivel Morel
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
