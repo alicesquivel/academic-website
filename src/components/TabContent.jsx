@@ -1,6 +1,7 @@
 import React from "react";
 import TerminalCard from "./TerminalCard";
 import ResearchGrid from "./ResearchGrid";
+import Terminal from "./Terminal";
 import { Book, FileText, GraduationCap } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
@@ -64,6 +65,13 @@ const TabContent = ({ activeTab }) => {
                 <span className="text-blue-600 dark:text-blue-400 font-medium">cybersecurity</span>.
                 My research focuses on developing secure and scalable distributed systems.
               </p>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                Interactive Terminal
+              </h3>
+              <Terminal />
             </div>
 
             <div className="mt-8">
