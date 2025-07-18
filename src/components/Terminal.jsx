@@ -352,6 +352,12 @@ const COMMANDS = {
         // Show new prompt
         writePrompt();
         resetInputState();
+        // Ensure terminal is properly fitted after restart
+        setTimeout(() => {
+          if (typeof safeFit === 'function') {
+            safeFit();
+          }
+        }, 100);
       }, 1000);
     },
   },
@@ -392,6 +398,12 @@ export default function Terminal() {
   useEffect(() => {
     // Ensure monospace fonts are loaded
     ensureMonospaceFont();
+
+    // Wait for the DOM element to be available
+    if (!terminalRef.current) {
+      console.warn('Terminal container not available');
+      return;
+    }
 
     // Initialize xterm.js
     const term = new XTerm({
@@ -504,36 +516,43 @@ export default function Terminal() {
       }
     };
 
-    // Welcome message
-    term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
-    term.writeln(
-      "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
-    );
-    term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
-    term.writeln("");
-    term.writeln(
-      "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
-    );
-    term.writeln(
-      "\x1b[1;36m* Use Tab for autocompletion, up/down for history\x1b[0m"
-    );
-    term.writeln(
-      "\x1b[1;36m* Use left/right arrows to navigate within the line\x1b[0m"
-    );
-    term.writeln(
-      "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
-    );
-    term.writeln(
-      "\x1b[1;36m* Use \x1b[1;33mprompt [symbol]\x1b[1;36m to customize your prompt\x1b[0m"
-    );
-    term.writeln("");
-    writePrompt();
+    // Welcome message - only show after terminal is ready
+    const showWelcomeMessage = () => {
+      if (!term || !terminalRef.current) return;
+      
+      term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+      term.writeln(
+        "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
+      );
+      term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+      term.writeln("");
+      term.writeln(
+        "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
+      );
+      term.writeln(
+        "\x1b[1;36m* Use Tab for autocompletion, up/down for history\x1b[0m"
+      );
+      term.writeln(
+        "\x1b[1;36m* Use left/right arrows to navigate within the line\x1b[0m"
+      );
+      term.writeln(
+        "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
+      );
+      term.writeln(
+        "\x1b[1;36m* Use \x1b[1;33mprompt [symbol]\x1b[1;36m to customize your prompt\x1b[0m"
+      );
+      term.writeln("");
+      writePrompt();
 
-    // Initialize input state
-    resetInputState();
+      // Initialize input state
+      resetInputState();
 
-    // Focus the terminal
-    term.focus();
+      // Focus the terminal
+      term.focus();
+    };
+
+    // Show welcome message after terminal is fully initialized
+    setTimeout(showWelcomeMessage, 200);
 
     // Typing animation function
     const typeText = async (lines, delay = 50) => {
@@ -847,16 +866,40 @@ export default function Terminal() {
       }
     });
 
-    // Handle window resize
+    // Handle window resize with debouncing
+    let resizeTimeout;
     const handleResize = () => {
-      fitAddon.fit();
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        safeFit();
+      }, 100);
     };
+    
     window.addEventListener("resize", handleResize);
+
+    // Use ResizeObserver for more precise resize detection
+    let resizeObserver;
+    if (terminalRef.current && window.ResizeObserver) {
+      resizeObserver = new ResizeObserver((entries) => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          safeFit();
+        }, 100);
+      });
+      
+      resizeObserver.observe(terminalRef.current);
+    }
 
     // Cleanup
     return () => {
+      clearTimeout(resizeTimeout);
       window.removeEventListener("resize", handleResize);
-      term.dispose();
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+      if (term) {
+        term.dispose();
+      }
     };
   }, []);
 
