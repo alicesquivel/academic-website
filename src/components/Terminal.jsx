@@ -32,6 +32,24 @@ const ensureMonospaceFont = () => {
   document.head.appendChild(style);
 };
 
+// Command aliases mapping
+const COMMAND_ALIASES = {
+  cls: 'clear',
+  dir: 'help',
+  ls: 'help',
+  info: 'about',
+  whoami: 'about',
+  skills: 'skills',
+  resume: 'education',
+  cv: 'education',
+  papers: 'publications',
+  work: 'projects',
+  time: 'date',
+  reboot: 'restart',
+  exit: 'restart',
+  quit: 'restart'
+};
+
 const COMMANDS = {
   help: {
     description: "Show available commands",
@@ -46,6 +64,10 @@ const COMMANDS = {
           }\x1b[0m`
         );
       });
+      term.writeln("");
+      term.writeln("\x1b[1;35m* Command Aliases:\x1b[0m");
+      term.writeln("  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about");
+      term.writeln("  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications");
       term.writeln("");
       term.writeln(
         "\x1b[1;32mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
@@ -63,6 +85,8 @@ const COMMANDS = {
         term.writeln("  - Line navigation with arrow keys");
         term.writeln("  - Ctrl+A/E for line start/end");
         term.writeln("  - Enhanced character support");
+        term.writeln("  - Typing animations for select commands");
+        term.writeln("  - Customizable prompt symbol");
       }
     },
   },
@@ -79,31 +103,36 @@ const COMMANDS = {
   },
   about: {
     description: "Display information about me",
-    execute: (term, args, flags) => {
-      term.writeln("\x1b[1;34m+-------------------------------------+\x1b[0m");
-      term.writeln(
-        "\x1b[1;34m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;34m|\x1b[0m"
-      );
-      term.writeln("\x1b[1;34m+-------------------------------------+\x1b[0m");
-      term.writeln("");
-      term.writeln("\x1b[1;35m* PhD Candidate in Computer Science\x1b[0m");
-      term.writeln(
-        "\x1b[1;35m* Specializing in Cloud Computing & Cybersecurity\x1b[0m"
-      );
-      term.writeln("");
-      term.writeln("\x1b[1;33m* Research Interests:\x1b[0m");
-      term.writeln("  - Cloud Security & Zero-Trust Architecture");
-      term.writeln("  - Edge Computing & Resource Optimization");
-      term.writeln("  - AI Security & Machine Learning");
-      term.writeln("  - Distributed Systems & Protocols");
+    execute: async (term, args, flags, typeText) => {
+      const lines = [
+        "\x1b[1;34m+-------------------------------------+\x1b[0m",
+        "\x1b[1;34m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;34m|\x1b[0m",
+        "\x1b[1;34m+-------------------------------------+\x1b[0m",
+        "",
+        "\x1b[1;35m* PhD Candidate in Computer Science\x1b[0m",
+        "\x1b[1;35m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
+        "",
+        "\x1b[1;33m* Research Interests:\x1b[0m",
+        "  - Cloud Security & Zero-Trust Architecture",
+        "  - Edge Computing & Resource Optimization",
+        "  - AI Security & Machine Learning",
+        "  - Distributed Systems & Protocols"
+      ];
 
       if (flags.includes("--full") || flags.includes("-f")) {
-        term.writeln("");
-        term.writeln("\x1b[1;33m* Additional Information:\x1b[0m");
-        term.writeln("  - 5+ years of research experience");
-        term.writeln("  - Published in top-tier conferences");
-        term.writeln("  - Active in open-source community");
-        term.writeln("  - Mentor for undergraduate students");
+        lines.push("");
+        lines.push("\x1b[1;33m* Additional Information:\x1b[0m");
+        lines.push("  - 5+ years of research experience");
+        lines.push("  - Published in top-tier conferences");
+        lines.push("  - Active in open-source community");
+        lines.push("  - Mentor for undergraduate students");
+      }
+
+      // Use typing animation for about command
+      if (typeText) {
+        await typeText(lines, 30); // 30ms delay between characters
+      } else {
+        lines.forEach(line => term.writeln(line));
       }
     },
   },
@@ -225,7 +254,7 @@ const COMMANDS = {
   },
   joke: {
     description: "Tell a computer science joke",
-    execute: (term) => {
+    execute: async (term, args, flags, typeText) => {
       const jokes = [
         "Why do programmers prefer dark mode? Because light attracts bugs!",
         "There are only 10 types of people: those who understand binary and those who don't!",
@@ -234,9 +263,19 @@ const COMMANDS = {
         "Why do Java developers wear glasses? Because they can't C#!",
       ];
       const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-      term.writeln("\x1b[1;33m* Here's a joke for you:\x1b[0m");
-      term.writeln("");
-      term.writeln(`\x1b[1;37m${randomJoke}\x1b[0m`);
+      
+      const lines = [
+        "\x1b[1;33m* Here's a joke for you:\x1b[0m",
+        "",
+        `\x1b[1;37m${randomJoke}\x1b[0m`
+      ];
+
+      // Use typing animation for jokes
+      if (typeText) {
+        await typeText(lines, 50); // 50ms delay for comedic effect
+      } else {
+        lines.forEach(line => term.writeln(line));
+      }
     },
   },
   weather: {
@@ -280,6 +319,62 @@ const COMMANDS = {
       );
     },
   },
+  restart: {
+    description: "Restart the terminal",
+    execute: async (term, args, flags, typeText) => {
+      const restartLines = [
+        "\x1b[1;33m* Restarting terminal...\x1b[0m",
+        "\x1b[1;36m* Shutting down services...\x1b[0m",
+        "\x1b[1;36m* Clearing memory...\x1b[0m",
+        "\x1b[1;36m* Reinitializing...\x1b[0m",
+        "\x1b[1;32m* Terminal restarted successfully!\x1b[0m"
+      ];
+
+      // Use typing animation for restart
+      if (typeText) {
+        await typeText(restartLines, 100); // 100ms delay for dramatic effect
+      } else {
+        restartLines.forEach(line => term.writeln(line));
+      }
+
+      // Clear the terminal after animation
+      setTimeout(() => {
+        term.clear();
+        // Re-display welcome message
+        term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+        term.writeln(
+          "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
+        );
+        term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+        term.writeln("");
+        term.writeln("\x1b[1;32m* Terminal restarted successfully!\x1b[0m");
+        term.writeln("");
+        // Show new prompt
+        writePrompt();
+        resetInputState();
+      }, 1000);
+    },
+  },
+  prompt: {
+    description: "Change the prompt symbol",
+    execute: (term, args, flags, typeText, setPromptSymbol) => {
+      if (args.length === 0) {
+        term.writeln("\x1b[1;33m* Current prompt symbols:\x1b[0m");
+        term.writeln("  $ (default)    > (classic)    % (zsh-style)");
+        term.writeln("  # (root-style) λ (lambda)     ❯ (modern)");
+        term.writeln("");
+        term.writeln("\x1b[1;32mUsage:\x1b[0m prompt [symbol]");
+        term.writeln("\x1b[1;32mExample:\x1b[0m prompt $");
+        return;
+      }
+
+      const newSymbol = args[0];
+      if (setPromptSymbol) {
+        setPromptSymbol(newSymbol);
+        term.writeln(`\x1b[1;32m* Prompt symbol changed to: ${newSymbol}\x1b[0m`);
+      }
+    },
+  },
 };
 
 export default function Terminal() {
@@ -287,11 +382,12 @@ export default function Terminal() {
   const xtermRef = useRef(null);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [currentInput, setCurrentInput] = useState("");
-  const [inputStartPosition, setInputStartPosition] = useState(0);
-  const [cursorPosition, setCursorPosition] = useState(0); // Position within current input
   const [promptSymbol, setPromptSymbol] = useState("$"); // Customizable prompt symbol
   const [isTyping, setIsTyping] = useState(false); // Track typing animation state
+  
+  // Local synchronous input buffer (not React state)
+  let inputBuffer = "";
+  let cursorPosition = 0;
 
   useEffect(() => {
     // Ensure monospace fonts are loaded
@@ -331,15 +427,82 @@ export default function Terminal() {
     term.loadAddon(new WebLinksAddon());
 
     // Attach terminal to DOM
-    term.open(terminalRef.current);
-
-    // Wait for font to load before fitting
-    setTimeout(() => {
-      fitAddon.fit();
-    }, 100);
+    if (terminalRef.current) {
+      term.open(terminalRef.current);
+    }
 
     // Store reference to terminal
     xtermRef.current = term;
+
+    // Safe fit function with validation
+    const safeFit = () => {
+      if (!term || !terminalRef.current) return;
+      
+      // Check if terminal is visible and has dimensions
+      const rect = terminalRef.current.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) {
+        // Terminal not visible yet, retry after a delay
+        setTimeout(safeFit, 100);
+        return;
+      }
+      
+      try {
+        fitAddon.fit();
+      } catch (error) {
+        console.warn('Terminal fit failed:', error);
+        // Retry once more after a delay
+        setTimeout(() => {
+          try {
+            fitAddon.fit();
+          } catch (retryError) {
+            console.warn('Terminal fit retry failed:', retryError);
+          }
+        }, 200);
+      }
+    };
+
+    // Wait for DOM to be ready and fonts to load before fitting
+    const initializeTerminal = async () => {
+      // Wait for next tick to ensure DOM is ready
+      await new Promise(resolve => setTimeout(resolve, 0));
+      
+      // Wait for fonts to load
+      if (document.fonts && document.fonts.ready) {
+        await document.fonts.ready;
+      }
+      
+      // Additional delay to ensure layout is complete
+      setTimeout(safeFit, 150);
+    };
+
+    initializeTerminal();
+
+    // Helper function to write prompt
+    const writePrompt = () => {
+      term.write(`\x1b[1;32m${promptSymbol}\x1b[0m `);
+    };
+
+    // Helper function to reset cursor and input state
+    const resetInputState = () => {
+      inputBuffer = "";
+      cursorPosition = 0;
+    };
+
+    // Helper function to update cursor position in terminal
+    const updateTerminalCursor = () => {
+      if (!term.buffer || !term.buffer.active) return;
+      
+      const promptLength = promptSymbol.length + 1; // +1 for space after prompt
+      const targetCol = promptLength + cursorPosition;
+      const currentCol = term.buffer.active.cursorX;
+      const diff = targetCol - currentCol;
+
+      if (diff > 0) {
+        term.write("\x1b[C".repeat(diff)); // Move cursor right
+      } else if (diff < 0) {
+        term.write("\x1b[D".repeat(-diff)); // Move cursor left
+      }
+    };
 
     // Welcome message
     term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
@@ -360,29 +523,64 @@ export default function Terminal() {
     term.writeln(
       "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
     );
+    term.writeln(
+      "\x1b[1;36m* Use \x1b[1;33mprompt [symbol]\x1b[1;36m to customize your prompt\x1b[0m"
+    );
     term.writeln("");
-    term.write("\x1b[1;32m>\x1b[0m ");
+    writePrompt();
 
     // Initialize input state
-    setInputStartPosition(term.buffer.active.cursorX);
-    setCursorPosition(0);
+    resetInputState();
 
     // Focus the terminal
     term.focus();
 
+    // Typing animation function
+    const typeText = async (lines, delay = 50) => {
+      setIsTyping(true);
+      
+      for (const line of lines) {
+        if (line === "") {
+          term.writeln("");
+          await new Promise(resolve => setTimeout(resolve, delay * 2));
+          continue;
+        }
+        
+        // Type each character with delay
+        for (let i = 0; i < line.length; i++) {
+          term.write(line[i]);
+          await new Promise(resolve => setTimeout(resolve, delay));
+        }
+        term.writeln("");
+        await new Promise(resolve => setTimeout(resolve, delay * 3));
+      }
+      
+      setIsTyping(false);
+    };
+
     // Process commands with improved parsing
-    const processCommand = (input) => {
+    const processCommand = async (input) => {
       const trimmedInput = input.trim();
       if (trimmedInput === "") return;
 
       // Parse command with arguments and flags
       const parts = trimmedInput.split(/\s+/);
-      const command = parts[0].toLowerCase();
+      let command = parts[0].toLowerCase();
       const args = parts.slice(1);
+
+      // Check for command aliases
+      if (COMMAND_ALIASES[command]) {
+        command = COMMAND_ALIASES[command];
+      }
 
       // Separate flags from regular arguments
       const flags = args.filter((arg) => arg.startsWith("-"));
       const regularArgs = args.filter((arg) => !arg.startsWith("-"));
+
+      // Debug logging for flags (optional)
+      if (flags.length > 0) {
+        console.log(`Command: ${command}, Flags: ${flags.join(', ')}, Args: ${regularArgs.join(', ')}`);
+      }
 
       // Add to command history
       setCommandHistory((prev) => [...prev, trimmedInput]);
@@ -392,7 +590,14 @@ export default function Terminal() {
       const cmd = COMMANDS[command];
       if (cmd) {
         term.writeln(""); // Add spacing before command output
-        cmd.execute(term, regularArgs, flags);
+        
+        // Check if command supports typing animation
+        if (cmd.execute.constructor.name === 'AsyncFunction') {
+          await cmd.execute(term, regularArgs, flags, typeText, setPromptSymbol);
+        } else {
+          cmd.execute(term, regularArgs, flags, typeText, setPromptSymbol);
+        }
+        
         term.writeln(""); // Add spacing after command output
       } else if (command) {
         term.writeln("");
@@ -406,6 +611,10 @@ export default function Terminal() {
         term.writeln("");
       }
 
+      // Show new prompt after command execution
+      writePrompt();
+      resetInputState();
+
       // Auto-scroll to bottom and focus cursor
       setTimeout(() => {
         term.scrollToBottom();
@@ -413,113 +622,88 @@ export default function Terminal() {
       }, 10);
     };
 
-    // Helper function to reset cursor and input state
-    const resetInputState = () => {
-      setCurrentInput("");
-      setCursorPosition(0);
-      setInputStartPosition(term.buffer.active.cursorX);
-    };
-
-    // Helper function to update cursor position in terminal
-    const updateTerminalCursor = () => {
-      const targetCol = inputStartPosition + cursorPosition;
-      const currentCol = term.buffer.active.cursorX;
-      const diff = targetCol - currentCol;
-
-      if (diff > 0) {
-        term.write("\x1b[C".repeat(diff)); // Move cursor right
-      } else if (diff < 0) {
-        term.write("\x1b[D".repeat(-diff)); // Move cursor left
-      }
-    };
-
-    // Handle user input
+    // Handle user input with synchronous buffer
     term.onKey(({ key, domEvent }) => {
+      // Don't process input during typing animation
+      if (isTyping) return;
+      
       // Prevent default for all special keys
       if (
-        ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+        ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", "Backspace", "Delete"].includes(
           domEvent.key
         )
       ) {
         domEvent.preventDefault();
       }
 
-      // Handle special keys first
+      // Handle Enter key
       if (domEvent.key === "Enter") {
-        const input = currentInput;
         term.writeln("");
-        if (input.trim()) {
-          processCommand(input);
+        if (inputBuffer.trim()) {
+          processCommand(inputBuffer.trim());
+        } else {
+          writePrompt();
+          resetInputState();
         }
-        term.write("\x1b[1;32m>\x1b[0m ");
-        resetInputState();
         return;
       }
 
+      // Handle Backspace
       if (domEvent.key === "Backspace") {
         if (cursorPosition > 0) {
-          // Remove character at cursor position
-          const newInput =
-            currentInput.slice(0, cursorPosition - 1) +
-            currentInput.slice(cursorPosition);
-          setCurrentInput(newInput);
-          setCursorPosition((prev) => prev - 1);
+          // Remove character from buffer
+          inputBuffer = inputBuffer.slice(0, cursorPosition - 1) + inputBuffer.slice(cursorPosition);
+          cursorPosition--;
 
           // Update terminal display
           term.write("\b \b");
-          if (cursorPosition < currentInput.length) {
+          if (cursorPosition < inputBuffer.length) {
             // Redraw rest of line if cursor is not at end
-            term.write(currentInput.slice(cursorPosition));
-            term.write(" \b".repeat(currentInput.length - cursorPosition + 1));
+            term.write(inputBuffer.slice(cursorPosition));
+            term.write(" \b".repeat(inputBuffer.length - cursorPosition + 1));
           }
         }
         return;
       }
 
+      // Handle Delete
       if (domEvent.key === "Delete") {
-        if (cursorPosition < currentInput.length) {
-          // Remove character after cursor position
-          const newInput =
-            currentInput.slice(0, cursorPosition) +
-            currentInput.slice(cursorPosition + 1);
-          setCurrentInput(newInput);
+        if (cursorPosition < inputBuffer.length) {
+          // Remove character after cursor
+          inputBuffer = inputBuffer.slice(0, cursorPosition) + inputBuffer.slice(cursorPosition + 1);
 
           // Update terminal display
-          term.write(currentInput.slice(cursorPosition + 1) + " ");
-          term.write("\b".repeat(currentInput.length - cursorPosition));
+          term.write(inputBuffer.slice(cursorPosition) + " ");
+          term.write("\b".repeat(inputBuffer.length - cursorPosition + 1));
         }
         return;
       }
 
+      // Handle Tab for autocompletion
       if (domEvent.key === "Tab") {
-        const partial = currentInput.toLowerCase();
-        const matches = Object.keys(COMMANDS).filter((cmd) =>
-          cmd.startsWith(partial)
-        );
+        const partial = inputBuffer.toLowerCase();
+        // Include aliases in autocomplete
+        const allCommands = [...Object.keys(COMMANDS), ...Object.keys(COMMAND_ALIASES)];
+        const matches = allCommands.filter((cmd) => cmd.startsWith(partial));
 
         if (matches.length === 1) {
           // Clear current input
-          term.write(
-            "\b".repeat(cursorPosition) +
-              " ".repeat(currentInput.length) +
-              "\b".repeat(currentInput.length)
-          );
-
+          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
+          
           // Write completion
           term.write(matches[0]);
-          setCurrentInput(matches[0]);
-          setCursorPosition(matches[0].length);
+          inputBuffer = matches[0];
+          cursorPosition = matches[0].length;
         } else if (matches.length > 1) {
           term.writeln("");
           term.writeln("\x1b[1;36m* Available completions:\x1b[0m");
-          term.writeln(
-            matches.map((cmd) => `\x1b[1;33m${cmd}\x1b[0m`).join("  ")
-          );
-          term.write("\x1b[1;32m>\x1b[0m " + currentInput);
+          term.writeln(matches.map((cmd) => `\x1b[1;33m${cmd}\x1b[0m`).join("  "));
+          writePrompt();
+          term.write(inputBuffer);
           updateTerminalCursor();
         } else if (partial && matches.length === 0) {
-          // No matches found
-          term.write("\x1b[31m\x07\x1b[0m"); // Bell sound + red color
+          // No matches found - bell sound
+          term.write("\x07");
         }
         return;
       }
@@ -527,15 +711,15 @@ export default function Terminal() {
       // Arrow key navigation within current line
       if (domEvent.key === "ArrowLeft") {
         if (cursorPosition > 0) {
-          setCursorPosition((prev) => prev - 1);
+          cursorPosition--;
           term.write("\x1b[D"); // Move cursor left
         }
         return;
       }
 
       if (domEvent.key === "ArrowRight") {
-        if (cursorPosition < currentInput.length) {
-          setCursorPosition((prev) => prev + 1);
+        if (cursorPosition < inputBuffer.length) {
+          cursorPosition++;
           term.write("\x1b[C"); // Move cursor right
         }
         return;
@@ -548,16 +732,12 @@ export default function Terminal() {
           const command = commandHistory[commandHistory.length - 1 - newIndex];
 
           // Clear current input
-          term.write(
-            "\b".repeat(cursorPosition) +
-              " ".repeat(currentInput.length) +
-              "\b".repeat(currentInput.length)
-          );
+          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
 
           // Write historical command
           term.write(command);
-          setCurrentInput(command);
-          setCursorPosition(command.length);
+          inputBuffer = command;
+          cursorPosition = command.length;
           setHistoryIndex(newIndex);
         }
         return;
@@ -569,26 +749,18 @@ export default function Terminal() {
           const command = commandHistory[commandHistory.length - 1 - newIndex];
 
           // Clear current input
-          term.write(
-            "\b".repeat(cursorPosition) +
-              " ".repeat(currentInput.length) +
-              "\b".repeat(currentInput.length)
-          );
+          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
 
           // Write historical command
           term.write(command);
-          setCurrentInput(command);
-          setCursorPosition(command.length);
+          inputBuffer = command;
+          cursorPosition = command.length;
           setHistoryIndex(newIndex);
         } else if (historyIndex === 0) {
           // Clear input when reaching the end of history
-          term.write(
-            "\b".repeat(cursorPosition) +
-              " ".repeat(currentInput.length) +
-              "\b".repeat(currentInput.length)
-          );
-          setCurrentInput("");
-          setCursorPosition(0);
+          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
+          inputBuffer = "";
+          cursorPosition = 0;
           setHistoryIndex(-1);
         }
         return;
@@ -598,16 +770,16 @@ export default function Terminal() {
       if (domEvent.key === "Home") {
         if (cursorPosition > 0) {
           term.write("\x1b[D".repeat(cursorPosition)); // Move cursor to start
-          setCursorPosition(0);
+          cursorPosition = 0;
         }
         return;
       }
 
       // Handle End key
       if (domEvent.key === "End") {
-        if (cursorPosition < currentInput.length) {
-          term.write("\x1b[C".repeat(currentInput.length - cursorPosition)); // Move cursor to end
-          setCursorPosition(currentInput.length);
+        if (cursorPosition < inputBuffer.length) {
+          term.write("\x1b[C".repeat(inputBuffer.length - cursorPosition)); // Move cursor to end
+          cursorPosition = inputBuffer.length;
         }
         return;
       }
@@ -616,20 +788,17 @@ export default function Terminal() {
       if (domEvent.key === "c" && domEvent.ctrlKey) {
         term.writeln("");
         term.writeln("\x1b[1;31m^C\x1b[0m");
-        term.write("\x1b[1;32m>\x1b[0m ");
+        writePrompt();
         resetInputState();
-        // Force focus back to terminal
         setTimeout(() => term.focus(), 10);
         return;
       }
 
-      // Handle Ctrl+L - Force clear and reset
+      // Handle Ctrl+L - Clear screen
       if (domEvent.key === "l" && domEvent.ctrlKey) {
         term.clear();
-        term.writeln("\x1b[1;32m* Terminal cleared (Ctrl+L)\x1b[0m");
-        term.write("\x1b[1;32m>\x1b[0m ");
+        writePrompt();
         resetInputState();
-        // Force focus back to terminal
         setTimeout(() => term.focus(), 10);
         return;
       }
@@ -638,21 +807,21 @@ export default function Terminal() {
       if (domEvent.key === "a" && domEvent.ctrlKey) {
         if (cursorPosition > 0) {
           term.write("\x1b[D".repeat(cursorPosition));
-          setCursorPosition(0);
+          cursorPosition = 0;
         }
         return;
       }
 
       // Handle Ctrl+E (go to end of line)
       if (domEvent.key === "e" && domEvent.ctrlKey) {
-        if (cursorPosition < currentInput.length) {
-          term.write("\x1b[C".repeat(currentInput.length - cursorPosition));
-          setCursorPosition(currentInput.length);
+        if (cursorPosition < inputBuffer.length) {
+          term.write("\x1b[C".repeat(inputBuffer.length - cursorPosition));
+          cursorPosition = inputBuffer.length;
         }
         return;
       }
 
-      // Handle regular character input - IMPROVED CHARACTER SUPPORT
+      // Handle regular character input
       if (
         domEvent.key.length === 1 &&
         !domEvent.ctrlKey &&
@@ -661,24 +830,20 @@ export default function Terminal() {
       ) {
         const char = domEvent.key;
 
-        // Insert character at cursor position
-        const newInput =
-          currentInput.slice(0, cursorPosition) +
-          char +
-          currentInput.slice(cursorPosition);
-        setCurrentInput(newInput);
+        // Insert character at cursor position in buffer
+        inputBuffer = inputBuffer.slice(0, cursorPosition) + char + inputBuffer.slice(cursorPosition);
 
         // Update terminal display
-        if (cursorPosition === currentInput.length) {
+        if (cursorPosition === inputBuffer.length - 1) {
           // Cursor at end, just append
           term.write(char);
         } else {
           // Cursor in middle, insert and redraw
-          term.write(char + currentInput.slice(cursorPosition));
-          term.write("\b".repeat(currentInput.length - cursorPosition));
+          term.write(char + inputBuffer.slice(cursorPosition + 1));
+          term.write("\b".repeat(inputBuffer.length - cursorPosition - 1));
         }
 
-        setCursorPosition((prev) => prev + 1);
+        cursorPosition++;
       }
     });
 
@@ -736,7 +901,7 @@ export default function Terminal() {
           className="bg-black/80 text-white text-xs px-2 py-1 rounded"
           style={{ fontFamily: "monospace" }}
         >
-          Press Tab for completion • Arrow keys to navigate
+          Press Tab for completion • Arrow keys to navigate • Try aliases like 'cls' or 'whoami'
         </div>
       </div>
     </div>
