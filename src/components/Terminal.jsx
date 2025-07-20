@@ -34,20 +34,20 @@ const ensureMonospaceFont = () => {
 
 // Command aliases mapping
 const COMMAND_ALIASES = {
-  cls: 'clear',
-  dir: 'help',
-  ls: 'help',
-  info: 'about',
-  whoami: 'about',
-  skills: 'skills',
-  resume: 'education',
-  cv: 'education',
-  papers: 'publications',
-  work: 'projects',
-  time: 'date',
-  reboot: 'restart',
-  exit: 'restart',
-  quit: 'restart'
+  cls: "clear",
+  dir: "help",
+  ls: "help",
+  info: "about",
+  whoami: "about",
+  skills: "skills",
+  resume: "education",
+  cv: "education",
+  papers: "publications",
+  work: "projects",
+  time: "date",
+  reboot: "restart",
+  exit: "restart",
+  quit: "restart",
 };
 
 const COMMANDS = {
@@ -66,8 +66,12 @@ const COMMANDS = {
       });
       term.writeln("");
       term.writeln("\x1b[1;35m* Command Aliases:\x1b[0m");
-      term.writeln("  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about");
-      term.writeln("  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications");
+      term.writeln(
+        "  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about"
+      );
+      term.writeln(
+        "  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications"
+      );
       term.writeln("");
       term.writeln(
         "\x1b[1;32mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
@@ -116,7 +120,7 @@ const COMMANDS = {
         "  - Cloud Security & Zero-Trust Architecture",
         "  - Edge Computing & Resource Optimization",
         "  - AI Security & Machine Learning",
-        "  - Distributed Systems & Protocols"
+        "  - Distributed Systems & Protocols",
       ];
 
       if (flags.includes("--full") || flags.includes("-f")) {
@@ -132,7 +136,7 @@ const COMMANDS = {
       if (typeText) {
         await typeText(lines, 30); // 30ms delay between characters
       } else {
-        lines.forEach(line => term.writeln(line));
+        lines.forEach((line) => term.writeln(line));
       }
     },
   },
@@ -263,18 +267,18 @@ const COMMANDS = {
         "Why do Java developers wear glasses? Because they can't C#!",
       ];
       const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-      
+
       const lines = [
         "\x1b[1;33m* Here's a joke for you:\x1b[0m",
         "",
-        `\x1b[1;37m${randomJoke}\x1b[0m`
+        `\x1b[1;37m${randomJoke}\x1b[0m`,
       ];
 
       // Use typing animation for jokes
       if (typeText) {
         await typeText(lines, 50); // 50ms delay for comedic effect
       } else {
-        lines.forEach(line => term.writeln(line));
+        lines.forEach((line) => term.writeln(line));
       }
     },
   },
@@ -327,25 +331,29 @@ const COMMANDS = {
         "\x1b[1;36m* Shutting down services...\x1b[0m",
         "\x1b[1;36m* Clearing memory...\x1b[0m",
         "\x1b[1;36m* Reinitializing...\x1b[0m",
-        "\x1b[1;32m* Terminal restarted successfully!\x1b[0m"
+        "\x1b[1;32m* Terminal restarted successfully!\x1b[0m",
       ];
 
       // Use typing animation for restart
       if (typeText) {
         await typeText(restartLines, 100); // 100ms delay for dramatic effect
       } else {
-        restartLines.forEach(line => term.writeln(line));
+        restartLines.forEach((line) => term.writeln(line));
       }
 
       // Clear the terminal after animation
       setTimeout(() => {
         term.clear();
         // Re-display welcome message
-        term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+        term.writeln(
+          "\x1b[1;34m+--------------------------------------+\x1b[0m"
+        );
         term.writeln(
           "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
         );
-        term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+        term.writeln(
+          "\x1b[1;34m+--------------------------------------+\x1b[0m"
+        );
         term.writeln("");
         term.writeln("\x1b[1;32m* Terminal restarted successfully!\x1b[0m");
         term.writeln("");
@@ -353,11 +361,7 @@ const COMMANDS = {
         writePrompt();
         resetInputState();
         // Ensure terminal is properly fitted after restart
-        setTimeout(() => {
-          if (typeof safeFit === 'function') {
-            safeFit();
-          }
-        }, 100);
+        setTimeout(safeFit, 150);
       }, 1000);
     },
   },
@@ -377,7 +381,9 @@ const COMMANDS = {
       const newSymbol = args[0];
       if (setPromptSymbol) {
         setPromptSymbol(newSymbol);
-        term.writeln(`\x1b[1;32m* Prompt symbol changed to: ${newSymbol}\x1b[0m`);
+        term.writeln(
+          `\x1b[1;32m* Prompt symbol changed to: ${newSymbol}\x1b[0m`
+        );
       }
     },
   },
@@ -390,7 +396,7 @@ export default function Terminal() {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [promptSymbol, setPromptSymbol] = useState("$"); // Customizable prompt symbol
   const [isTyping, setIsTyping] = useState(false); // Track typing animation state
-  
+
   // Local synchronous input buffer (not React state)
   let inputBuffer = "";
   let cursorPosition = 0;
@@ -401,7 +407,7 @@ export default function Terminal() {
 
     // Wait for the DOM element to be available
     if (!terminalRef.current) {
-      console.warn('Terminal container not available');
+      console.warn("Terminal container not available");
       return;
     }
 
@@ -446,10 +452,10 @@ export default function Terminal() {
     // Store reference to terminal
     xtermRef.current = term;
 
-    // Safe fit function with validation
+    // Safe fit function with validation and timing
     const safeFit = () => {
-      if (!term || !terminalRef.current) return;
-      
+      if (!term || !terminalRef.current || !fitAddon) return;
+
       // Check if terminal is visible and has dimensions
       const rect = terminalRef.current.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) {
@@ -457,34 +463,59 @@ export default function Terminal() {
         setTimeout(safeFit, 100);
         return;
       }
-      
+
+      // Additional check: ensure terminal has buffer and is properly initialized
+      if (!term.buffer || !term.buffer.active) {
+        setTimeout(safeFit, 50);
+        return;
+      }
+
       try {
-        fitAddon.fit();
-      } catch (error) {
-        console.warn('Terminal fit failed:', error);
-        // Retry once more after a delay
-        setTimeout(() => {
+        // Use requestAnimationFrame for smoother timing
+        requestAnimationFrame(() => {
           try {
             fitAddon.fit();
-          } catch (retryError) {
-            console.warn('Terminal fit retry failed:', retryError);
+          } catch (error) {
+            console.warn("Terminal fit failed:", error);
+            // Retry once more after a longer delay
+            setTimeout(() => {
+              try {
+                if (terminalRef.current?.getBoundingClientRect().width > 0) {
+                  fitAddon.fit();
+                }
+              } catch (retryError) {
+                console.warn("Terminal fit retry failed:", retryError);
+              }
+            }, 300);
           }
-        }, 200);
+        });
+      } catch (error) {
+        console.warn("Terminal fit preparation failed:", error);
       }
     };
 
     // Wait for DOM to be ready and fonts to load before fitting
     const initializeTerminal = async () => {
       // Wait for next tick to ensure DOM is ready
-      await new Promise(resolve => setTimeout(resolve, 0));
-      
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
       // Wait for fonts to load
       if (document.fonts && document.fonts.ready) {
-        await document.fonts.ready;
+        try {
+          await document.fonts.ready;
+        } catch (e) {
+          console.warn("Font loading check failed:", e);
+        }
       }
-      
-      // Additional delay to ensure layout is complete
-      setTimeout(safeFit, 150);
+
+      // Use multiple timing strategies for better reliability
+      setTimeout(safeFit, 100); // Initial attempt
+      setTimeout(safeFit, 250); // Fallback attempt
+
+      // Also try with requestAnimationFrame
+      requestAnimationFrame(() => {
+        setTimeout(safeFit, 50);
+      });
     };
 
     initializeTerminal();
@@ -503,7 +534,7 @@ export default function Terminal() {
     // Helper function to update cursor position in terminal
     const updateTerminalCursor = () => {
       if (!term.buffer || !term.buffer.active) return;
-      
+
       const promptLength = promptSymbol.length + 1; // +1 for space after prompt
       const targetCol = promptLength + cursorPosition;
       const currentCol = term.buffer.active.cursorX;
@@ -519,6 +550,13 @@ export default function Terminal() {
     // Welcome message - only show after terminal is ready
     const showWelcomeMessage = () => {
       if (!term || !terminalRef.current) return;
+      
+      // Double-check terminal is ready and visible
+      const rect = terminalRef.current.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) {
+        setTimeout(showWelcomeMessage, 100);
+        return;
+      }
       
       term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
       term.writeln(
@@ -552,28 +590,26 @@ export default function Terminal() {
     };
 
     // Show welcome message after terminal is fully initialized
-    setTimeout(showWelcomeMessage, 200);
-
-    // Typing animation function
+    setTimeout(showWelcomeMessage, 250);    // Typing animation function
     const typeText = async (lines, delay = 50) => {
       setIsTyping(true);
-      
+
       for (const line of lines) {
         if (line === "") {
           term.writeln("");
-          await new Promise(resolve => setTimeout(resolve, delay * 2));
+          await new Promise((resolve) => setTimeout(resolve, delay * 2));
           continue;
         }
-        
+
         // Type each character with delay
         for (let i = 0; i < line.length; i++) {
           term.write(line[i]);
-          await new Promise(resolve => setTimeout(resolve, delay));
+          await new Promise((resolve) => setTimeout(resolve, delay));
         }
         term.writeln("");
-        await new Promise(resolve => setTimeout(resolve, delay * 3));
+        await new Promise((resolve) => setTimeout(resolve, delay * 3));
       }
-      
+
       setIsTyping(false);
     };
 
@@ -598,7 +634,11 @@ export default function Terminal() {
 
       // Debug logging for flags (optional)
       if (flags.length > 0) {
-        console.log(`Command: ${command}, Flags: ${flags.join(', ')}, Args: ${regularArgs.join(', ')}`);
+        console.log(
+          `Command: ${command}, Flags: ${flags.join(
+            ", "
+          )}, Args: ${regularArgs.join(", ")}`
+        );
       }
 
       // Add to command history
@@ -609,14 +649,20 @@ export default function Terminal() {
       const cmd = COMMANDS[command];
       if (cmd) {
         term.writeln(""); // Add spacing before command output
-        
+
         // Check if command supports typing animation
-        if (cmd.execute.constructor.name === 'AsyncFunction') {
-          await cmd.execute(term, regularArgs, flags, typeText, setPromptSymbol);
+        if (cmd.execute.constructor.name === "AsyncFunction") {
+          await cmd.execute(
+            term,
+            regularArgs,
+            flags,
+            typeText,
+            setPromptSymbol
+          );
         } else {
           cmd.execute(term, regularArgs, flags, typeText, setPromptSymbol);
         }
-        
+
         term.writeln(""); // Add spacing after command output
       } else if (command) {
         term.writeln("");
@@ -645,12 +691,19 @@ export default function Terminal() {
     term.onKey(({ key, domEvent }) => {
       // Don't process input during typing animation
       if (isTyping) return;
-      
+
       // Prevent default for all special keys
       if (
-        ["Tab", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter", "Backspace", "Delete"].includes(
-          domEvent.key
-        )
+        [
+          "Tab",
+          "ArrowUp",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+          "Enter",
+          "Backspace",
+          "Delete",
+        ].includes(domEvent.key)
       ) {
         domEvent.preventDefault();
       }
@@ -671,7 +724,9 @@ export default function Terminal() {
       if (domEvent.key === "Backspace") {
         if (cursorPosition > 0) {
           // Remove character from buffer
-          inputBuffer = inputBuffer.slice(0, cursorPosition - 1) + inputBuffer.slice(cursorPosition);
+          inputBuffer =
+            inputBuffer.slice(0, cursorPosition - 1) +
+            inputBuffer.slice(cursorPosition);
           cursorPosition--;
 
           // Update terminal display
@@ -689,7 +744,9 @@ export default function Terminal() {
       if (domEvent.key === "Delete") {
         if (cursorPosition < inputBuffer.length) {
           // Remove character after cursor
-          inputBuffer = inputBuffer.slice(0, cursorPosition) + inputBuffer.slice(cursorPosition + 1);
+          inputBuffer =
+            inputBuffer.slice(0, cursorPosition) +
+            inputBuffer.slice(cursorPosition + 1);
 
           // Update terminal display
           term.write(inputBuffer.slice(cursorPosition) + " ");
@@ -702,13 +759,20 @@ export default function Terminal() {
       if (domEvent.key === "Tab") {
         const partial = inputBuffer.toLowerCase();
         // Include aliases in autocomplete
-        const allCommands = [...Object.keys(COMMANDS), ...Object.keys(COMMAND_ALIASES)];
+        const allCommands = [
+          ...Object.keys(COMMANDS),
+          ...Object.keys(COMMAND_ALIASES),
+        ];
         const matches = allCommands.filter((cmd) => cmd.startsWith(partial));
 
         if (matches.length === 1) {
           // Clear current input
-          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
-          
+          term.write(
+            "\b".repeat(cursorPosition) +
+              " ".repeat(inputBuffer.length) +
+              "\b".repeat(inputBuffer.length)
+          );
+
           // Write completion
           term.write(matches[0]);
           inputBuffer = matches[0];
@@ -716,7 +780,9 @@ export default function Terminal() {
         } else if (matches.length > 1) {
           term.writeln("");
           term.writeln("\x1b[1;36m* Available completions:\x1b[0m");
-          term.writeln(matches.map((cmd) => `\x1b[1;33m${cmd}\x1b[0m`).join("  "));
+          term.writeln(
+            matches.map((cmd) => `\x1b[1;33m${cmd}\x1b[0m`).join("  ")
+          );
           writePrompt();
           term.write(inputBuffer);
           updateTerminalCursor();
@@ -751,7 +817,11 @@ export default function Terminal() {
           const command = commandHistory[commandHistory.length - 1 - newIndex];
 
           // Clear current input
-          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
+          term.write(
+            "\b".repeat(cursorPosition) +
+              " ".repeat(inputBuffer.length) +
+              "\b".repeat(inputBuffer.length)
+          );
 
           // Write historical command
           term.write(command);
@@ -768,7 +838,11 @@ export default function Terminal() {
           const command = commandHistory[commandHistory.length - 1 - newIndex];
 
           // Clear current input
-          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
+          term.write(
+            "\b".repeat(cursorPosition) +
+              " ".repeat(inputBuffer.length) +
+              "\b".repeat(inputBuffer.length)
+          );
 
           // Write historical command
           term.write(command);
@@ -777,7 +851,11 @@ export default function Terminal() {
           setHistoryIndex(newIndex);
         } else if (historyIndex === 0) {
           // Clear input when reaching the end of history
-          term.write("\b".repeat(cursorPosition) + " ".repeat(inputBuffer.length) + "\b".repeat(inputBuffer.length));
+          term.write(
+            "\b".repeat(cursorPosition) +
+              " ".repeat(inputBuffer.length) +
+              "\b".repeat(inputBuffer.length)
+          );
           inputBuffer = "";
           cursorPosition = 0;
           setHistoryIndex(-1);
@@ -850,7 +928,10 @@ export default function Terminal() {
         const char = domEvent.key;
 
         // Insert character at cursor position in buffer
-        inputBuffer = inputBuffer.slice(0, cursorPosition) + char + inputBuffer.slice(cursorPosition);
+        inputBuffer =
+          inputBuffer.slice(0, cursorPosition) +
+          char +
+          inputBuffer.slice(cursorPosition);
 
         // Update terminal display
         if (cursorPosition === inputBuffer.length - 1) {
@@ -872,9 +953,9 @@ export default function Terminal() {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         safeFit();
-      }, 100);
+      }, 150); // Slightly longer delay for window resize
     };
-    
+
     window.addEventListener("resize", handleResize);
 
     // Use ResizeObserver for more precise resize detection
@@ -882,12 +963,52 @@ export default function Terminal() {
     if (terminalRef.current && window.ResizeObserver) {
       resizeObserver = new ResizeObserver((entries) => {
         clearTimeout(resizeTimeout);
+
+        // Check if the observed element has meaningful dimensions
+        const entry = entries[0];
+        if (
+          entry &&
+          entry.contentRect.width > 0 &&
+          entry.contentRect.height > 0
+        ) {
+          resizeTimeout = setTimeout(() => {
+            safeFit();
+          }, 100);
+        }
+      });
+
+      resizeObserver.observe(terminalRef.current);
+    }
+
+    // Also observe parent container changes (for responsive layouts)
+    let parentObserver;
+    if (terminalRef.current?.parentElement && window.ResizeObserver) {
+      parentObserver = new ResizeObserver((entries) => {
+        clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
           safeFit();
         }, 100);
       });
-      
-      resizeObserver.observe(terminalRef.current);
+
+      parentObserver.observe(terminalRef.current.parentElement);
+    }
+
+    // Use IntersectionObserver to detect when terminal becomes visible
+    let intersectionObserver;
+    if (terminalRef.current && window.IntersectionObserver) {
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0) {
+              // Terminal became visible, ensure it's properly fitted
+              setTimeout(safeFit, 100);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      intersectionObserver.observe(terminalRef.current);
     }
 
     // Cleanup
@@ -896,6 +1017,12 @@ export default function Terminal() {
       window.removeEventListener("resize", handleResize);
       if (resizeObserver) {
         resizeObserver.disconnect();
+      }
+      if (parentObserver) {
+        parentObserver.disconnect();
+      }
+      if (intersectionObserver) {
+        intersectionObserver.disconnect();
       }
       if (term) {
         term.dispose();
@@ -944,7 +1071,8 @@ export default function Terminal() {
           className="bg-black/80 text-white text-xs px-2 py-1 rounded"
           style={{ fontFamily: "monospace" }}
         >
-          Press Tab for completion • Arrow keys to navigate • Try aliases like 'cls' or 'whoami'
+          Press Tab for completion • Arrow keys to navigate • Try aliases like
+          'cls' or 'whoami'
         </div>
       </div>
     </div>
