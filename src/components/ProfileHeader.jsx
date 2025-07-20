@@ -33,12 +33,12 @@ const ProfileHeader = () => {
             label="GitHub"
           />
           <IconLink
-            href="https://linkedin.com/in/your-linkedin"
+            href="https://www.linkedin.com/in/alicesquivel/"
             icon={Linkedin}
             label="LinkedIn"
           />
           <IconLink
-            href="mailto:your.email@example.com"
+            href="mailto:ace6qv@missouri.edu"
             icon={Mail}
             label="Email"
           />

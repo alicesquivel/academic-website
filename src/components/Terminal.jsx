@@ -349,7 +349,7 @@ const COMMANDS = {
           "\x1b[1;34m+--------------------------------------+\x1b[0m"
         );
         term.writeln(
-          "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
+          "\x1b[1;34m|\x1b[0m          \x1b[1;32mCommand Line\x1b[0m              \x1b[1;34m|\x1b[0m"
         );
         term.writeln(
           "\x1b[1;34m+--------------------------------------+\x1b[0m"
@@ -560,7 +560,7 @@ export default function Terminal() {
       
       term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
       term.writeln(
-        "\x1b[1;34m|\x1b[0m     \x1b[1;32mWelcome to Interactive Terminal\x1b[0m     \x1b[1;34m|\x1b[0m"
+        "\x1b[1;34m|\x1b[0m          \x1b[1;32mCommand Line\x1b[0m              \x1b[1;34m|\x1b[0m"
       );
       term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
       term.writeln("");
@@ -1039,17 +1039,19 @@ export default function Terminal() {
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
           <div className="w-3 h-3 bg-green-500 rounded-full"></div>
         </div>
-        <div
-          className="text-sm text-gray-400"
-          style={{ fontFamily: "monospace" }}
-        >
-          Interactive Terminal
-        </div>
-        <div
-          className="text-xs text-gray-500"
-          style={{ fontFamily: "monospace" }}
-        >
-          {new Date().toLocaleTimeString()}
+        <div className="flex items-center gap-3">
+          <div
+            className="text-sm text-gray-400"
+            style={{ fontFamily: "monospace" }}
+          >
+            {'>'}_bash
+          </div>
+          <div
+            className="text-xs text-gray-500"
+            style={{ fontFamily: "monospace" }}
+          >
+            {new Date().toLocaleTimeString()}
+          </div>
         </div>
       </div>
 

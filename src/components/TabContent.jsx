@@ -1,5 +1,4 @@
 import React from "react";
-import TerminalCard from "./TerminalCard";
 import ResearchGrid from "./ResearchGrid";
 import Terminal from "./Terminal";
 import { Book, FileText, GraduationCap } from "lucide-react";
@@ -63,51 +62,15 @@ const TabContent = ({ activeTab }) => {
                 <span className="text-blue-600 dark:text-blue-400 font-medium">cloud/edge computing</span>{" "}
                 and{" "}
                 <span className="text-blue-600 dark:text-blue-400 font-medium">cybersecurity</span>.
-                My research focuses on developing secure and scalable distributed systems.
+                My research interests include cloud security with zero-trust architectures, efficient resource allocation in edge computing environments, AI-driven security solutions, and building reliable distributed computing systems and protocols.
               </p>
             </div>
 
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Interactive Terminal
+                System Interface
               </h3>
               <Terminal />
-            </div>
-
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Research Interests
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Cloud Security</h4>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Developing secure and scalable cloud computing systems with a focus on zero-trust architectures.
-                  </p>
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Edge Computing</h4>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Investigating efficient resource allocation and security in edge computing environments.
-                  </p>
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">AI Security</h4>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Exploring the intersection of artificial intelligence and cybersecurity.
-                  </p>
-                </div>
-                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Distributed Systems</h4>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    Building reliable and secure distributed computing systems and protocols.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <TerminalCard />
             </div>
           </div>
         );
