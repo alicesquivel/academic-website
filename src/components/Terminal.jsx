@@ -54,37 +54,37 @@ const COMMANDS = {
   help: {
     description: "Show available commands",
     execute: (term, args, flags) => {
-      term.writeln("\x1b[1;36m=======================================\x1b[0m");
-      term.writeln("\x1b[1;36m           AVAILABLE COMMANDS\x1b[0m");
-      term.writeln("\x1b[1;36m=======================================\x1b[0m");
+      term.writeln("\x1b[1;90m=======================================\x1b[0m");
+      term.writeln("\x1b[1;90m           AVAILABLE COMMANDS\x1b[0m");
+      term.writeln("\x1b[1;90m=======================================\x1b[0m");
       Object.entries(COMMANDS).forEach(([cmd, info]) => {
         term.writeln(
-          `  \x1b[1;33m${cmd.padEnd(12)}\x1b[0m\x1b[37m${
+          `  \x1b[1;37m${cmd.padEnd(12)}\x1b[0m\x1b[37m${
             info.description
           }\x1b[0m`
         );
       });
       term.writeln("");
-      term.writeln("\x1b[1;35m* Command Aliases:\x1b[0m");
+      term.writeln("\x1b[1;37m* Command Aliases:\x1b[0m");
       term.writeln(
-        "  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about"
+        "  \x1b[1;37mcls\x1b[0m → clear    \x1b[1;37mls\x1b[0m → help     \x1b[1;37mwhoami\x1b[0m → about"
       );
       term.writeln(
-        "  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications"
+        "  \x1b[1;37mdir\x1b[0m → help     \x1b[1;37mresume\x1b[0m → education \x1b[1;37mpapers\x1b[0m → publications"
       );
       term.writeln("");
       term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
+        "\x1b[1;37mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
       );
       term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Try typing partial commands and press Tab"
+        "\x1b[1;37mTip:\x1b[0m Try typing partial commands and press Tab"
       );
       term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Use arrow keys to navigate within the current line"
+        "\x1b[1;37mTip:\x1b[0m Use arrow keys to navigate within the current line"
       );
       if (flags.includes("--verbose") || flags.includes("-v")) {
         term.writeln("");
-        term.writeln("\x1b[1;35m* Advanced Features:\x1b[0m");
+        term.writeln("\x1b[1;37m* Advanced Features:\x1b[0m");
         term.writeln("  - Command arguments and flags support");
         term.writeln("  - Line navigation with arrow keys");
         term.writeln("  - Ctrl+A/E for line start/end");
@@ -99,9 +99,9 @@ const COMMANDS = {
     execute: (term, args, flags) => {
       term.clear();
       if (flags.includes("--force") || flags.includes("-f")) {
-        term.writeln("\x1b[1;32m* Terminal forcefully cleared\x1b[0m");
+        term.writeln("\x1b[1;37m* Terminal forcefully cleared\x1b[0m");
       } else {
-        term.writeln("\x1b[1;32m* Terminal cleared\x1b[0m");
+        term.writeln("\x1b[1;37m* Terminal cleared\x1b[0m");
       }
     },
   },
@@ -109,14 +109,14 @@ const COMMANDS = {
     description: "Display information about me",
     execute: async (term, args, flags, typeText) => {
       const lines = [
-        "\x1b[1;35m+-------------------------------------+\x1b[0m",
-        "\x1b[1;35m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;35m|\x1b[0m",
-        "\x1b[1;35m+-------------------------------------+\x1b[0m",
+        "\x1b[1;90m+-------------------------------------+\x1b[0m",
+        "\x1b[1;90m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;90m|\x1b[0m",
+        "\x1b[1;90m+-------------------------------------+\x1b[0m",
         "",
-        "\x1b[1;36m* PhD Candidate in Computer Science\x1b[0m",
-        "\x1b[1;36m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
+        "\x1b[1;94m* PhD Candidate in Computer Science\x1b[0m",
+        "\x1b[1;94m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
         "",
-        "\x1b[1;33m* Research Interests:\x1b[0m",
+        "\x1b[1;90m* Research Interests:\x1b[0m",
         "  - Cloud Security & Zero-Trust Architecture",
         "  - Edge Computing & Resource Optimization",
         "  - AI Security & Machine Learning",
@@ -558,23 +558,23 @@ export default function Terminal() {
         return;
       }
       
-      term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+      term.writeln("\x1b[1;90m+--------------------------------------+\x1b[0m");
       term.writeln(
-        "\x1b[1;34m|\x1b[0m          \x1b[1;32mCommand Line\x1b[0m              \x1b[1;34m|\x1b[0m"
+        "\x1b[1;90m|\x1b[0m          \x1b[1;94mCommand Line\x1b[0m              \x1b[1;90m|\x1b[0m"
       );
-      term.writeln("\x1b[1;34m+--------------------------------------+\x1b[0m");
+      term.writeln("\x1b[1;90m+--------------------------------------+\x1b[0m");
       term.writeln("");
       term.writeln(
-        "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
+        "\x1b[1;37m* Type \x1b[1;37mhelp\x1b[1;37m to see available commands\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;36m* Use Tab for autocompletion, up/down for history\x1b[0m"
+        "\x1b[1;37m* Use Tab for autocompletion, up/down for history\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;36m* Use left/right arrows to navigate within the line\x1b[0m"
+        "\x1b[1;37m* Use left/right arrows to navigate within the line\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
+        "\x1b[1;37m* Try commands with flags like \x1b[1;37mhelp --verbose\x1b[1;37m or \x1b[1;37mabout --full\x1b[0m"
       );
       term.writeln("");
       writePrompt();

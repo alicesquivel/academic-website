@@ -23,7 +23,7 @@ function App() {
           <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-6">
             {/* Profile Info */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 max-w-2xl">
-              <div className="h-20 w-20 md:h-16 md:w-16 rounded-full bg-purple-600 dark:bg-purple-500 text-white flex items-center justify-center text-2xl md:text-xl font-semibold shrink-0">
+              <div className="h-20 w-20 md:h-16 md:w-16 rounded-full bg-slate-600 dark:bg-slate-500 text-white flex items-center justify-center text-2xl md:text-xl font-semibold shrink-0">
                 AEM
               </div>
               <div className="text-center md:text-left">
@@ -79,7 +79,7 @@ function App() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg text-sm font-medium text-white transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-slate-700 hover:bg-slate-800 rounded-lg text-sm font-medium text-white transition-colors"
               >
                 <FileText className="h-4 w-4 mr-2" />
                 Resume
@@ -103,7 +103,7 @@ function App() {
                           onClick={() => setActiveTab(tab.id)}
                           className={`${
                             isActive
-                              ? "border-purple-600 text-purple-600 dark:border-purple-500 dark:text-purple-500 font-semibold"
+                              ? "border-slate-600 text-slate-600 dark:border-slate-400 dark:text-slate-300 font-semibold"
                               : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700"
                           } flex items-center gap-2 py-3 px-1 border-b-2 whitespace-nowrap text-sm transition-all`}
                         >

@@ -20,7 +20,7 @@ const ExperienceCard = ({ title, company, period, description, tags, responsibil
         <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">{title}</h3>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">{company}</p>
       </div>
-      <span className="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium">
+      <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-200 text-sm font-medium">
         {period}
       </span>
     </div>
@@ -59,9 +59,9 @@ const TabContent = ({ activeTab }) => {
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                 I am a <span className="font-medium text-gray-900 dark:text-gray-100">PhD candidate</span>{" "}
                 specializing in{" "}
-                <span className="text-purple-600 dark:text-purple-400 font-medium">cloud/edge computing</span>{" "}
+                <span className="text-slate-600 dark:text-slate-300 font-medium">cloud/edge computing</span>{" "}
                 and{" "}
-                <span className="text-purple-600 dark:text-purple-400 font-medium">cybersecurity</span>.
+                <span className="text-slate-600 dark:text-slate-300 font-medium">cybersecurity</span>.
                 My research interests include cloud security with zero-trust architectures, efficient resource allocation in edge computing environments, AI-driven security solutions, and building reliable distributed computing systems and protocols.
               </p>
             </div>

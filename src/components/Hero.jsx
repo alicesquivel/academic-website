@@ -19,7 +19,7 @@ const Hero = () => {
           href="https://github.com/alicesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
           aria-label="GitHub"
         >
           <Github className="h-5 w-5" />
@@ -28,14 +28,14 @@ const Hero = () => {
           href="https://linkedin.com/in/aliciaesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
           aria-label="LinkedIn"
         >
           <Linkedin className="h-5 w-5" />
         </a>
         <a
           href="mailto:alicia.esquivel@example.com"
-          className="text-gray-600 dark:text-gray-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
           aria-label="Email"
         >
           <Mail className="h-5 w-5" />
