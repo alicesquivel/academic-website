@@ -26,25 +26,25 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
-      <main className="flex-1 container max-w-5xl mx-auto px-4 py-8">
+      <main className="flex-1 container max-w-5xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         {/* Header Section */}
-        <div className="mb-8 px-4 md:px-6">
-          <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-6">
+        <div className="mb-6 sm:mb-8 px-2 sm:px-4 md:px-6">
+          <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between gap-4 sm:gap-6">
             {/* Profile Info */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 max-w-2xl">
+            <div className="flex flex-col sm:flex-row md:flex-row items-center md:items-start gap-3 sm:gap-4 md:gap-6 max-w-2xl">
               <img 
                 src="/profile.png" 
                 alt="Alicia Esquivel Morel" 
-                className="h-24 w-24 md:h-20 md:w-20 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 shadow-sm shrink-0"
+                className="h-20 w-20 sm:h-24 sm:w-24 md:h-20 md:w-20 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 shadow-sm shrink-0"
               />
-              <div className="text-center md:text-left">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
+              <div className="text-center sm:text-left md:text-left">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100">
                   Alicia Esquivel Morel
                 </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-400 mt-1">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mt-1">
                   PhD Candidate in Computer Science
                 </p>
-                <div className="flex items-center justify-center md:justify-start flex-wrap gap-4 mt-4">
+                <div className="flex items-center justify-center sm:justify-start md:justify-start flex-wrap gap-3 sm:gap-4 mt-3 sm:mt-4">
                   <a
                     href="https://github.com/alicesquivel"
                     target="_blank"
@@ -84,23 +84,23 @@ function App() {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+            <div className="flex flex-col xs:flex-row sm:flex-row items-center gap-2 sm:gap-3 w-full xs:w-auto sm:w-auto">
               <a
                 href="/cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                className="w-full xs:w-auto sm:w-auto inline-flex items-center justify-center px-3 sm:px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
-                <FileText className="h-4 w-4 mr-2" />
+                <FileText className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 CV
               </a>
               <a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-medium text-white transition-colors"
+                className="w-full xs:w-auto sm:w-auto inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-xs sm:text-sm font-medium text-white transition-colors"
               >
-                <FileText className="h-4 w-4 mr-2" />
+                <FileText className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                 Resume
               </a>
               <ThemeToggle />
@@ -108,11 +108,11 @@ function App() {
           </div>
 
           {/* Tabs */}
-          <div className="mt-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="mt-6 sm:mt-8 -mx-3 sm:-mx-4 px-3 sm:px-4 md:mx-0 md:px-0">
             <nav className="relative">
-              <div className="overflow-x-auto scrollbar-none">
+              <div className="overflow-x-auto scrollbar-hide">
                 <div className="border-b border-gray-200 dark:border-gray-800">
-                  <div className="flex flex-nowrap justify-start sm:justify-center gap-6">
+                  <div className="flex flex-nowrap justify-start sm:justify-center gap-3 sm:gap-6 min-w-max">
                     {tabs.map((tab) => {
                       const Icon = tab.icon;
                       const isActive = activeTab === tab.id;
@@ -124,10 +124,10 @@ function App() {
                             isActive
                               ? "border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400 font-semibold"
                               : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-600"
-                          } flex items-center gap-2 py-3 px-1 border-b-2 whitespace-nowrap text-sm transition-all`}
+                          } flex items-center gap-1.5 sm:gap-2 py-3 px-2 sm:px-1 border-b-2 whitespace-nowrap text-xs sm:text-sm transition-all flex-shrink-0`}
                         >
-                          <Icon className="h-5 w-5 flex-shrink-0" />
-                          <span>{tab.label}</span>
+                          <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                          <span className="hidden xs:inline sm:inline">{tab.label}</span>
                         </button>
                       );
                     })}
@@ -146,14 +146,14 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-6"
+            className="bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 p-4 sm:p-6"
           >
             <TabContent activeTab={activeTab} />
           </motion.div>
         </AnimatePresence>
 
         {/* Footer */}
-        <footer className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        <footer className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-gray-500 dark:text-gray-400">
           © 2025 Alicia Esquivel Morel. All Rights Reserved.
         </footer>
       </main>
