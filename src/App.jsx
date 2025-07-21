@@ -112,7 +112,7 @@ function App() {
             <nav className="relative">
               <div className="overflow-x-auto scrollbar-hide">
                 <div className="border-b border-gray-200 dark:border-gray-800">
-                  <div className="flex flex-nowrap justify-start sm:justify-center gap-3 sm:gap-6 min-w-max">
+                  <div className="flex flex-nowrap justify-center gap-3 sm:gap-6 min-w-max">
                     {tabs.map((tab) => {
                       const Icon = tab.icon;
                       const isActive = activeTab === tab.id;
@@ -127,7 +127,7 @@ function App() {
                           } flex items-center gap-1.5 sm:gap-2 py-3 px-2 sm:px-1 border-b-2 whitespace-nowrap text-xs sm:text-sm transition-all flex-shrink-0`}
                         >
                           <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
-                          <span className="hidden xs:inline sm:inline">{tab.label}</span>
+                          <span className="hidden sm:inline">{tab.label}</span>
                         </button>
                       );
                     })}
