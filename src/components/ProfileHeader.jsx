@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, FileText, ExternalLink } from "lucide-react";
 import { Button } from "./ui/Button";
 
 const IconLink = ({ href, icon: Icon, label }) => (
@@ -8,7 +8,7 @@ const IconLink = ({ href, icon: Icon, label }) => (
     rel="noreferrer"
     className="inline-flex items-center gap-1 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
   >
-    <Icon className="h-5 w-5" />
+    <Icon className="h-5 w-5 flex-shrink-0" style={{ display: 'inline-block' }} />
     <span className="text-sm">{label}</span>
   </a>
 );
@@ -24,9 +24,13 @@ const ProfileHeader = () => {
           <p className="text-base text-gray-600 dark:text-gray-400">
             PhD Candidate • Cloud Computing and Cybersecurity
           </p>
+          <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+            <MapPin className="h-4 w-4" />
+            <span>United States</span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap">
           <IconLink
             href="https://github.com/alicesquivel"
             icon={Github}
@@ -41,6 +45,16 @@ const ProfileHeader = () => {
             href="mailto:ace6qv@missouri.edu"
             icon={Mail}
             label="Email"
+          />
+          <IconLink
+            href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+            icon={FileText}
+            label="Google Scholar"
+          />
+          <IconLink
+            href="https://orcid.org/YOUR_ORCID_ID"
+            icon={ExternalLink}
+            label="ORCID"
           />
         </div>
       </div>

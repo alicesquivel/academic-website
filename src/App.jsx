@@ -7,6 +7,7 @@ import {
   Home,
   Lightbulb,
   Mail,
+  MapPin,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import TabContent from "./components/TabContent";
@@ -44,6 +45,10 @@ function App() {
                 <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mt-2 font-body">
                   PhD Candidate in Computer Science
                 </p>
+                <div className="flex items-center justify-center sm:justify-start md:justify-start gap-2 mt-1">
+                  <MapPin className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+                  <span className="text-sm text-gray-500 dark:text-gray-400">United States</span>
+                </div>
                 <div className="flex items-center justify-center sm:justify-start md:justify-start flex-wrap gap-4 sm:gap-5 mt-4 sm:mt-5">
                   <a
                     href="https://github.com/alicesquivel"
@@ -78,6 +83,36 @@ function App() {
                     className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
                   >
                     <Mail className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://scholar.google.com/citations?user=2-7cgFsAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                    title="Google Scholar"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://orcid.org/0000-0002-1766-5370"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                    title="ORCID"
+                  >
+                    <svg
+                      className="h-5 w-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.744-1.344 3.744-3.722 0-2.016-1.178-3.722-3.744-3.722h-2.297z"/>
+                    </svg>
                   </a>
                 </div>
               </div>

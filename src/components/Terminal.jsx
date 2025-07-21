@@ -42,8 +42,6 @@ const COMMAND_ALIASES = {
   skills: "skills",
   resume: "education",
   cv: "education",
-  papers: "publications",
-  work: "projects",
 };
 
 const COMMANDS = {
@@ -66,18 +64,9 @@ const COMMANDS = {
         "  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about"
       );
       term.writeln(
-        "  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications"
+        "  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education"
       );
       term.writeln("");
-      term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
-      );
-      term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Try typing partial commands and press Tab"
-      );
-      term.writeln(
-        "\x1b[1;32mTip:\x1b[0m Use arrow keys to navigate within the current line"
-      );
       if (flags.includes("--verbose") || flags.includes("-v")) {
         term.writeln("");
         term.writeln("\x1b[1;35m* Advanced Features:\x1b[0m");
@@ -159,62 +148,6 @@ const COMMANDS = {
       );
     },
   },
-  contact: {
-    description: "Show contact information",
-    execute: (term) => {
-      term.writeln("\x1b[1;34m* CONTACT INFORMATION\x1b[0m");
-      term.writeln("\x1b[1;34m---------------------\x1b[0m");
-      term.writeln(
-        "\x1b[1;32m* GitHub:\x1b[0m   \x1b[4;37mhttps://github.com/alicesquivel\x1b[0m"
-      );
-      term.writeln(
-        "\x1b[1;32m* LinkedIn:\x1b[0m \x1b[4;37mhttps://linkedin.com/in/aliciaesquivel\x1b[0m"
-      );
-      term.writeln(
-        "\x1b[1;32m* Email:\x1b[0m    \x1b[4;37malicia.esquivel@example.com\x1b[0m"
-      );
-      term.writeln("");
-      term.writeln(
-        "\x1b[1;33m* Feel free to reach out for collaboration!\x1b[0m"
-      );
-    },
-  },
-  projects: {
-    description: "Show recent projects and research",
-    execute: (term) => {
-      term.writeln("\x1b[1;35m* RECENT PROJECTS\x1b[0m");
-      term.writeln("\x1b[1;35m-----------------\x1b[0m");
-      term.writeln("\x1b[1;33m1. SecureCloud Framework\x1b[0m");
-      term.writeln(
-        "   Zero-trust security architecture for cloud environments"
-      );
-      term.writeln("");
-      term.writeln("\x1b[1;33m2. EdgeAI Optimizer\x1b[0m");
-      term.writeln("   Resource allocation system for edge computing");
-      term.writeln("");
-      term.writeln("\x1b[1;33m3. DistributedML Platform\x1b[0m");
-      term.writeln("   Secure machine learning in distributed systems");
-    },
-  },
-  publications: {
-    description: "List recent publications",
-    execute: (term) => {
-      term.writeln("\x1b[1;34m* RECENT PUBLICATIONS\x1b[0m");
-      term.writeln("\x1b[1;34m---------------------\x1b[0m");
-      term.writeln(
-        '\x1b[1;37m> "Zero-Trust Architecture for Cloud Security"\x1b[0m'
-      );
-      term.writeln("  \x1b[2;37mIEEE Security & Privacy, 2024\x1b[0m");
-      term.writeln("");
-      term.writeln('\x1b[1;37m> "Edge Computing Resource Optimization"\x1b[0m');
-      term.writeln("  \x1b[2;37mACM Computing Surveys, 2024\x1b[0m");
-      term.writeln("");
-      term.writeln('\x1b[1;37m> "AI Security in Distributed Systems"\x1b[0m');
-      term.writeln(
-        "  \x1b[2;37mIEEE Transactions on Dependable Computing, 2023\x1b[0m"
-      );
-    },
-  },
   education: {
     description: "Show educational background",
     execute: (term) => {
@@ -289,13 +222,17 @@ export default function Terminal() {
     // Initialize xterm.js
     const term = new XTerm({
       cursorBlink: true,
-      fontSize: 14,
+      fontSize: 10,
       fontFamily: "monospace",
       fontWeight: "normal",
       fontWeightBold: "bold",
       allowTransparency: false,
       convertEol: true,
       disableStdin: false,
+      rows: 12,
+      cols: 50,
+      scrollback: 100,
+      wordSeparator: ' ',
       theme: {
         background: "#1a1b26",
         foreground: "#a9b1d6",
@@ -436,12 +373,6 @@ export default function Terminal() {
       
       term.writeln(
         "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
-      );
-      term.writeln(
-        "\x1b[1;36m* Use Tab for autocompletion, up/down for history\x1b[0m"
-      );
-      term.writeln(
-        "\x1b[1;36m* Use left/right arrows to navigate within the line\x1b[0m"
       );
       term.writeln(
         "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
@@ -898,7 +829,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="w-full max-w-[600px] mx-auto h-[220px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group shadow-lg">/
+    <div className="w-full min-w-[300px] sm:min-w-[360px] max-w-[420px] mx-auto h-[240px] max-h-[240px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group shadow-lg">
       {/* Terminal Header */}
       <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center space-x-2">
@@ -925,7 +856,13 @@ export default function Terminal() {
       {/* Terminal Body */}
       <div
         ref={terminalRef}
-        className="w-full h-[calc(100%-40px)]"
+        className="w-full h-[180px] p-4 overflow-x-hidden overflow-y-auto whitespace-pre-wrap break-words"
+        style={{ 
+          wordWrap: 'break-word',
+          overflowWrap: 'break-word',
+          fontSize: '10px',
+          fontFamily: 'monospace'
+        }}
         onClick={() => {
           // Ensure terminal stays focused when clicked
           if (xtermRef.current) {

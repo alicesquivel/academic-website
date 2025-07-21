@@ -73,29 +73,33 @@ const TabContent = ({ activeTab }) => {
     switch (activeTab) {
       case "about":
         return (
-          <div className="space-y-8">
-            <div className="prose dark:prose-invert max-w-none">
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body">
-                I am a{" "}
-                <span className="font-semibold text-gray-900 dark:text-gray-100">
-                  PhD candidate
-                </span>{" "}
-                specializing in{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  cloud/edge computing
-                </span>{" "}
-                and{" "}
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  cybersecurity
-                </span>
-                . My research interests include cloud security with zero-trust
-                architectures, efficient resource allocation in edge computing
-                environments, AI-driven security solutions, and building
-                reliable distributed computing systems and protocols.
-              </p>
+          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-x-12">
+            {/* Left Column - Text Content */}
+            <div className="flex-1 max-w-xl">
+              <div className="prose dark:prose-invert max-w-none">
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body text-left">
+                  I am a{" "}
+                  <span className="font-semibold text-gray-900 dark:text-gray-100">
+                    PhD candidate
+                  </span>{" "}
+                  specializing in{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    cloud/edge computing
+                  </span>{" "}
+                  and{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    cybersecurity
+                  </span>
+                  . My research interests include cloud security with zero-trust
+                  architectures, efficient resource allocation in edge computing
+                  environments, AI-driven security solutions, and building
+                  reliable distributed computing systems and protocols.
+                </p>
+              </div>
             </div>
 
-            <div className="mt-10">
+            {/* Right Column - Terminal */}
+            <div className="w-full sm:max-w-[420px] lg:w-[420px] flex-shrink-0 mt-8 lg:mt-0 mx-auto lg:mx-0">
               <Terminal />
             </div>
           </div>
