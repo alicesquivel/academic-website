@@ -183,6 +183,11 @@
   resolved "https://registry.npmjs.org/@fontsource/inter/-/inter-5.2.6.tgz"
   integrity sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw==
 
+"@fontsource/roboto@^5.2.6":
+  version "5.2.6"
+  resolved "https://registry.npmjs.org/@fontsource/roboto/-/roboto-5.2.6.tgz"
+  integrity sha512-hzarG7yAhMoP418smNgfY4fO7UmuUEm5JUtbxCoCcFHT0hOJB+d/qAEyoNjz7YkPU5OjM2LM8rJnW8hfm0JLaA==
+
 "@fontsource/space-grotesk@^5.0.15":
   version "5.2.8"
   resolved "https://registry.npmjs.org/@fontsource/space-grotesk/-/space-grotesk-5.2.8.tgz"

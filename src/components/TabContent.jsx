@@ -27,27 +27,27 @@ const ExperienceCard = ({
   tags,
   responsibilities,
 }) => (
-  <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
-    <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
+  <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
+    <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
       <div>
-        <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 font-sans">
           {title}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+        <p className="text-base text-gray-600 dark:text-gray-400 mt-1 font-body">
           {company}
         </p>
       </div>
-      <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium">
+      <span className="px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium font-body">
         {period}
       </span>
     </div>
     {description && (
-      <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+      <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 font-body">
         {description}
       </p>
     )}
     {responsibilities && (
-      <ul className="list-disc pl-4 space-y-2 text-base text-gray-700 dark:text-gray-300">
+      <ul className="list-disc pl-5 space-y-2 text-base text-gray-700 dark:text-gray-300 font-body">
         {responsibilities.map((item, index) => (
           <li key={index}>{item}</li>
         ))}
@@ -58,7 +58,7 @@ const ExperienceCard = ({
         {tags.map((tag) => (
           <span
             key={tag}
-            className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 transition-all duration-200"
+            className="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 transition-all duration-200 font-body"
           >
             {tag}
           </span>
@@ -73,11 +73,11 @@ const TabContent = ({ activeTab }) => {
     switch (activeTab) {
       case "about":
         return (
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="prose dark:prose-invert max-w-none">
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body">
                 I am a{" "}
-                <span className="font-medium text-gray-900 dark:text-gray-100">
+                <span className="font-semibold text-gray-900 dark:text-gray-100">
                   PhD candidate
                 </span>{" "}
                 specializing in{" "}
@@ -95,7 +95,7 @@ const TabContent = ({ activeTab }) => {
               </p>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <Terminal />
             </div>
           </div>

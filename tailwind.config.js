@@ -57,6 +57,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                body: ['Roboto', 'system-ui', '-apple-system', 'sans-serif'],
                 mono: ['Space Mono', 'monospace'],
             },
         },

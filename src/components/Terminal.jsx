@@ -898,7 +898,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="w-full max-w-[600px] mx-auto h-[300px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group">
+    <div className="w-full max-w-[600px] mx-auto h-[220px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group shadow-lg">/
       {/* Terminal Header */}
       <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center space-x-2">
