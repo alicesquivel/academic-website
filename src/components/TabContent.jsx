@@ -80,20 +80,29 @@ const TabContent = ({ activeTab }) => {
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body text-left">
                   I am a{" "}
                   <span className="font-semibold text-gray-900 dark:text-gray-100">
-                    PhD candidate
+                    Fulbright Scholar
                   </span>{" "}
-                  specializing in{" "}
+                  and PhD candidate in Computer Science at the University of
+                  Missouri-Columbia, working with the{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    cloud/edge computing
-                  </span>{" "}
-                  and{" "}
+                    VIMAN Lab
+                  </span>
+                  . My research focuses on{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    cloud and edge computing
+                  </span>
+                  ,{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
                     cybersecurity
                   </span>
-                  . My research interests include cloud security with zero-trust
-                  architectures, efficient resource allocation in edge computing
-                  environments, AI-driven security solutions, and building
-                  reliable distributed computing systems and protocols.
+                  , and{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    drone analytics
+                  </span>
+                  . I have hands-on experience with cloud cybersecurity, zero
+                  trust architectures, machine learning algorithms, drone
+                  communication security, and container orchestration using
+                  Kubernetes and Docker.
                 </p>
               </div>
             </div>
@@ -109,22 +118,35 @@ const TabContent = ({ activeTab }) => {
         return (
           <div className="space-y-6">
             <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              My research focuses on developing secure and scalable cloud
-              computing systems, with an emphasis on zero-trust architectures
-              and AI-driven security solutions.
+              My research focuses on enhancing security and performance in
+              distributed computing environments. I work on cloud/edge computing
+              architectures, zero trust cybersecurity frameworks, and machine
+              learning applications for drone analytics and security.
             </p>
             <ResearchGrid />
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Current Projects
+                Research Areas & Collaborations
               </h3>
               <div className="space-y-4">
                 <ExperienceCard
-                  title="Cloud Security Research Group"
-                  company="Security Innovation Lab"
-                  period="2023 - Present"
-                  description="Leading research initiatives in cloud security, focusing on developing novel approaches to protect distributed systems."
-                  tags={["Zero Trust", "Cloud Security", "AI Systems"]}
+                  title="VIMAN Lab - University of Missouri"
+                  company="Cloud Computing & Cybersecurity Research"
+                  period="2021 - Present"
+                  description="Conducting research on cloud security, zero trust architectures, and edge computing. Working with NSF-funded testbeds including FABRIC, GENI, and CloudLab."
+                  tags={[
+                    "Zero Trust",
+                    "Cloud Security",
+                    "Edge Computing",
+                    "NSF Testbeds",
+                  ]}
+                />
+                <ExperienceCard
+                  title="Drone Analytics & Security"
+                  company="Machine Learning Applications"
+                  period="2022 - Present"
+                  description="Developing machine learning models for drone communication security and analytics in edge computing environments."
+                  tags={["Drone Analytics", "ML", "Communication Security"]}
                 />
               </div>
             </div>
@@ -136,20 +158,44 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-6">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Conference Papers
+                Selected Publications
               </h3>
               <div className="grid gap-4">
                 <Publication
-                  title="Zero-Trust Security in Cloud-Native Applications"
-                  venue="IEEE Conference on Cloud Computing"
+                  title="Towards Data-Driven Cybersecurity for Cloud and Edge Computing Environments"
+                  venue="IEEE CLOUD 2024"
                   year="2024"
-                  description="Presented a novel approach to implementing zero-trust architecture in cloud-native applications."
+                  description="Comprehensive survey on data-driven cybersecurity approaches for modern distributed computing environments."
                 />
                 <Publication
-                  title="AI-Driven Network Intrusion Detection"
-                  venue="ACM Workshop on Security and Privacy"
+                  title="A Survey on Zero Trust Network Access Solutions"
+                  venue="ACM Computing Surveys"
                   year="2024"
-                  description="Developed a new machine learning approach for detecting network intrusions in real-time."
+                  description="Systematic review of zero trust network access implementations and their security implications."
+                />
+                <Publication
+                  title="Security Challenges in Multi-Cloud Environments"
+                  venue="IEEE Security & Privacy Magazine"
+                  year="2023"
+                  description="Analysis of security challenges and solutions for multi-cloud deployment strategies."
+                />
+                <Publication
+                  title="Machine Learning for Drone Communication Security"
+                  venue="IEEE INFOCOM Workshop"
+                  year="2023"
+                  description="Novel ML approaches for securing drone-to-ground and drone-to-drone communications."
+                />
+                <Publication
+                  title="Container Security in Edge Computing"
+                  venue="ACM EdgeSys"
+                  year="2022"
+                  description="Security analysis and mitigation strategies for containerized applications in edge environments."
+                />
+                <Publication
+                  title="Performance Evaluation of Zero Trust Architectures"
+                  venue="IEEE Network"
+                  year="2022"
+                  description="Comprehensive performance analysis of different zero trust implementation approaches."
                 />
               </div>
             </div>
@@ -161,23 +207,35 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-6">
             <div className="space-y-4">
               <ExperienceCard
-                title="Graduate Research Assistant"
-                company="Cloud Security Lab"
-                period="2022 - Present"
+                title="Fulbright Scholar & PhD Candidate"
+                company="University of Missouri-Columbia, VIMAN Lab"
+                period="2021 - Present"
                 responsibilities={[
-                  "Lead research in cloud security and zero-trust architectures",
-                  "Developed novel intrusion detection systems using machine learning",
-                  "Published papers in top-tier security conferences",
+                  "Conducting research on cloud/edge computing and cybersecurity",
+                  "Working with NSF-funded testbeds: FABRIC, GENI, CloudLab, and POWDER",
+                  "Developing zero trust architectures and machine learning security solutions",
+                  "Published 6+ papers in top-tier venues including IEEE CLOUD, ACM Computing Surveys",
                 ]}
               />
               <ExperienceCard
-                title="Teaching Assistant"
-                company="Computer Science Department"
-                period="2021 - 2022"
+                title="Research Assistant"
+                company="Cloud Computing & Cybersecurity"
+                period="2021 - Present"
                 responsibilities={[
-                  "Taught advanced cybersecurity courses",
-                  "Mentored undergraduate research projects",
-                  "Developed practical lab exercises for security courses",
+                  "Leading drone analytics and security research initiatives",
+                  "Developing ML algorithms for communication security",
+                  "Container orchestration using Kubernetes and Docker",
+                  "Collaborating with RENCI, FABRIC, and other research institutions",
+                ]}
+              />
+              <ExperienceCard
+                title="Academic Achievements"
+                company="International Recognition"
+                period="2021"
+                responsibilities={[
+                  "Selected as Fulbright Scholar for advanced research",
+                  "International collaboration on distributed computing systems",
+                  "Cross-cultural research experience and academic exchange",
                 ]}
               />
             </div>
@@ -189,48 +247,59 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-6">
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                When I'm not researching or coding, I enjoy exploring creative and fun projects that combine technology with everyday life.
+                When I'm not researching or coding, I enjoy exploring creative
+                and fun projects that combine technology with everyday life.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">🎮 Tech Hobbies</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  🔬 Research Interests
+                </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Building and experimenting with IoT devices</li>
-                  <li>• 3D printing and digital fabrication</li>
-                  <li>• Home automation and smart systems</li>
-                  <li>• Retro computing and vintage tech restoration</li>
+                  <li>• Kubernetes and Docker container orchestration</li>
+                  <li>
+                    • NSF testbed experimentation (FABRIC, GENI, CloudLab)
+                  </li>
+                  <li>• Zero trust architecture implementation</li>
+                  <li>• Drone communication security protocols</li>
                 </ul>
               </div>
 
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">🌟 Personal Projects</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  � International Experience
+                </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Cybersecurity awareness training games</li>
-                  <li>• Open-source security tools and scripts</li>
-                  <li>• Tech education content for social media</li>
-                  <li>• Community workshops on digital privacy</li>
+                  <li>• Fulbright Scholar program participant</li>
+                  <li>• Cross-cultural research collaboration</li>
+                  <li>• International academic exchange</li>
+                  <li>• Global perspective on cybersecurity challenges</li>
                 </ul>
               </div>
 
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">📚 Learning & Growth</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  📚 Academic Collaboration
+                </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Exploring emerging technologies and trends</li>
-                  <li>• Participating in hackathons and tech challenges</li>
-                  <li>• Contributing to open-source projects</li>
-                  <li>• Mentoring students in STEM fields</li>
+                  <li>• VIMAN Lab research team member</li>
+                  <li>• RENCI partnership projects</li>
+                  <li>• Multi-institutional research initiatives</li>
+                  <li>• Conference presentations and workshops</li>
                 </ul>
               </div>
 
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">🎯 Fun Facts</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  ⚡ Technical Skills
+                </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Can solve a Rubik's cube in under 2 minutes</li>
-                  <li>• Enjoys escape rooms and puzzle challenges</li>
-                  <li>• Collects vintage computer equipment</li>
-                  <li>• Passionate about digital art and design</li>
+                  <li>• Machine learning for security applications</li>
+                  <li>• Cloud-native application development</li>
+                  <li>• Distributed systems architecture</li>
+                  <li>• Edge computing optimization</li>
                 </ul>
               </div>
             </div>

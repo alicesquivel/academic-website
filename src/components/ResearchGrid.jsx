@@ -3,44 +3,44 @@ import { Shield, Cloud, Network, Brain, Lock, Terminal } from "lucide-react";
 
 const researchAreas = [
   {
-    title: "Cloud Security",
+    title: "Cloud/Edge Computing",
     description:
-      "Developing secure architectures for cloud-native applications and infrastructure",
+      "Developing secure and efficient architectures for distributed cloud and edge environments",
     icon: Cloud,
     gradient: "from-sky-400 to-blue-500",
   },
   {
-    title: "Zero Trust Security",
+    title: "Zero Trust Architecture",
     description:
-      "Implementing and evaluating zero-trust frameworks in distributed systems",
+      "Implementing and evaluating zero-trust security frameworks for modern infrastructures",
     icon: Shield,
     gradient: "from-emerald-400 to-green-500",
   },
   {
-    title: "Network Security",
+    title: "Drone Analytics",
     description:
-      "Analyzing and securing complex network infrastructures against modern threats",
+      "Machine learning approaches for drone communication security and analytics",
     icon: Network,
     gradient: "from-violet-400 to-purple-500",
   },
   {
-    title: "ML Security",
+    title: "ML for Cybersecurity",
     description:
-      "Applying machine learning for threat detection and security automation",
+      "Applying machine learning algorithms for threat detection and security automation",
     icon: Brain,
     gradient: "from-pink-400 to-rose-500",
   },
   {
-    title: "Access Control",
+    title: "Container Security",
     description:
-      "Designing advanced access control mechanisms for distributed systems",
+      "Kubernetes and Docker security with focus on container orchestration",
     icon: Lock,
     gradient: "from-amber-400 to-orange-500",
   },
   {
-    title: "DevSecOps",
+    title: "NSF Testbeds",
     description:
-      "Integrating security practices into modern development workflows",
+      "Research using FABRIC, GENI, CloudLab, and POWDER for distributed systems",
     icon: Terminal,
     gradient: "from-teal-400 to-cyan-500",
   },
