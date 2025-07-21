@@ -3,44 +3,44 @@ import { Shield, Cloud, Network, Brain, Lock, Terminal } from "lucide-react";
 
 const researchAreas = [
   {
-    title: "Cloud/Edge Computing",
+    title: "Federated Learning",
     description:
-      "Developing secure and efficient architectures for distributed cloud and edge environments",
+      "Developing secure federated learning frameworks for distributed systems and tactical operations",
     icon: Cloud,
     gradient: "from-sky-400 to-blue-500",
   },
   {
     title: "Zero Trust Architecture",
     description:
-      "Implementing and evaluating zero-trust security frameworks for modern infrastructures",
+      "Implementing Zero Trust security frameworks for tactical edge computing environments",
     icon: Shield,
     gradient: "from-emerald-400 to-green-500",
   },
   {
-    title: "Drone Analytics",
+    title: "UAV/Drone Security",
     description:
-      "Machine learning approaches for drone communication security and analytics",
+      "Security and privacy research for unmanned aerial vehicle systems and drone networks",
     icon: Network,
     gradient: "from-violet-400 to-purple-500",
   },
   {
-    title: "ML for Cybersecurity",
+    title: "AI-Driven Security",
     description:
-      "Applying machine learning algorithms for threat detection and security automation",
+      "Machine learning approaches for intrusion detection in IoT and mobile networks",
     icon: Brain,
     gradient: "from-pink-400 to-rose-500",
   },
   {
-    title: "Container Security",
+    title: "Cloud/Edge Computing",
     description:
-      "Kubernetes and Docker security with focus on container orchestration",
+      "Security challenges and solutions for cloud and edge computing infrastructures",
     icon: Lock,
     gradient: "from-amber-400 to-orange-500",
   },
   {
-    title: "NSF Testbeds",
+    title: "Testbed Research",
     description:
-      "Research using FABRIC, GENI, CloudLab, and POWDER for distributed systems",
+      "Real-world experimentation using GENI, POWDER, AERPAW, and Chameleon Cloud testbeds",
     icon: Terminal,
     gradient: "from-teal-400 to-cyan-500",
   },

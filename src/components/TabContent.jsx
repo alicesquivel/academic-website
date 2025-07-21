@@ -78,31 +78,35 @@ const TabContent = ({ activeTab }) => {
             <div className="flex-1 max-w-xl">
               <div className="prose dark:prose-invert max-w-none">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body text-left">
-                  I am a{" "}
+                  I'm a{" "}
                   <span className="font-semibold text-gray-900 dark:text-gray-100">
-                    Fulbright Scholar
+                    PhD candidate in Computer Science
                   </span>{" "}
-                  and PhD candidate in Computer Science at the University of
-                  Missouri-Columbia, working with the{" "}
+                  focused on{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    VIMAN Lab
-                  </span>
-                  . My research focuses on{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    cloud and edge computing
-                  </span>
-                  ,{" "}
+                    cloud/edge computing
+                  </span>{" "}
+                  and{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
                     cybersecurity
                   </span>
+                  . My research interests include{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    federated learning
+                  </span>
+                  ,{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    Zero Trust Architecture
+                  </span>
+                  ,{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    intrusion detection
+                  </span>
                   , and{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    drone analytics
+                    AI-driven security for IoT and mobile networks
                   </span>
-                  . I have hands-on experience with cloud cybersecurity, zero
-                  trust architectures, machine learning algorithms, drone
-                  communication security, and container orchestration using
-                  Kubernetes and Docker.
+                  . I work with real-world testbeds including GENI, POWDER, and AERPAW to develop practical security solutions for distributed systems.
                 </p>
               </div>
             </div>
@@ -162,40 +166,40 @@ const TabContent = ({ activeTab }) => {
               </h3>
               <div className="grid gap-4">
                 <Publication
-                  title="Towards Data-Driven Cybersecurity for Cloud and Edge Computing Environments"
-                  venue="IEEE CLOUD 2024"
-                  year="2024"
-                  description="Comprehensive survey on data-driven cybersecurity approaches for modern distributed computing environments."
-                />
-                <Publication
-                  title="A Survey on Zero Trust Network Access Solutions"
+                  title="UAV/Drone Systems Security and Privacy: A Comprehensive Survey"
                   venue="ACM Computing Surveys"
+                  year="2025"
+                  description="Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks."
+                />
+                <Publication
+                  title="Arculus: Zero Trust Architecture for Tactical Edge Computing"
+                  venue="IEEE Conference"
                   year="2024"
-                  description="Systematic review of zero trust network access implementations and their security implications."
+                  description="Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols."
                 />
                 <Publication
-                  title="Security Challenges in Multi-Cloud Environments"
-                  venue="IEEE Security & Privacy Magazine"
+                  title="FLOTO Framework: Federated Learning for Tactical Operations"
+                  venue="International Conference on High Performance Computing"
+                  year="2025"
+                  description="Federated learning framework optimized for tactical operations and distributed edge computing scenarios."
+                />
+                <Publication
+                  title="AI-Driven Intrusion Detection for Mobile Networks"
+                  venue="IEEE INFOCOM"
+                  year="2024"
+                  description="Machine learning approaches for detecting network intrusions in mobile and wireless communication systems."
+                />
+                <Publication
+                  title="Security Challenges in IoT Federated Learning"
+                  venue="IEEE MILCOM"
+                  year="2024"
+                  description="Analysis of security vulnerabilities and mitigation strategies in federated learning for IoT environments."
+                />
+                <Publication
+                  title="Network Management and Orchestration in Edge Computing"
+                  venue="IEEE NOMS"
                   year="2023"
-                  description="Analysis of security challenges and solutions for multi-cloud deployment strategies."
-                />
-                <Publication
-                  title="Machine Learning for Drone Communication Security"
-                  venue="IEEE INFOCOM Workshop"
-                  year="2023"
-                  description="Novel ML approaches for securing drone-to-ground and drone-to-drone communications."
-                />
-                <Publication
-                  title="Container Security in Edge Computing"
-                  venue="ACM EdgeSys"
-                  year="2022"
-                  description="Security analysis and mitigation strategies for containerized applications in edge environments."
-                />
-                <Publication
-                  title="Performance Evaluation of Zero Trust Architectures"
-                  venue="IEEE Network"
-                  year="2022"
-                  description="Comprehensive performance analysis of different zero trust implementation approaches."
+                  description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
                 />
               </div>
             </div>
@@ -207,36 +211,40 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-6">
             <div className="space-y-4">
               <ExperienceCard
-                title="Fulbright Scholar & PhD Candidate"
-                company="University of Missouri-Columbia, VIMAN Lab"
-                period="2021 - Present"
+                title="Graduate Research Assistant"
+                company="VIMAN Lab, University of Missouri"
+                period="2018 - Present"
                 responsibilities={[
-                  "Conducting research on cloud/edge computing and cybersecurity",
-                  "Working with NSF-funded testbeds: FABRIC, GENI, CloudLab, and POWDER",
-                  "Developing zero trust architectures and machine learning security solutions",
-                  "Published 6+ papers in top-tier venues including IEEE CLOUD, ACM Computing Surveys",
+                  "Conducting research on cloud computing, Zero Trust architectures, and federated learning",
+                  "Working with real-world testbeds including GENI, POWDER, AERPAW for distributed systems research",
+                  "Developing AI-driven security solutions for IoT and mobile networks",
+                  "Published in top-tier venues including ACM Computing Surveys, INFOCOM, MILCOM, NOMS"
                 ]}
+                tags={["Cloud Computing", "Zero Trust", "Federated Learning", "IoT Security"]}
               />
               <ExperienceCard
-                title="Research Assistant"
-                company="Cloud Computing & Cybersecurity"
-                period="2021 - Present"
+                title="Teaching Assistant"
+                company="University of Missouri Computer Science Department"
+                period="2018 - Present"
                 responsibilities={[
-                  "Leading drone analytics and security research initiatives",
-                  "Developing ML algorithms for communication security",
-                  "Container orchestration using Kubernetes and Docker",
-                  "Collaborating with RENCI, FABRIC, and other research institutions",
+                  "Taught Cyber Defense, Cloud Computing, and Algorithm Design courses",
+                  "Mentored 30+ students through REU cohorts and REU BigDataX programs",
+                  "Supervised Chameleon Cloud projects and research initiatives",
+                  "Served as UC Santa Cruz SoR Fellow mentor"
                 ]}
+                tags={["Teaching", "Mentoring", "Curriculum Development"]}
               />
               <ExperienceCard
-                title="Academic Achievements"
-                company="International Recognition"
-                period="2021"
+                title="Awards & Recognition"
+                company="Academic & Professional Achievements"
+                period="2024"
                 responsibilities={[
-                  "Selected as Fulbright Scholar for advanced research",
-                  "International collaboration on distributed computing systems",
-                  "Cross-cultural research experience and academic exchange",
+                  "Outstanding PhD Student Award (2024)",
+                  "Fulbright-CAL Scholar",
+                  "UC2 DoD White Paper winner",
+                  "FAA Part 107 Drone License holder"
                 ]}
+                tags={["Awards", "Scholarships", "Certifications"]}
               />
             </div>
           </div>
@@ -247,47 +255,19 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-6">
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                When I'm not researching or coding, I enjoy exploring creative
-                and fun projects that combine technology with everyday life.
+                Beyond research, I'm actively involved in academic service, professional development, and technical skill advancement across multiple domains.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
                 <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                  🔬 Research Interests
+                  🎓 Education
                 </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Kubernetes and Docker container orchestration</li>
-                  <li>
-                    • NSF testbed experimentation (FABRIC, GENI, CloudLab)
-                  </li>
-                  <li>• Zero trust architecture implementation</li>
-                  <li>• Drone communication security protocols</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                  � International Experience
-                </h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Fulbright Scholar program participant</li>
-                  <li>• Cross-cultural research collaboration</li>
-                  <li>• International academic exchange</li>
-                  <li>• Global perspective on cybersecurity challenges</li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                  📚 Academic Collaboration
-                </h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• VIMAN Lab research team member</li>
-                  <li>• RENCI partnership projects</li>
-                  <li>• Multi-institutional research initiatives</li>
-                  <li>• Conference presentations and workshops</li>
+                  <li>• PhD in Computer Science, University of Missouri (Expected Summer 2025)</li>
+                  <li>• MS in Computer Science, University of Missouri (2018–2020)</li>
+                  <li>• BS in Computer Systems Analysis, Universidad Technológica Intercontinental (2008–2013)</li>
                 </ul>
               </div>
 
@@ -296,10 +276,35 @@ const TabContent = ({ activeTab }) => {
                   ⚡ Technical Skills
                 </h3>
                 <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>• Machine learning for security applications</li>
-                  <li>• Cloud-native application development</li>
-                  <li>• Distributed systems architecture</li>
-                  <li>• Edge computing optimization</li>
+                  <li>• Python, Bash, Docker, Kubernetes</li>
+                  <li>• Federated Learning, Threat Modeling, Intrusion Detection</li>
+                  <li>• AWS, GCP, Chameleon Cloud, SDN, Git</li>
+                  <li>• Testbeds: GENI, FABRIC, POWDER, AERPAW</li>
+                  <li>• FAA Part 107 Drone License, UX Research, LaTeX</li>
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  🏆 Awards & Recognition
+                </h3>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <li>• Outstanding PhD Student Award (2024)</li>
+                  <li>• Fulbright-CAL Scholar</li>
+                  <li>• UC2 DoD White Paper winner</li>
+                  <li>• REU mentor for 30+ students</li>
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-6">
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                  🤝 Professional Service
+                </h3>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <li>• Peer reviewer for top IEEE/ACM conferences and journals</li>
+                  <li>• Member of IEEE, ACM SIGHPC, UPE Honor Society</li>
+                  <li>• Advisory Board member for student employees at Mizzou</li>
+                  <li>• UC Santa Cruz SoR Fellow</li>
                 </ul>
               </div>
             </div>
