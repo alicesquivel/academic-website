@@ -109,12 +109,12 @@ const COMMANDS = {
     description: "Display information about me",
     execute: async (term, args, flags, typeText) => {
       const lines = [
-        "\x1b[1;34m+-------------------------------------+\x1b[0m",
-        "\x1b[1;34m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;34m|\x1b[0m",
-        "\x1b[1;34m+-------------------------------------+\x1b[0m",
+        "\x1b[1;35m+-------------------------------------+\x1b[0m",
+        "\x1b[1;35m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;35m|\x1b[0m",
+        "\x1b[1;35m+-------------------------------------+\x1b[0m",
         "",
-        "\x1b[1;35m* PhD Candidate in Computer Science\x1b[0m",
-        "\x1b[1;35m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
+        "\x1b[1;36m* PhD Candidate in Computer Science\x1b[0m",
+        "\x1b[1;36m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
         "",
         "\x1b[1;33m* Research Interests:\x1b[0m",
         "  - Cloud Security & Zero-Trust Architecture",
@@ -576,9 +576,6 @@ export default function Terminal() {
       term.writeln(
         "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
       );
-      term.writeln(
-        "\x1b[1;36m* Use \x1b[1;33mprompt [symbol]\x1b[1;36m to customize your prompt\x1b[0m"
-      );
       term.writeln("");
       writePrompt();
 
@@ -1031,7 +1028,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="w-full h-[450px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-[#1a1b26] relative group">
+    <div className="w-full max-w-2xl mx-auto aspect-square md:aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-[#1a1b26] relative group">
       {/* Terminal Header */}
       <div className="flex items-center justify-between bg-gray-800 dark:bg-gray-900 px-4 py-2 border-b border-gray-700">
         <div className="flex items-center space-x-2">
@@ -1073,8 +1070,7 @@ export default function Terminal() {
           className="bg-black/80 text-white text-xs px-2 py-1 rounded"
           style={{ fontFamily: "monospace" }}
         >
-          Press Tab for completion • Arrow keys to navigate • Try aliases like
-          'cls' or 'whoami'
+          Tab for completion • Arrow keys • Try 'help'
         </div>
       </div>
     </div>
