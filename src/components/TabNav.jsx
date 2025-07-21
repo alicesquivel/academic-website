@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Menu, User, BookOpen, FileText, Briefcase, Coffee } from "lucide-react";
+import {
+  Menu,
+  User,
+  BookOpen,
+  FileText,
+  Briefcase,
+  Coffee,
+} from "lucide-react";
 import { cn } from "../lib/utils";
 
 const TabNav = ({ activeTab, onTabChange }) => {
@@ -9,7 +16,7 @@ const TabNav = ({ activeTab, onTabChange }) => {
     { name: "Research", icon: BookOpen },
     { name: "Publications", icon: FileText },
     { name: "Experience", icon: Briefcase },
-    { name: "Fun", icon: Coffee }
+    { name: "Fun", icon: Coffee },
   ];
 
   useEffect(() => {
@@ -74,7 +81,8 @@ const TabNav = ({ activeTab, onTabChange }) => {
         <div className="hidden md:flex justify-center gap-4">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.name.toLowerCase();
-            return (                <a
+            return (
+              <a
                 key={tab.name}
                 href={`#${tab.name.toLowerCase()}`}
                 onClick={(e) => {

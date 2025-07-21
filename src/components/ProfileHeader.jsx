@@ -6,7 +6,7 @@ const IconLink = ({ href, icon: Icon, label }) => (
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="inline-flex items-center gap-1 text-gray-600 hover:text-slate-700 dark:text-gray-400 dark:hover:text-slate-300 transition-colors"
+    className="inline-flex items-center gap-1 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
   >
     <Icon className="h-5 w-5" />
     <span className="text-sm">{label}</span>
@@ -49,7 +49,7 @@ const ProfileHeader = () => {
         <Button
           variant="default"
           size="sm"
-          className="bg-slate-100 text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 rounded-md px-3 py-1.5 text-sm transition-colors"
+          className="bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30 rounded-md px-3 py-1.5 text-sm transition-colors border border-blue-200 dark:border-blue-800"
           asChild
         >
           <a href="/resume.pdf" download="alicia-esquivel-resume.pdf">
@@ -59,7 +59,7 @@ const ProfileHeader = () => {
         <Button
           variant="outline"
           size="sm"
-          className="bg-white dark:bg-transparent border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md px-3 py-1.5 text-sm transition-colors"
+          className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md px-3 py-1.5 text-sm transition-colors"
           asChild
         >
           <a href="/cv.pdf" download="alicia-esquivel-cv.pdf">

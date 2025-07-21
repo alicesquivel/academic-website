@@ -10,7 +10,7 @@ const ensureMonospaceFont = () => {
   style.textContent = `
     .xterm-viewport {
       font-family: monospace !important;
-      font-size: 14px !important;
+      font-size: 10px !important;
       line-height: 1.2 !important;
       font-variant-ligatures: none !important;
       font-feature-settings: normal !important;
@@ -44,47 +44,43 @@ const COMMAND_ALIASES = {
   cv: "education",
   papers: "publications",
   work: "projects",
-  time: "date",
-  reboot: "restart",
-  exit: "restart",
-  quit: "restart",
 };
 
 const COMMANDS = {
   help: {
     description: "Show available commands",
     execute: (term, args, flags) => {
-      term.writeln("\x1b[1;90m=======================================\x1b[0m");
-      term.writeln("\x1b[1;90m           AVAILABLE COMMANDS\x1b[0m");
-      term.writeln("\x1b[1;90m=======================================\x1b[0m");
+      term.writeln("\x1b[1;36m=======================================\x1b[0m");
+      term.writeln("\x1b[1;36m           AVAILABLE COMMANDS\x1b[0m");
+      term.writeln("\x1b[1;36m=======================================\x1b[0m");
       Object.entries(COMMANDS).forEach(([cmd, info]) => {
         term.writeln(
-          `  \x1b[1;37m${cmd.padEnd(12)}\x1b[0m\x1b[37m${
+          `  \x1b[1;33m${cmd.padEnd(12)}\x1b[0m\x1b[37m${
             info.description
           }\x1b[0m`
         );
       });
       term.writeln("");
-      term.writeln("\x1b[1;37m* Command Aliases:\x1b[0m");
+      term.writeln("\x1b[1;35m* Command Aliases:\x1b[0m");
       term.writeln(
-        "  \x1b[1;37mcls\x1b[0m → clear    \x1b[1;37mls\x1b[0m → help     \x1b[1;37mwhoami\x1b[0m → about"
+        "  \x1b[1;33mcls\x1b[0m → clear    \x1b[1;33mls\x1b[0m → help     \x1b[1;33mwhoami\x1b[0m → about"
       );
       term.writeln(
-        "  \x1b[1;37mdir\x1b[0m → help     \x1b[1;37mresume\x1b[0m → education \x1b[1;37mpapers\x1b[0m → publications"
+        "  \x1b[1;33mdir\x1b[0m → help     \x1b[1;33mresume\x1b[0m → education \x1b[1;33mpapers\x1b[0m → publications"
       );
       term.writeln("");
       term.writeln(
-        "\x1b[1;37mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
+        "\x1b[1;32mTip:\x1b[0m Use Tab for autocompletion, up/down for history"
       );
       term.writeln(
-        "\x1b[1;37mTip:\x1b[0m Try typing partial commands and press Tab"
+        "\x1b[1;32mTip:\x1b[0m Try typing partial commands and press Tab"
       );
       term.writeln(
-        "\x1b[1;37mTip:\x1b[0m Use arrow keys to navigate within the current line"
+        "\x1b[1;32mTip:\x1b[0m Use arrow keys to navigate within the current line"
       );
       if (flags.includes("--verbose") || flags.includes("-v")) {
         term.writeln("");
-        term.writeln("\x1b[1;37m* Advanced Features:\x1b[0m");
+        term.writeln("\x1b[1;35m* Advanced Features:\x1b[0m");
         term.writeln("  - Command arguments and flags support");
         term.writeln("  - Line navigation with arrow keys");
         term.writeln("  - Ctrl+A/E for line start/end");
@@ -99,9 +95,9 @@ const COMMANDS = {
     execute: (term, args, flags) => {
       term.clear();
       if (flags.includes("--force") || flags.includes("-f")) {
-        term.writeln("\x1b[1;37m* Terminal forcefully cleared\x1b[0m");
+        term.writeln("\x1b[1;32m* Terminal forcefully cleared\x1b[0m");
       } else {
-        term.writeln("\x1b[1;37m* Terminal cleared\x1b[0m");
+        term.writeln("\x1b[1;32m* Terminal cleared\x1b[0m");
       }
     },
   },
@@ -109,14 +105,14 @@ const COMMANDS = {
     description: "Display information about me",
     execute: async (term, args, flags, typeText) => {
       const lines = [
-        "\x1b[1;90m+-------------------------------------+\x1b[0m",
-        "\x1b[1;90m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;90m|\x1b[0m",
-        "\x1b[1;90m+-------------------------------------+\x1b[0m",
+        "\x1b[1;34m+-------------------------------------+\x1b[0m",
+        "\x1b[1;34m|\x1b[0m           \x1b[1;37mALICIA ESQUIVEL MOREL\x1b[0m         \x1b[1;34m|\x1b[0m",
+        "\x1b[1;34m+-------------------------------------+\x1b[0m",
         "",
-        "\x1b[1;94m* PhD Candidate in Computer Science\x1b[0m",
-        "\x1b[1;94m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
+        "\x1b[1;35m* PhD Candidate in Computer Science\x1b[0m",
+        "\x1b[1;35m* Specializing in Cloud Computing & Cybersecurity\x1b[0m",
         "",
-        "\x1b[1;90m* Research Interests:\x1b[0m",
+        "\x1b[1;33m* Research Interests:\x1b[0m",
         "  - Cloud Security & Zero-Trust Architecture",
         "  - Edge Computing & Resource Optimization",
         "  - AI Security & Machine Learning",
@@ -240,22 +236,6 @@ const COMMANDS = {
       term.writeln("Magna Cum Laude");
     },
   },
-  date: {
-    description: "Display current date and time",
-    execute: (term) => {
-      const now = new Date();
-      term.writeln("\x1b[1;36m* Current Date & Time:\x1b[0m");
-      term.writeln(
-        `\x1b[1;37m${now.toLocaleDateString("en-US", {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}\x1b[0m`
-      );
-      term.writeln(`\x1b[1;37m${now.toLocaleTimeString("en-US")}\x1b[0m`);
-    },
-  },
   joke: {
     description: "Tell a computer science joke",
     execute: async (term, args, flags, typeText) => {
@@ -279,111 +259,6 @@ const COMMANDS = {
         await typeText(lines, 50); // 50ms delay for comedic effect
       } else {
         lines.forEach((line) => term.writeln(line));
-      }
-    },
-  },
-  weather: {
-    description: "Show current weather (simulated)",
-    execute: (term) => {
-      const conditions = [
-        "Sunny",
-        "Partly Cloudy",
-        "Rainy",
-        "Snowy",
-        "Mostly Sunny",
-      ];
-      const temps = [68, 72, 75, 80, 65, 70, 78];
-      const condition =
-        conditions[Math.floor(Math.random() * conditions.length)];
-      const temp = temps[Math.floor(Math.random() * temps.length)];
-
-      term.writeln("\x1b[1;34m* Current Weather:\x1b[0m");
-      term.writeln(`\x1b[1;37m${condition}\x1b[0m`);
-      term.writeln(`\x1b[1;37m${temp}°F\x1b[0m`);
-      term.writeln("\x1b[2;37m(Simulated data)\x1b[0m");
-    },
-  },
-  test: {
-    description: "Test character display",
-    execute: (term) => {
-      term.writeln("\x1b[1;33m* CHARACTER DISPLAY TEST\x1b[0m");
-      term.writeln("\x1b[1;33m-----------------------\x1b[0m");
-      term.writeln("Testing problematic characters:");
-      term.writeln("C c L l - These should display clearly");
-      term.writeln("contact clear help skills");
-      term.writeln("");
-      term.writeln("Full alphabet test:");
-      term.writeln("abcdefghijklmnopqrstuvwxyz");
-      term.writeln("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-      term.writeln("0123456789");
-      term.writeln("!@#$%^&*()_+-=[]{}|;:,.<>?");
-      term.writeln("");
-      term.writeln(
-        "\x1b[1;32m* All characters should be visible and properly spaced\x1b[0m"
-      );
-    },
-  },
-  restart: {
-    description: "Restart the terminal",
-    execute: async (term, args, flags, typeText) => {
-      const restartLines = [
-        "\x1b[1;33m* Restarting terminal...\x1b[0m",
-        "\x1b[1;36m* Shutting down services...\x1b[0m",
-        "\x1b[1;36m* Clearing memory...\x1b[0m",
-        "\x1b[1;36m* Reinitializing...\x1b[0m",
-        "\x1b[1;32m* Terminal restarted successfully!\x1b[0m",
-      ];
-
-      // Use typing animation for restart
-      if (typeText) {
-        await typeText(restartLines, 100); // 100ms delay for dramatic effect
-      } else {
-        restartLines.forEach((line) => term.writeln(line));
-      }
-
-      // Clear the terminal after animation
-      setTimeout(() => {
-        term.clear();
-        // Re-display welcome message
-        term.writeln(
-          "\x1b[1;34m+--------------------------------------+\x1b[0m"
-        );
-        term.writeln(
-          "\x1b[1;34m|\x1b[0m          \x1b[1;32mCommand Line\x1b[0m              \x1b[1;34m|\x1b[0m"
-        );
-        term.writeln(
-          "\x1b[1;34m+--------------------------------------+\x1b[0m"
-        );
-        term.writeln("");
-        term.writeln("\x1b[1;32m* Terminal restarted successfully!\x1b[0m");
-        term.writeln("");
-        // Show new prompt
-        writePrompt();
-        resetInputState();
-        // Ensure terminal is properly fitted after restart
-        setTimeout(safeFit, 150);
-      }, 1000);
-    },
-  },
-  prompt: {
-    description: "Change the prompt symbol",
-    execute: (term, args, flags, typeText, setPromptSymbol) => {
-      if (args.length === 0) {
-        term.writeln("\x1b[1;33m* Current prompt symbols:\x1b[0m");
-        term.writeln("  $ (default)    > (classic)    % (zsh-style)");
-        term.writeln("  # (root-style) λ (lambda)     ❯ (modern)");
-        term.writeln("");
-        term.writeln("\x1b[1;32mUsage:\x1b[0m prompt [symbol]");
-        term.writeln("\x1b[1;32mExample:\x1b[0m prompt $");
-        return;
-      }
-
-      const newSymbol = args[0];
-      if (setPromptSymbol) {
-        setPromptSymbol(newSymbol);
-        term.writeln(
-          `\x1b[1;32m* Prompt symbol changed to: ${newSymbol}\x1b[0m`
-        );
       }
     },
   },
@@ -550,31 +425,26 @@ export default function Terminal() {
     // Welcome message - only show after terminal is ready
     const showWelcomeMessage = () => {
       if (!term || !terminalRef.current) return;
-      
+
       // Double-check terminal is ready and visible
       const rect = terminalRef.current.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) {
         setTimeout(showWelcomeMessage, 100);
         return;
       }
+
       
-      term.writeln("\x1b[1;90m+--------------------------------------+\x1b[0m");
       term.writeln(
-        "\x1b[1;90m|\x1b[0m          \x1b[1;94mCommand Line\x1b[0m              \x1b[1;90m|\x1b[0m"
-      );
-      term.writeln("\x1b[1;90m+--------------------------------------+\x1b[0m");
-      term.writeln("");
-      term.writeln(
-        "\x1b[1;37m* Type \x1b[1;37mhelp\x1b[1;37m to see available commands\x1b[0m"
+        "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;37m* Use Tab for autocompletion, up/down for history\x1b[0m"
+        "\x1b[1;36m* Use Tab for autocompletion, up/down for history\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;37m* Use left/right arrows to navigate within the line\x1b[0m"
+        "\x1b[1;36m* Use left/right arrows to navigate within the line\x1b[0m"
       );
       term.writeln(
-        "\x1b[1;37m* Try commands with flags like \x1b[1;37mhelp --verbose\x1b[1;37m or \x1b[1;37mabout --full\x1b[0m"
+        "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
       );
       term.writeln("");
       writePrompt();
@@ -587,7 +457,7 @@ export default function Terminal() {
     };
 
     // Show welcome message after terminal is fully initialized
-    setTimeout(showWelcomeMessage, 250);    // Typing animation function
+    setTimeout(showWelcomeMessage, 250); // Typing animation function
     const typeText = async (lines, delay = 50) => {
       setIsTyping(true);
 
@@ -1028,9 +898,9 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="w-full max-w-2xl mx-auto aspect-square md:aspect-[4/3] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 bg-[#1a1b26] relative group">
+    <div className="w-full max-w-[600px] mx-auto h-[300px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group">
       {/* Terminal Header */}
-      <div className="flex items-center justify-between bg-gray-800 dark:bg-gray-900 px-4 py-2 border-b border-gray-700">
+      <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center space-x-2">
           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -1041,7 +911,7 @@ export default function Terminal() {
             className="text-sm text-gray-400"
             style={{ fontFamily: "monospace" }}
           >
-            {'>'}_bash
+            {">"}_bash
           </div>
           <div
             className="text-xs text-gray-500"

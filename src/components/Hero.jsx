@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="text-center sm:text-left pb-8 border-b border-gray-200 dark:border-gray-800">
+    <div className="text-center sm:text-left pb-8 border-b border-gray-200 dark:border-gray-700">
       {/* Name and Role */}
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
@@ -19,7 +19,7 @@ const Hero = () => {
           href="https://github.com/alicesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           aria-label="GitHub"
         >
           <Github className="h-5 w-5" />
@@ -28,14 +28,14 @@ const Hero = () => {
           href="https://linkedin.com/in/aliciaesquivel"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           aria-label="LinkedIn"
         >
           <Linkedin className="h-5 w-5" />
         </a>
         <a
           href="mailto:alicia.esquivel@example.com"
-          className="text-gray-600 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+          className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
           aria-label="Email"
         >
           <Mail className="h-5 w-5" />
