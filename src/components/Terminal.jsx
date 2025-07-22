@@ -870,16 +870,6 @@ export default function Terminal() {
           }
         }}
       />
-
-      {/* Helpful Tips Overlay */}
-      <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div
-          className="bg-black/80 text-white text-xs px-2 py-1 rounded"
-          style={{ fontFamily: "monospace" }}
-        >
-          Tab for completion • Arrow keys • Try 'help'
-        </div>
-      </div>
     </div>
   );
 }
