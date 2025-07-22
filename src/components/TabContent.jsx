@@ -189,7 +189,7 @@ const ExpandableSection = ({
   title,
   icon: Icon,
   children,
-  defaultExpanded = true,
+  defaultExpanded = false,
   bgColor = "bg-gray-50 dark:bg-gray-800/50",
 }) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
@@ -380,90 +380,85 @@ const TabContent = ({ activeTab }) => {
 
       case "research":
         return (
-          <div className="space-y-10">
+          <div className="space-y-8">
             {/* Research Impact Overview */}
-            <div className="bg-gray-50 dark:bg-gray-800/80 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700/60">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                  Research Impact Overview
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                  Advancing cybersecurity and distributed systems through
-                  innovative research, collaboration, and mentorship in academic
-                  and industry partnerships.
-                </p>
-              </div>
-
-              {/* 5-Column Icon Summary */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-                {/* Publications */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="space-y-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-50 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
-                    <BookOpen className="w-8 h-8 text-blue-500 dark:text-blue-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter end={20} suffix="+" duration={2000} />
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    Publications
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    Research Impact Overview
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Advancing cybersecurity and distributed systems through innovative research, collaboration, and mentorship in academic and industry partnerships.
                   </p>
                 </div>
 
-                {/* Research Projects */}
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-50 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
-                    <Layers className="w-8 h-8 text-green-500 dark:text-green-400" />
+                {/* 5-column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                  {/* Publications Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <BookOpen className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={20} suffix="+" duration={2000} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Publications
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter end={10} suffix="+" duration={1800} />
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    Research Projects
-                  </p>
-                </div>
 
-                {/* Research Funding */}
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-yellow-50 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
-                    <DollarSign className="w-8 h-8 text-yellow-500 dark:text-yellow-400" />
+                  {/* Research Projects Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Layers className="w-8 h-8 text-green-600 dark:text-green-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={10} suffix="+" duration={1800} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Research Projects
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter
-                      end={650}
-                      prefix="$"
-                      suffix="K+"
-                      duration={2500}
-                    />
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    Research Funding
-                  </p>
-                </div>
 
-                {/* Students Mentored */}
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-50 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
-                    <Users2 className="w-8 h-8 text-purple-500 dark:text-purple-400" />
+                  {/* Research Funding Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <DollarSign className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={650} prefix="$" suffix="K+" duration={2500} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Research Funding
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter end={30} suffix="+" duration={2200} />
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    Students Mentored
-                  </p>
-                </div>
 
-                {/* Presentations */}
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-indigo-50 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
-                    <Globe className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
+                  {/* Students Mentored Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Users2 className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={30} suffix="+" duration={2200} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Students Mentored
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter end={7} suffix="+" duration={1500} />
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    Presentations
-                  </p>
+
+                  {/* Presentations Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Globe className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={7} suffix="+" duration={1500} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Presentations
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
