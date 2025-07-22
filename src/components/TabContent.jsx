@@ -748,29 +748,29 @@ const TabContent = ({ activeTab }) => {
               <ExperienceDetailCard
                 title="Graduate Research Assistant"
                 company="VIMAN Lab, University of Missouri"
-                period="2018 - Present"
-                impact="Published 15+ peer-reviewed papers and secured $650K+ in DoD & NSF research grants"
+                period="Aug 2018 - Present"
+                impact="Published 15+ peer-reviewed papers and secured multiple DoD & NSF research grants"
                 responsibilities={[
-                  "Conducting cutting-edge research on cloud computing, Zero Trust architectures, and federated learning",
+                  "Conducting research on cloud/edge computing, Zero Trust architectures, and federated learning",
                   "Working with national testbeds including POWDER, AERPAW, FABRIC for distributed systems research",
-                  "Developing AI-driven security solutions for IoT and mobile networks",
-                  "Published in top-tier venues including ACM Computing Surveys, IEEE INFOCOM, MILCOM, NOMS"
+                  "Developing AI-driven security solutions for UAV networks and mobile systems",
+                  "Published in top-tier venues including ACM Computing Surveys, IEEE INFOCOM, MILCOM"
                 ]}
-                tags={["Research Leadership", "Grant Writing", "Publication Excellence", "Testbed Management"]}
+                tags={["Cloud Computing", "Zero Trust", "Federated Learning", "UAV Security"]}
               />
               
               <ExperienceDetailCard
-                title="Teaching Assistant & Course Designer"
+                title="Teaching Assistant"
                 company="University of Missouri Computer Science Department"
-                period="2018 - Present"
-                impact="Designed and taught courses for 300+ students with 4.8/5.0 teaching evaluations"
+                period="Aug 2018 - Present"
+                impact="Taught 300+ students across multiple computer science courses with excellent evaluations"
                 responsibilities={[
-                  "Designed and delivered lectures for Cyber Defense, Cloud Computing, and Algorithm Design courses",
-                  "Developed comprehensive course materials, assignments, and assessments for graduate-level cybersecurity",
-                  "Implemented hands-on labs using real-world cloud platforms and security tools",
-                  "Provided personalized mentoring and academic support to undergraduate and graduate students"
+                  "Delivered lectures and labs for Cyber Defense (CS 4970), Cloud Computing (CS 8570), and Algorithm Design courses",
+                  "Developed course materials, assignments, and assessments for graduate-level cybersecurity",
+                  "Supervised student projects on cloud platforms and distributed systems",
+                  "Provided academic mentoring and career guidance to undergraduate and graduate students"
                 ]}
-                tags={["Curriculum Design", "Cybersecurity Education", "Student Mentoring", "Course Innovation"]}
+                tags={["Teaching", "Cybersecurity", "Cloud Computing", "Student Mentoring"]}
               />
             </ExpandableSection>
 
@@ -784,42 +784,14 @@ const TabContent = ({ activeTab }) => {
                 title="REU Program Mentor"
                 company="NSF Research Experience for Undergraduates"
                 period="2019 - Present"
-                impact="Mentored 30+ students with 85% continuing to graduate programs"
+                impact="Mentored 30+ undergraduate students with 85% continuing to graduate programs"
                 responsibilities={[
-                  "Supervised undergraduate researchers in REU cohorts and REU BigDataX programs",
-                  "Designed research projects suitable for 10-week summer research experiences",
-                  "Provided career guidance and graduate school application support",
-                  "Organized weekly seminars and professional development workshops"
+                  "Supervised undergraduate researchers in REU cohorts and REU BigDataX programs at University of Missouri",
+                  "Designed 10-week summer research projects in cloud computing and cybersecurity",
+                  "Provided career guidance, graduate school application support, and professional development",
+                  "Organized weekly seminars on research methodology and academic writing"
                 ]}
-                tags={["Mentoring", "REU", "Undergraduate Research", "Career Development"]}
-              />
-              
-              <ExperienceDetailCard
-                title="UC Santa Cruz SoR Fellow Mentor"
-                company="University of California System"
-                period="2023 - Present"
-                impact="Guided 5 PhD students in research methodology and publication strategies"
-                responsibilities={[
-                  "Provided research mentorship to PhD students in the UC system",
-                  "Facilitated collaboration between students and industry research partners",
-                  "Conducted workshops on research methodology and academic writing",
-                  "Supported students in developing independent research projects"
-                ]}
-                tags={["PhD Mentoring", "Research Methodology", "Academic Writing", "UC System"]}
-              />
-              
-              <ExperienceDetailCard
-                title="Chameleon Cloud Project Supervisor"
-                company="NSF Cloud Computing Testbed"
-                period="2020 - Present"
-                impact="Supervised 15+ cloud computing projects with real-world deployments"
-                responsibilities={[
-                  "Supervised student projects on Chameleon Cloud infrastructure",
-                  "Designed hands-on cloud computing experiments and tutorials",
-                  "Provided technical support for complex distributed system deployments",
-                  "Evaluated project outcomes and provided detailed feedback for improvement"
-                ]}
-                tags={["Cloud Computing", "Project Management", "Chameleon Cloud", "Student Supervision"]}
+                tags={["REU Mentorship", "Undergraduate Research", "Career Development", "Professional Training"]}
               />
             </ExpandableSection>
 
@@ -844,10 +816,10 @@ const TabContent = ({ activeTab }) => {
                 </div>
                 
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Fulbright-CAL Scholar</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">International Research Fellowship • 2024</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Fulbright Scholar</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">U.S. Department of State • 2024</p>
                   <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full">International Collaboration</span>
+                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full">International Research</span>
                   </div>
                 </div>
                 
@@ -860,10 +832,10 @@ const TabContent = ({ activeTab }) => {
                 </div>
                 
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">FAA Part 107 Drone License</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Federal Aviation Administration • 2023</p>
+                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Graduate Research Fellowship</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">University of Missouri • 2018-2024</p>
                   <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Professional Certification</span>
+                    <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Fellowship</span>
                   </div>
                 </div>
               </div>
