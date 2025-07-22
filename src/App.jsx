@@ -16,9 +16,9 @@ import "./index.css";
 
 const tabs = [
   { id: "about", label: "About", icon: Home },
+  { id: "experience", label: "Experience", icon: GraduationCap },
   { id: "research", label: "Research", icon: Lightbulb },
   { id: "publications", label: "Publications", icon: Book },
-  { id: "experience", label: "Experience", icon: GraduationCap },
   { id: "fun", label: "Fun Stuff", icon: Coffee },
 ];
 

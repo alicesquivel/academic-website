@@ -13,9 +13,9 @@ const TabNav = ({ activeTab, onTabChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const tabs = [
     { name: "About", icon: User },
+    { name: "Experience", icon: Briefcase },
     { name: "Research", icon: BookOpen },
     { name: "Publications", icon: FileText },
-    { name: "Experience", icon: Briefcase },
     { name: "Fun", icon: Coffee },
   ];
 
