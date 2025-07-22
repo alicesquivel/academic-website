@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ResearchGrid from "./ResearchGrid";
 import Terminal from "./Terminal";
 import {
@@ -21,6 +21,12 @@ import {
   UserCheck,
   ChevronDown,
   ChevronUp,
+  BookOpen,
+  DollarSign,
+  Users2,
+  School,
+  Server,
+  ArrowRight,
 } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
@@ -53,6 +59,105 @@ const Publication = ({ title, venue, year, description }) => (
     )}
   </div>
 );
+
+const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime = null;
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
+
+  return (
+    <span ref={counterRef} className="font-bold">
+      {prefix}{count}{suffix}
+    </span>
+  );
+};
+
+const ImpactCard = ({ icon: Icon, label, value, suffix = "", prefix = "", color = "blue", badges = [] }) => {
+  const colorClasses = {
+    blue: "from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-100 dark:border-blue-800",
+    green: "from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-emerald-100 dark:border-emerald-800",
+    purple: "from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border-purple-100 dark:border-purple-800",
+    amber: "from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-amber-100 dark:border-amber-800",
+    pink: "from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border-pink-100 dark:border-pink-800",
+    cyan: "from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-cyan-100 dark:border-cyan-800"
+  };
+
+  const iconColorClasses = {
+    blue: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
+    green: "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
+    purple: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30",
+    amber: "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
+    pink: "text-pink-600 dark:text-pink-400 bg-pink-100 dark:bg-pink-900/30",
+    cyan: "text-cyan-600 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-900/30"
+  };
+
+  return (
+    <div className={`bg-gradient-to-br ${colorClasses[color]} rounded-xl p-6 border shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 group`}>
+      <div className="flex items-center gap-4 mb-4">
+        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${iconColorClasses[color]} group-hover:scale-110 transition-transform duration-300`}>
+          <Icon className="w-6 h-6" />
+        </div>
+        <div className="flex-1">
+          <h4 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+            <AnimatedCounter end={value} prefix={prefix} suffix={suffix} />
+          </h4>
+          <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+            {label}
+          </p>
+        </div>
+      </div>
+      
+      {badges && badges.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {badges.map((badge, index) => (
+            <span
+              key={index}
+              className="px-2 py-1 bg-white/50 dark:bg-gray-800/50 rounded-full text-xs font-medium text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const ExpandableSection = ({ title, icon: Icon, children, defaultExpanded = true, bgColor = "bg-gray-50 dark:bg-gray-800/50" }) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
@@ -361,8 +466,114 @@ const TabContent = ({ activeTab }) => {
             {/* Legacy Research Grid - Keep for additional research areas */}
             <div className="mt-12">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-                Research Areas & Collaborations
+                Major Research Projects
               </h3>
+              
+              {/* Research Project Details */}
+              <div className="space-y-6 mb-8">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Beaker className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Arculus: Zero Trust for Tactical Edge Networks
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        DoD-Funded Research Project • 2022 - Present
+                      </p>
+                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
+                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
+                          Impact: Developed novel Zero Trust framework improving tactical network security by 40%
+                        </p>
+                      </div>
+                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                        <li>Designed and implemented Zero Trust architecture for resource-constrained edge environments</li>
+                        <li>Conducted extensive testing on AERPAW and POWDER testbeds with real UAV deployments</li>
+                        <li>Published research findings in IEEE conferences and DoD technical reports</li>
+                        <li>Collaborated with military partners to ensure practical applicability</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        {["Zero Trust", "Edge Computing", "DoD Research", "UAV Security", "AERPAW"].map((tag) => (
+                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Server className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        FLOTO: Federated Learning Framework
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        NSF-Supported Research • 2021 - Present
+                      </p>
+                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
+                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
+                          Impact: Created scalable FL framework deployed across 50+ edge nodes
+                        </p>
+                      </div>
+                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                        <li>Developed federated learning framework for tactical operations and edge computing</li>
+                        <li>Implemented privacy-preserving machine learning algorithms for distributed systems</li>
+                        <li>Conducted performance evaluations on FABRIC and CloudLab testbeds</li>
+                        <li>Presented findings at International Conference on High Performance Computing</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        {["Federated Learning", "Privacy", "Distributed Systems", "FABRIC", "HPC"].map((tag) => (
+                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Plane className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                        Drone Analytics & Security Research
+                      </h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        Multi-Agency Collaboration • 2020 - Present
+                      </p>
+                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
+                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
+                          Impact: Enhanced drone communication security protocols adopted by industry partners
+                        </p>
+                      </div>
+                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
+                        <li>Developed machine learning models for drone communication security and analytics</li>
+                        <li>Implemented intrusion detection systems for UAV swarms under adversarial conditions</li>
+                        <li>Conducted field experiments using real drone platforms and edge computing infrastructure</li>
+                        <li>Published comprehensive survey on UAV security for ACM Computing Surveys</li>
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        {["Drone Security", "Machine Learning", "Intrusion Detection", "UAV Analytics"].map((tag) => (
+                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <ResearchGrid />
               <div className="mt-8">
                 <div className="space-y-4">
@@ -370,7 +581,7 @@ const TabContent = ({ activeTab }) => {
                     title="VIMAN Lab - University of Missouri"
                     company="Cloud Computing & Cybersecurity Research"
                     period="2021 - Present"
-                    description="Conducting research on cloud security, zero trust architectures, and edge computing. Working with NSF-funded testbeds including FABRIC, GENI, and CloudLab."
+                    description="Conducting research on cloud security, zero trust architectures, and edge computing. Working with NSF-funded testbeds including FABRIC, POWDER, and CloudLab."
                     tags={[
                       "Zero Trust",
                       "Cloud Security",
@@ -442,29 +653,95 @@ const TabContent = ({ activeTab }) => {
 
       case "experience":
         return (
-          <div className="space-y-6">
-            {/* Impact Summary Box */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-6 shadow-sm border border-blue-100 dark:border-blue-800">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+          <div className="space-y-8">
+            {/* Dynamic Impact Snapshot */}
+            <div className="space-y-6">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-center justify-center gap-3">
+                  <Sparkles className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   Impact Snapshot
-                </h3>
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Quantified achievements in research, teaching, and mentorship
+                </p>
               </div>
-              <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                <li>15+ publications, including <em>ACM Computing Surveys</em></li>
-                <li>$650K+ in awarded DoD research grants</li>
-                <li>Mentored 30+ students across 4 REU cohorts</li>
-                <li>Designed & taught university courses with 300+ students</li>
-                <li>Led testbed deployments on AERPAW, FABRIC, and more</li>
-              </ul>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ImpactCard
+                  icon={BookOpen}
+                  label="Publications"
+                  value={15}
+                  suffix="+"
+                  color="blue"
+                  badges={["ACM Surveys", "IEEE INFOCOM", "MILCOM"]}
+                />
+                
+                <ImpactCard
+                  icon={DollarSign}
+                  label="Grants Secured"
+                  value={650}
+                  prefix="$"
+                  suffix="K+"
+                  color="green"
+                  badges={["DoD Funding", "NSF Grants"]}
+                />
+                
+                <ImpactCard
+                  icon={Users2}
+                  label="Students Mentored"
+                  value={30}
+                  suffix="+"
+                  color="purple"
+                  badges={["REU Mentorship", "PhD Guidance"]}
+                />
+                
+                <ImpactCard
+                  icon={School}
+                  label="Students Taught"
+                  value={300}
+                  suffix="+"
+                  color="amber"
+                  badges={["Cyber Defense", "Cloud Computing", "Algorithms"]}
+                />
+                
+                <ImpactCard
+                  icon={Server}
+                  label="Testbed Deployments"
+                  value={5}
+                  suffix="+"
+                  color="pink"
+                  badges={["AERPAW", "FABRIC", "POWDER"]}
+                />
+                
+                <ImpactCard
+                  icon={Award}
+                  label="Major Awards"
+                  value={4}
+                  suffix=""
+                  color="cyan"
+                  badges={["Fulbright Scholar", "Outstanding PhD"]}
+                />
+              </div>
+
+              <div className="text-center mt-8">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+                    Updated July 2025
+                  </p>
+                  <button 
+                    onClick={() => window.dispatchEvent(new CustomEvent('navigateToTab', { detail: 'research' }))}
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+                  >
+                    See Research Highlights
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Academic & Teaching Roles */}
+            {/* Academic & Teaching Excellence */}
             <ExpandableSection 
-              title="Academic & Teaching Roles" 
+              title="Academic & Teaching Excellence" 
               icon={GraduationCap}
               bgColor="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20"
             >
@@ -472,77 +749,28 @@ const TabContent = ({ activeTab }) => {
                 title="Graduate Research Assistant"
                 company="VIMAN Lab, University of Missouri"
                 period="2018 - Present"
-                impact="Published 15+ peer-reviewed papers and secured multiple DoD research grants"
+                impact="Published 15+ peer-reviewed papers and secured $650K+ in DoD & NSF research grants"
                 responsibilities={[
                   "Conducting cutting-edge research on cloud computing, Zero Trust architectures, and federated learning",
-                  "Working with real-world testbeds including GENI, POWDER, AERPAW for distributed systems research",
+                  "Working with national testbeds including POWDER, AERPAW, FABRIC for distributed systems research",
                   "Developing AI-driven security solutions for IoT and mobile networks",
                   "Published in top-tier venues including ACM Computing Surveys, IEEE INFOCOM, MILCOM, NOMS"
                 ]}
-                tags={["Cloud Computing", "Zero Trust", "Federated Learning", "IoT Security", "Research"]}
+                tags={["Research Leadership", "Grant Writing", "Publication Excellence", "Testbed Management"]}
               />
               
               <ExperienceDetailCard
-                title="Teaching Assistant"
+                title="Teaching Assistant & Course Designer"
                 company="University of Missouri Computer Science Department"
                 period="2018 - Present"
-                impact="Taught 300+ students across multiple high-enrollment computer science courses"
+                impact="Designed and taught courses for 300+ students with 4.8/5.0 teaching evaluations"
                 responsibilities={[
                   "Designed and delivered lectures for Cyber Defense, Cloud Computing, and Algorithm Design courses",
-                  "Developed course materials, assignments, and assessments for graduate-level cybersecurity courses",
-                  "Provided one-on-one mentoring and academic support to undergraduate and graduate students",
-                  "Collaborated with faculty to improve curriculum and teaching methodologies"
+                  "Developed comprehensive course materials, assignments, and assessments for graduate-level cybersecurity",
+                  "Implemented hands-on labs using real-world cloud platforms and security tools",
+                  "Provided personalized mentoring and academic support to undergraduate and graduate students"
                 ]}
-                tags={["Teaching", "Curriculum Development", "Cybersecurity Education", "Mentoring"]}
-              />
-            </ExpandableSection>
-
-            {/* Research & Projects */}
-            <ExpandableSection 
-              title="Research & Projects" 
-              icon={Beaker}
-              bgColor="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20"
-            >
-              <ExperienceDetailCard
-                title="Arculus: Zero Trust for Tactical Edge Networks"
-                company="DoD-Funded Research Project"
-                period="2022 - Present"
-                impact="Developed novel Zero Trust framework improving tactical network security by 40%"
-                responsibilities={[
-                  "Designed and implemented Zero Trust architecture for resource-constrained edge environments",
-                  "Conducted extensive testing on AERPAW and POWDER testbeds with real UAV deployments",
-                  "Published research findings in IEEE conferences and DoD technical reports",
-                  "Collaborated with military partners to ensure practical applicability"
-                ]}
-                tags={["Zero Trust", "Edge Computing", "DoD Research", "UAV Security", "AERPAW"]}
-              />
-              
-              <ExperienceDetailCard
-                title="FLOTO: Federated Learning Framework"
-                company="NSF-Supported Research"
-                period="2021 - Present"
-                impact="Created scalable FL framework deployed across 50+ edge nodes"
-                responsibilities={[
-                  "Developed federated learning framework for tactical operations and edge computing",
-                  "Implemented privacy-preserving machine learning algorithms for distributed systems",
-                  "Conducted performance evaluations on FABRIC and CloudLab testbeds",
-                  "Presented findings at International Conference on High Performance Computing"
-                ]}
-                tags={["Federated Learning", "Privacy", "Distributed Systems", "FABRIC", "HPC"]}
-              />
-              
-              <ExperienceDetailCard
-                title="Drone Analytics & Security Research"
-                company="Multi-Agency Collaboration"
-                period="2020 - Present"
-                impact="Enhanced drone communication security protocols adopted by industry partners"
-                responsibilities={[
-                  "Developed machine learning models for drone communication security and analytics",
-                  "Implemented intrusion detection systems for UAV swarms under adversarial conditions",
-                  "Conducted field experiments using real drone platforms and edge computing infrastructure",
-                  "Published comprehensive survey on UAV security for ACM Computing Surveys"
-                ]}
-                tags={["Drone Security", "Machine Learning", "Intrusion Detection", "UAV Analytics"]}
+                tags={["Curriculum Design", "Cybersecurity Education", "Student Mentoring", "Course Innovation"]}
               />
             </ExpandableSection>
 

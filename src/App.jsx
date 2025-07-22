@@ -25,6 +25,16 @@ const tabs = [
 function App() {
   const [activeTab, setActiveTab] = useState("about");
 
+  // Add event listener for navigation from Experience to Research tab
+  React.useEffect(() => {
+    const handleNavigateToTab = (event) => {
+      setActiveTab(event.detail);
+    };
+
+    window.addEventListener('navigateToTab', handleNavigateToTab);
+    return () => window.removeEventListener('navigateToTab', handleNavigateToTab);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
       <main className="flex-1 container max-w-5xl mx-auto px-3 sm:px-4 py-8 sm:py-12">
