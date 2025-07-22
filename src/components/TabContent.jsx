@@ -61,7 +61,12 @@ const Publication = ({ title, venue, year, description }) => (
   </div>
 );
 
-const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => {
+const AnimatedCounter = ({
+  end,
+  duration = 2000,
+  suffix = "",
+  prefix = "",
+}) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef(null);
@@ -90,7 +95,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => 
     const animate = (currentTime) => {
       if (startTime === null) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      
+
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
 
@@ -104,34 +109,54 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => 
 
   return (
     <span ref={counterRef} className="font-bold">
-      {prefix}{count}{suffix}
+      {prefix}
+      {count}
+      {suffix}
     </span>
   );
 };
 
-const ImpactCard = ({ icon: Icon, label, value, suffix = "", prefix = "", color = "blue", badges = [] }) => {
+const ImpactCard = ({
+  icon: Icon,
+  label,
+  value,
+  suffix = "",
+  prefix = "",
+  color = "blue",
+  badges = [],
+}) => {
   const colorClasses = {
     blue: "from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-100 dark:border-blue-800",
-    green: "from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-emerald-100 dark:border-emerald-800",
-    purple: "from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border-purple-100 dark:border-purple-800",
-    amber: "from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-amber-100 dark:border-amber-800",
+    green:
+      "from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-emerald-100 dark:border-emerald-800",
+    purple:
+      "from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border-purple-100 dark:border-purple-800",
+    amber:
+      "from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-amber-100 dark:border-amber-800",
     pink: "from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border-pink-100 dark:border-pink-800",
-    cyan: "from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-cyan-100 dark:border-cyan-800"
+    cyan: "from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20 border-cyan-100 dark:border-cyan-800",
   };
 
   const iconColorClasses = {
     blue: "text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30",
-    green: "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
-    purple: "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30",
-    amber: "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
+    green:
+      "text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30",
+    purple:
+      "text-purple-600 dark:text-purple-400 bg-purple-100 dark:bg-purple-900/30",
+    amber:
+      "text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30",
     pink: "text-pink-600 dark:text-pink-400 bg-pink-100 dark:bg-pink-900/30",
-    cyan: "text-cyan-600 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-900/30"
+    cyan: "text-cyan-600 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-900/30",
   };
 
   return (
-    <div className={`bg-gradient-to-br ${colorClasses[color]} rounded-xl p-6 border shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 group`}>
+    <div
+      className={`bg-gradient-to-br ${colorClasses[color]} rounded-xl p-6 border shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300 group`}
+    >
       <div className="flex items-center gap-4 mb-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${iconColorClasses[color]} group-hover:scale-110 transition-transform duration-300`}>
+        <div
+          className={`w-12 h-12 rounded-xl flex items-center justify-center ${iconColorClasses[color]} group-hover:scale-110 transition-transform duration-300`}
+        >
           <Icon className="w-6 h-6" />
         </div>
         <div className="flex-1">
@@ -143,7 +168,7 @@ const ImpactCard = ({ icon: Icon, label, value, suffix = "", prefix = "", color 
           </p>
         </div>
       </div>
-      
+
       {badges && badges.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {badges.map((badge, index) => (
@@ -160,11 +185,19 @@ const ImpactCard = ({ icon: Icon, label, value, suffix = "", prefix = "", color 
   );
 };
 
-const ExpandableSection = ({ title, icon: Icon, children, defaultExpanded = true, bgColor = "bg-gray-50 dark:bg-gray-800/50" }) => {
+const ExpandableSection = ({
+  title,
+  icon: Icon,
+  children,
+  defaultExpanded = true,
+  bgColor = "bg-gray-50 dark:bg-gray-800/50",
+}) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
-    <div className={`${bgColor} rounded-xl p-6 hover:shadow-md transition-all duration-300`}>
+    <div
+      className={`${bgColor} rounded-xl p-6 hover:shadow-md transition-all duration-300`}
+    >
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-between text-left"
@@ -183,17 +216,20 @@ const ExpandableSection = ({ title, icon: Icon, children, defaultExpanded = true
           <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
         )}
       </button>
-      
-      {isExpanded && (
-        <div className="mt-6 space-y-4">
-          {children}
-        </div>
-      )}
+
+      {isExpanded && <div className="mt-6 space-y-4">{children}</div>}
     </div>
   );
 };
 
-const ExperienceDetailCard = ({ title, company, period, responsibilities, tags, impact }) => (
+const ExperienceDetailCard = ({
+  title,
+  company,
+  period,
+  responsibilities,
+  tags,
+  impact,
+}) => (
   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all duration-200">
     <div className="flex flex-col sm:flex-row justify-between items-start gap-3 mb-4">
       <div className="flex-1">
@@ -211,7 +247,9 @@ const ExperienceDetailCard = ({ title, company, period, responsibilities, tags, 
 
     {impact && (
       <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-400 dark:border-blue-500">
-        <p className="text-sm font-medium text-blue-900 dark:text-blue-200 mb-1">Key Impact:</p>
+        <p className="text-sm font-medium text-blue-900 dark:text-blue-200 mb-1">
+          Key Impact:
+        </p>
         <p className="text-sm text-blue-800 dark:text-blue-300">{impact}</p>
       </div>
     )}
@@ -344,14 +382,15 @@ const TabContent = ({ activeTab }) => {
         return (
           <div className="space-y-10">
             {/* Research Impact Overview */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800/80 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700/60">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                   Research Impact Overview
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                  Advancing cybersecurity and distributed systems through innovative research, 
-                  collaboration, and mentorship in academic and industry partnerships.
+                  Advancing cybersecurity and distributed systems through
+                  innovative research, collaboration, and mentorship in academic
+                  and industry partnerships.
                 </p>
               </div>
 
@@ -389,7 +428,12 @@ const TabContent = ({ activeTab }) => {
                     <DollarSign className="w-8 h-8 text-yellow-500 dark:text-yellow-400" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                    <AnimatedCounter end={650} prefix="$" suffix="K+" duration={2500} />
+                    <AnimatedCounter
+                      end={650}
+                      prefix="$"
+                      suffix="K+"
+                      duration={2500}
+                    />
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
                     Research Funding
@@ -424,81 +468,6 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            {/* Featured Projects */}
-            <div className="space-y-6">
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-                  Featured Research Projects
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                  Flagship research initiatives addressing critical challenges in cybersecurity, 
-                  distributed systems, and emerging technologies.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Arculus Project */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <div className="w-6 h-6 bg-emerald-600 dark:bg-emerald-400 rounded-sm"></div>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Arculus: Zero Trust for Tactical Edge Networks
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                    Novel Zero Trust architecture designed for resource-constrained tactical environments, 
-                    improving network security and resilience in military operations.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400 px-2 py-1 bg-emerald-50 dark:bg-emerald-900/20 rounded-full">
-                      DoD Funded
-                    </span>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
-                  </div>
-                </div>
-
-                {/* FLOTO Project */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Server className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    FLOTO: Federated Learning Framework
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                    Scalable federated learning framework for tactical operations, enabling privacy-preserving 
-                    machine learning across distributed edge computing environments.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400 px-2 py-1 bg-blue-50 dark:bg-blue-900/20 rounded-full">
-                      NSF Supported
-                    </span>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
-                  </div>
-                </div>
-
-                {/* UAV Security */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
-                  <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Plane className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    UAV Security & Analytics
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                    Comprehensive security solutions for unmanned aerial vehicle systems, including 
-                    intrusion detection and privacy-preserving analytics for drone networks.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-medium text-violet-600 dark:text-violet-400 px-2 py-1 bg-violet-50 dark:bg-violet-900/20 rounded-full">
-                      Multi-Agency
-                    </span>
-                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Research Areas */}
             <div className="space-y-6">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 text-center">
@@ -506,8 +475,8 @@ const TabContent = ({ activeTab }) => {
               </h2>
 
               {/* Federated Learning & Security */}
-              <ExpandableSection 
-                title="Federated Learning & Security" 
+              <ExpandableSection
+                title="Federated Learning & Security"
                 icon={Server}
                 bgColor="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20"
                 defaultExpanded={true}
@@ -516,7 +485,8 @@ const TabContent = ({ activeTab }) => {
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        FL-Defend: Intrusion Detection in Federated Learning Systems
+                        FL-Defend: Intrusion Detection in Federated Learning
+                        Systems
                       </h4>
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
                     </div>
@@ -524,22 +494,26 @@ const TabContent = ({ activeTab }) => {
                       IEEE MILCOM • 2024 • A. Esquivel, J. Smith, M. Rodriguez
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Secure federated learning framework for UAV swarms under data poisoning and network disruption threats.
+                      Secure federated learning framework for UAV swarms under
+                      data poisoning and network disruption threats.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        FLOTO Framework: Federated Learning for Tactical Operations
+                        FLOTO Framework: Federated Learning for Tactical
+                        Operations
                       </h4>
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      International Conference on High Performance Computing • 2025 • A. Esquivel, et al.
+                      International Conference on High Performance Computing •
+                      2025 • A. Esquivel, et al.
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Federated learning framework optimized for tactical operations and distributed edge computing scenarios.
+                      Federated learning framework optimized for tactical
+                      operations and distributed edge computing scenarios.
                     </p>
                   </div>
 
@@ -554,15 +528,16 @@ const TabContent = ({ activeTab }) => {
                       IEEE MILCOM • 2024 • A. Esquivel, D. Chen, K. Patel
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Analysis of security vulnerabilities and mitigation strategies in federated learning for IoT environments.
+                      Analysis of security vulnerabilities and mitigation
+                      strategies in federated learning for IoT environments.
                     </p>
                   </div>
                 </div>
               </ExpandableSection>
 
               {/* Edge & Cloud Computing */}
-              <ExpandableSection 
-                title="Edge & Cloud Computing" 
+              <ExpandableSection
+                title="Edge & Cloud Computing"
                 icon={Globe}
                 bgColor="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20"
               >
@@ -578,7 +553,8 @@ const TabContent = ({ activeTab }) => {
                       IEEE INFOCOM • 2024 • A. Esquivel, R. Johnson, S. Kim
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      PPO-based orchestration of data tasks for real-time edge/cloud UAV coordination.
+                      PPO-based orchestration of data tasks for real-time
+                      edge/cloud UAV coordination.
                     </p>
                   </div>
 
@@ -593,7 +569,8 @@ const TabContent = ({ activeTab }) => {
                       IEEE NOMS • 2023 • A. Esquivel, T. Anderson, L. Wilson
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Comprehensive study on network management challenges and solutions for edge computing infrastructures.
+                      Comprehensive study on network management challenges and
+                      solutions for edge computing infrastructures.
                     </p>
                   </div>
 
@@ -605,18 +582,20 @@ const TabContent = ({ activeTab }) => {
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Cloud Computing • 2024 • A. Esquivel, N. Thompson, M. Garcia
+                      IEEE Cloud Computing • 2024 • A. Esquivel, N. Thompson, M.
+                      Garcia
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Multi-sensor data collection framework for large-scale workflows, enhancing throughput and scalability.
+                      Multi-sensor data collection framework for large-scale
+                      workflows, enhancing throughput and scalability.
                     </p>
                   </div>
                 </div>
               </ExpandableSection>
 
               {/* UAV Systems & Networking */}
-              <ExpandableSection 
-                title="UAV Systems & Networking" 
+              <ExpandableSection
+                title="UAV Systems & Networking"
                 icon={Plane}
                 bgColor="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20"
               >
@@ -624,7 +603,8 @@ const TabContent = ({ activeTab }) => {
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        UAV/Drone Systems Security and Privacy: A Comprehensive Survey
+                        UAV/Drone Systems Security and Privacy: A Comprehensive
+                        Survey
                       </h4>
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
                     </div>
@@ -632,7 +612,8 @@ const TabContent = ({ activeTab }) => {
                       ACM Computing Surveys • 2025 • A. Esquivel, et al.
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks.
+                      Comprehensive survey on security and privacy challenges in
+                      unmanned aerial vehicle systems and drone networks.
                     </p>
                   </div>
 
@@ -647,7 +628,8 @@ const TabContent = ({ activeTab }) => {
                       IEEE SECON • 2024 • A. Esquivel, B. Davis, C. Martinez
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      AERPAW-based experiments securing edge video analytics workflows using programmable network services.
+                      AERPAW-based experiments securing edge video analytics
+                      workflows using programmable network services.
                     </p>
                   </div>
 
@@ -662,15 +644,16 @@ const TabContent = ({ activeTab }) => {
                       IEEE INFOCOM • 2024 • A. Esquivel, F. Lee, G. Brown
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Machine learning approaches for detecting network intrusions in mobile and wireless communication systems.
+                      Machine learning approaches for detecting network
+                      intrusions in mobile and wireless communication systems.
                     </p>
                   </div>
                 </div>
               </ExpandableSection>
 
               {/* Zero Trust Architecture */}
-              <ExpandableSection 
-                title="Zero Trust Architecture" 
+              <ExpandableSection
+                title="Zero Trust Architecture"
                 icon={Award}
                 bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
               >
@@ -678,7 +661,8 @@ const TabContent = ({ activeTab }) => {
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Arculus: Zero Trust Architecture for Tactical Edge Computing
+                        Arculus: Zero Trust Architecture for Tactical Edge
+                        Computing
                       </h4>
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
                     </div>
@@ -686,22 +670,27 @@ const TabContent = ({ activeTab }) => {
                       IEEE Conference • 2024 • A. Esquivel, P. Kumar, R. White
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols.
+                      Novel Zero Trust framework designed specifically for
+                      tactical edge computing environments with enhanced
+                      security protocols.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Zero Trust Implementation in Resource-Constrained Environments
+                        Zero Trust Implementation in Resource-Constrained
+                        Environments
                       </h4>
                       <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S. Taylor
+                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S.
+                      Taylor
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Practical Zero Trust deployment strategies for edge devices with limited computational resources.
+                      Practical Zero Trust deployment strategies for edge
+                      devices with limited computational resources.
                     </p>
                   </div>
 
@@ -716,7 +705,8 @@ const TabContent = ({ activeTab }) => {
                       ACM CCS • 2023 • A. Esquivel, H. Nguyen, I. Clark
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Self-adapting Zero Trust architecture for networks with frequently changing topologies and device configurations.
+                      Self-adapting Zero Trust architecture for networks with
+                      frequently changing topologies and device configurations.
                     </p>
                   </div>
                 </div>
@@ -734,22 +724,35 @@ const TabContent = ({ activeTab }) => {
                   <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
                     <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">AERPAW Testbed</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Aerial experimentation and research platform for wireless systems</p>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">
+                    AERPAW Testbed
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Aerial experimentation and research platform for wireless
+                    systems
+                  </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
                     <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">FABRIC Infrastructure</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">National-scale programmable research infrastructure</p>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">
+                    FABRIC Infrastructure
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    National-scale programmable research infrastructure
+                  </p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
                     <Beaker className="w-6 h-6 text-violet-600 dark:text-violet-400" />
                   </div>
-                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">POWDER Platform</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Platform for open wireless data-driven experimental research</p>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">
+                    POWDER Platform
+                  </h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Platform for open wireless data-driven experimental research
+                  </p>
                 </div>
               </div>
             </div>
@@ -820,7 +823,7 @@ const TabContent = ({ activeTab }) => {
               </div>
 
               {/* Compact 2x2 Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Students Mentored Card */}
                 <div className="bg-purple-50 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6 border border-purple-100/50 dark:border-purple-700/50 hover:shadow-md hover:shadow-purple-200/20 dark:hover:shadow-purple-900/20 transition-all duration-300">
                   <div className="flex items-center gap-4 mb-4">
@@ -836,7 +839,7 @@ const TabContent = ({ activeTab }) => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
                       REU Program
@@ -865,7 +868,7 @@ const TabContent = ({ activeTab }) => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
                       Cyber Defense
@@ -894,7 +897,7 @@ const TabContent = ({ activeTab }) => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
                       Fulbright Scholar
@@ -923,7 +926,7 @@ const TabContent = ({ activeTab }) => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-green-700 dark:text-green-300 rounded-full border border-green-200/60 dark:border-green-700">
                       Teaching Assistant
@@ -938,8 +941,12 @@ const TabContent = ({ activeTab }) => {
               {/* Compact Footer */}
               <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-2">
                 <span className="italic">Last updated July 2025</span>
-                <button 
-                  onClick={() => window.dispatchEvent(new CustomEvent('navigateToTab', { detail: 'research' }))}
+                <button
+                  onClick={() =>
+                    window.dispatchEvent(
+                      new CustomEvent("navigateToTab", { detail: "research" })
+                    )
+                  }
                   className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
                 >
                   <span>See Research Highlights</span>
@@ -949,8 +956,8 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             {/* Academic & Teaching Excellence */}
-            <ExpandableSection 
-              title="Academic & Teaching Excellence" 
+            <ExpandableSection
+              title="Academic & Teaching Excellence"
               icon={GraduationCap}
               bgColor="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20"
             >
@@ -963,11 +970,16 @@ const TabContent = ({ activeTab }) => {
                   "Conducting research on cloud/edge computing, Zero Trust architectures, and federated learning",
                   "Working with national testbeds including POWDER, AERPAW, FABRIC for distributed systems research",
                   "Developing AI-driven security solutions for UAV networks and mobile systems",
-                  "Published in top-tier venues including ACM Computing Surveys, IEEE INFOCOM, MILCOM"
+                  "Published in top-tier venues including ACM Computing Surveys, IEEE INFOCOM, MILCOM",
                 ]}
-                tags={["Cloud Computing", "Zero Trust", "Federated Learning", "UAV Security"]}
+                tags={[
+                  "Cloud Computing",
+                  "Zero Trust",
+                  "Federated Learning",
+                  "UAV Security",
+                ]}
               />
-              
+
               <ExperienceDetailCard
                 title="Teaching Assistant"
                 company="University of Missouri Computer Science Department"
@@ -977,15 +989,20 @@ const TabContent = ({ activeTab }) => {
                   "Delivered lectures and labs for Cyber Defense (CS 4970), Cloud Computing (CS 8570), and Algorithm Design courses",
                   "Developed course materials, assignments, and assessments for graduate-level cybersecurity",
                   "Supervised student projects on cloud platforms and distributed systems",
-                  "Provided academic mentoring and career guidance to undergraduate and graduate students"
+                  "Provided academic mentoring and career guidance to undergraduate and graduate students",
                 ]}
-                tags={["Teaching", "Cybersecurity", "Cloud Computing", "Student Mentoring"]}
+                tags={[
+                  "Teaching",
+                  "Cybersecurity",
+                  "Cloud Computing",
+                  "Student Mentoring",
+                ]}
               />
             </ExpandableSection>
 
             {/* Mentorship & Fellowships */}
-            <ExpandableSection 
-              title="Mentorship & Fellowships" 
+            <ExpandableSection
+              title="Mentorship & Fellowships"
               icon={UserCheck}
               bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
             >
@@ -998,15 +1015,20 @@ const TabContent = ({ activeTab }) => {
                   "Supervised undergraduate researchers in REU cohorts and REU BigDataX programs at University of Missouri",
                   "Designed 10-week summer research projects in cloud computing and cybersecurity",
                   "Provided career guidance, graduate school application support, and professional development",
-                  "Organized weekly seminars on research methodology and academic writing"
+                  "Organized weekly seminars on research methodology and academic writing",
                 ]}
-                tags={["REU Mentorship", "Undergraduate Research", "Career Development", "Professional Training"]}
+                tags={[
+                  "REU Mentorship",
+                  "Undergraduate Research",
+                  "Career Development",
+                  "Professional Training",
+                ]}
               />
             </ExpandableSection>
 
             {/* Awards & Recognition */}
-            <ExpandableSection 
-              title="Awards & Recognition" 
+            <ExpandableSection
+              title="Awards & Recognition"
               icon={Award}
               bgColor="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20"
             >
@@ -1018,29 +1040,41 @@ const TabContent = ({ activeTab }) => {
                   impact="Recognized for exceptional academic performance and research contributions in computer science"
                   tags={["Academic Excellence", "PhD Recognition"]}
                 />
-                
+
                 <ExperienceDetailCard
                   title="Fulbright Scholar"
                   company="U.S. Department of State"
                   period="2024"
                   impact="Prestigious international research fellowship for conducting research abroad"
-                  tags={["International Research", "Fellowship", "Cultural Exchange"]}
+                  tags={[
+                    "International Research",
+                    "Fellowship",
+                    "Cultural Exchange",
+                  ]}
                 />
-                
+
                 <ExperienceDetailCard
                   title="UC2 DoD White Paper Winner"
                   company="Department of Defense"
                   period="2024"
                   impact="Winning research proposal for innovative cybersecurity solutions in tactical environments"
-                  tags={["Research Innovation", "DoD Recognition", "Cybersecurity"]}
+                  tags={[
+                    "Research Innovation",
+                    "DoD Recognition",
+                    "Cybersecurity",
+                  ]}
                 />
-                
+
                 <ExperienceDetailCard
                   title="Graduate Research Fellowship"
                   company="University of Missouri"
                   period="2018-2024"
                   impact="Six-year fellowship supporting doctoral research in cloud computing and cybersecurity"
-                  tags={["Fellowship", "Research Support", "Long-term Achievement"]}
+                  tags={[
+                    "Fellowship",
+                    "Research Support",
+                    "Long-term Achievement",
+                  ]}
                 />
               </div>
             </ExpandableSection>
@@ -1153,7 +1187,7 @@ const TabContent = ({ activeTab }) => {
                   <Languages className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                   Language & Culture
                 </h3>
-                
+
                 <div className="space-y-6">
                   {/* Languages I Speak */}
                   <div>
@@ -1189,7 +1223,7 @@ const TabContent = ({ activeTab }) => {
                         🇮🇹 Italian
                       </span>
                     </div>
-                    
+
                     {/* Duolingo Learning Tool */}
                     <a
                       href="https://www.duolingo.com"
@@ -1215,8 +1249,8 @@ const TabContent = ({ activeTab }) => {
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 I create logos, digital art, poster designs, and academic
                 visuals for research presentations and manuscripts. My design
-                work bridges creative expression with clear communication
-                across various mediums and contexts.
+                work bridges creative expression with clear communication across
+                various mediums and contexts.
               </p>
 
               {/* Design Cards Grid */}
