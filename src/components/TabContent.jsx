@@ -474,62 +474,62 @@ const TabContent = ({ activeTab }) => {
                 Research Areas & Publications
               </h2>
 
-              {/* Federated Learning & Security */}
+              {/* Zero Trust Architecture */}
               <ExpandableSection
-                title="Federated Learning & Security"
-                icon={Server}
-                bgColor="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20"
-                defaultExpanded={true}
+                title="Zero Trust Architecture"
+                icon={Award}
+                bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
               >
                 <div className="space-y-4">
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        FL-Defend: Intrusion Detection in Federated Learning
-                        Systems
+                        Arculus: Zero Trust Architecture for Tactical Edge
+                        Computing
                       </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE MILCOM • 2024 • A. Esquivel, J. Smith, M. Rodriguez
+                      IEEE Conference • 2024 • A. Esquivel, P. Kumar, R. White
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Secure federated learning framework for UAV swarms under
-                      data poisoning and network disruption threats.
+                      Novel Zero Trust framework designed specifically for
+                      tactical edge computing environments with enhanced
+                      security protocols.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        FLOTO Framework: Federated Learning for Tactical
-                        Operations
+                        Zero Trust Implementation in Resource-Constrained
+                        Environments
                       </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      International Conference on High Performance Computing •
-                      2025 • A. Esquivel, et al.
+                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S.
+                      Taylor
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Federated learning framework optimized for tactical
-                      operations and distributed edge computing scenarios.
+                      Practical Zero Trust deployment strategies for edge
+                      devices with limited computational resources.
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
                     <div className="flex items-start justify-between mb-3">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Security Challenges in IoT Federated Learning
+                        Adaptive Zero Trust for Dynamic Network Topologies
                       </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
                     </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE MILCOM • 2024 • A. Esquivel, D. Chen, K. Patel
+                      ACM CCS • 2023 • A. Esquivel, H. Nguyen, I. Clark
                     </p>
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Analysis of security vulnerabilities and mitigation
-                      strategies in federated learning for IoT environments.
+                      Self-adapting Zero Trust architecture for networks with
+                      frequently changing topologies and device configurations.
                     </p>
                   </div>
                 </div>
@@ -646,67 +646,6 @@ const TabContent = ({ activeTab }) => {
                     <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                       Machine learning approaches for detecting network
                       intrusions in mobile and wireless communication systems.
-                    </p>
-                  </div>
-                </div>
-              </ExpandableSection>
-
-              {/* Zero Trust Architecture */}
-              <ExpandableSection
-                title="Zero Trust Architecture"
-                icon={Award}
-                bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
-              >
-                <div className="space-y-4">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Arculus: Zero Trust Architecture for Tactical Edge
-                        Computing
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Conference • 2024 • A. Esquivel, P. Kumar, R. White
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Novel Zero Trust framework designed specifically for
-                      tactical edge computing environments with enhanced
-                      security protocols.
-                    </p>
-                  </div>
-
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Zero Trust Implementation in Resource-Constrained
-                        Environments
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S.
-                      Taylor
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Practical Zero Trust deployment strategies for edge
-                      devices with limited computational resources.
-                    </p>
-                  </div>
-
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Adaptive Zero Trust for Dynamic Network Topologies
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      ACM CCS • 2023 • A. Esquivel, H. Nguyen, I. Clark
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Self-adapting Zero Trust architecture for networks with
-                      frequently changing topologies and device configurations.
                     </p>
                   </div>
                 </div>
