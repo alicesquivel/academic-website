@@ -360,42 +360,91 @@ const TabContent = ({ activeTab }) => {
 
             {/* Travel Adventures Section */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2">
                 ✈️ Travel Adventures
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                      Japan 2023
-                    </div>
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                      Europe Tour
-                    </div>
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                      Costa Rica
-                    </div>
-                    <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                      Road Trip USA
-                    </div>
-                  </div>
-                  <a 
-                    href="#" 
-                    className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium"
+              
+              {/* Travel Cards Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                {/* Europe Tour Card */}
+                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div 
+                    className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
+                    style={{
+                      backgroundImage: "url('/images/europe.jpg')",
+                      backgroundColor: '#6B7280' // fallback color
+                    }}
                   >
-                    📄 View Japan Itinerary PDF
-                  </a>
-                </div>
-                <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 h-64 flex items-center justify-center">
-                  <div className="text-center text-gray-500 dark:text-gray-400">
-                    <div className="text-2xl mb-2">🗺️</div>
-                    <p className="text-sm">Google My Maps</p>
-                    <p className="text-xs">Places I've Explored</p>
-                    <button className="mt-2 px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-md text-sm">
-                      View Map
-                    </button>
+                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <h4 className="text-white text-lg font-semibold text-center px-4">
+                        Europe Tour
+                      </h4>
+                    </div>
                   </div>
                 </div>
+
+                {/* Costa Rica Card */}
+                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div 
+                    className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
+                    style={{
+                      backgroundImage: "url('/images/costarica.jpg')",
+                      backgroundColor: '#059669' // fallback color
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <h4 className="text-white text-lg font-semibold text-center px-4">
+                        Costa Rica
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Road Trip USA Card */}
+                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+                  <div 
+                    className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
+                    style={{
+                      backgroundImage: "url('/images/roadtrip-usa.jpg')",
+                      backgroundColor: '#DC2626' // fallback color
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <h4 className="text-white text-lg font-semibold text-center px-4">
+                        Road Trip USA
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Google My Maps Card */}
+                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40">
+                  <div className="h-48 flex flex-col items-center justify-center p-6 text-center">
+                    <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                      🗺️
+                    </div>
+                    <h4 className="text-gray-800 dark:text-gray-200 font-semibold text-base mb-2">
+                      Google My Maps
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                      Places I've Explored
+                    </p>
+                    <a 
+                      href="https://www.google.com/maps/d/u/0/edit?mid=1vYr6qmcH_pIK4e3gMH8rAZ4vLMR9tP1o&usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      View Map
+                    </a>
+                  </div>
+                </div>
+
               </div>
             </div>
 
