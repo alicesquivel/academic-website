@@ -200,7 +200,7 @@ function App() {
             <div className="flex items-center gap-4">
               {/* X (Twitter) */}
               <a
-                href="https://twitter.com/alicesquivel"
+                href="https://x.com/alicesquivelpy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -218,7 +218,7 @@ function App() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/alicesquivel"
+                href="https://www.instagram.com/alicesquivelpy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
@@ -240,7 +240,7 @@ function App() {
 
               {/* Facebook */}
               <a
-                href="https://facebook.com/alicesquivel"
+                href="https://www.facebook.com/alicesquivel"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-700 dark:hover:text-blue-500 transition-colors"

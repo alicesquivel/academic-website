@@ -1,7 +1,7 @@
 import React from "react";
 import ResearchGrid from "./ResearchGrid";
 import Terminal from "./Terminal";
-import { Book, FileText, GraduationCap } from "lucide-react";
+import { Book, FileText, GraduationCap, Tag, PencilLine, BarChart2 } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
@@ -9,7 +9,21 @@ const Publication = ({ title, venue, year, description }) => (
       {title}
     </h4>
     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-      {venue}, {year}
+              {/* Portfolio Links */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-2">
+                <a 
+                  href="#" 
+                  className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-semibold transition-colors duration-200"
+                >
+                  View Full Gallery
+                </a>
+                <a 
+                  href="#" 
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm italic transition-colors duration-200"
+                >
+                  Design Portfolio Site Coming Soon
+                </a>
+              </div>{year}
     </p>
     {description && (
       <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mt-2">
@@ -449,33 +463,101 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             {/* Art & Design Projects */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                🎨 Art & Design Projects
+            <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                Art & Design Portfolio
               </h3>
-              <div className="grid md:grid-cols-3 gap-4 mb-4">
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-40 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                  Jewelry Design
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                I create logos, digital art, poster designs, and academic visuals for research presentations and manuscripts. 
+                My design work bridges creative expression with clear communication across various mediums and contexts.
+              </p>
+              
+              {/* Design Cards Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                
+                {/* Logo & Brand Design Card */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-xl flex items-center justify-center group-hover:bg-sky-200 dark:group-hover:bg-sky-800/40 transition-colors duration-300">
+                      <Tag className="w-6 h-6 text-sky-600 dark:text-sky-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                        Logo & Brand Design
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Identity and branding systems
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-40 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                  Poster Designs
+
+                {/* Poster & Flyer Design Card */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/40 transition-colors duration-300">
+                      <FileText className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                        Poster & Flyer Design
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Event & promotional materials
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-40 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                  Digital Sketches
+
+                {/* Illustration & Digital Sketches Card */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center group-hover:bg-violet-200 dark:group-hover:bg-violet-800/40 transition-colors duration-300">
+                      <PencilLine className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                        Illustration & Digital Sketches
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Digital art and illustrations
+                      </p>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Research Visuals Card */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/40 transition-colors duration-300">
+                      <BarChart2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                        Research Visuals
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        Diagrams, charts, and graphics for academic papers and grant proposals
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-              <div className="flex gap-4">
+              
+              {/* Portfolio Links */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-medium transition-colors duration-200"
                 >
-                  🖼️ View Full Gallery
+                  � View Full Gallery
                 </a>
                 <a 
                   href="#" 
-                  className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-medium transition-colors duration-200"
                 >
-                  🛒 Future Etsy Store
+                  🌐 Design Portfolio Site Coming Soon
                 </a>
               </div>
             </div>
@@ -610,7 +692,7 @@ const TabContent = ({ activeTab }) => {
                         </div>
                       </div>
                     </div>
-                    <a href="#" className="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm">📱 Goodreads Profile</a>
+                    <a href="https://www.goodreads.com/alicesquivel" className="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm">📱 Goodreads Profile</a>
                   </div>
                 </div>
 
