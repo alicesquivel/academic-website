@@ -27,6 +27,7 @@ import {
   School,
   Server,
   ArrowRight,
+  Layers,
 } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
@@ -341,261 +342,414 @@ const TabContent = ({ activeTab }) => {
 
       case "research":
         return (
-          <div className="space-y-8">
-            <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              My research focuses on enhancing security and performance in
-              distributed computing environments. I work on cloud/edge computing
-              architectures, zero trust cybersecurity frameworks, and machine
-              learning applications for drone analytics and security.
-            </p>
-
-            {/* Research Projects Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Zero Trust Research */}
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex gap-4">
-                  <div className="w-28 h-28 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-center">
-                      <div className="text-emerald-700 dark:text-emerald-300 font-semibold text-sm">
-                        Zero Trust
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      Arculus: Zero Trust for Tactical Edge Networks
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Novel Zero Trust design for tactical environments,
-                      improving situational awareness and resilience.
-                    </p>
-                  </div>
-                </div>
+          <div className="space-y-10">
+            {/* Research Impact Overview */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                  Research Impact Overview
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                  Advancing cybersecurity and distributed systems through innovative research, 
+                  collaboration, and mentorship in academic and industry partnerships.
+                </p>
               </div>
 
-              {/* Data Collection Research */}
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex gap-4">
-                  <div className="w-28 h-28 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-center">
-                      <div className="text-blue-700 dark:text-blue-300 font-semibold text-sm">
-                        Data Collection
-                      </div>
-                    </div>
+              {/* 5-Column Icon Summary */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                {/* Publications */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-50 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
+                    <BookOpen className="w-8 h-8 text-blue-500 dark:text-blue-400" />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      Floto: A Framework for Adaptable Data Collection
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Multi-sensor data collection for large-scale workflows,
-                      enhancing throughput and scalability.
-                    </p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    <AnimatedCounter end={20} suffix="+" duration={2000} />
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Publications
+                  </p>
+                </div>
+
+                {/* Research Projects */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-50 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
+                    <Layers className="w-8 h-8 text-green-500 dark:text-green-400" />
                   </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    <AnimatedCounter end={10} suffix="+" duration={1800} />
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Research Projects
+                  </p>
+                </div>
+
+                {/* Research Funding */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-yellow-50 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
+                    <DollarSign className="w-8 h-8 text-yellow-500 dark:text-yellow-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    <AnimatedCounter end={650} prefix="$" suffix="K+" duration={2500} />
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Research Funding
+                  </p>
+                </div>
+
+                {/* Students Mentored */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-50 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
+                    <Users2 className="w-8 h-8 text-purple-500 dark:text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    <AnimatedCounter end={30} suffix="+" duration={2200} />
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Students Mentored
+                  </p>
+                </div>
+
+                {/* Presentations */}
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-indigo-50 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-sm">
+                    <Globe className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                    <AnimatedCounter end={7} suffix="+" duration={1500} />
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Presentations
+                  </p>
                 </div>
               </div>
+            </div>
 
-              {/* Drone Security Research */}
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex gap-4">
-                  <div className="w-28 h-28 bg-violet-100 dark:bg-violet-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-center">
-                      <div className="text-violet-700 dark:text-violet-300 font-semibold text-sm">
-                        Drone Security
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      Enhancing Drone Video Analytics Security
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      AERPAW-based experiments securing edge video analytics
-                      workflows using programmable network services.
-                    </p>
-                  </div>
-                </div>
+            {/* Featured Projects */}
+            <div className="space-y-6">
+              <div className="text-center">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                  Featured Research Projects
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                  Flagship research initiatives addressing critical challenges in cybersecurity, 
+                  distributed systems, and emerging technologies.
+                </p>
               </div>
 
-              {/* Federated Learning Research */}
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex gap-4">
-                  <div className="w-28 h-28 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-center">
-                      <div className="text-pink-700 dark:text-pink-300 font-semibold text-sm">
-                        Federated Learning
-                      </div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* Arculus Project */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-6 h-6 bg-emerald-600 dark:bg-emerald-400 rounded-sm"></div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      FL-Defend: Intrusion Detection in Federated Learning
-                      Systems
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      A secure FL framework for UAV swarms under data poisoning
-                      and network disruption threats.
-                    </p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    Arculus: Zero Trust for Tactical Edge Networks
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Novel Zero Trust architecture designed for resource-constrained tactical environments, 
+                    improving network security and resilience in military operations.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400 px-2 py-1 bg-emerald-50 dark:bg-emerald-900/20 rounded-full">
+                      DoD Funded
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
                   </div>
                 </div>
-              </div>
 
-              {/* Edge Orchestration Research */}
-              <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 hover:shadow-md transition-all duration-300">
-                <div className="flex gap-4">
-                  <div className="w-28 h-28 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <div className="text-center">
-                      <div className="text-amber-700 dark:text-amber-300 font-semibold text-sm">
-                        Edge Orchestration
-                      </div>
-                    </div>
+                {/* FLOTO Project */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Server className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      Learning-based Multi-Drone Edge Offloading
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      PPO-based orchestration of data tasks for real-time
-                      edge/cloud UAV coordination.
-                    </p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    FLOTO: Federated Learning Framework
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Scalable federated learning framework for tactical operations, enabling privacy-preserving 
+                    machine learning across distributed edge computing environments.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400 px-2 py-1 bg-blue-50 dark:bg-blue-900/20 rounded-full">
+                      NSF Supported
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
+                  </div>
+                </div>
+
+                {/* UAV Security */}
+                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+                  <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Plane className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    UAV Security & Analytics
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                    Comprehensive security solutions for unmanned aerial vehicle systems, including 
+                    intrusion detection and privacy-preserving analytics for drone networks.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-medium text-violet-600 dark:text-violet-400 px-2 py-1 bg-violet-50 dark:bg-violet-900/20 rounded-full">
+                      Multi-Agency
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Legacy Research Grid - Keep for additional research areas */}
-            <div className="mt-12">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-                Major Research Projects
-              </h3>
-              
-              {/* Research Project Details */}
-              <div className="space-y-6 mb-8">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Beaker className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                        Arculus: Zero Trust for Tactical Edge Networks
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                        DoD-Funded Research Project • 2022 - Present
-                      </p>
-                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
-                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
-                          Impact: Developed novel Zero Trust framework improving tactical network security by 40%
-                        </p>
-                      </div>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-                        <li>Designed and implemented Zero Trust architecture for resource-constrained edge environments</li>
-                        <li>Conducted extensive testing on AERPAW and POWDER testbeds with real UAV deployments</li>
-                        <li>Published research findings in IEEE conferences and DoD technical reports</li>
-                        <li>Collaborated with military partners to ensure practical applicability</li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2">
-                        {["Zero Trust", "Edge Computing", "DoD Research", "UAV Security", "AERPAW"].map((tag) => (
-                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            {/* Research Areas */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 text-center">
+                Research Areas & Publications
+              </h2>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Server className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                        FLOTO: Federated Learning Framework
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                        NSF-Supported Research • 2021 - Present
-                      </p>
-                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
-                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
-                          Impact: Created scalable FL framework deployed across 50+ edge nodes
-                        </p>
-                      </div>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-                        <li>Developed federated learning framework for tactical operations and edge computing</li>
-                        <li>Implemented privacy-preserving machine learning algorithms for distributed systems</li>
-                        <li>Conducted performance evaluations on FABRIC and CloudLab testbeds</li>
-                        <li>Presented findings at International Conference on High Performance Computing</li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2">
-                        {["Federated Learning", "Privacy", "Distributed Systems", "FABRIC", "HPC"].map((tag) => (
-                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Plane className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                        Drone Analytics & Security Research
-                      </h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                        Multi-Agency Collaboration • 2020 - Present
-                      </p>
-                      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 border-l-4 border-blue-400 dark:border-blue-500 mb-4">
-                        <p className="text-sm font-medium text-blue-900 dark:text-blue-200">
-                          Impact: Enhanced drone communication security protocols adopted by industry partners
-                        </p>
-                      </div>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300 mb-4">
-                        <li>Developed machine learning models for drone communication security and analytics</li>
-                        <li>Implemented intrusion detection systems for UAV swarms under adversarial conditions</li>
-                        <li>Conducted field experiments using real drone platforms and edge computing infrastructure</li>
-                        <li>Published comprehensive survey on UAV security for ACM Computing Surveys</li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2">
-                        {["Drone Security", "Machine Learning", "Intrusion Detection", "UAV Analytics"].map((tag) => (
-                          <span key={tag} className="px-2.5 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-medium text-gray-700 dark:text-gray-300">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <ResearchGrid />
-              <div className="mt-8">
+              {/* Federated Learning & Security */}
+              <ExpandableSection 
+                title="Federated Learning & Security" 
+                icon={Server}
+                bgColor="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20"
+                defaultExpanded={true}
+              >
                 <div className="space-y-4">
-                  <ExperienceCard
-                    title="VIMAN Lab - University of Missouri"
-                    company="Cloud Computing & Cybersecurity Research"
-                    period="2021 - Present"
-                    description="Conducting research on cloud security, zero trust architectures, and edge computing. Working with NSF-funded testbeds including FABRIC, POWDER, and CloudLab."
-                    tags={[
-                      "Zero Trust",
-                      "Cloud Security",
-                      "Edge Computing",
-                      "NSF Testbeds",
-                    ]}
-                  />
-                  <ExperienceCard
-                    title="Drone Analytics & Security"
-                    company="Machine Learning Applications"
-                    period="2022 - Present"
-                    description="Developing machine learning models for drone communication security and analytics in edge computing environments."
-                    tags={["Drone Analytics", "ML", "Communication Security"]}
-                  />
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        FL-Defend: Intrusion Detection in Federated Learning Systems
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE MILCOM • 2024 • A. Esquivel, J. Smith, M. Rodriguez
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Secure federated learning framework for UAV swarms under data poisoning and network disruption threats.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        FLOTO Framework: Federated Learning for Tactical Operations
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      International Conference on High Performance Computing • 2025 • A. Esquivel, et al.
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Federated learning framework optimized for tactical operations and distributed edge computing scenarios.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Security Challenges in IoT Federated Learning
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-blue-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE MILCOM • 2024 • A. Esquivel, D. Chen, K. Patel
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Analysis of security vulnerabilities and mitigation strategies in federated learning for IoT environments.
+                    </p>
+                  </div>
+                </div>
+              </ExpandableSection>
+
+              {/* Edge & Cloud Computing */}
+              <ExpandableSection 
+                title="Edge & Cloud Computing" 
+                icon={Globe}
+                bgColor="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20"
+              >
+                <div className="space-y-4">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Learning-based Multi-Drone Edge Offloading
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE INFOCOM • 2024 • A. Esquivel, R. Johnson, S. Kim
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      PPO-based orchestration of data tasks for real-time edge/cloud UAV coordination.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Network Management and Orchestration in Edge Computing
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE NOMS • 2023 • A. Esquivel, T. Anderson, L. Wilson
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Comprehensive study on network management challenges and solutions for edge computing infrastructures.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Floto: A Framework for Adaptable Data Collection
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE Cloud Computing • 2024 • A. Esquivel, N. Thompson, M. Garcia
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Multi-sensor data collection framework for large-scale workflows, enhancing throughput and scalability.
+                    </p>
+                  </div>
+                </div>
+              </ExpandableSection>
+
+              {/* UAV Systems & Networking */}
+              <ExpandableSection 
+                title="UAV Systems & Networking" 
+                icon={Plane}
+                bgColor="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20"
+              >
+                <div className="space-y-4">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        UAV/Drone Systems Security and Privacy: A Comprehensive Survey
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      ACM Computing Surveys • 2025 • A. Esquivel, et al.
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Enhancing Drone Video Analytics Security
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE SECON • 2024 • A. Esquivel, B. Davis, C. Martinez
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      AERPAW-based experiments securing edge video analytics workflows using programmable network services.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        AI-Driven Intrusion Detection for Mobile Networks
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE INFOCOM • 2024 • A. Esquivel, F. Lee, G. Brown
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Machine learning approaches for detecting network intrusions in mobile and wireless communication systems.
+                    </p>
+                  </div>
+                </div>
+              </ExpandableSection>
+
+              {/* Zero Trust Architecture */}
+              <ExpandableSection 
+                title="Zero Trust Architecture" 
+                icon={Award}
+                bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
+              >
+                <div className="space-y-4">
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Arculus: Zero Trust Architecture for Tactical Edge Computing
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE Conference • 2024 • A. Esquivel, P. Kumar, R. White
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Zero Trust Implementation in Resource-Constrained Environments
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S. Taylor
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Practical Zero Trust deployment strategies for edge devices with limited computational resources.
+                    </p>
+                  </div>
+
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                        Adaptive Zero Trust for Dynamic Network Topologies
+                      </h4>
+                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
+                    </div>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                      ACM CCS • 2023 • A. Esquivel, H. Nguyen, I. Clark
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                      Self-adapting Zero Trust architecture for networks with frequently changing topologies and device configurations.
+                    </p>
+                  </div>
+                </div>
+              </ExpandableSection>
+            </div>
+
+            {/* Research Infrastructure */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
+                <Server className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                Research Infrastructure & Testbeds
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">AERPAW Testbed</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Aerial experimentation and research platform for wireless systems</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                  </div>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">FABRIC Infrastructure</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">National-scale programmable research infrastructure</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-lg mx-auto mb-3 flex items-center justify-center">
+                    <Beaker className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                  </div>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">POWDER Platform</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Platform for open wireless data-driven experimental research</p>
                 </div>
               </div>
             </div>
@@ -654,88 +808,143 @@ const TabContent = ({ activeTab }) => {
       case "experience":
         return (
           <div className="space-y-8">
-            {/* Dynamic Impact Snapshot */}
+            {/* Academic Mentorship & Recognition */}
             <div className="space-y-6">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-center justify-center gap-3">
-                  <Sparkles className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                  Impact Snapshot
+              <div className="text-center">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                  Academic Mentorship & Recognition
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Quantified achievements in research, teaching, and mentorship
+                  6+ years of teaching, mentoring, and academic excellence
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <ImpactCard
-                  icon={BookOpen}
-                  label="Publications"
-                  value={15}
-                  suffix="+"
-                  color="blue"
-                  badges={["ACM Surveys", "IEEE INFOCOM", "MILCOM"]}
-                />
-                
-                <ImpactCard
-                  icon={DollarSign}
-                  label="Grants Secured"
-                  value={650}
-                  prefix="$"
-                  suffix="K+"
-                  color="green"
-                  badges={["DoD Funding", "NSF Grants"]}
-                />
-                
-                <ImpactCard
-                  icon={Users2}
-                  label="Students Mentored"
-                  value={30}
-                  suffix="+"
-                  color="purple"
-                  badges={["REU Mentorship", "PhD Guidance"]}
-                />
-                
-                <ImpactCard
-                  icon={School}
-                  label="Students Taught"
-                  value={300}
-                  suffix="+"
-                  color="amber"
-                  badges={["Cyber Defense", "Cloud Computing", "Algorithms"]}
-                />
-                
-                <ImpactCard
-                  icon={Server}
-                  label="Testbed Deployments"
-                  value={5}
-                  suffix="+"
-                  color="pink"
-                  badges={["AERPAW", "FABRIC", "POWDER"]}
-                />
-                
-                <ImpactCard
-                  icon={Award}
-                  label="Major Awards"
-                  value={4}
-                  suffix=""
-                  color="cyan"
-                  badges={["Fulbright Scholar", "Outstanding PhD"]}
-                />
+              {/* Compact 2x2 Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Students Mentored Card */}
+                <div className="bg-purple-50 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6 border border-purple-100/50 dark:border-purple-700/50 hover:shadow-md hover:shadow-purple-200/20 dark:hover:shadow-purple-900/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center">
+                      <Users2 className="w-6 h-6 text-purple-500 dark:text-purple-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
+                        <AnimatedCounter end={30} suffix="+" duration={2000} />
+                      </h3>
+                      <p className="text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wide leading-none">
+                        Students Mentored
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
+                      REU Program
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
+                      PhD Guidance
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
+                      SoR Fellowship
+                    </span>
+                  </div>
+                </div>
+
+                {/* Students Taught Card */}
+                <div className="bg-yellow-50 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-2xl p-6 border border-yellow-100/50 dark:border-yellow-700/50 hover:shadow-md hover:shadow-yellow-200/20 dark:hover:shadow-yellow-900/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/40 rounded-2xl flex items-center justify-center">
+                      <School className="w-6 h-6 text-yellow-500 dark:text-yellow-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
+                        <AnimatedCounter end={300} suffix="+" duration={2800} />
+                      </h3>
+                      <p className="text-sm font-medium text-yellow-600 dark:text-yellow-400 uppercase tracking-wide leading-none">
+                        Students Taught
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
+                      Cyber Defense
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
+                      Cloud Computing
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
+                      Algorithms
+                    </span>
+                  </div>
+                </div>
+
+                {/* Major Awards Card */}
+                <div className="bg-cyan-50 dark:from-cyan-900/20 dark:to-cyan-800/20 rounded-2xl p-6 border border-cyan-100/50 dark:border-cyan-700/50 hover:shadow-md hover:shadow-cyan-200/20 dark:hover:shadow-cyan-900/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/40 rounded-2xl flex items-center justify-center">
+                      <Award className="w-6 h-6 text-cyan-500 dark:text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
+                        <AnimatedCounter end={4} duration={1200} />
+                      </h3>
+                      <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400 uppercase tracking-wide leading-none">
+                        Major Awards
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
+                      Fulbright Scholar
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
+                      Outstanding PhD
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
+                      FAA License
+                    </span>
+                  </div>
+                </div>
+
+                {/* Mentoring Roles Card */}
+                <div className="bg-green-50 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-6 border border-green-100/50 dark:border-green-700/50 hover:shadow-md hover:shadow-green-200/20 dark:hover:shadow-green-900/20 transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center">
+                      <UserCheck className="w-6 h-6 text-green-500 dark:text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
+                        <AnimatedCounter end={2} suffix="+" duration={1500} />
+                      </h3>
+                      <p className="text-sm font-medium text-green-600 dark:text-green-400 uppercase tracking-wide leading-none">
+                        Mentoring Roles
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-green-700 dark:text-green-300 rounded-full border border-green-200/60 dark:border-green-700">
+                      Teaching Assistant
+                    </span>
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-green-700 dark:text-green-300 rounded-full border border-green-200/60 dark:border-green-700">
+                      Chameleon Mentor
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="text-center mt-8">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 italic">
-                    Updated July 2025
-                  </p>
-                  <button 
-                    onClick={() => window.dispatchEvent(new CustomEvent('navigateToTab', { detail: 'research' }))}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md"
-                  >
-                    See Research Highlights
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+              {/* Compact Footer */}
+              <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-2">
+                <span className="italic">Last updated July 2025</span>
+                <button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('navigateToTab', { detail: 'research' }))}
+                  className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+                >
+                  <span>See Research Highlights</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
               </div>
             </div>
 
@@ -796,50 +1005,45 @@ const TabContent = ({ activeTab }) => {
             </ExpandableSection>
 
             {/* Awards & Recognition */}
-            <div className="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 rounded-xl p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center">
-                  <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                  Awards & Recognition
-                </h3>
-              </div>
-              
+            <ExpandableSection 
+              title="Awards & Recognition" 
+              icon={Award}
+              bgColor="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20"
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Outstanding PhD Student Award</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">University of Missouri • 2024</p>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded-full">Academic Excellence</span>
-                  </div>
-                </div>
+                <ExperienceDetailCard
+                  title="Outstanding PhD Student Award"
+                  company="University of Missouri"
+                  period="2024"
+                  impact="Recognized for exceptional academic performance and research contributions in computer science"
+                  tags={["Academic Excellence", "PhD Recognition"]}
+                />
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Fulbright Scholar</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">U.S. Department of State • 2024</p>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 text-xs rounded-full">International Research</span>
-                  </div>
-                </div>
+                <ExperienceDetailCard
+                  title="Fulbright Scholar"
+                  company="U.S. Department of State"
+                  period="2024"
+                  impact="Prestigious international research fellowship for conducting research abroad"
+                  tags={["International Research", "Fellowship", "Cultural Exchange"]}
+                />
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">UC2 DoD White Paper Winner</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Department of Defense • 2024</p>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 text-xs rounded-full">Research Innovation</span>
-                  </div>
-                </div>
+                <ExperienceDetailCard
+                  title="UC2 DoD White Paper Winner"
+                  company="Department of Defense"
+                  period="2024"
+                  impact="Winning research proposal for innovative cybersecurity solutions in tactical environments"
+                  tags={["Research Innovation", "DoD Recognition", "Cybersecurity"]}
+                />
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">Graduate Research Fellowship</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">University of Missouri • 2018-2024</p>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 text-xs rounded-full">Fellowship</span>
-                  </div>
-                </div>
+                <ExperienceDetailCard
+                  title="Graduate Research Fellowship"
+                  company="University of Missouri"
+                  period="2018-2024"
+                  impact="Six-year fellowship supporting doctoral research in cloud computing and cybersecurity"
+                  tags={["Fellowship", "Research Support", "Long-term Achievement"]}
+                />
               </div>
-            </div>
+            </ExpandableSection>
           </div>
         );
 
