@@ -1,7 +1,21 @@
 import React from "react";
 import ResearchGrid from "./ResearchGrid";
 import Terminal from "./Terminal";
-import { Book, FileText, GraduationCap, Tag, PencilLine, BarChart2 } from "lucide-react";
+import {
+  Book,
+  FileText,
+  GraduationCap,
+  Tag,
+  PencilLine,
+  BarChart2,
+  MapPin,
+  Heart,
+  Globe,
+  Languages,
+  ExternalLink,
+  Plane,
+  Users,
+} from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
@@ -9,21 +23,22 @@ const Publication = ({ title, venue, year, description }) => (
       {title}
     </h4>
     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-              {/* Portfolio Links */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-2">
-                <a 
-                  href="#" 
-                  className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-semibold transition-colors duration-200"
-                >
-                  View Full Gallery
-                </a>
-                <a 
-                  href="#" 
-                  className="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm italic transition-colors duration-200"
-                >
-                  Design Portfolio Site Coming Soon
-                </a>
-              </div>{year}
+      {/* Portfolio Links */}
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 pt-2">
+        <a
+          href="#"
+          className="text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-semibold transition-colors duration-200"
+        >
+          View Full Gallery
+        </a>
+        <a
+          href="#"
+          className="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm italic transition-colors duration-200"
+        >
+          Design Portfolio Site Coming Soon
+        </a>
+      </div>
+      {year}
     </p>
     {description && (
       <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed mt-2">
@@ -120,7 +135,9 @@ const TabContent = ({ activeTab }) => {
                   <span className="text-blue-600 dark:text-blue-400 font-medium">
                     AI-driven security for IoT and mobile networks
                   </span>
-                  . I work with real-world testbeds including GENI, POWDER, and AERPAW to develop practical security solutions for distributed systems.
+                  . I work with real-world testbeds including GENI, POWDER, and
+                  AERPAW to develop practical security solutions for distributed
+                  systems.
                 </p>
               </div>
             </div>
@@ -136,9 +153,12 @@ const TabContent = ({ activeTab }) => {
         return (
           <div className="space-y-8">
             <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-              My research focuses on enhancing security and performance in distributed computing environments. I work on cloud/edge computing architectures, zero trust cybersecurity frameworks, and machine learning applications for drone analytics and security.
+              My research focuses on enhancing security and performance in
+              distributed computing environments. I work on cloud/edge computing
+              architectures, zero trust cybersecurity frameworks, and machine
+              learning applications for drone analytics and security.
             </p>
-            
+
             {/* Research Projects Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Zero Trust Research */}
@@ -146,7 +166,9 @@ const TabContent = ({ activeTab }) => {
                 <div className="flex gap-4">
                   <div className="w-28 h-28 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="text-center">
-                      <div className="text-emerald-700 dark:text-emerald-300 font-semibold text-sm">Zero Trust</div>
+                      <div className="text-emerald-700 dark:text-emerald-300 font-semibold text-sm">
+                        Zero Trust
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
@@ -154,7 +176,8 @@ const TabContent = ({ activeTab }) => {
                       Arculus: Zero Trust for Tactical Edge Networks
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Novel Zero Trust design for tactical environments, improving situational awareness and resilience.
+                      Novel Zero Trust design for tactical environments,
+                      improving situational awareness and resilience.
                     </p>
                   </div>
                 </div>
@@ -165,7 +188,9 @@ const TabContent = ({ activeTab }) => {
                 <div className="flex gap-4">
                   <div className="w-28 h-28 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="text-center">
-                      <div className="text-blue-700 dark:text-blue-300 font-semibold text-sm">Data Collection</div>
+                      <div className="text-blue-700 dark:text-blue-300 font-semibold text-sm">
+                        Data Collection
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
@@ -173,7 +198,8 @@ const TabContent = ({ activeTab }) => {
                       Floto: A Framework for Adaptable Data Collection
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      Multi-sensor data collection for large-scale workflows, enhancing throughput and scalability.
+                      Multi-sensor data collection for large-scale workflows,
+                      enhancing throughput and scalability.
                     </p>
                   </div>
                 </div>
@@ -184,7 +210,9 @@ const TabContent = ({ activeTab }) => {
                 <div className="flex gap-4">
                   <div className="w-28 h-28 bg-violet-100 dark:bg-violet-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="text-center">
-                      <div className="text-violet-700 dark:text-violet-300 font-semibold text-sm">Drone Security</div>
+                      <div className="text-violet-700 dark:text-violet-300 font-semibold text-sm">
+                        Drone Security
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
@@ -192,7 +220,8 @@ const TabContent = ({ activeTab }) => {
                       Enhancing Drone Video Analytics Security
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      AERPAW-based experiments securing edge video analytics workflows using programmable network services.
+                      AERPAW-based experiments securing edge video analytics
+                      workflows using programmable network services.
                     </p>
                   </div>
                 </div>
@@ -203,15 +232,19 @@ const TabContent = ({ activeTab }) => {
                 <div className="flex gap-4">
                   <div className="w-28 h-28 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="text-center">
-                      <div className="text-pink-700 dark:text-pink-300 font-semibold text-sm">Federated Learning</div>
+                      <div className="text-pink-700 dark:text-pink-300 font-semibold text-sm">
+                        Federated Learning
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
                     <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                      FL-Defend: Intrusion Detection in Federated Learning Systems
+                      FL-Defend: Intrusion Detection in Federated Learning
+                      Systems
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      A secure FL framework for UAV swarms under data poisoning and network disruption threats.
+                      A secure FL framework for UAV swarms under data poisoning
+                      and network disruption threats.
                     </p>
                   </div>
                 </div>
@@ -222,7 +255,9 @@ const TabContent = ({ activeTab }) => {
                 <div className="flex gap-4">
                   <div className="w-28 h-28 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                     <div className="text-center">
-                      <div className="text-amber-700 dark:text-amber-300 font-semibold text-sm">Edge Orchestration</div>
+                      <div className="text-amber-700 dark:text-amber-300 font-semibold text-sm">
+                        Edge Orchestration
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
@@ -230,7 +265,8 @@ const TabContent = ({ activeTab }) => {
                       Learning-based Multi-Drone Edge Offloading
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                      PPO-based orchestration of data tasks for real-time edge/cloud UAV coordination.
+                      PPO-based orchestration of data tasks for real-time
+                      edge/cloud UAV coordination.
                     </p>
                   </div>
                 </div>
@@ -331,9 +367,14 @@ const TabContent = ({ activeTab }) => {
                   "Conducting research on cloud computing, Zero Trust architectures, and federated learning",
                   "Working with real-world testbeds including GENI, POWDER, AERPAW for distributed systems research",
                   "Developing AI-driven security solutions for IoT and mobile networks",
-                  "Published in top-tier venues including ACM Computing Surveys, INFOCOM, MILCOM, NOMS"
+                  "Published in top-tier venues including ACM Computing Surveys, INFOCOM, MILCOM, NOMS",
                 ]}
-                tags={["Cloud Computing", "Zero Trust", "Federated Learning", "IoT Security"]}
+                tags={[
+                  "Cloud Computing",
+                  "Zero Trust",
+                  "Federated Learning",
+                  "IoT Security",
+                ]}
               />
               <ExperienceCard
                 title="Teaching Assistant"
@@ -343,7 +384,7 @@ const TabContent = ({ activeTab }) => {
                   "Taught Cyber Defense, Cloud Computing, and Algorithm Design courses",
                   "Mentored 30+ students through REU cohorts and REU BigDataX programs",
                   "Supervised Chameleon Cloud projects and research initiatives",
-                  "Served as UC Santa Cruz SoR Fellow mentor"
+                  "Served as UC Santa Cruz SoR Fellow mentor",
                 ]}
                 tags={["Teaching", "Mentoring", "Curriculum Development"]}
               />
@@ -355,7 +396,7 @@ const TabContent = ({ activeTab }) => {
                   "Outstanding PhD Student Award (2024)",
                   "Fulbright-CAL Scholar",
                   "UC2 DoD White Paper winner",
-                  "FAA Part 107 Drone License holder"
+                  "FAA Part 107 Drone License holder",
                 ]}
                 tags={["Awards", "Scholarships", "Certifications"]}
               />
@@ -368,26 +409,31 @@ const TabContent = ({ activeTab }) => {
           <div className="space-y-8">
             <div className="prose dark:prose-invert max-w-none">
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                Beyond research, I'm passionate about exploring the world, creating art, learning languages, and connecting with my community. Here's a glimpse into what makes me tick outside the lab!
+                Beyond research, I'm passionate about exploring the world,
+                creating art, learning languages, and connecting with my
+                community. Here's a glimpse into what makes me tick outside the
+                lab!
               </p>
             </div>
 
             {/* Travel Adventures Section */}
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2">
-                ✈️ Travel Adventures
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-3">
+                <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                  <Plane className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                </div>
+                Travel Adventures
               </h3>
-              
+
               {/* Travel Cards Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
                 {/* Europe Tour Card */}
                 <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                  <div 
+                  <div
                     className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
                     style={{
                       backgroundImage: "url('/images/europe.jpg')",
-                      backgroundColor: '#6B7280' // fallback color
+                      backgroundColor: "#6B7280", // fallback color
                     }}
                   >
                     <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
@@ -401,11 +447,11 @@ const TabContent = ({ activeTab }) => {
 
                 {/* Costa Rica Card */}
                 <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                  <div 
+                  <div
                     className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
                     style={{
                       backgroundImage: "url('/images/costarica.jpg')",
-                      backgroundColor: '#059669' // fallback color
+                      backgroundColor: "#059669", // fallback color
                     }}
                   >
                     <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
@@ -419,11 +465,11 @@ const TabContent = ({ activeTab }) => {
 
                 {/* Road Trip USA Card */}
                 <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                  <div 
+                  <div
                     className="h-48 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
                     style={{
                       backgroundImage: "url('/images/roadtrip-usa.jpg')",
-                      backgroundColor: '#DC2626' // fallback color
+                      backgroundColor: "#DC2626", // fallback color
                     }}
                   >
                     <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
@@ -438,8 +484,8 @@ const TabContent = ({ activeTab }) => {
                 {/* Google My Maps Card */}
                 <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40">
                   <div className="h-48 flex flex-col items-center justify-center p-6 text-center">
-                    <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300">
-                      🗺️
+                    <div className="w-12 h-12 bg-blue-200 dark:bg-blue-800 rounded-xl flex items-center justify-center mb-3 transform group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      <MapPin className="w-6 h-6 text-blue-700 dark:text-blue-300" />
                     </div>
                     <h4 className="text-gray-800 dark:text-gray-200 font-semibold text-base mb-2">
                       Google My Maps
@@ -447,7 +493,7 @@ const TabContent = ({ activeTab }) => {
                     <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
                       Places I've Explored
                     </p>
-                    <a 
+                    <a
                       href="https://www.google.com/maps/d/u/0/edit?mid=1vYr6qmcH_pIK4e3gMH8rAZ4vLMR9tP1o&usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -458,293 +504,238 @@ const TabContent = ({ activeTab }) => {
                     </a>
                   </div>
                 </div>
-
-              </div>
-            </div>
-
-            {/* Art & Design Projects */}
-            <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Art & Design Portfolio
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                I create logos, digital art, poster designs, and academic visuals for research presentations and manuscripts. 
-                My design work bridges creative expression with clear communication across various mediums and contexts.
-              </p>
-              
-              {/* Design Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                
-                {/* Logo & Brand Design Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-xl flex items-center justify-center group-hover:bg-sky-200 dark:group-hover:bg-sky-800/40 transition-colors duration-300">
-                      <Tag className="w-6 h-6 text-sky-600 dark:text-sky-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Logo & Brand Design
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Identity and branding systems
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Poster & Flyer Design Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/40 transition-colors duration-300">
-                      <FileText className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Poster & Flyer Design
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Event & promotional materials
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Illustration & Digital Sketches Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center group-hover:bg-violet-200 dark:group-hover:bg-violet-800/40 transition-colors duration-300">
-                      <PencilLine className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Illustration & Digital Sketches
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Digital art and illustrations
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Research Visuals Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/40 transition-colors duration-300">
-                      <BarChart2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Research Visuals
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Diagrams, charts, and graphics for academic papers and grant proposals
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              
-              {/* Portfolio Links */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-medium transition-colors duration-200"
-                >
-                  � View Full Gallery
-                </a>
-                <a 
-                  href="#" 
-                  className="inline-flex items-center justify-center sm:justify-start gap-2 text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 text-sm font-medium transition-colors duration-200"
-                >
-                  🌐 Design Portfolio Site Coming Soon
-                </a>
               </div>
             </div>
 
             {/* Grid for smaller sections */}
             <div className="grid md:grid-cols-2 gap-6">
-              
-              {/* Faith & Community */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                  ⛪ Faith & Community
-                </h3>
-                <div className="space-y-4">
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Mission Trip Photo
-                  </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Active in church community, participating in mission trips and local outreach programs.
-                  </p>
-                  <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-lg p-3">
-                    <p className="text-sm italic text-emerald-800 dark:text-emerald-200">
-                      "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, to give you hope and a future." - Jeremiah 29:11
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Language & Culture */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                  🌍 Language & Culture
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                    <Languages className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  </div>
+                  Language & Culture
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-6">
                   <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-24 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
                     Handwritten Japanese Notes
                   </div>
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">Languages:</p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm">🇪🇸 Spanish (Native)</span>
-                      <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">🇺🇸 English (Fluent)</span>
-                      <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full text-sm">🇯🇵 Japanese (Learning)</span>
+
+                  {/* Language Cards Grid - Matching Art & Design Style */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Languages I Speak Card */}
+                    <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300">
+                      <div className="flex flex-col space-y-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-800/40 transition-colors duration-300">
+                            <Languages className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+                              Languages I Speak
+                            </h4>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              Fluent communication
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-800">
+                            Spanish (Paraguay)
+                          </span>
+                          <span className="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-full text-sm font-medium border border-amber-200 dark:border-amber-800">
+                            Guarani
+                          </span>
+                          <span className="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800">
+                            English
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Languages I'm Learning Card */}
+                    <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300">
+                      <div className="flex flex-col space-y-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40 transition-colors duration-300">
+                            <Book className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
+                              Currently Learning
+                            </h4>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                              Active study languages
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="px-3 py-1.5 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-full text-sm font-medium border border-red-200 dark:border-red-800">
+                            Japanese
+                          </span>
+                          <span className="px-3 py-1.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-800">
+                            Portuguese
+                          </span>
+                          <span className="px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800">
+                            Italian
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex gap-3">
-                    <a href="#" className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 text-sm">📚 Fluent Forever</a>
-                    <a href="#" className="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 text-sm">🐊 WaniKani</a>
+
+                  {/* Learning Tools Section */}
+                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-lg p-4">
+                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
+                      <div className="w-6 h-6 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center">
+                        <ExternalLink className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
+                      </div>
+                      Learning With
+                    </h4>
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href="https://www.duolingo.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600"
+                      >
+                        <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-800/40 transition-colors duration-200">
+                          <Globe className="w-3 h-3 text-green-600 dark:text-green-400" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors duration-200">
+                          Duolingo
+                        </span>
+                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-green-500 transition-colors duration-200" />
+                      </a>
+                      <a
+                        href="#"
+                        className="group inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-pink-300 dark:hover:border-pink-600"
+                      >
+                        <div className="w-6 h-6 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center group-hover:bg-pink-200 dark:group-hover:bg-pink-800/40 transition-colors duration-200">
+                          <Book className="w-3 h-3 text-pink-600 dark:text-pink-400" />
+                        </div>
+                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-pink-700 dark:group-hover:text-pink-400 transition-colors duration-200">
+                          WaniKani
+                        </span>
+                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-pink-500 transition-colors duration-200" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
 
-            </div>
+              {/* Art & Design Projects */}
+              <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                  Art & Design Portfolio
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  I create logos, digital art, poster designs, and academic
+                  visuals for research presentations and manuscripts. My design
+                  work bridges creative expression with clear communication across
+                  various mediums and contexts.
+                </p>
 
-            {/* Cooking Corner */}
-            <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                👩‍🍳 Cooking Corner
-              </h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-28 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Perfect Fried Rice
+                {/* Design Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  {/* Logo & Brand Design Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-xl flex items-center justify-center group-hover:bg-sky-200 dark:group-hover:bg-sky-800/40 transition-colors duration-300">
+                        <Tag className="w-6 h-6 text-sky-600 dark:text-sky-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Logo & Brand Design
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Identity and branding systems
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-28 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Homemade Croissants
+
+                  {/* Poster & Flyer Design Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/40 transition-colors duration-300">
+                        <FileText className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Poster & Flyer Design
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Event & promotional materials
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-28 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Costa Rican Gallo Pinto
+
+                  {/* Illustration & Digital Sketches Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center group-hover:bg-violet-200 dark:group-hover:bg-violet-800/40 transition-colors duration-300">
+                        <PencilLine className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Illustration & Digital Sketches
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Digital art and illustrations
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-28 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Japanese Ramen
+
+                  {/* Research Visuals Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/40 transition-colors duration-300">
+                        <BarChart2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Research Visuals
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Diagrams, charts, and graphics for academic papers and
+                          grant proposals
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    I love experimenting with international cuisines and perfecting comfort food classics. Cooking is my creative outlet and stress relief!
+              </div>
+            </div>
+
+            {/* Faith & Community - Full Width */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
+                <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                  <Users className="w-5 h-5 text-green-600 dark:text-green-400" />
+                </div>
+                Faith & Community
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-32 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
+                  Mission Trip Photo
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Active in church community, participating in mission trips
+                  and local outreach programs.
+                </p>
+                <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-lg p-3">
+                  <p className="text-sm italic text-emerald-800 dark:text-emerald-200">
+                    "For I know the plans I have for you," declares the Lord,
+                    "plans to prosper you and not to harm you, to give you
+                    hope and a future." - Jeremiah 29:11
                   </p>
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-gray-700 dark:text-gray-300">Favorite Recipes:</h4>
-                    <div className="space-y-1">
-                      <a href="#" className="block text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm">🍚 Ultimate Fried Rice Recipe</a>
-                      <a href="#" className="block text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm">🥐 Weekend Croissant Guide</a>
-                      <a href="#" className="block text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 text-sm">🍜 Authentic Ramen Broth</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
-
-            {/* Media & Fun */}
-            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-2">
-                📺 Media & Fun
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                
-                {/* TV Shows */}
-                <div className="space-y-3">
-                  <h4 className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                    📺 Currently Watching
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-blue-200 dark:bg-blue-700 rounded-lg flex items-center justify-center text-xs">
-                          🦈
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm">Shark Tank</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Business Reality TV</p>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="#" className="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm">▶️ YouTube Playlist</a>
-                  </div>
-                </div>
-
-                {/* Books */}
-                <div className="space-y-3">
-                  <h4 className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                    📚 Reading List
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-green-200 dark:bg-green-700 rounded-lg flex items-center justify-center text-xs">
-                          📖
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm">Tech Leadership</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Professional Development</p>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="https://www.goodreads.com/alicesquivel" className="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm">📱 Goodreads Profile</a>
-                  </div>
-                </div>
-
-                {/* Music */}
-                <div className="space-y-3">
-                  <h4 className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-2">
-                    🎵 Music Vibes
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-3 shadow-sm">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-purple-200 dark:bg-purple-700 rounded-lg flex items-center justify-center text-xs">
-                          🎧
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm">Focus Playlist</p>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">Lo-fi & Instrumental</p>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="#" className="block text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 text-sm">🎧 Spotify Playlists</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800/50 dark:to-gray-700/50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                📊 Fun Facts & Stats
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">12</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Countries Visited</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">500+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Japanese Kanji Learned</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">25</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Art Projects Created</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600 dark:text-red-400">100+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Recipes Mastered</div>
-                </div>
-              </div>
-            </div>
-
           </div>
         );
 
