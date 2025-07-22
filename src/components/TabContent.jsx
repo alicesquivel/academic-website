@@ -511,116 +511,60 @@ const TabContent = ({ activeTab }) => {
             <div className="grid md:grid-cols-2 gap-6">
               {/* Language & Culture */}
               <div className="bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-3">
                   <div className="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
                     <Languages className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                   </div>
                   Language & Culture
                 </h3>
+                
                 <div className="space-y-6">
-                  <div className="bg-gray-200 dark:bg-gray-700 rounded-lg h-24 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
-                    Handwritten Japanese Notes
-                  </div>
-
-                  {/* Language Cards Grid - Matching Art & Design Style */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Languages I Speak Card */}
-                    <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300">
-                      <div className="flex flex-col space-y-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-800/40 transition-colors duration-300">
-                            <Languages className="w-5 h-5 text-green-600 dark:text-green-400" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
-                              Languages I Speak
-                            </h4>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                              Fluent communication
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-800">
-                            Spanish (Paraguay)
-                          </span>
-                          <span className="px-3 py-1.5 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-full text-sm font-medium border border-amber-200 dark:border-amber-800">
-                            Guarani
-                          </span>
-                          <span className="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800">
-                            English
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Languages I'm Learning Card */}
-                    <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300">
-                      <div className="flex flex-col space-y-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center group-hover:bg-purple-200 dark:group-hover:bg-purple-800/40 transition-colors duration-300">
-                            <Book className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm">
-                              Currently Learning
-                            </h4>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">
-                              Active study languages
-                            </p>
-                          </div>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="px-3 py-1.5 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 rounded-full text-sm font-medium border border-red-200 dark:border-red-800">
-                            Japanese
-                          </span>
-                          <span className="px-3 py-1.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-800">
-                            Portuguese
-                          </span>
-                          <span className="px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 rounded-full text-sm font-medium border border-indigo-200 dark:border-indigo-800">
-                            Italian
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Learning Tools Section */}
-                  <div className="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-lg p-4">
-                    <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
-                      <div className="w-6 h-6 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center">
-                        <ExternalLink className="w-3 h-3 text-yellow-600 dark:text-yellow-400" />
-                      </div>
-                      Learning With
+                  {/* Languages I Speak */}
+                  <div>
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                      Languages I Speak
                     </h4>
-                    <div className="flex flex-wrap gap-3">
-                      <a
-                        href="https://www.duolingo.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600"
-                      >
-                        <div className="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center group-hover:bg-green-200 dark:group-hover:bg-green-800/40 transition-colors duration-200">
-                          <Globe className="w-3 h-3 text-green-600 dark:text-green-400" />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors duration-200">
-                          Duolingo
-                        </span>
-                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-green-500 transition-colors duration-200" />
-                      </a>
-                      <a
-                        href="#"
-                        className="group inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 border border-gray-200 dark:border-gray-700 hover:border-pink-300 dark:hover:border-pink-600"
-                      >
-                        <div className="w-6 h-6 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center group-hover:bg-pink-200 dark:group-hover:bg-pink-800/40 transition-colors duration-200">
-                          <Book className="w-3 h-3 text-pink-600 dark:text-pink-400" />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover:text-pink-700 dark:group-hover:text-pink-400 transition-colors duration-200">
-                          WaniKani
-                        </span>
-                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-pink-500 transition-colors duration-200" />
-                      </a>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800">
+                        🇵🇾 Spanish
+                      </span>
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800">
+                        🇵🇾 Guarani
+                      </span>
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800">
+                        🇺🇸 English
+                      </span>
                     </div>
+                  </div>
+
+                  {/* Languages I'm Learning */}
+                  <div>
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                      Languages I'm Learning
+                    </h4>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800">
+                        🇯🇵 Japanese
+                      </span>
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800">
+                        🇧🇷 Portuguese
+                      </span>
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800">
+                        🇮🇹 Italian
+                      </span>
+                    </div>
+                    
+                    {/* Duolingo Learning Tool */}
+                    <a
+                      href="https://www.duolingo.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800 hover:bg-green-200 dark:hover:bg-green-800/40 transition-colors duration-200"
+                    >
+                      <Globe className="w-4 h-4" />
+                      Learning with Duolingo
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -633,8 +577,8 @@ const TabContent = ({ activeTab }) => {
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                   I create logos, digital art, poster designs, and academic
                   visuals for research presentations and manuscripts. My design
-                  work bridges creative expression with clear communication across
-                  various mediums and contexts.
+                  work bridges creative expression with clear communication
+                  across various mediums and contexts.
                 </p>
 
                 {/* Design Cards Grid */}
@@ -724,14 +668,14 @@ const TabContent = ({ activeTab }) => {
                   Mission Trip Photo
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Active in church community, participating in mission trips
-                  and local outreach programs.
+                  Active in church community, participating in mission trips and
+                  local outreach programs.
                 </p>
                 <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-lg p-3">
                   <p className="text-sm italic text-emerald-800 dark:text-emerald-200">
                     "For I know the plans I have for you," declares the Lord,
-                    "plans to prosper you and not to harm you, to give you
-                    hope and a future." - Jeremiah 29:11
+                    "plans to prosper you and not to harm you, to give you hope
+                    and a future." - Jeremiah 29:11
                   </p>
                 </div>
               </div>
