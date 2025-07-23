@@ -393,8 +393,8 @@ const TabContent = ({ activeTab }) => {
                   </p>
                 </div>
 
-                {/* 5-column Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                {/* 4-column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {/* Publications Card */}
                   <div className="text-center">
                     <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -431,19 +431,6 @@ const TabContent = ({ activeTab }) => {
                     </h3>
                     <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
                       Research Funding
-                    </p>
-                  </div>
-
-                  {/* Students Mentored Card */}
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <Users2 className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                      <AnimatedCounter end={30} suffix="+" duration={2200} />
-                    </h3>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                      Students Mentored
                     </p>
                   </div>
 
@@ -696,11 +683,12 @@ const TabContent = ({ activeTab }) => {
       case "publications":
         return (
           <div className="space-y-6">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-                Selected Publications
-              </h3>
-              <div className="grid gap-4">
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                  Selected Publications
+                </h3>
+                <div className="grid gap-4">
                 <Publication
                   title="UAV/Drone Systems Security and Privacy: A Comprehensive Survey"
                   venue="ACM Computing Surveys"
@@ -737,6 +725,7 @@ const TabContent = ({ activeTab }) => {
                   year="2023"
                   description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
                 />
+                </div>
               </div>
             </div>
           </div>
@@ -746,146 +735,87 @@ const TabContent = ({ activeTab }) => {
         return (
           <div className="space-y-8">
             {/* Academic Mentorship & Recognition */}
-            <div className="space-y-6">
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                  Academic Mentorship & Recognition
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  6+ years of teaching, mentoring, and academic excellence
-                </p>
-              </div>
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="space-y-6">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                    Academic Mentorship & Recognition
+                  </h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    6+ years of teaching, mentoring, and academic excellence
+                  </p>
+                </div>
 
-              {/* Compact 2x2 Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Students Mentored Card */}
-                <div className="bg-purple-50 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6 border border-purple-100/50 dark:border-purple-700/50 hover:shadow-md hover:shadow-purple-200/20 dark:hover:shadow-purple-900/20 transition-all duration-300">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/40 rounded-2xl flex items-center justify-center">
-                      <Users2 className="w-6 h-6 text-purple-500 dark:text-purple-400" />
+                {/* 4-column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                  {/* Students Taught Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <School className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
-                        <AnimatedCounter end={30} suffix="+" duration={2000} />
-                      </h3>
-                      <p className="text-sm font-medium text-purple-600 dark:text-purple-400 uppercase tracking-wide leading-none">
-                        Students Mentored
-                      </p>
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={300} suffix="+" duration={2800} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Students Taught
+                    </p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
-                      REU Program
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
-                      PhD Guidance
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-purple-700 dark:text-purple-300 rounded-full border border-purple-200/60 dark:border-purple-700">
-                      SoR Fellowship
-                    </span>
+                  {/* Students Mentored Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Users2 className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={30} suffix="+" duration={2000} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Students Mentored
+                    </p>
+                  </div>
+
+                  {/* Major Awards Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-cyan-100 dark:bg-cyan-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Award className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={4} duration={1200} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Major Awards
+                    </p>
+                  </div>
+
+                  {/* Mentoring Roles Card */}
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <UserCheck className="w-8 h-8 text-green-600 dark:text-green-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                      <AnimatedCounter end={2} suffix="+" duration={1500} />
+                    </h3>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                      Mentoring Roles
+                    </p>
                   </div>
                 </div>
 
-                {/* Students Taught Card */}
-                <div className="bg-yellow-50 dark:from-yellow-900/20 dark:to-yellow-800/20 rounded-2xl p-6 border border-yellow-100/50 dark:border-yellow-700/50 hover:shadow-md hover:shadow-yellow-200/20 dark:hover:shadow-yellow-900/20 transition-all duration-300">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/40 rounded-2xl flex items-center justify-center">
-                      <School className="w-6 h-6 text-yellow-500 dark:text-yellow-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
-                        <AnimatedCounter end={300} suffix="+" duration={2800} />
-                      </h3>
-                      <p className="text-sm font-medium text-yellow-600 dark:text-yellow-400 uppercase tracking-wide leading-none">
-                        Students Taught
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
-                      Cyber Defense
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
-                      Cloud Computing
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-yellow-700 dark:text-yellow-300 rounded-full border border-yellow-200/60 dark:border-yellow-700">
-                      Algorithms
-                    </span>
-                  </div>
+                {/* Compact Footer */}
+                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-2">
+                  <span className="italic">Last updated July 2025</span>
+                  <button
+                    onClick={() =>
+                      window.dispatchEvent(
+                        new CustomEvent("navigateToTab", { detail: "research" })
+                      )
+                    }
+                    className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+                  >
+                    <span>See Research Highlights</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
                 </div>
-
-                {/* Major Awards Card */}
-                <div className="bg-cyan-50 dark:from-cyan-900/20 dark:to-cyan-800/20 rounded-2xl p-6 border border-cyan-100/50 dark:border-cyan-700/50 hover:shadow-md hover:shadow-cyan-200/20 dark:hover:shadow-cyan-900/20 transition-all duration-300">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/40 rounded-2xl flex items-center justify-center">
-                      <Award className="w-6 h-6 text-cyan-500 dark:text-cyan-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
-                        <AnimatedCounter end={4} duration={1200} />
-                      </h3>
-                      <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400 uppercase tracking-wide leading-none">
-                        Major Awards
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
-                      Fulbright Scholar
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
-                      Outstanding PhD
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-cyan-700 dark:text-cyan-300 rounded-full border border-cyan-200/60 dark:border-cyan-700">
-                      FAA License
-                    </span>
-                  </div>
-                </div>
-
-                {/* Mentoring Roles Card */}
-                <div className="bg-green-50 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-6 border border-green-100/50 dark:border-green-700/50 hover:shadow-md hover:shadow-green-200/20 dark:hover:shadow-green-900/20 transition-all duration-300">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 bg-green-100 dark:bg-green-900/40 rounded-2xl flex items-center justify-center">
-                      <UserCheck className="w-6 h-6 text-green-500 dark:text-green-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 leading-none">
-                        <AnimatedCounter end={2} suffix="+" duration={1500} />
-                      </h3>
-                      <p className="text-sm font-medium text-green-600 dark:text-green-400 uppercase tracking-wide leading-none">
-                        Mentoring Roles
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-green-700 dark:text-green-300 rounded-full border border-green-200/60 dark:border-green-700">
-                      Teaching Assistant
-                    </span>
-                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/60 text-xs font-medium text-green-700 dark:text-green-300 rounded-full border border-green-200/60 dark:border-green-700">
-                      Chameleon Mentor
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Compact Footer */}
-              <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-2">
-                <span className="italic">Last updated July 2025</span>
-                <button
-                  onClick={() =>
-                    window.dispatchEvent(
-                      new CustomEvent("navigateToTab", { detail: "research" })
-                    )
-                  }
-                  className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
-                >
-                  <span>See Research Highlights</span>
-                  <ArrowRight className="w-3 h-3" />
-                </button>
               </div>
             </div>
 
@@ -1018,13 +948,15 @@ const TabContent = ({ activeTab }) => {
       case "fun":
         return (
           <div className="space-y-8">
-            <div className="prose dark:prose-invert max-w-none">
-              <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                Beyond research, I'm passionate about exploring the world,
-                creating art, learning languages, and connecting with my
-                community. Here's a glimpse into what makes me tick outside the
-                lab!
-              </p>
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="prose dark:prose-invert max-w-none">
+                <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Beyond research, I'm passionate about exploring the world,
+                  creating art, learning languages, and connecting with my
+                  community. Here's a glimpse into what makes me tick outside the
+                  lab!
+                </p>
+              </div>
             </div>
 
             {/* Travel Adventures & Language Culture - Side by Side */}
