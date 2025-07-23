@@ -505,96 +505,116 @@ const TalkEntry = ({ date, title, host, location, links = {} }) => (
   </div>
 );
 
-// Award Entry Component
+// Award Entry Component - Clean Version (no icons)
 const AwardEntry = ({
   date,
   title,
   organization,
   description,
-  icon = "🏆",
 }) => (
-  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 rounded-lg p-5 border border-yellow-200 dark:border-yellow-800/50 award-glow hover:shadow-md transition-all duration-200">
-    <div className="flex items-start gap-4">
-      {/* Icon */}
-      <div className="text-2xl transform hover:scale-110 transition-transform duration-200">{icon}</div>
-
-      {/* Content */}
-      <div className="flex-1">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-            {title}
-          </h4>
-          <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-            {date}
-          </span>
-        </div>
-
-        <p className="text-gray-700 dark:text-gray-300 text-sm mb-2 font-medium">
-          {organization}
-        </p>
-
-        {description && (
-          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            {description}
-          </p>
-        )}
-      </div>
+  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:shadow-sm hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200">
+    <div className="flex items-start justify-between gap-3 mb-2">
+      <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 leading-tight">
+        {title}
+      </h4>
+      <span className="text-sm text-gray-500 dark:text-gray-400 font-medium flex-shrink-0">
+        {date}
+      </span>
     </div>
+
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2 font-medium">
+      {organization}
+    </p>
+
+    {description && (
+      <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed line-clamp-2">
+        {description}
+      </p>
+    )}
   </div>
 );
 
 const TabContent = ({ activeTab }) => {
-  // Recent talks and presentations
+  // State for showing more talks
+  const [showAllTalks, setShowAllTalks] = useState(false);
+
+  // Recent talks and presentations from CV
   const talks = [
     {
-      date: "Nov 2024",
-      title: "Zero Trust Security for Edge Computing Systems",
-      host: "IEEE MILCOM",
-      location: "Washington, D.C.",
+      date: "May 2025",
+      title: "AERPAW User Stories Panel",
+      host: "AERPAW Community Workshop",
+      location: "Raleigh, NC",
       links: {
         slides: "#",
       },
     },
     {
-      date: "Oct 2024",
-      title: "Federated Learning in Tactical Networks",
-      host: "DoD Research Symposium",
-      location: "Virtual",
-      links: {
-        slides: "#",
-      },
-    },
-    {
-      date: "Jun 2024",
-      title: "UAV Systems Security Challenges",
-      host: "AERPAW Workshop",
-      location: "NC State",
-      links: {
-        slides: "#",
-        video: "#",
-      },
-    },
-    {
-      date: "Mar 2024",
-      title: "Edge Computing for Mobile Networks",
-      host: "University of Missouri Research Day",
+      date: "Apr 2025",
+      title: "Edge Computing/Networking for Farm Intelligence",
+      host: "Digital Agriculture Symposium",
       location: "Columbia, MO",
       links: {
         slides: "#",
       },
     },
     {
+      date: "Sep 2024",
+      title: "Choosing the Right Testbed",
+      host: "MERIF - Midscale Experimental Research Infrastructure Forum",
+      location: "Kansas City, MO",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "May 2024",
+      title: "FLOTO: Beyond Bandwidth Framework",
+      host: "ISC High Performance Workshop",
+      location: "Hamburg, Germany",
+      links: {
+        slides: "#",
+      },
+    },
+    {
       date: "Dec 2023",
-      title: "ML-based Network Intrusion Detection",
-      host: "IEEE INFOCOM Workshop",
-      location: "Virtual",
+      title: "Risk-based Zero Trust Scale for Tactical Edge Networks",
+      host: "ACM/IEEE Symposium on Edge Computing",
+      location: "Wilmington, DE",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "Sep 2023",
+      title: "Big Data Analytics for Agriculture Automation",
+      host: "ARA Public Launch",
+      location: "Ames, IA",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "May 2023",
+      title: "Software/Infrastructure Development with Chameleon",
+      host: "4th Chameleon Cloud User Meeting",
+      location: "Chicago, IL",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "Sep 2022",
+      title: "Deeply Programmable End-to-end Network-Centric Platform",
+      host: "FABRIC KNI5 Community Workshop",
+      location: "Chicago, IL",
       links: {
         slides: "#",
       },
     },
   ];
 
-  // Sample awards data
+  // Awards data
   const awards = [
     {
       date: "2024",
@@ -602,7 +622,6 @@ const TabContent = ({ activeTab }) => {
       organization: "University of Missouri Computer Science Department",
       description:
         "Recognized for exceptional academic performance and research contributions in cybersecurity and distributed systems",
-      icon: "🏆",
     },
     {
       date: "2024",
@@ -610,7 +629,6 @@ const TabContent = ({ activeTab }) => {
       organization: "U.S. Department of State",
       description:
         "Prestigious international research fellowship for conducting advanced cybersecurity research abroad",
-      icon: "🌟",
     },
     {
       date: "2024",
@@ -618,7 +636,6 @@ const TabContent = ({ activeTab }) => {
       organization: "Department of Defense",
       description:
         "Winning research proposal for innovative cybersecurity solutions in tactical edge computing environments",
-      icon: "🎖️",
     },
     {
       date: "2023",
@@ -626,15 +643,6 @@ const TabContent = ({ activeTab }) => {
       organization: "IEEE SECON Conference",
       description:
         "Recognition for outstanding research contribution in secure edge video analytics",
-      icon: "📄",
-    },
-    {
-      date: "2018-2024",
-      title: "Graduate Research Fellowship",
-      organization: "University of Missouri",
-      description:
-        "Six-year fellowship supporting doctoral research in cloud computing and cybersecurity",
-      icon: "💡",
     },
   ];
 
@@ -983,14 +991,20 @@ const TabContent = ({ activeTab }) => {
             {/* Talks & Presentations Timeline */}
             <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
               <div className="space-y-5">
-                <div className="flex items-center gap-3 mb-4">
-                  <Presentation className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                    Talks & Presentations
-                  </h2>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <Presentation className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                      Talks & Presentations
+                    </h2>
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                    {talks.length} presentations • 5 countries
+                  </div>
                 </div>
 
-                <div className="space-y-3">{talks.map((talk, index) => (
+                <div className="space-y-3">
+                  {(showAllTalks ? talks : talks.slice(0, 4)).map((talk, index) => (
                     <div key={index} className="timeline-item">
                       <TalkEntry
                         date={talk.date}
@@ -1002,33 +1016,34 @@ const TabContent = ({ activeTab }) => {
                     </div>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Awards & Recognition Timeline */}
-            <div className="space-y-6">
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-center justify-center gap-3">
-                  <Trophy className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
-                  Awards & Recognition
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  Academic honors and professional recognition
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {awards.map((award, index) => (
-                  <div key={index} className="timeline-item">
-                    <AwardEntry
-                      date={award.date}
-                      title={award.title}
-                      organization={award.organization}
-                      description={award.description}
-                      icon={award.icon}
-                    />
+                
+                {/* Show More/Less Button */}
+                {talks.length > 4 && (
+                  <div className="text-center pt-3">
+                    <button
+                      onClick={() => setShowAllTalks(!showAllTalks)}
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+                    >
+                      {showAllTalks ? (
+                        <>
+                          <ChevronUp className="w-4 h-4" />
+                          Show Less
+                        </>
+                      ) : (
+                        <>
+                          <ChevronDown className="w-4 h-4" />
+                          Show {talks.length - 4} More Presentations
+                        </>
+                      )}
+                    </button>
                   </div>
-                ))}
+                )}
+                
+                <div className="text-center pt-2">
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    Selected presentations from 2022-2025 • NSF Student Travel Grant Recipient
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1253,9 +1268,9 @@ const TabContent = ({ activeTab }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <ExperienceDetailCard
                   title="Outstanding PhD Student Award"
-                  company="University of Missouri"
+                  company="University of Missouri Computer Science Department"
                   period="2024"
-                  impact="Recognized for exceptional academic performance and research contributions in computer science"
+                  impact="Recognized for exceptional academic performance and research contributions in cybersecurity and distributed systems"
                   tags={["Academic Excellence", "PhD Recognition"]}
                 />
 
@@ -1263,7 +1278,7 @@ const TabContent = ({ activeTab }) => {
                   title="Fulbright Scholar"
                   company="U.S. Department of State"
                   period="2024"
-                  impact="Prestigious international research fellowship for conducting research abroad"
+                  impact="Prestigious international research fellowship for conducting advanced cybersecurity research abroad"
                   tags={[
                     "International Research",
                     "Fellowship",
@@ -1275,7 +1290,7 @@ const TabContent = ({ activeTab }) => {
                   title="UC2 DoD White Paper Winner"
                   company="Department of Defense"
                   period="2024"
-                  impact="Winning research proposal for innovative cybersecurity solutions in tactical environments"
+                  impact="Winning research proposal for innovative cybersecurity solutions in tactical edge computing environments"
                   tags={[
                     "Research Innovation",
                     "DoD Recognition",
@@ -1284,14 +1299,14 @@ const TabContent = ({ activeTab }) => {
                 />
 
                 <ExperienceDetailCard
-                  title="Graduate Research Fellowship"
-                  company="University of Missouri"
-                  period="2018-2024"
-                  impact="Six-year fellowship supporting doctoral research in cloud computing and cybersecurity"
+                  title="Best Student Paper Award"
+                  company="IEEE SECON Conference"
+                  period="2023"
+                  impact="Recognition for outstanding research contribution in secure edge video analytics"
                   tags={[
-                    "Fellowship",
-                    "Research Support",
-                    "Long-term Achievement",
+                    "Research Excellence",
+                    "IEEE Recognition",
+                    "Video Analytics",
                   ]}
                 />
               </div>
