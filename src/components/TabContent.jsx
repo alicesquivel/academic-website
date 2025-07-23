@@ -28,6 +28,16 @@ import {
   Server,
   ArrowRight,
   Layers,
+  Calendar,
+  Clock,
+  Image,
+  Code,
+  FileSpreadsheet,
+  Presentation,
+  Quote,
+  Video,
+  Trophy,
+  Star,
 } from "lucide-react";
 
 const Publication = ({ title, venue, year, description }) => (
@@ -326,7 +336,308 @@ const ExperienceCard = ({
   </div>
 );
 
+// Enhanced Publication Card Component
+const EnhancedPublicationCard = ({ 
+  title, 
+  venue, 
+  year, 
+  authors, 
+  description, 
+  thumbnail,
+  tags = [],
+  links = {}
+}) => (
+  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 enhanced-pub-card group cursor-pointer">
+    <div className="flex gap-4">
+      {/* Thumbnail */}
+      <div className="flex-shrink-0">
+        <div className="w-24 h-24 rounded-lg pub-thumbnail bg-gray-100 dark:bg-gray-700">
+          {thumbnail ? (
+            <img 
+              src={thumbnail} 
+              alt={title}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+          ) : null}
+          <div className={`w-full h-full flex items-center justify-center ${thumbnail ? 'hidden' : 'flex'}`}>
+            <FileText className="w-8 h-8 text-gray-400 dark:text-gray-500" />
+          </div>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 min-w-0">
+        {/* Header with external link */}
+        <div className="flex items-start justify-between mb-2">
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+            {title}
+          </h4>
+          {links.paper && (
+            <a 
+              href={links.paper}
+              className="ml-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
+        </div>
+
+        {/* Publication details */}
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+          {venue} • {year} • {authors}
+        </p>
+
+        {/* Description */}
+        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-4">
+          {description}
+        </p>
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-1 mb-4">
+            {tags.map((tag, index) => (
+              <span 
+                key={index}
+                className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap gap-2">
+          {links.paper && (
+            <a 
+              href={links.paper}
+              className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FileText className="w-3 h-3" />
+              Paper
+            </a>
+          )}
+          {links.code && (
+            <a 
+              href={links.code}
+              className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Code className="w-3 h-3" />
+              Code
+            </a>
+          )}
+          {links.slides && (
+            <a 
+              href={links.slides}
+              className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Presentation className="w-3 h-3" />
+              Slides
+            </a>
+          )}
+          {links.bibtex && (
+            <a 
+              href={links.bibtex}
+              className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Quote className="w-3 h-3" />
+              BibTeX
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// Talk Entry Component - Compact Version
+const TalkEntry = ({ date, title, host, location, links = {} }) => (
+  <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:shadow-sm transition-all duration-200">
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+      {/* Main Content */}
+      <div className="flex-1">
+        <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-1">
+          {title}
+        </h4>
+        <p className="text-gray-600 dark:text-gray-400 text-sm">
+          {host} {location && `• ${location}`}
+        </p>
+      </div>
+
+      {/* Date and Links */}
+      <div className="flex items-center gap-3 text-sm">
+        <span className="text-gray-500 dark:text-gray-400 font-medium">
+          {date}
+        </span>
+        {(links.slides || links.video) && (
+          <div className="flex gap-2">
+            {links.slides && (
+              <a
+                href={links.slides}
+                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
+                title="View Slides"
+              >
+                <Presentation className="w-4 h-4" />
+              </a>
+            )}
+            {links.video && (
+              <a
+                href={links.video}
+                className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors duration-200"
+                title="Watch Video"
+              >
+                <Video className="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
+// Award Entry Component
+const AwardEntry = ({
+  date,
+  title,
+  organization,
+  description,
+  icon = "🏆",
+}) => (
+  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 rounded-lg p-5 border border-yellow-200 dark:border-yellow-800/50 award-glow hover:shadow-md transition-all duration-200">
+    <div className="flex items-start gap-4">
+      {/* Icon */}
+      <div className="text-2xl transform hover:scale-110 transition-transform duration-200">{icon}</div>
+
+      {/* Content */}
+      <div className="flex-1">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+            {title}
+          </h4>
+          <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+            {date}
+          </span>
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300 text-sm mb-2 font-medium">
+          {organization}
+        </p>
+
+        {description && (
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            {description}
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 const TabContent = ({ activeTab }) => {
+  // Recent talks and presentations
+  const talks = [
+    {
+      date: "Nov 2024",
+      title: "Zero Trust Security for Edge Computing Systems",
+      host: "IEEE MILCOM",
+      location: "Washington, D.C.",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "Oct 2024",
+      title: "Federated Learning in Tactical Networks",
+      host: "DoD Research Symposium",
+      location: "Virtual",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "Jun 2024",
+      title: "UAV Systems Security Challenges",
+      host: "AERPAW Workshop",
+      location: "NC State",
+      links: {
+        slides: "#",
+        video: "#",
+      },
+    },
+    {
+      date: "Mar 2024",
+      title: "Edge Computing for Mobile Networks",
+      host: "University of Missouri Research Day",
+      location: "Columbia, MO",
+      links: {
+        slides: "#",
+      },
+    },
+    {
+      date: "Dec 2023",
+      title: "ML-based Network Intrusion Detection",
+      host: "IEEE INFOCOM Workshop",
+      location: "Virtual",
+      links: {
+        slides: "#",
+      },
+    },
+  ];
+
+  // Sample awards data
+  const awards = [
+    {
+      date: "2024",
+      title: "Outstanding PhD Student Award",
+      organization: "University of Missouri Computer Science Department",
+      description:
+        "Recognized for exceptional academic performance and research contributions in cybersecurity and distributed systems",
+      icon: "🏆",
+    },
+    {
+      date: "2024",
+      title: "Fulbright Scholar",
+      organization: "U.S. Department of State",
+      description:
+        "Prestigious international research fellowship for conducting advanced cybersecurity research abroad",
+      icon: "🌟",
+    },
+    {
+      date: "2024",
+      title: "UC2 DoD White Paper Winner",
+      organization: "Department of Defense",
+      description:
+        "Winning research proposal for innovative cybersecurity solutions in tactical edge computing environments",
+      icon: "🎖️",
+    },
+    {
+      date: "2023",
+      title: "Best Student Paper Award",
+      organization: "IEEE SECON Conference",
+      description:
+        "Recognition for outstanding research contribution in secure edge video analytics",
+      icon: "📄",
+    },
+    {
+      date: "2018-2024",
+      title: "Graduate Research Fellowship",
+      organization: "University of Missouri",
+      description:
+        "Six-year fellowship supporting doctoral research in cloud computing and cybersecurity",
+      icon: "💡",
+    },
+  ];
+
   const renderContent = () => {
     switch (activeTab) {
       case "about":
@@ -389,7 +700,9 @@ const TabContent = ({ activeTab }) => {
                     Research Impact Overview
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    Advancing cybersecurity and distributed systems through innovative research, collaboration, and mentorship in academic and industry partnerships.
+                    Advancing cybersecurity and distributed systems through
+                    innovative research, collaboration, and mentorship in
+                    academic and industry partnerships.
                   </p>
                 </div>
 
@@ -427,7 +740,12 @@ const TabContent = ({ activeTab }) => {
                       <DollarSign className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
-                      <AnimatedCounter end={650} prefix="$" suffix="K+" duration={2500} />
+                      <AnimatedCounter
+                        end={650}
+                        prefix="$"
+                        suffix="K+"
+                        duration={2500}
+                      />
                     </h3>
                     <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
                       Research Funding
@@ -463,57 +781,50 @@ const TabContent = ({ activeTab }) => {
                 bgColor="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20"
               >
                 <div className="space-y-4">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Arculus: Zero Trust Architecture for Tactical Edge
-                        Computing
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Conference • 2024 • A. Esquivel, P. Kumar, R. White
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Novel Zero Trust framework designed specifically for
-                      tactical edge computing environments with enhanced
-                      security protocols.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Arculus: Zero Trust Architecture for Tactical Edge Computing"
+                    venue="IEEE Conference"
+                    year="2024"
+                    authors="A. Esquivel, P. Kumar, R. White"
+                    description="Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols."
+                    thumbnail="/images/research/arculus-thumb.jpg"
+                    tags={["Zero Trust", "Edge Computing", "Security"]}
+                    links={{
+                      paper: "#",
+                      code: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Zero Trust Implementation in Resource-Constrained
-                        Environments
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Security & Privacy • 2023 • A. Esquivel, Q. Zhang, S.
-                      Taylor
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Practical Zero Trust deployment strategies for edge
-                      devices with limited computational resources.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Zero Trust Implementation in Resource-Constrained Environments"
+                    venue="IEEE Security & Privacy"
+                    year="2023"
+                    authors="A. Esquivel, Q. Zhang, S. Taylor"
+                    description="Practical Zero Trust deployment strategies for edge devices with limited computational resources."
+                    thumbnail="/images/research/zero-trust-iot-thumb.jpg"
+                    tags={["Zero Trust", "IoT", "Security"]}
+                    links={{
+                      paper: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Adaptive Zero Trust for Dynamic Network Topologies
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-amber-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      ACM CCS • 2023 • A. Esquivel, H. Nguyen, I. Clark
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Self-adapting Zero Trust architecture for networks with
-                      frequently changing topologies and device configurations.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Adaptive Zero Trust for Dynamic Network Topologies"
+                    venue="ACM CCS"
+                    year="2023"
+                    authors="A. Esquivel, H. Nguyen, I. Clark"
+                    description="Self-adapting Zero Trust architecture for networks with frequently changing topologies and device configurations."
+                    thumbnail="/images/research/adaptive-zero-trust-thumb.jpg"
+                    tags={["Zero Trust", "Network Security", "Adaptive Systems"]}
+                    links={{
+                      paper: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
                 </div>
               </ExpandableSection>
 
@@ -524,54 +835,50 @@ const TabContent = ({ activeTab }) => {
                 bgColor="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20"
               >
                 <div className="space-y-4">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Learning-based Multi-Drone Edge Offloading
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE INFOCOM • 2024 • A. Esquivel, R. Johnson, S. Kim
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      PPO-based orchestration of data tasks for real-time
-                      edge/cloud UAV coordination.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Learning-based Multi-Drone Edge Offloading"
+                    venue="IEEE INFOCOM"
+                    year="2024"
+                    authors="A. Esquivel, R. Johnson, S. Kim"
+                    description="PPO-based orchestration of data tasks for real-time edge/cloud UAV coordination."
+                    thumbnail="/images/research/drone-offloading-thumb.jpg"
+                    tags={["Edge Computing", "UAV Systems", "Machine Learning"]}
+                    links={{
+                      paper: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Network Management and Orchestration in Edge Computing
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE NOMS • 2023 • A. Esquivel, T. Anderson, L. Wilson
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Comprehensive study on network management challenges and
-                      solutions for edge computing infrastructures.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Network Management and Orchestration in Edge Computing"
+                    venue="IEEE NOMS"
+                    year="2023"
+                    authors="A. Esquivel, T. Anderson, L. Wilson"
+                    description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
+                    thumbnail="/images/research/network-mgmt-thumb.jpg"
+                    tags={["Edge Computing", "Network Management", "Orchestration"]}
+                    links={{
+                      paper: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Floto: A Framework for Adaptable Data Collection
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-emerald-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE Cloud Computing • 2024 • A. Esquivel, N. Thompson, M.
-                      Garcia
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Multi-sensor data collection framework for large-scale
-                      workflows, enhancing throughput and scalability.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Floto: A Framework for Adaptable Data Collection"
+                    venue="IEEE Cloud Computing"
+                    year="2024"
+                    authors="A. Esquivel, N. Thompson, M. Garcia"
+                    description="Multi-sensor data collection framework for large-scale workflows, enhancing throughput and scalability."
+                    thumbnail="/images/research/floto-thumb.jpg"
+                    tags={["Cloud Computing", "Data Collection", "Scalability"]}
+                    links={{
+                      paper: "#",
+                      code: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
                 </div>
               </ExpandableSection>
 
@@ -582,54 +889,49 @@ const TabContent = ({ activeTab }) => {
                 bgColor="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20"
               >
                 <div className="space-y-4">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        UAV/Drone Systems Security and Privacy: A Comprehensive
-                        Survey
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      ACM Computing Surveys • 2025 • A. Esquivel, et al.
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Comprehensive survey on security and privacy challenges in
-                      unmanned aerial vehicle systems and drone networks.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="UAV/Drone Systems Security and Privacy: A Comprehensive Survey"
+                    venue="ACM Computing Surveys"
+                    year="2025"
+                    authors="A. Esquivel, et al."
+                    description="Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks."
+                    thumbnail="/images/research/uav-survey-thumb.jpg"
+                    tags={["UAV Systems", "Security", "Privacy", "Survey"]}
+                    links={{
+                      paper: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        Enhancing Drone Video Analytics Security
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE SECON • 2024 • A. Esquivel, B. Davis, C. Martinez
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      AERPAW-based experiments securing edge video analytics
-                      workflows using programmable network services.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="Enhancing Drone Video Analytics Security"
+                    venue="IEEE SECON"
+                    year="2024"
+                    authors="A. Esquivel, B. Davis, C. Martinez"
+                    description="AERPAW-based experiments securing edge video analytics workflows using programmable network services."
+                    thumbnail="/images/research/drone-video-thumb.jpg"
+                    tags={["UAV Systems", "Video Analytics", "Security"]}
+                    links={{
+                      paper: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
 
-                  <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border border-gray-100 dark:border-gray-700">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        AI-Driven Intrusion Detection for Mobile Networks
-                      </h4>
-                      <ExternalLink className="w-4 h-4 text-gray-400 hover:text-violet-600 cursor-pointer transition-colors" />
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      IEEE INFOCOM • 2024 • A. Esquivel, F. Lee, G. Brown
-                    </p>
-                    <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                      Machine learning approaches for detecting network
-                      intrusions in mobile and wireless communication systems.
-                    </p>
-                  </div>
+                  <EnhancedPublicationCard
+                    title="AI-Driven Intrusion Detection for Mobile Networks"
+                    venue="IEEE INFOCOM"
+                    year="2024"
+                    authors="A. Esquivel, F. Lee, G. Brown"
+                    description="Machine learning approaches for detecting network intrusions in mobile and wireless communication systems."
+                    thumbnail="/images/research/intrusion-detection-thumb.jpg"
+                    tags={["Machine Learning", "Network Security", "Mobile Networks"]}
+                    links={{
+                      paper: "#",
+                      slides: "#",
+                      bibtex: "#"
+                    }}
+                  />
                 </div>
               </ExpandableSection>
             </div>
@@ -677,6 +979,58 @@ const TabContent = ({ activeTab }) => {
                 </div>
               </div>
             </div>
+
+            {/* Talks & Presentations Timeline */}
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="space-y-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <Presentation className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                    Talks & Presentations
+                  </h2>
+                </div>
+
+                <div className="space-y-3">{talks.map((talk, index) => (
+                    <div key={index} className="timeline-item">
+                      <TalkEntry
+                        date={talk.date}
+                        title={talk.title}
+                        host={talk.host}
+                        location={talk.location}
+                        links={talk.links}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Awards & Recognition Timeline */}
+            <div className="space-y-6">
+              <div className="text-center">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-center justify-center gap-3">
+                  <Trophy className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
+                  Awards & Recognition
+                </h2>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Academic honors and professional recognition
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {awards.map((award, index) => (
+                  <div key={index} className="timeline-item">
+                    <AwardEntry
+                      date={award.date}
+                      title={award.title}
+                      organization={award.organization}
+                      description={award.description}
+                      icon={award.icon}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         );
 
@@ -689,42 +1043,42 @@ const TabContent = ({ activeTab }) => {
                   Selected Publications
                 </h3>
                 <div className="grid gap-4">
-                <Publication
-                  title="UAV/Drone Systems Security and Privacy: A Comprehensive Survey"
-                  venue="ACM Computing Surveys"
-                  year="2025"
-                  description="Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks."
-                />
-                <Publication
-                  title="Arculus: Zero Trust Architecture for Tactical Edge Computing"
-                  venue="IEEE Conference"
-                  year="2024"
-                  description="Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols."
-                />
-                <Publication
-                  title="FLOTO Framework: Federated Learning for Tactical Operations"
-                  venue="International Conference on High Performance Computing"
-                  year="2025"
-                  description="Federated learning framework optimized for tactical operations and distributed edge computing scenarios."
-                />
-                <Publication
-                  title="AI-Driven Intrusion Detection for Mobile Networks"
-                  venue="IEEE INFOCOM"
-                  year="2024"
-                  description="Machine learning approaches for detecting network intrusions in mobile and wireless communication systems."
-                />
-                <Publication
-                  title="Security Challenges in IoT Federated Learning"
-                  venue="IEEE MILCOM"
-                  year="2024"
-                  description="Analysis of security vulnerabilities and mitigation strategies in federated learning for IoT environments."
-                />
-                <Publication
-                  title="Network Management and Orchestration in Edge Computing"
-                  venue="IEEE NOMS"
-                  year="2023"
-                  description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
-                />
+                  <Publication
+                    title="UAV/Drone Systems Security and Privacy: A Comprehensive Survey"
+                    venue="ACM Computing Surveys"
+                    year="2025"
+                    description="Comprehensive survey on security and privacy challenges in unmanned aerial vehicle systems and drone networks."
+                  />
+                  <Publication
+                    title="Arculus: Zero Trust Architecture for Tactical Edge Computing"
+                    venue="IEEE Conference"
+                    year="2024"
+                    description="Novel Zero Trust framework designed specifically for tactical edge computing environments with enhanced security protocols."
+                  />
+                  <Publication
+                    title="FLOTO Framework: Federated Learning for Tactical Operations"
+                    venue="International Conference on High Performance Computing"
+                    year="2025"
+                    description="Federated learning framework optimized for tactical operations and distributed edge computing scenarios."
+                  />
+                  <Publication
+                    title="AI-Driven Intrusion Detection for Mobile Networks"
+                    venue="IEEE INFOCOM"
+                    year="2024"
+                    description="Machine learning approaches for detecting network intrusions in mobile and wireless communication systems."
+                  />
+                  <Publication
+                    title="Security Challenges in IoT Federated Learning"
+                    venue="IEEE MILCOM"
+                    year="2024"
+                    description="Analysis of security vulnerabilities and mitigation strategies in federated learning for IoT environments."
+                  />
+                  <Publication
+                    title="Network Management and Orchestration in Edge Computing"
+                    venue="IEEE NOMS"
+                    year="2023"
+                    description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
+                  />
                 </div>
               </div>
             </div>
@@ -953,8 +1307,8 @@ const TabContent = ({ activeTab }) => {
                 <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                   Beyond research, I'm passionate about exploring the world,
                   creating art, learning languages, and connecting with my
-                  community. Here's a glimpse into what makes me tick outside the
-                  lab!
+                  community. Here's a glimpse into what makes me tick outside
+                  the lab!
                 </p>
               </div>
             </div>
