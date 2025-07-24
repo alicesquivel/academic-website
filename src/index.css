@@ -151,7 +151,7 @@
     }
   }
 
-  /* Award card glow effect */
+  /* Award card glow effect - using semantic colors */
   .award-glow {
     position: relative;
     overflow: hidden;
@@ -164,7 +164,12 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
+    background: linear-gradient(45deg, 
+      hsl(var(--primary) / 0.6), 
+      hsl(var(--primary) / 0.8), 
+      hsl(var(--primary) / 0.4),
+      hsl(var(--primary) / 0.6)
+    );
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
@@ -173,6 +178,10 @@
   
   .award-glow:hover::before {
     opacity: 0.1;
+  }
+  
+  .dark .award-glow:hover::before {
+    opacity: 0.15;
   }
 
   /* Enhanced publication card hover effects */
@@ -258,7 +267,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  /* Dark mode specific improvements */
+  /* Dark mode specific improvements for better contrast */
   .dark .award-compact:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   }
@@ -271,15 +280,86 @@
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
   }
 
-  /* Improve selection colors */
+  /* Better selection colors for accessibility */
   ::selection {
     background-color: hsl(var(--primary) / 0.3);
     color: hsl(var(--primary-foreground));
   }
   
-  /* Focus ring improvements */
+  /* Enhanced focus rings for better accessibility */
   .focus-visible:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
+  }
+
+  /* Improved scrollbar styling for dark mode */
+  .dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Better text contrast in dark mode cards */
+  .dark .bg-white\/50 {
+    background-color: rgba(31, 41, 55, 0.5) !important;
+  }
+  
+  /* Improved backdrop blur for theme toggle */
+  .dark .backdrop-blur-sm {
+    backdrop-filter: blur(8px) saturate(180%);
+  }
+
+  /* Enhanced color utilities for better accessibility */
+  .text-muted {
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .text-subtle {
+    color: hsl(var(--muted-foreground) / 0.8);
+  }
+  
+  /* Better link colors */
+  .link-primary {
+    color: hsl(var(--primary));
+    text-decoration-color: hsl(var(--primary) / 0.3);
+  }
+  
+  .link-primary:hover {
+    color: hsl(var(--primary) / 0.8);
+    text-decoration-color: hsl(var(--primary) / 0.6);
+  }
+
+  /* Improved code block styling for dark mode */
+  code {
+    background-color: hsl(var(--muted) / 0.5);
+    color: hsl(var(--foreground));
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+  
+  /* Better table styling for dark mode */
+  table {
+    border-color: hsl(var(--border));
+  }
+  
+  th, td {
+    border-color: hsl(var(--border));
+  }
+  
+  th {
+    background-color: hsl(var(--muted) / 0.5);
   }
 }
