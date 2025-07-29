@@ -111,7 +111,7 @@ const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, des
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-      <div className="relative max-w-4xl max-h-full">
+      <div className="relative max-w-full max-h-full flex items-center justify-center">
         {/* Close button */}
         <button
           onClick={onClose}
@@ -138,11 +138,12 @@ const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, des
           </>
         )}
 
-        {/* Image */}
+        {/* Image - cropped to horizontal aspect ratio */}
         <img
           src={currentPhoto.src}
           alt={currentPhoto.alt}
-          className="max-w-full max-h-full object-contain rounded-lg"
+          className="w-[500px] h-[375px] max-w-[90vw] max-h-[80vh] object-cover rounded-lg bg-black/30"
+          style={{ aspectRatio: '4/3' }}
         />
 
         {/* Caption */}
@@ -1511,7 +1512,7 @@ const TabContent = ({ activeTab }) => {
                 </h3>
 
                 {/* Memories Grid - iPhone Style */}
-                <div className="grid grid-cols-2 gap-2 mb-4">
+                <div className="grid grid-cols-2 gap-3 mb-6">
                   {/* Row 1 */}
                   <div className="grid gap-2">
                     {/* Honolulu, Hawaii */}
@@ -1520,7 +1521,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.honolulu.memories, 0, travelData.honolulu.title)}
                     >
                       <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-32 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
                           backgroundColor: "#0EA5E9", // ocean blue fallback
@@ -1541,7 +1542,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.chicago.memories, 0, travelData.chicago.title)}
                     >
                       <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-28 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.chicago.memories[0]?.src})`,
                           backgroundColor: "#1E40AF", // city blue fallback
@@ -1564,7 +1565,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.israel.memories, 0, travelData.israel.title)}
                     >
                       <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-28 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.israel.memories[0]?.src})`,
                           backgroundColor: "#D97706", // desert orange fallback
@@ -1585,7 +1586,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.mexico.memories, 0, travelData.mexico.title)}
                     >
                       <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-32 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
                           backgroundColor: "#DC2626", // vibrant red fallback
@@ -1603,14 +1604,14 @@ const TabContent = ({ activeTab }) => {
                 </div>
 
                 {/* Row 2 - Horizontal layout */}
-                <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="grid grid-cols-3 gap-3 mb-6">
                   {/* Atlanta */}
                   <div 
                     className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
                     onClick={() => openModal(travelData.atlanta.memories, 0, travelData.atlanta.title)}
                   >
                     <div
-                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                       style={{
                         backgroundImage: `url(${travelData.atlanta.memories[0]?.src})`,
                         backgroundColor: "#059669", // green fallback
@@ -1631,7 +1632,7 @@ const TabContent = ({ activeTab }) => {
                     onClick={() => openModal(travelData.oregon.memories, 0, travelData.oregon.title)}
                   >
                     <div
-                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                       style={{
                         backgroundImage: `url(${travelData.oregon.memories[0]?.src})`,
                         backgroundColor: "#16A34A", // forest green fallback
@@ -1652,7 +1653,7 @@ const TabContent = ({ activeTab }) => {
                     onClick={() => openModal(travelData.nyc.memories, 0, travelData.nyc.title)}
                   >
                     <div
-                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                       style={{
                         backgroundImage: `url(${travelData.nyc.memories[0]?.src})`,
                         backgroundColor: "#374151", // urban gray fallback
@@ -1670,7 +1671,22 @@ const TabContent = ({ activeTab }) => {
 
                 {/* View All Button */}
                 <div className="flex justify-center">
-                  <button className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-lg hover:bg-sky-200 dark:hover:bg-sky-800/40 transition-colors duration-200 text-sm font-medium">
+                  <button
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-lg hover:bg-sky-200 dark:hover:bg-sky-800/40 transition-colors duration-200 text-sm font-medium"
+                    onClick={() => {
+                      // Gather all travel images in order
+                      const allMemories = [
+                        ...travelData.honolulu.memories,
+                        ...travelData.chicago.memories,
+                        ...travelData.israel.memories,
+                        ...travelData.mexico.memories,
+                        ...travelData.atlanta.memories,
+                        ...travelData.oregon.memories,
+                        ...travelData.nyc.memories,
+                      ];
+                      openModal(allMemories, 0, "All Travel Photos");
+                    }}
+                  >
                     <Image className="w-4 h-4" />
                     View All Photos
                   </button>
