@@ -43,17 +43,14 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-// Travel data with image URLs
+// Travel data with actual uploaded images
 const travelData = {
   honolulu: {
     title: "Honolulu, Hawaii",
     color: "from-orange-400 to-pink-400",
     bgColor: "bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800", alt: "Waikiki Beach" },
-      { id: 2, src: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800", alt: "Diamond Head" },
-      { id: 3, src: "https://images.unsplash.com/photo-1518026179618-b099fbdc7b86?w=800", alt: "Sunset at beach" },
-      { id: 4, src: "https://images.unsplash.com/photo-1573160103600-30d5ac7e7c3f?w=800", alt: "Hawaiian culture" },
+      { id: 1, src: "/images/travel/hawaii.jpg", alt: "Hawaiian adventures" },
     ]
   },
   israel: {
@@ -61,10 +58,7 @@ const travelData = {
     color: "from-blue-400 to-teal-400",
     bgColor: "bg-gradient-to-br from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1544967919-6e219b5b2d3a?w=800", alt: "Jerusalem Old City" },
-      { id: 2, src: "https://images.unsplash.com/photo-1502780402662-acc01917175e?w=800", alt: "Tel Aviv coastline" },
-      { id: 3, src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800", alt: "Dead Sea" },
-      { id: 4, src: "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?w=800", alt: "Masada sunrise" },
+      { id: 1, src: "/images/travel/israel.jpg", alt: "Israel journey" },
     ]
   },
   chicago: {
@@ -72,10 +66,7 @@ const travelData = {
     color: "from-indigo-400 to-purple-400",
     bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1477414348843-5fbcd5893738?w=800", alt: "Chicago skyline" },
-      { id: 2, src: "https://images.unsplash.com/photo-1582662822635-3e7e6b171d25?w=800", alt: "Cloud Gate" },
-      { id: 3, src: "https://images.unsplash.com/photo-1586951421071-b8ffa837cd88?w=800", alt: "Millennium Park" },
-      { id: 4, src: "https://images.unsplash.com/photo-1595748401095-5f5ff7b85b5e?w=800", alt: "Navy Pier" },
+      { id: 1, src: "/images/travel/chicago.jpg", alt: "Chicago experiences" },
     ]
   },
   mexico: {
@@ -83,10 +74,7 @@ const travelData = {
     color: "from-red-400 to-orange-400",
     bgColor: "bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=800", alt: "Ancient pyramids" },
-      { id: 2, src: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=800", alt: "Colorful streets" },
-      { id: 3, src: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800", alt: "Traditional market" },
-      { id: 4, src: "https://images.unsplash.com/photo-1544982503-9f984c14501a?w=800", alt: "Beach paradise" },
+      { id: 1, src: "/images/travel/mexico.jpg", alt: "Mexico adventures" },
     ]
   },
   atlanta: {
@@ -94,10 +82,7 @@ const travelData = {
     color: "from-green-400 to-emerald-400",
     bgColor: "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1566332218-58b2f58e4b74?w=800", alt: "Atlanta skyline" },
-      { id: 2, src: "https://images.unsplash.com/photo-1531844531904-37e69d7b6da9?w=800", alt: "Georgia Aquarium" },
-      { id: 3, src: "https://images.unsplash.com/photo-1582660017083-2c12db4c0e7c?w=800", alt: "Piedmont Park" },
-      { id: 4, src: "https://images.unsplash.com/photo-1588721238719-eaf4b0fb3470?w=800", alt: "Historic architecture" },
+      { id: 1, src: "/images/travel/atlanta.jpg", alt: "Atlanta memories" },
     ]
   },
   oregon: {
@@ -105,10 +90,7 @@ const travelData = {
     color: "from-teal-400 to-green-400",
     bgColor: "bg-gradient-to-br from-teal-50 to-green-50 dark:from-teal-900/20 dark:to-green-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1507833423370-a126b89d394b?w=800", alt: "Crater Lake" },
-      { id: 2, src: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800", alt: "Oregon coast" },
-      { id: 3, src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800", alt: "Forest trails" },
-      { id: 4, src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", alt: "Mountain views" },
+      { id: 1, src: "/images/travel/oregon.jpg", alt: "Oregon explorations" },
     ]
   },
   nyc: {
@@ -116,10 +98,7 @@ const travelData = {
     color: "from-yellow-400 to-red-400",
     bgColor: "bg-gradient-to-br from-yellow-50 to-red-50 dark:from-yellow-900/20 dark:to-red-900/20",
     memories: [
-      { id: 1, src: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800", alt: "Manhattan skyline" },
-      { id: 2, src: "https://images.unsplash.com/photo-1541336032412-2048a678540d?w=800", alt: "Central Park" },
-      { id: 3, src: "https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=800", alt: "Brooklyn Bridge" },
-      { id: 4, src: "https://images.unsplash.com/photo-1509966756634-9c23dd6e6815?w=800", alt: "Times Square" },
+      { id: 1, src: "/images/travel/newyork.jpg", alt: "New York City adventures" },
     ]
   }
 };
@@ -1541,7 +1520,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.honolulu.memories, 0, travelData.honolulu.title)}
                     >
                       <div
-                        className="h-24 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
                           backgroundColor: "#0EA5E9", // ocean blue fallback
@@ -1550,7 +1529,7 @@ const TabContent = ({ activeTab }) => {
                         <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                         <div className="absolute bottom-2 left-2">
                           <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
-                            🏝️ Honolulu
+                            Honolulu
                           </span>
                         </div>
                       </div>
@@ -1571,7 +1550,7 @@ const TabContent = ({ activeTab }) => {
                         <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                         <div className="absolute bottom-2 left-2">
                           <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
-                            🏙️ Chicago
+                            Chicago
                           </span>
                         </div>
                       </div>
@@ -1594,7 +1573,7 @@ const TabContent = ({ activeTab }) => {
                         <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                         <div className="absolute bottom-2 left-2">
                           <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
-                            🕊️ Israel
+                            Israel
                           </span>
                         </div>
                       </div>
@@ -1606,7 +1585,7 @@ const TabContent = ({ activeTab }) => {
                       onClick={() => openModal(travelData.mexico.memories, 0, travelData.mexico.title)}
                     >
                       <div
-                        className="h-24 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
                         style={{
                           backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
                           backgroundColor: "#DC2626", // vibrant red fallback
@@ -1615,7 +1594,7 @@ const TabContent = ({ activeTab }) => {
                         <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                         <div className="absolute bottom-2 left-2">
                           <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
-                            🌮 Mexico
+                            Mexico
                           </span>
                         </div>
                       </div>
@@ -1640,7 +1619,7 @@ const TabContent = ({ activeTab }) => {
                       <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                       <div className="absolute bottom-1 left-1">
                         <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
-                          🍑 Atlanta
+                          Atlanta
                         </span>
                       </div>
                     </div>
@@ -1661,7 +1640,7 @@ const TabContent = ({ activeTab }) => {
                       <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                       <div className="absolute bottom-1 left-1">
                         <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
-                          🌲 Oregon
+                          Oregon
                         </span>
                       </div>
                     </div>
@@ -1682,7 +1661,7 @@ const TabContent = ({ activeTab }) => {
                       <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
                       <div className="absolute bottom-1 left-1">
                         <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
-                          🗽 NYC
+                          NYC
                         </span>
                       </div>
                     </div>
