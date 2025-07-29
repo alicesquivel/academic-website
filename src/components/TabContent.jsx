@@ -142,7 +142,7 @@ const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, des
         <img
           src={currentPhoto.src}
           alt={currentPhoto.alt}
-          className="w-[500px] h-[375px] max-w-[90vw] max-h-[80vh] object-cover rounded-lg bg-black/30"
+          className="w-[800px] h-[600px] max-w-[95vw] max-h-[85vh] object-cover rounded-2xl shadow-2xl bg-black/30"
           style={{ aspectRatio: '4/3' }}
         />
 
@@ -1503,33 +1503,36 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             {/* Travel Adventures & Language Culture - Side by Side */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans" style={{ fontFamily: 'Inter, Poppins, SF Pro, sans-serif' }}>
               {/* Travel Memories Card */}
-              <div className="bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/20 rounded-xl p-6 shadow-md h-full">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-x-2">
-                  <MapPin className="w-5 h-5 text-sky-600 dark:text-sky-400" />
+              <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
+                <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
+                  <span className="text-lg">🌎</span>
                   Travel Memories
                 </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">These are places I’ve visited</p>
+                {/* Decorative gradient blob */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-sky-200/40 to-blue-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
 
-                {/* Memories Grid - iPhone Style */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                {/* Memories Grid - Modern Style */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
                   {/* Row 1 */}
                   <div className="grid gap-2">
                     {/* Honolulu, Hawaii */}
                     <div 
-                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="group relative overflow-hidden rounded-xl border border-sky-100 dark:border-sky-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-sky-900/10"
                       onClick={() => openModal(travelData.honolulu.memories, 0, travelData.honolulu.title)}
                     >
                       <div
-                        className="h-32 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
                           backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
-                          backgroundColor: "#0EA5E9", // ocean blue fallback
+                          backgroundColor: "#0EA5E9",
                         }}
                       >
-                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                         <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-sky-600/80 dark:bg-sky-700/80 shadow">
                             Honolulu
                           </span>
                         </div>
@@ -1538,19 +1541,19 @@ const TabContent = ({ activeTab }) => {
 
                     {/* Chicago */}
                     <div 
-                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="group relative overflow-hidden rounded-xl border border-blue-100 dark:border-blue-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-blue-900/10"
                       onClick={() => openModal(travelData.chicago.memories, 0, travelData.chicago.title)}
                     >
                       <div
-                        className="h-28 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
                           backgroundImage: `url(${travelData.chicago.memories[0]?.src})`,
-                          backgroundColor: "#1E40AF", // city blue fallback
+                          backgroundColor: "#1E40AF",
                         }}
                       >
-                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                         <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-blue-700/80 dark:bg-blue-800/80 shadow">
                             Chicago
                           </span>
                         </div>
@@ -1561,19 +1564,19 @@ const TabContent = ({ activeTab }) => {
                   <div className="grid gap-2">
                     {/* Israel */}
                     <div 
-                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="group relative overflow-hidden rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-amber-900/10"
                       onClick={() => openModal(travelData.israel.memories, 0, travelData.israel.title)}
                     >
                       <div
-                        className="h-28 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
                           backgroundImage: `url(${travelData.israel.memories[0]?.src})`,
-                          backgroundColor: "#D97706", // desert orange fallback
+                          backgroundColor: "#D97706",
                         }}
                       >
-                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                         <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-amber-700/80 dark:bg-amber-800/80 shadow">
                             Israel
                           </span>
                         </div>
@@ -1582,19 +1585,19 @@ const TabContent = ({ activeTab }) => {
 
                     {/* Mexico */}
                     <div 
-                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="group relative overflow-hidden rounded-xl border border-red-100 dark:border-red-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-red-900/10"
                       onClick={() => openModal(travelData.mexico.memories, 0, travelData.mexico.title)}
                     >
                       <div
-                        className="h-32 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
                           backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
-                          backgroundColor: "#DC2626", // vibrant red fallback
+                          backgroundColor: "#DC2626",
                         }}
                       >
-                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                         <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-red-700/80 dark:bg-red-800/80 shadow">
                             Mexico
                           </span>
                         </div>
@@ -1604,22 +1607,22 @@ const TabContent = ({ activeTab }) => {
                 </div>
 
                 {/* Row 2 - Horizontal layout */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-3 gap-3 mb-4">
                   {/* Atlanta */}
                   <div 
-                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    className="group relative overflow-hidden rounded-xl border border-emerald-100 dark:border-emerald-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-emerald-900/10"
                     onClick={() => openModal(travelData.atlanta.memories, 0, travelData.atlanta.title)}
                   >
                     <div
-                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                       style={{
                         backgroundImage: `url(${travelData.atlanta.memories[0]?.src})`,
-                        backgroundColor: "#059669", // green fallback
+                        backgroundColor: "#059669",
                       }}
                     >
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                       <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-700/80 dark:bg-emerald-800/80 shadow">
                           Atlanta
                         </span>
                       </div>
@@ -1628,19 +1631,19 @@ const TabContent = ({ activeTab }) => {
 
                   {/* Oregon */}
                   <div 
-                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    className="group relative overflow-hidden rounded-xl border border-green-100 dark:border-green-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-green-900/10"
                     onClick={() => openModal(travelData.oregon.memories, 0, travelData.oregon.title)}
                   >
                     <div
-                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                       style={{
                         backgroundImage: `url(${travelData.oregon.memories[0]?.src})`,
-                        backgroundColor: "#16A34A", // forest green fallback
+                        backgroundColor: "#16A34A",
                       }}
                     >
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                       <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-green-700/80 dark:bg-green-800/80 shadow">
                           Oregon
                         </span>
                       </div>
@@ -1649,19 +1652,19 @@ const TabContent = ({ activeTab }) => {
 
                   {/* New York */}
                   <div 
-                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-gray-900/10"
                     onClick={() => openModal(travelData.nyc.memories, 0, travelData.nyc.title)}
                   >
                     <div
-                      className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                       style={{
                         backgroundImage: `url(${travelData.nyc.memories[0]?.src})`,
-                        backgroundColor: "#374151", // urban gray fallback
+                        backgroundColor: "#374151",
                       }}
                     >
-                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
                       <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-gray-800/80 dark:bg-gray-700/80 shadow">
                           NYC
                         </span>
                       </div>
@@ -1670,9 +1673,9 @@ const TabContent = ({ activeTab }) => {
                 </div>
 
                 {/* View All Button */}
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-2">
                   <button
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-lg hover:bg-sky-200 dark:hover:bg-sky-800/40 transition-colors duration-200 text-sm font-medium"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-200 rounded-full border border-sky-200 dark:border-sky-800 hover:bg-sky-200 dark:hover:bg-sky-800/40 shadow transition-all duration-200 text-sm font-semibold tracking-tight active:scale-95"
                     onClick={() => {
                       // Gather all travel images in order
                       const allMemories = [
@@ -1694,71 +1697,83 @@ const TabContent = ({ activeTab }) => {
               </div>
 
               {/* Language & Culture Card */}
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl p-6 shadow-md h-full">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-x-2">
-                  <Languages className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+              <div className="relative bg-gradient-to-br from-orange-50/80 via-yellow-50/80 to-amber-100/60 dark:from-orange-900/30 dark:via-yellow-900/20 dark:to-amber-900/30 rounded-2xl p-6 shadow-lg border border-orange-100 dark:border-orange-900/30 h-full overflow-hidden">
+                <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
+                  <span className="text-lg">🗣️</span>
                   Language, Culture & Hobbies
                 </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Languages, learning, and fun activities</p>
+                {/* Decorative gradient blob */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-orange-200/40 to-yellow-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {/* Languages I Speak */}
                   <div>
-                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                      Languages I Speak
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-base">🌐</span>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Languages I Speak</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="tag-pill bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇵🇾 Spanish
                       </span>
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800">
+                      <span className="tag-pill bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 border border-amber-200 dark:border-amber-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇵🇾 Guarani
                       </span>
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800">
+                      <span className="tag-pill bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇺🇸 English
                       </span>
                     </div>
                   </div>
 
+                  {/* Divider */}
+                  <div className="w-full h-px bg-gradient-to-r from-orange-200 via-yellow-200 to-amber-100 dark:from-orange-900/40 dark:via-yellow-900/30 dark:to-amber-900/40 my-2" />
+
                   {/* Languages I'm Learning */}
                   <div>
-                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                      Languages I'm Learning
-                    </h4>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-base">📚</span>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Languages I'm Learning</h4>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <span className="tag-pill bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇯🇵 Japanese
                       </span>
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800">
+                      <span className="tag-pill bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇧🇷 Portuguese
                       </span>
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800">
+                      <span className="tag-pill bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-200 border border-indigo-200 dark:border-indigo-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇮🇹 Italian
                       </span>
                     </div>
-
                     {/* Duolingo Learning Tool */}
                     <a
                       href="https://www.duolingo.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800 hover:bg-green-200 dark:hover:bg-green-800/40 transition-colors duration-200"
+                      className="tag-pill bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer inline-flex items-center gap-2 mt-1"
                     >
                       <Globe className="w-4 h-4" />
                       Learning with Duolingo
                       <ExternalLink className="w-3 h-3" />
                     </a>
+                    <div className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">Powered by Duolingo</div>
                   </div>
+
+                  {/* Divider */}
+                  <div className="w-full h-px bg-gradient-to-r from-orange-200 via-yellow-200 to-amber-100 dark:from-orange-900/40 dark:via-yellow-900/30 dark:to-amber-900/40 my-2" />
 
                   {/* Hobbies & Activities */}
                   <div>
-                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                      Hobbies & Activities
-                    </h4>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-base">🎨</span>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Hobbies & Activities</h4>
+                    </div>
                     <div className="flex flex-wrap gap-2">
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800">
+                      <span className="tag-pill bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         ♟️ Chess
                       </span>
-                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800">
+                      <span className="tag-pill bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🏃‍♀️ Running
                       </span>
                     </div>
