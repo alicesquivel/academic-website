@@ -1420,7 +1420,7 @@ const TabContent = ({ activeTab }) => {
               <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-xl p-6 shadow-md h-full">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-x-2">
                   <Languages className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                  Language & Culture
+                  Language, Culture & Hobbies
                 </h3>
 
                 <div className="space-y-6">
@@ -1470,6 +1470,21 @@ const TabContent = ({ activeTab }) => {
                       Learning with Duolingo
                       <ExternalLink className="w-3 h-3" />
                     </a>
+                  </div>
+
+                  {/* Hobbies & Activities */}
+                  <div>
+                    <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-3">
+                      Hobbies & Activities
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800">
+                        ♟️ Chess
+                      </span>
+                      <span className="rounded-full px-3 py-1 text-sm font-medium inline-flex items-center gap-x-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800">
+                        🏃‍♀️ Running
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1562,7 +1577,7 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             {/* Faith & Community - Full Width */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
+            {/* <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-3">
                 <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
                   <Users className="w-5 h-5 text-green-600 dark:text-green-400" />
@@ -1585,7 +1600,7 @@ const TabContent = ({ activeTab }) => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         );
 
