@@ -38,7 +38,148 @@ import {
   Video,
   Trophy,
   Star,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
+// Travel data with image URLs
+const travelData = {
+  honolulu: {
+    title: "Honolulu, Hawaii",
+    color: "from-orange-400 to-pink-400",
+    bgColor: "bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800", alt: "Waikiki Beach" },
+      { id: 2, src: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=800", alt: "Diamond Head" },
+      { id: 3, src: "https://images.unsplash.com/photo-1518026179618-b099fbdc7b86?w=800", alt: "Sunset at beach" },
+      { id: 4, src: "https://images.unsplash.com/photo-1573160103600-30d5ac7e7c3f?w=800", alt: "Hawaiian culture" },
+    ]
+  },
+  israel: {
+    title: "Israel",
+    color: "from-blue-400 to-teal-400",
+    bgColor: "bg-gradient-to-br from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1544967919-6e219b5b2d3a?w=800", alt: "Jerusalem Old City" },
+      { id: 2, src: "https://images.unsplash.com/photo-1502780402662-acc01917175e?w=800", alt: "Tel Aviv coastline" },
+      { id: 3, src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800", alt: "Dead Sea" },
+      { id: 4, src: "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?w=800", alt: "Masada sunrise" },
+    ]
+  },
+  chicago: {
+    title: "Chicago, IL",
+    color: "from-indigo-400 to-purple-400",
+    bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1477414348843-5fbcd5893738?w=800", alt: "Chicago skyline" },
+      { id: 2, src: "https://images.unsplash.com/photo-1582662822635-3e7e6b171d25?w=800", alt: "Cloud Gate" },
+      { id: 3, src: "https://images.unsplash.com/photo-1586951421071-b8ffa837cd88?w=800", alt: "Millennium Park" },
+      { id: 4, src: "https://images.unsplash.com/photo-1595748401095-5f5ff7b85b5e?w=800", alt: "Navy Pier" },
+    ]
+  },
+  mexico: {
+    title: "Mexico",
+    color: "from-red-400 to-orange-400",
+    bgColor: "bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?w=800", alt: "Ancient pyramids" },
+      { id: 2, src: "https://images.unsplash.com/photo-1568402102990-bc541580b59f?w=800", alt: "Colorful streets" },
+      { id: 3, src: "https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800", alt: "Traditional market" },
+      { id: 4, src: "https://images.unsplash.com/photo-1544982503-9f984c14501a?w=800", alt: "Beach paradise" },
+    ]
+  },
+  atlanta: {
+    title: "Atlanta, GA",
+    color: "from-green-400 to-emerald-400",
+    bgColor: "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1566332218-58b2f58e4b74?w=800", alt: "Atlanta skyline" },
+      { id: 2, src: "https://images.unsplash.com/photo-1531844531904-37e69d7b6da9?w=800", alt: "Georgia Aquarium" },
+      { id: 3, src: "https://images.unsplash.com/photo-1582660017083-2c12db4c0e7c?w=800", alt: "Piedmont Park" },
+      { id: 4, src: "https://images.unsplash.com/photo-1588721238719-eaf4b0fb3470?w=800", alt: "Historic architecture" },
+    ]
+  },
+  oregon: {
+    title: "Oregon",
+    color: "from-teal-400 to-green-400",
+    bgColor: "bg-gradient-to-br from-teal-50 to-green-50 dark:from-teal-900/20 dark:to-green-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1507833423370-a126b89d394b?w=800", alt: "Crater Lake" },
+      { id: 2, src: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800", alt: "Oregon coast" },
+      { id: 3, src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800", alt: "Forest trails" },
+      { id: 4, src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", alt: "Mountain views" },
+    ]
+  },
+  nyc: {
+    title: "New York City, NY",
+    color: "from-yellow-400 to-red-400",
+    bgColor: "bg-gradient-to-br from-yellow-50 to-red-50 dark:from-yellow-900/20 dark:to-red-900/20",
+    memories: [
+      { id: 1, src: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800", alt: "Manhattan skyline" },
+      { id: 2, src: "https://images.unsplash.com/photo-1541336032412-2048a678540d?w=800", alt: "Central Park" },
+      { id: 3, src: "https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?w=800", alt: "Brooklyn Bridge" },
+      { id: 4, src: "https://images.unsplash.com/photo-1509966756634-9c23dd6e6815?w=800", alt: "Times Square" },
+    ]
+  }
+};
+
+// Modal Component
+const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, destinationTitle }) => {
+  if (!isOpen || !photos || photos.length === 0) return null;
+
+  const currentPhoto = photos[currentIndex];
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+      <div className="relative max-w-4xl max-h-full">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        >
+          <X size={24} />
+        </button>
+
+        {/* Navigation buttons */}
+        {photos.length > 1 && (
+          <>
+            <button
+              onClick={onPrev}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={onNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </>
+        )}
+
+        {/* Image */}
+        <img
+          src={currentPhoto.src}
+          alt={currentPhoto.alt}
+          className="max-w-full max-h-full object-contain rounded-lg"
+        />
+
+        {/* Caption */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-center">
+          <p className="text-white text-lg font-medium">{destinationTitle}</p>
+          <p className="text-gray-300 text-sm">{currentPhoto.alt}</p>
+          {photos.length > 1 && (
+            <p className="text-gray-400 text-xs mt-1">
+              {currentIndex + 1} of {photos.length}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Publication = ({ title, venue, year, description }) => (
   <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-all duration-200">
@@ -537,6 +678,59 @@ const AwardEntry = ({
 const TabContent = ({ activeTab }) => {
   // State for showing more talks
   const [showAllTalks, setShowAllTalks] = useState(false);
+
+  // Modal state for photo viewing
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPhotos, setCurrentPhotos] = useState([]);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [currentDestination, setCurrentDestination] = useState('');
+
+  // Modal handlers
+  const openModal = (photos, index = 0, destination = '') => {
+    setCurrentPhotos(photos);
+    setCurrentPhotoIndex(index);
+    setCurrentDestination(destination);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setCurrentPhotos([]);
+    setCurrentPhotoIndex(0);
+    setCurrentDestination('');
+  };
+
+  const nextPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev + 1) % currentPhotos.length);
+  };
+
+  const prevPhoto = () => {
+    setCurrentPhotoIndex((prev) => (prev - 1 + currentPhotos.length) % currentPhotos.length);
+  };
+
+  // Keyboard navigation for modal
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isModalOpen) return;
+
+      switch (e.key) {
+        case 'Escape':
+          closeModal();
+          break;
+        case 'ArrowLeft':
+          prevPhoto();
+          break;
+        case 'ArrowRight':
+          nextPhoto();
+          break;
+        default:
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen]);
 
   // Recent talks and presentations from CV
   const talks = [
@@ -1330,89 +1524,177 @@ const TabContent = ({ activeTab }) => {
 
             {/* Travel Adventures & Language Culture - Side by Side */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Travel Adventures Card */}
+              {/* Travel Memories Card */}
               <div className="bg-gradient-to-br from-sky-50 to-blue-50 dark:from-sky-900/20 dark:to-blue-900/20 rounded-xl p-6 shadow-md h-full">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-x-2">
                   <MapPin className="w-5 h-5 text-sky-600 dark:text-sky-400" />
-                  Travel Adventures
+                  Travel Memories
                 </h3>
 
-                {/* Travel Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Europe Tour Card */}
-                  <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div
-                      className="h-32 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
-                      style={{
-                        backgroundImage: "url('/images/europe.jpg')",
-                        backgroundColor: "#6B7280", // fallback color
-                      }}
+                {/* Memories Grid - iPhone Style */}
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {/* Row 1 */}
+                  <div className="grid gap-2">
+                    {/* Honolulu, Hawaii */}
+                    <div 
+                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      onClick={() => openModal(travelData.honolulu.memories, 0, travelData.honolulu.title)}
                     >
-                      <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <h4 className="text-white text-sm font-semibold text-center px-2">
-                          Europe Tour
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Costa Rica Card */}
-                  <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div
-                      className="h-32 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
-                      style={{
-                        backgroundImage: "url('/images/costarica.jpg')",
-                        backgroundColor: "#059669", // fallback color
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <h4 className="text-white text-sm font-semibold text-center px-2">
-                          Costa Rica
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Road Trip USA Card */}
-                  <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
-                    <div
-                      className="h-32 bg-cover bg-center transition-all duration-300 group-hover:brightness-110"
-                      style={{
-                        backgroundImage: "url('/images/roadtrip-usa.jpg')",
-                        backgroundColor: "#DC2626", // fallback color
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <h4 className="text-white text-sm font-semibold text-center px-2">
-                          Road Trip USA
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Google My Maps Card */}
-                  <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40">
-                    <div className="h-32 flex flex-col items-center justify-center p-4 text-center">
-                      <div className="w-8 h-8 bg-blue-200 dark:bg-blue-800 rounded-lg flex items-center justify-center mb-2 transform group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                        <MapPin className="w-4 h-4 text-blue-700 dark:text-blue-300" />
-                      </div>
-                      <h4 className="text-gray-800 dark:text-gray-200 font-semibold text-xs mb-1">
-                        Google My Maps
-                      </h4>
-                      <a
-                        href="https://www.google.com/maps/d/u/0/edit?mid=1vYr6qmcH_pIK4e3gMH8rAZ4vLMR9tP1o&usp=sharing"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded transition-colors duration-200 shadow-sm hover:shadow-md"
-                        onClick={(e) => e.stopPropagation()}
+                      <div
+                        className="h-24 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
+                          backgroundColor: "#0EA5E9", // ocean blue fallback
+                        }}
                       >
-                        View Map
-                      </a>
+                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                            🏝️ Honolulu
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Chicago */}
+                    <div 
+                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      onClick={() => openModal(travelData.chicago.memories, 0, travelData.chicago.title)}
+                    >
+                      <div
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${travelData.chicago.memories[0]?.src})`,
+                          backgroundColor: "#1E40AF", // city blue fallback
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                            🏙️ Chicago
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
+                  <div className="grid gap-2">
+                    {/* Israel */}
+                    <div 
+                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      onClick={() => openModal(travelData.israel.memories, 0, travelData.israel.title)}
+                    >
+                      <div
+                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${travelData.israel.memories[0]?.src})`,
+                          backgroundColor: "#D97706", // desert orange fallback
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                            🕊️ Israel
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Mexico */}
+                    <div 
+                      className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      onClick={() => openModal(travelData.mexico.memories, 0, travelData.mexico.title)}
+                    >
+                      <div
+                        className="h-24 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
+                          backgroundColor: "#DC2626", // vibrant red fallback
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                        <div className="absolute bottom-2 left-2">
+                          <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-2 py-1 rounded">
+                            🌮 Mexico
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Row 2 - Horizontal layout */}
+                <div className="grid grid-cols-3 gap-2 mb-4">
+                  {/* Atlanta */}
+                  <div 
+                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onClick={() => openModal(travelData.atlanta.memories, 0, travelData.atlanta.title)}
+                  >
+                    <div
+                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url(${travelData.atlanta.memories[0]?.src})`,
+                        backgroundColor: "#059669", // green fallback
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute bottom-1 left-1">
+                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                          🍑 Atlanta
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Oregon */}
+                  <div 
+                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onClick={() => openModal(travelData.oregon.memories, 0, travelData.oregon.title)}
+                  >
+                    <div
+                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url(${travelData.oregon.memories[0]?.src})`,
+                        backgroundColor: "#16A34A", // forest green fallback
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute bottom-1 left-1">
+                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                          🌲 Oregon
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* New York */}
+                  <div 
+                    className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
+                    onClick={() => openModal(travelData.nyc.memories, 0, travelData.nyc.title)}
+                  >
+                    <div
+                      className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url(${travelData.nyc.memories[0]?.src})`,
+                        backgroundColor: "#374151", // urban gray fallback
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-all duration-300"></div>
+                      <div className="absolute bottom-1 left-1">
+                        <span className="text-white text-xs font-semibold bg-black bg-opacity-50 px-1.5 py-0.5 rounded">
+                          🗽 NYC
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* View All Button */}
+                <div className="flex justify-center">
+                  <button className="inline-flex items-center gap-2 px-4 py-2 bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-lg hover:bg-sky-200 dark:hover:bg-sky-800/40 transition-colors duration-200 text-sm font-medium">
+                    <Image className="w-4 h-4" />
+                    View All Photos
+                  </button>
                 </div>
               </div>
 
@@ -1609,7 +1891,22 @@ const TabContent = ({ activeTab }) => {
     }
   };
 
-  return <div className="space-y-6">{renderContent()}</div>;
+  return (
+    <div className="space-y-6">
+      {renderContent()}
+      
+      {/* Photo Modal */}
+      <PhotoModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        photos={currentPhotos}
+        currentIndex={currentPhotoIndex}
+        onNext={nextPhoto}
+        onPrev={prevPhoto}
+        destinationTitle={currentDestination}
+      />
+    </div>
+  );
 };
 
 export default TabContent;
