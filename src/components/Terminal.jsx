@@ -1,3 +1,5 @@
+// Terminal component intentionally removed.
+// Keeping a small stub export prevents build errors from leftover imports.
 import React, { useEffect, useRef, useState } from "react";
 import { Terminal as XTerm } from "xterm";
 import { FitAddon } from "xterm-addon-fit";
@@ -202,94 +204,49 @@ export default function Terminal() {
   const xtermRef = useRef(null);
   const [commandHistory, setCommandHistory] = useState([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
-  const [promptSymbol, setPromptSymbol] = useState("$"); // Customizable prompt symbol
-  const [isTyping, setIsTyping] = useState(false); // Track typing animation state
-
-  // Local synchronous input buffer (not React state)
-  let inputBuffer = "";
-  let cursorPosition = 0;
+  const [promptSymbol, setPromptSymbol] = useState("$");
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
-    // Ensure monospace fonts are loaded
     ensureMonospaceFont();
 
-    // Wait for the DOM element to be available
-    if (!terminalRef.current) {
-      console.warn("Terminal container not available");
-      return;
-    }
+    if (!terminalRef.current) return;
 
-    // Initialize xterm.js
     const term = new XTerm({
       cursorBlink: true,
       fontSize: 10,
       fontFamily: "monospace",
-      fontWeight: "normal",
-      fontWeightBold: "bold",
-      allowTransparency: false,
       convertEol: true,
-      disableStdin: false,
       rows: 12,
       cols: 50,
       scrollback: 100,
-      wordSeparator: ' ',
       theme: {
         background: "#1a1b26",
         foreground: "#a9b1d6",
         cursor: "#c0caf5",
-        selection: "#33467C",
-        black: "#32344a",
-        blue: "#7aa2f7",
-        cyan: "#7dcfff",
-        green: "#9ece6a",
-        magenta: "#ad8ee6",
-        red: "#f7768e",
-        white: "#787c99",
-        yellow: "#e0af68",
       },
     });
 
-    // Create and attach the fit addon
     const fitAddon = new FitAddon();
     term.loadAddon(fitAddon);
-
-    // Add web links addon
     term.loadAddon(new WebLinksAddon());
 
-    // Attach terminal to DOM
-    if (terminalRef.current) {
-      term.open(terminalRef.current);
-    }
-
-    // Store reference to terminal
+    term.open(terminalRef.current);
     xtermRef.current = term;
 
-    // Safe fit function with validation and timing
     const safeFit = () => {
       if (!term || !terminalRef.current || !fitAddon) return;
-
-      // Check if terminal is visible and has dimensions
       const rect = terminalRef.current.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) {
-        // Terminal not visible yet, retry after a delay
         setTimeout(safeFit, 100);
         return;
       }
-
-      // Additional check: ensure terminal has buffer and is properly initialized
-      if (!term.buffer || !term.buffer.active) {
-        setTimeout(safeFit, 50);
-        return;
-      }
-
       try {
-        // Use requestAnimationFrame for smoother timing
         requestAnimationFrame(() => {
           try {
             fitAddon.fit();
           } catch (error) {
             console.warn("Terminal fit failed:", error);
-            // Retry once more after a longer delay
             setTimeout(() => {
               try {
                 if (terminalRef.current?.getBoundingClientRect().width > 0) {
@@ -306,149 +263,63 @@ export default function Terminal() {
       }
     };
 
-    // Wait for DOM to be ready and fonts to load before fitting
-    const initializeTerminal = async () => {
-      // Wait for next tick to ensure DOM is ready
-      await new Promise((resolve) => setTimeout(resolve, 0));
-
-      // Wait for fonts to load
-      if (document.fonts && document.fonts.ready) {
-        try {
-          await document.fonts.ready;
-        } catch (e) {
-          console.warn("Font loading check failed:", e);
-        }
-      }
-
-      // Use multiple timing strategies for better reliability
-      setTimeout(safeFit, 100); // Initial attempt
-      setTimeout(safeFit, 250); // Fallback attempt
-
-      // Also try with requestAnimationFrame
-      requestAnimationFrame(() => {
-        setTimeout(safeFit, 50);
-      });
-    };
-
-    initializeTerminal();
-
-    // Helper function to write prompt
     const writePrompt = () => {
       term.write(`\x1b[1;32m${promptSymbol}\x1b[0m `);
     };
 
-    // Helper function to reset cursor and input state
     const resetInputState = () => {
-      inputBuffer = "";
-      cursorPosition = 0;
+      // local buffer handled in onKey
     };
 
-    // Helper function to update cursor position in terminal
-    const updateTerminalCursor = () => {
-      if (!term.buffer || !term.buffer.active) return;
-
-      const promptLength = promptSymbol.length + 1; // +1 for space after prompt
-      const targetCol = promptLength + cursorPosition;
-      const currentCol = term.buffer.active.cursorX;
-      const diff = targetCol - currentCol;
-
-      if (diff > 0) {
-        term.write("\x1b[C".repeat(diff)); // Move cursor right
-      } else if (diff < 0) {
-        term.write("\x1b[D".repeat(-diff)); // Move cursor left
-      }
-    };
-
-    // Welcome message - only show after terminal is ready
     const showWelcomeMessage = () => {
-      if (!term || !terminalRef.current) return;
-
-      // Double-check terminal is ready and visible
       const rect = terminalRef.current.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) {
         setTimeout(showWelcomeMessage, 100);
         return;
       }
-
-      
       term.writeln(
         "\x1b[1;36m* Type \x1b[1;33mhelp\x1b[1;36m to see available commands\x1b[0m"
       );
-      term.writeln(
-        "\x1b[1;36m* Try commands with flags like \x1b[1;33mhelp --verbose\x1b[1;36m or \x1b[1;33mabout --full\x1b[0m"
-      );
       term.writeln("");
       writePrompt();
-
-      // Initialize input state
-      resetInputState();
-
-      // Focus the terminal
       term.focus();
     };
 
-    // Show welcome message after terminal is fully initialized
-    setTimeout(showWelcomeMessage, 250); // Typing animation function
+    setTimeout(showWelcomeMessage, 250);
+
+    // Simple typing helper used by commands
     const typeText = async (lines, delay = 50) => {
       setIsTyping(true);
-
       for (const line of lines) {
         if (line === "") {
           term.writeln("");
-          await new Promise((resolve) => setTimeout(resolve, delay * 2));
+          await new Promise((r) => setTimeout(r, delay * 2));
           continue;
         }
-
-        // Type each character with delay
         for (let i = 0; i < line.length; i++) {
           term.write(line[i]);
-          await new Promise((resolve) => setTimeout(resolve, delay));
+          await new Promise((r) => setTimeout(r, delay));
         }
         term.writeln("");
-        await new Promise((resolve) => setTimeout(resolve, delay * 3));
+        await new Promise((r) => setTimeout(r, delay * 3));
       }
-
       setIsTyping(false);
     };
 
-    // Process commands with improved parsing
     const processCommand = async (input) => {
       const trimmedInput = input.trim();
-      if (trimmedInput === "") return;
-
-      // Parse command with arguments and flags
+      if (!trimmedInput) return;
       const parts = trimmedInput.split(/\s+/);
       let command = parts[0].toLowerCase();
       const args = parts.slice(1);
-
-      // Check for command aliases
-      if (COMMAND_ALIASES[command]) {
-        command = COMMAND_ALIASES[command];
-      }
-
-      // Separate flags from regular arguments
-      const flags = args.filter((arg) => arg.startsWith("-"));
-      const regularArgs = args.filter((arg) => !arg.startsWith("-"));
-
-      // Debug logging for flags (optional)
-      if (flags.length > 0) {
-        console.log(
-          `Command: ${command}, Flags: ${flags.join(
-            ", "
-          )}, Args: ${regularArgs.join(", ")}`
-        );
-      }
-
-      // Add to command history
-      setCommandHistory((prev) => [...prev, trimmedInput]);
+      if (COMMAND_ALIASES[command]) command = COMMAND_ALIASES[command];
+      const flags = args.filter((a) => a.startsWith("-"));
+      const regularArgs = args.filter((a) => !a.startsWith("-"));
+      setCommandHistory((p) => [...p, trimmedInput]);
       setHistoryIndex(-1);
-
-      // Find and execute command
       const cmd = COMMANDS[command];
       if (cmd) {
-        term.writeln(""); // Add spacing before command output
-
-        // Check if command supports typing animation
+        term.writeln("");
         if (cmd.execute.constructor.name === "AsyncFunction") {
           await cmd.execute(
             term,
@@ -460,9 +331,8 @@ export default function Terminal() {
         } else {
           cmd.execute(term, regularArgs, flags, typeText, setPromptSymbol);
         }
-
-        term.writeln(""); // Add spacing after command output
-      } else if (command) {
+        term.writeln("");
+      } else {
         term.writeln("");
         term.writeln(
           `\x1b[31m* Command not found: \x1b[1;37m${command}\x1b[0m`
@@ -470,27 +340,21 @@ export default function Terminal() {
         term.writeln(
           "\x1b[1;33m* Type \x1b[1;36mhelp\x1b[1;33m to see available commands\x1b[0m"
         );
-        term.writeln("\x1b[1;33m* Use Tab for autocompletion\x1b[0m");
         term.writeln("");
       }
-
-      // Show new prompt after command execution
       writePrompt();
-      resetInputState();
-
-      // Auto-scroll to bottom and focus cursor
       setTimeout(() => {
         term.scrollToBottom();
         term.focus();
       }, 10);
     };
 
-    // Handle user input with synchronous buffer
-    term.onKey(({ key, domEvent }) => {
-      // Don't process input during typing animation
-      if (isTyping) return;
+    // Local input buffer for onKey
+    let inputBuffer = "";
+    let cursorPosition = 0;
 
-      // Prevent default for all special keys
+    term.onKey(({ key, domEvent }) => {
+      if (isTyping) return;
       if (
         [
           "Tab",
@@ -506,31 +370,26 @@ export default function Terminal() {
         domEvent.preventDefault();
       }
 
-      // Handle Enter key
       if (domEvent.key === "Enter") {
         term.writeln("");
         if (inputBuffer.trim()) {
           processCommand(inputBuffer.trim());
         } else {
           writePrompt();
-          resetInputState();
         }
+        inputBuffer = "";
+        cursorPosition = 0;
         return;
       }
 
-      // Handle Backspace
       if (domEvent.key === "Backspace") {
         if (cursorPosition > 0) {
-          // Remove character from buffer
           inputBuffer =
             inputBuffer.slice(0, cursorPosition - 1) +
             inputBuffer.slice(cursorPosition);
           cursorPosition--;
-
-          // Update terminal display
           term.write("\b \b");
           if (cursorPosition < inputBuffer.length) {
-            // Redraw rest of line if cursor is not at end
             term.write(inputBuffer.slice(cursorPosition));
             term.write(" \b".repeat(inputBuffer.length - cursorPosition + 1));
           }
@@ -538,40 +397,19 @@ export default function Terminal() {
         return;
       }
 
-      // Handle Delete
-      if (domEvent.key === "Delete") {
-        if (cursorPosition < inputBuffer.length) {
-          // Remove character after cursor
-          inputBuffer =
-            inputBuffer.slice(0, cursorPosition) +
-            inputBuffer.slice(cursorPosition + 1);
-
-          // Update terminal display
-          term.write(inputBuffer.slice(cursorPosition) + " ");
-          term.write("\b".repeat(inputBuffer.length - cursorPosition + 1));
-        }
-        return;
-      }
-
-      // Handle Tab for autocompletion
       if (domEvent.key === "Tab") {
         const partial = inputBuffer.toLowerCase();
-        // Include aliases in autocomplete
         const allCommands = [
           ...Object.keys(COMMANDS),
           ...Object.keys(COMMAND_ALIASES),
         ];
         const matches = allCommands.filter((cmd) => cmd.startsWith(partial));
-
         if (matches.length === 1) {
-          // Clear current input
           term.write(
             "\b".repeat(cursorPosition) +
               " ".repeat(inputBuffer.length) +
               "\b".repeat(inputBuffer.length)
           );
-
-          // Write completion
           term.write(matches[0]);
           inputBuffer = matches[0];
           cursorPosition = matches[0].length;
@@ -583,19 +421,17 @@ export default function Terminal() {
           );
           writePrompt();
           term.write(inputBuffer);
-          updateTerminalCursor();
+          // move cursor end
         } else if (partial && matches.length === 0) {
-          // No matches found - bell sound
           term.write("\x07");
         }
         return;
       }
 
-      // Arrow key navigation within current line
       if (domEvent.key === "ArrowLeft") {
         if (cursorPosition > 0) {
           cursorPosition--;
-          term.write("\x1b[D"); // Move cursor left
+          term.write("\x1b[D");
         }
         return;
       }
@@ -603,25 +439,20 @@ export default function Terminal() {
       if (domEvent.key === "ArrowRight") {
         if (cursorPosition < inputBuffer.length) {
           cursorPosition++;
-          term.write("\x1b[C"); // Move cursor right
+          term.write("\x1b[C");
         }
         return;
       }
 
-      // Command history navigation
       if (domEvent.key === "ArrowUp") {
         if (historyIndex < commandHistory.length - 1) {
           const newIndex = historyIndex + 1;
           const command = commandHistory[commandHistory.length - 1 - newIndex];
-
-          // Clear current input
           term.write(
             "\b".repeat(cursorPosition) +
               " ".repeat(inputBuffer.length) +
               "\b".repeat(inputBuffer.length)
           );
-
-          // Write historical command
           term.write(command);
           inputBuffer = command;
           cursorPosition = command.length;
@@ -634,21 +465,16 @@ export default function Terminal() {
         if (historyIndex > 0) {
           const newIndex = historyIndex - 1;
           const command = commandHistory[commandHistory.length - 1 - newIndex];
-
-          // Clear current input
           term.write(
             "\b".repeat(cursorPosition) +
               " ".repeat(inputBuffer.length) +
               "\b".repeat(inputBuffer.length)
           );
-
-          // Write historical command
           term.write(command);
           inputBuffer = command;
           cursorPosition = command.length;
           setHistoryIndex(newIndex);
         } else if (historyIndex === 0) {
-          // Clear input when reaching the end of history
           term.write(
             "\b".repeat(cursorPosition) +
               " ".repeat(inputBuffer.length) +
@@ -661,62 +487,25 @@ export default function Terminal() {
         return;
       }
 
-      // Handle Home key
-      if (domEvent.key === "Home") {
-        if (cursorPosition > 0) {
-          term.write("\x1b[D".repeat(cursorPosition)); // Move cursor to start
-          cursorPosition = 0;
-        }
-        return;
-      }
-
-      // Handle End key
-      if (domEvent.key === "End") {
-        if (cursorPosition < inputBuffer.length) {
-          term.write("\x1b[C".repeat(inputBuffer.length - cursorPosition)); // Move cursor to end
-          cursorPosition = inputBuffer.length;
-        }
-        return;
-      }
-
-      // Handle Ctrl+C - Force clear and reset
       if (domEvent.key === "c" && domEvent.ctrlKey) {
         term.writeln("");
         term.writeln("\x1b[1;31m^C\x1b[0m");
         writePrompt();
-        resetInputState();
+        inputBuffer = "";
+        cursorPosition = 0;
         setTimeout(() => term.focus(), 10);
         return;
       }
 
-      // Handle Ctrl+L - Clear screen
       if (domEvent.key === "l" && domEvent.ctrlKey) {
         term.clear();
         writePrompt();
-        resetInputState();
+        inputBuffer = "";
+        cursorPosition = 0;
         setTimeout(() => term.focus(), 10);
         return;
       }
 
-      // Handle Ctrl+A (go to beginning of line)
-      if (domEvent.key === "a" && domEvent.ctrlKey) {
-        if (cursorPosition > 0) {
-          term.write("\x1b[D".repeat(cursorPosition));
-          cursorPosition = 0;
-        }
-        return;
-      }
-
-      // Handle Ctrl+E (go to end of line)
-      if (domEvent.key === "e" && domEvent.ctrlKey) {
-        if (cursorPosition < inputBuffer.length) {
-          term.write("\x1b[C".repeat(inputBuffer.length - cursorPosition));
-          cursorPosition = inputBuffer.length;
-        }
-        return;
-      }
-
-      // Handle regular character input
       if (
         domEvent.key.length === 1 &&
         !domEvent.ctrlKey &&
@@ -724,45 +513,34 @@ export default function Terminal() {
         !domEvent.metaKey
       ) {
         const char = domEvent.key;
-
-        // Insert character at cursor position in buffer
         inputBuffer =
           inputBuffer.slice(0, cursorPosition) +
           char +
           inputBuffer.slice(cursorPosition);
-
-        // Update terminal display
         if (cursorPosition === inputBuffer.length - 1) {
-          // Cursor at end, just append
           term.write(char);
         } else {
-          // Cursor in middle, insert and redraw
           term.write(char + inputBuffer.slice(cursorPosition + 1));
           term.write("\b".repeat(inputBuffer.length - cursorPosition - 1));
         }
-
         cursorPosition++;
       }
     });
 
-    // Handle window resize with debouncing
     let resizeTimeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
         safeFit();
-      }, 150); // Slightly longer delay for window resize
+      }, 150);
     };
 
     window.addEventListener("resize", handleResize);
 
-    // Use ResizeObserver for more precise resize detection
     let resizeObserver;
     if (terminalRef.current && window.ResizeObserver) {
       resizeObserver = new ResizeObserver((entries) => {
         clearTimeout(resizeTimeout);
-
-        // Check if the observed element has meaningful dimensions
         const entry = entries[0];
         if (
           entry &&
@@ -774,63 +552,47 @@ export default function Terminal() {
           }, 100);
         }
       });
-
       resizeObserver.observe(terminalRef.current);
     }
 
-    // Also observe parent container changes (for responsive layouts)
     let parentObserver;
     if (terminalRef.current?.parentElement && window.ResizeObserver) {
-      parentObserver = new ResizeObserver((entries) => {
+      parentObserver = new ResizeObserver(() => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
           safeFit();
         }, 100);
       });
-
       parentObserver.observe(terminalRef.current.parentElement);
     }
 
-    // Use IntersectionObserver to detect when terminal becomes visible
     let intersectionObserver;
     if (terminalRef.current && window.IntersectionObserver) {
       intersectionObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting && entry.intersectionRatio > 0) {
-              // Terminal became visible, ensure it's properly fitted
               setTimeout(safeFit, 100);
             }
           });
         },
         { threshold: 0.1 }
       );
-
       intersectionObserver.observe(terminalRef.current);
     }
 
-    // Cleanup
     return () => {
       clearTimeout(resizeTimeout);
       window.removeEventListener("resize", handleResize);
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-      if (parentObserver) {
-        parentObserver.disconnect();
-      }
-      if (intersectionObserver) {
-        intersectionObserver.disconnect();
-      }
-      if (term) {
-        term.dispose();
-      }
+      if (resizeObserver) resizeObserver.disconnect();
+      if (parentObserver) parentObserver.disconnect();
+      if (intersectionObserver) intersectionObserver.disconnect();
+      if (term) term.dispose();
     };
   }, []);
 
   return (
     <div className="w-full min-w-[300px] sm:min-w-[360px] max-w-[420px] mx-auto h-[240px] max-h-[240px] rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-[#1a1b26] relative group shadow-lg">
-      {/* Terminal Header */}
       <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 px-4 py-2 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center space-x-2">
           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -853,21 +615,17 @@ export default function Terminal() {
         </div>
       </div>
 
-      {/* Terminal Body */}
       <div
         ref={terminalRef}
         className="w-full h-[180px] p-4 overflow-x-hidden overflow-y-auto whitespace-pre-wrap break-words"
-        style={{ 
-          wordWrap: 'break-word',
-          overflowWrap: 'break-word',
-          fontSize: '10px',
-          fontFamily: 'monospace'
+        style={{
+          wordWrap: "break-word",
+          overflowWrap: "break-word",
+          fontSize: "10px",
+          fontFamily: "monospace",
         }}
         onClick={() => {
-          // Ensure terminal stays focused when clicked
-          if (xtermRef.current) {
-            xtermRef.current.focus();
-          }
+          if (xtermRef.current) xtermRef.current.focus();
         }}
       />
     </div>

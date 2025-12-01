@@ -31,8 +31,9 @@ function App() {
       setActiveTab(event.detail);
     };
 
-    window.addEventListener('navigateToTab', handleNavigateToTab);
-    return () => window.removeEventListener('navigateToTab', handleNavigateToTab);
+    window.addEventListener("navigateToTab", handleNavigateToTab);
+    return () =>
+      window.removeEventListener("navigateToTab", handleNavigateToTab);
   }, []);
 
   return (
@@ -77,7 +78,7 @@ function App() {
                     </svg>
                   </a>
                   <a
-                    href="https://linkedin.com/in/aliciaesquivel"
+                    href="https://linkedin.com/in/alicesquivel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
