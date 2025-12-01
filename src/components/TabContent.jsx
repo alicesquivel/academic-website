@@ -682,6 +682,10 @@ const TabContent = ({ activeTab }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentDestination, setCurrentDestination] = useState("");
 
+  // UI toggles for Fun tab sections (controlled in-UI)
+  const [showTravel, setShowTravel] = useState(false);
+  const [showArt, setShowArt] = useState(false);
+
   // Modal handlers
   const openModal = (photos, index = 0, destination = "") => {
     setCurrentPhotos(photos);
@@ -1528,13 +1532,10 @@ const TabContent = ({ activeTab }) => {
         );
 
       case "fun": {
-        // Toggle these flags to show/hide sections. When both false,
-        // the grid will collapse to a single centered column.
-        const showTravel = false;
-        const showArt = false;
+        // Compute grid class based on UI toggles (state declared above)
         const gridClass = (showTravel || showArt)
           ? "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
-          : "grid grid-cols-1 gap-6 font-sans max-w-3xl mx-auto";
+          : "grid grid-cols-1 gap-6 font-sans max-w-4xl mx-auto";
 
         return (
           <div className="space-y-8">
@@ -1549,13 +1550,41 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
+            <div className="flex items-center justify-end gap-2">
+              <div className="text-sm text-gray-500 dark:text-gray-400 mr-auto">
+                Layout controls
+              </div>
+              <button
+                onClick={() => setShowTravel((s) => !s)}
+                aria-pressed={showTravel}
+                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  showTravel
+                    ? "bg-sky-600 text-white"
+                    : "bg-gray-100 text-gray-700 dark:bg-gray-700/40 dark:text-gray-200"
+                }`}
+              >
+                Travel
+              </button>
+              <button
+                onClick={() => setShowArt((s) => !s)}
+                aria-pressed={showArt}
+                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  showArt
+                    ? "bg-pink-600 text-white"
+                    : "bg-gray-100 text-gray-700 dark:bg-gray-700/40 dark:text-gray-200"
+                }`}
+              >
+                Art
+              </button>
+            </div>
+
             {/* Travel Adventures & Language Culture - Side by Side (collapsed to single column when other sections hidden) */}
             <div
               className={gridClass}
               style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
             >
-              {/* Travel Memories Card (commented out) */}
-              {false && (
+              {/* Travel Memories Card (visible when Travel toggle is ON) */}
+              {showTravel && (
                 <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
                   <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
                     <span className="text-lg">🌎</span>
@@ -1850,7 +1879,7 @@ const TabContent = ({ activeTab }) => {
                     </div>
                     {/* Duolingo Learning Tool */}
                     <a
-                      href="https://www.duolingo.com"
+                      href="https://www.duolingo.com/profile/alicesquivel"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="tag-pill bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800 hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer inline-flex items-center gap-2 mt-1"
@@ -1888,8 +1917,8 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            {/* Art & Design Portfolio - Full Width (commented out) */}
-            {false && (
+            {/* Art & Design Portfolio - Full Width (visible when Art toggle is ON) */}
+            {showArt && (
               <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-md">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-x-2">
                   <PencilLine className="w-5 h-5 text-pink-600 dark:text-pink-400" />
