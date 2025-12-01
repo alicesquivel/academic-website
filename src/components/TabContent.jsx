@@ -1527,7 +1527,15 @@ const TabContent = ({ activeTab }) => {
           </div>
         );
 
-      case "fun":
+      case "fun": {
+        // Toggle these flags to show/hide sections. When both false,
+        // the grid will collapse to a single centered column.
+        const showTravel = false;
+        const showArt = false;
+        const gridClass = (showTravel || showArt)
+          ? "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
+          : "grid grid-cols-1 gap-6 font-sans max-w-3xl mx-auto";
+
         return (
           <div className="space-y-8">
             <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 border border-gray-200/50 dark:border-gray-700/50">
@@ -1543,7 +1551,7 @@ const TabContent = ({ activeTab }) => {
 
             {/* Travel Adventures & Language Culture - Side by Side (collapsed to single column when other sections hidden) */}
             <div
-              className="grid grid-cols-1 gap-6 font-sans max-w-3xl mx-auto"
+              className={gridClass}
               style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
             >
               {/* Travel Memories Card (commented out) */}
@@ -1995,6 +2003,7 @@ const TabContent = ({ activeTab }) => {
             </div> */}
           </div>
         );
+      }
 
       default:
         return null;
