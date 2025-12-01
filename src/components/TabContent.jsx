@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import ResearchGrid from "./ResearchGrid";
-import Terminal from "./Terminal";
 import {
   Book,
   FileText,
@@ -864,10 +863,7 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            {/* Right Column - Terminal */}
-            <div className="w-full sm:max-w-[420px] lg:w-[420px] flex-shrink-0 mt-8 lg:mt-0 mx-auto lg:mx-0">
-              <Terminal />
-            </div>
+            {/* Right Column intentionally removed to keep About text only */}
           </div>
         );
 
