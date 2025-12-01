@@ -682,9 +682,9 @@ const TabContent = ({ activeTab }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [currentDestination, setCurrentDestination] = useState("");
 
-  // UI toggles for Fun tab sections (controlled in-UI)
-  const [showTravel, setShowTravel] = useState(false);
-  const [showArt, setShowArt] = useState(false);
+  // Visibility flags for Fun tab sections (fixed - only Language card shown)
+  const showTravel = false;
+  const showArt = false;
 
   // Modal handlers
   const openModal = (photos, index = 0, destination = "") => {
@@ -1533,9 +1533,10 @@ const TabContent = ({ activeTab }) => {
 
       case "fun": {
         // Compute grid class based on UI toggles (state declared above)
-        const gridClass = (showTravel || showArt)
-          ? "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
-          : "grid grid-cols-1 gap-6 font-sans max-w-4xl mx-auto";
+        const gridClass =
+          showTravel || showArt
+            ? "grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
+            : "grid grid-cols-1 gap-6 font-sans max-w-4xl mx-auto";
 
         return (
           <div className="space-y-8">
@@ -1550,35 +1551,7 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-2">
-              <div className="text-sm text-gray-500 dark:text-gray-400 mr-auto">
-                Layout controls
-              </div>
-              <button
-                onClick={() => setShowTravel((s) => !s)}
-                aria-pressed={showTravel}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  showTravel
-                    ? "bg-sky-600 text-white"
-                    : "bg-gray-100 text-gray-700 dark:bg-gray-700/40 dark:text-gray-200"
-                }`}
-              >
-                Travel
-              </button>
-              <button
-                onClick={() => setShowArt((s) => !s)}
-                aria-pressed={showArt}
-                className={`px-3 py-1 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  showArt
-                    ? "bg-pink-600 text-white"
-                    : "bg-gray-100 text-gray-700 dark:bg-gray-700/40 dark:text-gray-200"
-                }`}
-              >
-                Art
-              </button>
-            </div>
-
-            {/* Travel Adventures & Language Culture - Side by Side (collapsed to single column when other sections hidden) */}
+            {/* Travel Adventures & Language Culture */}
             <div
               className={gridClass}
               style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
@@ -1837,11 +1810,10 @@ const TabContent = ({ activeTab }) => {
                   {/* Languages I Speak */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-base">🌐</span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
-                        Languages I Speak
-                      </h4>
-                    </div>
+                        <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+                          Languages I Speak
+                        </h4>
+                      </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="tag-pill bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇵🇾 Spanish
@@ -1861,7 +1833,6 @@ const TabContent = ({ activeTab }) => {
                   {/* Languages I'm Learning */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-base">📚</span>
                       <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
                         Languages I'm Learning
                       </h4>
@@ -1899,7 +1870,6 @@ const TabContent = ({ activeTab }) => {
                   {/* Hobbies & Activities */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-base">🎨</span>
                       <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
                         Hobbies & Activities
                       </h4>
