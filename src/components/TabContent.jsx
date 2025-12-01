@@ -845,41 +845,15 @@ const TabContent = ({ activeTab }) => {
         return (
           <div className="flex justify-center">
             <div className="w-full max-w-3xl">
-              <div className="prose dark:prose-invert mx-auto text-center">
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body">
-                  I'm a{" "}
-                  <span className="font-semibold text-gray-900 dark:text-gray-100">
-                    PhD candidate in Computer Science
-                  </span>{" "}
-                  focused on{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    cloud/edge computing
-                  </span>{" "}
-                  and{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    cybersecurity
-                  </span>
-                  . My research interests include{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    federated learning
-                  </span>
-                  ,{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    Zero Trust Architecture
-                  </span>
-                  ,{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    intrusion detection
-                  </span>
-                  , and{" "}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">
-                    AI-driven security for IoT and mobile networks
-                  </span>
-                  . I work with real-world testbeds including GENI, POWDER, and
-                  AERPAW to develop practical security solutions for distributed
-                  systems.
-                </p>
-              </div>
+                  <div className="prose dark:prose-invert mx-auto text-center px-4">
+                    <p className="text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed md:leading-7 lg:leading-8 font-body max-w-prose mx-auto">
+                      I'm a <span className="font-semibold text-gray-900 dark:text-gray-100">PhD candidate in Computer Science</span> focused on <span className="text-blue-600 dark:text-blue-400 font-medium">cloud/edge computing</span> and <span className="text-blue-600 dark:text-blue-400 font-medium">cybersecurity</span>. My research interests include <span className="text-blue-600 dark:text-blue-400 font-medium">federated learning</span>, <span className="text-blue-600 dark:text-blue-400 font-medium">Zero Trust Architecture</span>, and <span className="text-blue-600 dark:text-blue-400 font-medium">intrusion detection</span>.
+                    </p>
+
+                    <p className="mt-4 text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-prose mx-auto">
+                      I work with real-world testbeds including <span className="font-medium text-gray-800 dark:text-gray-200">GENI</span>, <span className="font-medium text-gray-800 dark:text-gray-200">POWDER</span>, and <span className="font-medium text-gray-800 dark:text-gray-200">AERPAW</span> to develop practical security solutions for distributed systems and AI-driven security for IoT and mobile networks.
+                    </p>
+                  </div>
             </div>
           </div>
         );
