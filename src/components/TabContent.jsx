@@ -1541,246 +1541,246 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            {/* Travel Adventures & Language Culture - Side by Side */}
+            {/* Travel Adventures & Language Culture - Side by Side (collapsed to single column when other sections hidden) */}
             <div
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
+              className="grid grid-cols-1 gap-6 font-sans max-w-3xl mx-auto"
               style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
             >
               {/* Travel Memories Card (commented out) */}
               {false && (
                 <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
-                <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
-                  <span className="text-lg">🌎</span>
-                  Travel Memories
-                </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
-                  These are places I’ve visited
-                </p>
-                {/* Decorative gradient blob */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-sky-200/40 to-blue-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
+                  <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
+                    <span className="text-lg">🌎</span>
+                    Travel Memories
+                  </h3>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                    These are places I’ve visited
+                  </p>
+                  {/* Decorative gradient blob */}
+                  <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-sky-200/40 to-blue-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
 
-                {/* Memories Grid - Modern Style */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  {/* Row 1 */}
-                  <div className="grid gap-2">
-                    {/* Honolulu, Hawaii */}
+                  {/* Memories Grid - Modern Style */}
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {/* Row 1 */}
+                    <div className="grid gap-2">
+                      {/* Honolulu, Hawaii */}
+                      <div
+                        className="group relative overflow-hidden rounded-xl border border-sky-100 dark:border-sky-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-sky-900/10"
+                        onClick={() =>
+                          openModal(
+                            travelData.honolulu.memories,
+                            0,
+                            travelData.honolulu.title
+                          )
+                        }
+                      >
+                        <div
+                          className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                          style={{
+                            backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
+                            backgroundColor: "#0EA5E9",
+                          }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
+                          <div className="absolute bottom-2 left-2">
+                            <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-sky-600/80 dark:bg-sky-700/80 shadow">
+                              Honolulu
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Chicago */}
+                      <div
+                        className="group relative overflow-hidden rounded-xl border border-blue-100 dark:border-blue-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-blue-900/10"
+                        onClick={() =>
+                          openModal(
+                            travelData.chicago.memories,
+                            0,
+                            travelData.chicago.title
+                          )
+                        }
+                      >
+                        <div
+                          className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                          style={{
+                            backgroundImage: `url(${travelData.chicago.memories[0]?.src})`,
+                            backgroundColor: "#1E40AF",
+                          }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
+                          <div className="absolute bottom-2 left-2">
+                            <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-blue-700/80 dark:bg-blue-800/80 shadow">
+                              Chicago
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-2">
+                      {/* Israel */}
+                      <div
+                        className="group relative overflow-hidden rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-amber-900/10"
+                        onClick={() =>
+                          openModal(
+                            travelData.israel.memories,
+                            0,
+                            travelData.israel.title
+                          )
+                        }
+                      >
+                        <div
+                          className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                          style={{
+                            backgroundImage: `url(${travelData.israel.memories[0]?.src})`,
+                            backgroundColor: "#D97706",
+                          }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
+                          <div className="absolute bottom-2 left-2">
+                            <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-amber-700/80 dark:bg-amber-800/80 shadow">
+                              Israel
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Mexico */}
+                      <div
+                        className="group relative overflow-hidden rounded-xl border border-red-100 dark:border-red-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-red-900/10"
+                        onClick={() =>
+                          openModal(
+                            travelData.mexico.memories,
+                            0,
+                            travelData.mexico.title
+                          )
+                        }
+                      >
+                        <div
+                          className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                          style={{
+                            backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
+                            backgroundColor: "#DC2626",
+                          }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
+                          <div className="absolute bottom-2 left-2">
+                            <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-red-700/80 dark:bg-red-800/80 shadow">
+                              Mexico
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Row 2 - Horizontal layout */}
+                  <div className="grid grid-cols-3 gap-3 mb-4">
+                    {/* Atlanta */}
                     <div
-                      className="group relative overflow-hidden rounded-xl border border-sky-100 dark:border-sky-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-sky-900/10"
+                      className="group relative overflow-hidden rounded-xl border border-emerald-100 dark:border-emerald-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-emerald-900/10"
                       onClick={() =>
                         openModal(
-                          travelData.honolulu.memories,
+                          travelData.atlanta.memories,
                           0,
-                          travelData.honolulu.title
+                          travelData.atlanta.title
                         )
                       }
                     >
                       <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                        className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
-                          backgroundImage: `url(${travelData.honolulu.memories[0]?.src})`,
-                          backgroundColor: "#0EA5E9",
+                          backgroundImage: `url(${travelData.atlanta.memories[0]?.src})`,
+                          backgroundColor: "#059669",
                         }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                        <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-sky-600/80 dark:bg-sky-700/80 shadow">
-                            Honolulu
+                        <div className="absolute bottom-1 left-1">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-700/80 dark:bg-emerald-800/80 shadow">
+                            Atlanta
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Chicago */}
+                    {/* Oregon */}
                     <div
-                      className="group relative overflow-hidden rounded-xl border border-blue-100 dark:border-blue-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-blue-900/10"
+                      className="group relative overflow-hidden rounded-xl border border-green-100 dark:border-green-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-green-900/10"
                       onClick={() =>
                         openModal(
-                          travelData.chicago.memories,
+                          travelData.oregon.memories,
                           0,
-                          travelData.chicago.title
+                          travelData.oregon.title
                         )
                       }
                     >
                       <div
-                        className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                        className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
                         style={{
-                          backgroundImage: `url(${travelData.chicago.memories[0]?.src})`,
-                          backgroundColor: "#1E40AF",
+                          backgroundImage: `url(${travelData.oregon.memories[0]?.src})`,
+                          backgroundColor: "#16A34A",
                         }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                        <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-blue-700/80 dark:bg-blue-800/80 shadow">
-                            Chicago
+                        <div className="absolute bottom-1 left-1">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-green-700/80 dark:bg-green-800/80 shadow">
+                            Oregon
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* New York */}
+                    <div
+                      className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-gray-900/10"
+                      onClick={() =>
+                        openModal(
+                          travelData.nyc.memories,
+                          0,
+                          travelData.nyc.title
+                        )
+                      }
+                    >
+                      <div
+                        className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
+                        style={{
+                          backgroundImage: `url(${travelData.nyc.memories[0]?.src})`,
+                          backgroundColor: "#374151",
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
+                        <div className="absolute bottom-1 left-1">
+                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-gray-800/80 dark:bg-gray-700/80 shadow">
+                            NYC
                           </span>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="grid gap-2">
-                    {/* Israel */}
-                    <div
-                      className="group relative overflow-hidden rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-amber-900/10"
-                      onClick={() =>
-                        openModal(
-                          travelData.israel.memories,
-                          0,
-                          travelData.israel.title
-                        )
-                      }
-                    >
-                      <div
-                        className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
-                        style={{
-                          backgroundImage: `url(${travelData.israel.memories[0]?.src})`,
-                          backgroundColor: "#D97706",
-                        }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                        <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-amber-700/80 dark:bg-amber-800/80 shadow">
-                            Israel
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Mexico */}
-                    <div
-                      className="group relative overflow-hidden rounded-xl border border-red-100 dark:border-red-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-red-900/10"
-                      onClick={() =>
-                        openModal(
-                          travelData.mexico.memories,
-                          0,
-                          travelData.mexico.title
-                        )
-                      }
-                    >
-                      <div
-                        className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
-                        style={{
-                          backgroundImage: `url(${travelData.mexico.memories[0]?.src})`,
-                          backgroundColor: "#DC2626",
-                        }}
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                        <div className="absolute bottom-2 left-2">
-                          <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-red-700/80 dark:bg-red-800/80 shadow">
-                            Mexico
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Row 2 - Horizontal layout */}
-                <div className="grid grid-cols-3 gap-3 mb-4">
-                  {/* Atlanta */}
-                  <div
-                    className="group relative overflow-hidden rounded-xl border border-emerald-100 dark:border-emerald-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-emerald-900/10"
-                    onClick={() =>
-                      openModal(
-                        travelData.atlanta.memories,
-                        0,
-                        travelData.atlanta.title
-                      )
-                    }
-                  >
-                    <div
-                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
-                      style={{
-                        backgroundImage: `url(${travelData.atlanta.memories[0]?.src})`,
-                        backgroundColor: "#059669",
+                  {/* View All Button */}
+                  <div className="flex justify-center mt-2">
+                    <button
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-200 rounded-full border border-sky-200 dark:border-sky-800 hover:bg-sky-200 dark:hover:bg-sky-800/40 shadow transition-all duration-200 text-sm font-semibold tracking-tight active:scale-95"
+                      onClick={() => {
+                        // Gather all travel images in order
+                        const allMemories = [
+                          ...travelData.honolulu.memories,
+                          ...travelData.chicago.memories,
+                          ...travelData.israel.memories,
+                          ...travelData.mexico.memories,
+                          ...travelData.atlanta.memories,
+                          ...travelData.oregon.memories,
+                          ...travelData.nyc.memories,
+                        ];
+                        openModal(allMemories, 0, "All Travel Photos");
                       }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                      <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-emerald-700/80 dark:bg-emerald-800/80 shadow">
-                          Atlanta
-                        </span>
-                      </div>
-                    </div>
+                      <Image className="w-4 h-4" />
+                      View All Photos
+                    </button>
                   </div>
-
-                  {/* Oregon */}
-                  <div
-                    className="group relative overflow-hidden rounded-xl border border-green-100 dark:border-green-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-green-900/10"
-                    onClick={() =>
-                      openModal(
-                        travelData.oregon.memories,
-                        0,
-                        travelData.oregon.title
-                      )
-                    }
-                  >
-                    <div
-                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
-                      style={{
-                        backgroundImage: `url(${travelData.oregon.memories[0]?.src})`,
-                        backgroundColor: "#16A34A",
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                      <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-green-700/80 dark:bg-green-800/80 shadow">
-                          Oregon
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* New York */}
-                  <div
-                    className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-gray-900/10"
-                    onClick={() =>
-                      openModal(
-                        travelData.nyc.memories,
-                        0,
-                        travelData.nyc.title
-                      )
-                    }
-                  >
-                    <div
-                      className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
-                      style={{
-                        backgroundImage: `url(${travelData.nyc.memories[0]?.src})`,
-                        backgroundColor: "#374151",
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:from-black/20 transition-all duration-300 rounded-xl"></div>
-                      <div className="absolute bottom-1 left-1">
-                        <span className="text-white text-xs font-semibold px-2 py-1 rounded-lg bg-gray-800/80 dark:bg-gray-700/80 shadow">
-                          NYC
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* View All Button */}
-                <div className="flex justify-center mt-2">
-                  <button
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-200 rounded-full border border-sky-200 dark:border-sky-800 hover:bg-sky-200 dark:hover:bg-sky-800/40 shadow transition-all duration-200 text-sm font-semibold tracking-tight active:scale-95"
-                    onClick={() => {
-                      // Gather all travel images in order
-                      const allMemories = [
-                        ...travelData.honolulu.memories,
-                        ...travelData.chicago.memories,
-                        ...travelData.israel.memories,
-                        ...travelData.mexico.memories,
-                        ...travelData.atlanta.memories,
-                        ...travelData.oregon.memories,
-                        ...travelData.nyc.memories,
-                      ];
-                      openModal(allMemories, 0, "All Travel Photos");
-                    }}
-                  >
-                    <Image className="w-4 h-4" />
-                    View All Photos
-                  </button>
-                </div>
                 </div>
               )}
 
@@ -1883,88 +1883,88 @@ const TabContent = ({ activeTab }) => {
             {/* Art & Design Portfolio - Full Width (commented out) */}
             {false && (
               <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-md">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-x-2">
-                <PencilLine className="w-5 h-5 text-pink-600 dark:text-pink-400" />
-                Art & Design Portfolio
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                I create logos, digital art, poster designs, and academic
-                visuals for research presentations and manuscripts. My design
-                work bridges creative expression with clear communication across
-                various mediums and contexts.
-              </p>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-x-2">
+                  <PencilLine className="w-5 h-5 text-pink-600 dark:text-pink-400" />
+                  Art & Design Portfolio
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                  I create logos, digital art, poster designs, and academic
+                  visuals for research presentations and manuscripts. My design
+                  work bridges creative expression with clear communication
+                  across various mediums and contexts.
+                </p>
 
-              {/* Design Cards Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                {/* Logo & Brand Design Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-xl flex items-center justify-center group-hover:bg-sky-200 dark:group-hover:bg-sky-800/40 transition-colors duration-300">
-                      <Tag className="w-6 h-6 text-sky-600 dark:text-sky-400" />
+                {/* Design Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  {/* Logo & Brand Design Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/30 rounded-xl flex items-center justify-center group-hover:bg-sky-200 dark:group-hover:bg-sky-800/40 transition-colors duration-300">
+                        <Tag className="w-6 h-6 text-sky-600 dark:text-sky-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Logo & Brand Design
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Identity and branding systems
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Logo & Brand Design
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Identity and branding systems
-                      </p>
+                  </div>
+
+                  {/* Poster & Flyer Design Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/40 transition-colors duration-300">
+                        <FileText className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Poster & Flyer Design
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Event & promotional materials
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Illustration & Digital Sketches Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center group-hover:bg-violet-200 dark:group-hover:bg-violet-800/40 transition-colors duration-300">
+                        <PencilLine className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Illustration & Digital Sketches
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Digital art and illustrations
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Research Visuals Card */}
+                  <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/40 transition-colors duration-300">
+                        <BarChart2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
+                          Research Visuals
+                        </h4>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Diagrams, charts, and graphics for academic papers and
+                          grant proposals
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                {/* Poster & Flyer Design Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center group-hover:bg-emerald-200 dark:group-hover:bg-emerald-800/40 transition-colors duration-300">
-                      <FileText className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Poster & Flyer Design
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Event & promotional materials
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Illustration & Digital Sketches Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/30 rounded-xl flex items-center justify-center group-hover:bg-violet-200 dark:group-hover:bg-violet-800/40 transition-colors duration-300">
-                      <PencilLine className="w-6 h-6 text-violet-600 dark:text-violet-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Illustration & Digital Sketches
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Digital art and illustrations
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Research Visuals Card */}
-                <div className="group bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center group-hover:bg-amber-200 dark:group-hover:bg-amber-800/40 transition-colors duration-300">
-                      <BarChart2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 dark:text-gray-100 text-sm mb-1">
-                        Research Visuals
-                      </h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Diagrams, charts, and graphics for academic papers and
-                        grant proposals
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
               </div>
             )}
 
