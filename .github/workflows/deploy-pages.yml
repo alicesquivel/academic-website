@@ -38,9 +38,10 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy to GitHub Pages (push `dist` to `gh-pages` branch)
+      - name: Deploy to GitHub Pages (deploy `dist` into `main:/docs`)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: main
           folder: dist
+          destination_dir: docs
           clean: true
