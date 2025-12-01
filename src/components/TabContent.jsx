@@ -1810,10 +1810,10 @@ const TabContent = ({ activeTab }) => {
                   {/* Languages I Speak */}
                   <div>
                     <div className="flex items-center gap-2 mb-2">
-                        <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
-                          Languages I Speak
-                        </h4>
-                      </div>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+                        Languages I Speak
+                      </h4>
+                    </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="tag-pill bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
                         🇵🇾 Spanish
