@@ -27,6 +27,11 @@ jobs:
           node-version: '22'
           cache: 'yarn'
 
+      - name: Install system PhantomJS (prevent phantomjs npm postinstall download)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y phantomjs || true
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
