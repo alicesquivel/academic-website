@@ -1546,8 +1546,9 @@ const TabContent = ({ activeTab }) => {
               className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
               style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
             >
-              {/* Travel Memories Card */}
-              <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
+              {/* Travel Memories Card (commented out) */}
+              {false && (
+                <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
                 <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
                   <span className="text-lg">🌎</span>
                   Travel Memories
@@ -1780,7 +1781,8 @@ const TabContent = ({ activeTab }) => {
                     View All Photos
                   </button>
                 </div>
-              </div>
+                </div>
+              )}
 
               {/* Language & Culture Card */}
               <div className="relative bg-gradient-to-br from-orange-50/80 via-yellow-50/80 to-amber-100/60 dark:from-orange-900/30 dark:via-yellow-900/20 dark:to-amber-900/30 rounded-2xl p-6 shadow-lg border border-orange-100 dark:border-orange-900/30 h-full overflow-hidden">
@@ -1878,8 +1880,9 @@ const TabContent = ({ activeTab }) => {
               </div>
             </div>
 
-            {/* Art & Design Portfolio - Full Width */}
-            <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-md">
+            {/* Art & Design Portfolio - Full Width (commented out) */}
+            {false && (
+              <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 rounded-xl p-6 shadow-md">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-x-2">
                 <PencilLine className="w-5 h-5 text-pink-600 dark:text-pink-400" />
                 Art & Design Portfolio
@@ -1962,7 +1965,8 @@ const TabContent = ({ activeTab }) => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+            )}
 
             {/* Faith & Community - Full Width */}
             {/* <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6">
