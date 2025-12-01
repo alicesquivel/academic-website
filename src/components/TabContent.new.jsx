@@ -18,32 +18,13 @@ const ExpertiseCard = ({ title, description, className }) => (
   </div>
 );
 
-const Terminal = () => (
-  <div className="mt-8 overflow-hidden rounded-lg border border-border bg-terminal">
-    <div className="flex items-center gap-2 border-b border-border/10 bg-terminal-header px-4 py-3">
-      <div className="flex gap-2">
-        <div className="h-3 w-3 rounded-full bg-red-500" />
-        <div className="h-3 w-3 rounded-full bg-yellow-500" />
-        <div className="h-3 w-3 rounded-full bg-green-500" />
-      </div>
-      <p className="ml-auto text-sm text-terminal-muted font-mono">terminal</p>
-    </div>
-    <div className="p-4 font-mono text-sm leading-relaxed space-y-2">
-      <div className="flex flex-col gap-1">
-        <span className="text-terminal-muted">$ whoami</span>
-        <span className="text-terminal-text pl-4">
-          PhD Candidate specializing in cybersecurity and cloud computing
-        </span>
-      </div>
-      <div className="flex flex-col gap-1">
-        <span className="text-terminal-muted">$ ls skills/</span>
-        <span className="text-terminal-text pl-4">
-          cybersecurity/ cloud-computing/ machine-learning/ networking/
-        </span>
-      </div>
-    </div>
-  </div>
-);
+/* Terminal component removed per user request.
+   It previously displayed a faux terminal with commands like `whoami` and
+   `ls skills/`. Keeping personal/about text only, so the terminal UI is
+   intentionally commented out.
+
+const Terminal = () => null;
+*/
 
 const TabContent = ({ activeTab }) => {
   const renderAboutContent = () => (
@@ -98,7 +79,7 @@ const TabContent = ({ activeTab }) => {
         />
       </div>
 
-      <Terminal />
+      {/* Terminal removed — about text retained only. */}
     </div>
   );
 
