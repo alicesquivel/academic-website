@@ -47,63 +47,82 @@ const travelData = {
   honolulu: {
     title: "Honolulu, Hawaii",
     color: "from-orange-400 to-pink-400",
-    bgColor: "bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20",
+    bgColor:
+      "bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20",
     memories: [
       { id: 1, src: "/images/travel/hawaii.jpg", alt: "Hawaiian adventures" },
-    ]
+    ],
   },
   israel: {
     title: "Israel",
     color: "from-blue-400 to-teal-400",
-    bgColor: "bg-gradient-to-br from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20",
+    bgColor:
+      "bg-gradient-to-br from-blue-50 to-teal-50 dark:from-blue-900/20 dark:to-teal-900/20",
     memories: [
       { id: 1, src: "/images/travel/israel.jpg", alt: "Israel journey" },
-    ]
+    ],
   },
   chicago: {
     title: "Chicago, IL",
     color: "from-indigo-400 to-purple-400",
-    bgColor: "bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20",
+    bgColor:
+      "bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20",
     memories: [
       { id: 1, src: "/images/travel/chicago.jpg", alt: "Chicago experiences" },
-    ]
+    ],
   },
   mexico: {
     title: "Mexico",
     color: "from-red-400 to-orange-400",
-    bgColor: "bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20",
+    bgColor:
+      "bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20",
     memories: [
       { id: 1, src: "/images/travel/mexico.jpg", alt: "Mexico adventures" },
-    ]
+    ],
   },
   atlanta: {
     title: "Atlanta, GA",
     color: "from-green-400 to-emerald-400",
-    bgColor: "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+    bgColor:
+      "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
     memories: [
       { id: 1, src: "/images/travel/atlanta.jpg", alt: "Atlanta memories" },
-    ]
+    ],
   },
   oregon: {
     title: "Oregon",
     color: "from-teal-400 to-green-400",
-    bgColor: "bg-gradient-to-br from-teal-50 to-green-50 dark:from-teal-900/20 dark:to-green-900/20",
+    bgColor:
+      "bg-gradient-to-br from-teal-50 to-green-50 dark:from-teal-900/20 dark:to-green-900/20",
     memories: [
       { id: 1, src: "/images/travel/oregon.jpg", alt: "Oregon explorations" },
-    ]
+    ],
   },
   nyc: {
     title: "New York City, NY",
     color: "from-yellow-400 to-red-400",
-    bgColor: "bg-gradient-to-br from-yellow-50 to-red-50 dark:from-yellow-900/20 dark:to-red-900/20",
+    bgColor:
+      "bg-gradient-to-br from-yellow-50 to-red-50 dark:from-yellow-900/20 dark:to-red-900/20",
     memories: [
-      { id: 1, src: "/images/travel/newyork.jpg", alt: "New York City adventures" },
-    ]
-  }
+      {
+        id: 1,
+        src: "/images/travel/newyork.jpg",
+        alt: "New York City adventures",
+      },
+    ],
+  },
 };
 
 // Modal Component
-const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, destinationTitle }) => {
+const PhotoModal = ({
+  isOpen,
+  onClose,
+  photos,
+  currentIndex,
+  onNext,
+  onPrev,
+  destinationTitle,
+}) => {
   if (!isOpen || !photos || photos.length === 0) return null;
 
   const currentPhoto = photos[currentIndex];
@@ -142,7 +161,7 @@ const PhotoModal = ({ isOpen, onClose, photos, currentIndex, onNext, onPrev, des
           src={currentPhoto.src}
           alt={currentPhoto.alt}
           className="w-[800px] h-[600px] max-w-[95vw] max-h-[85vh] object-cover rounded-2xl shadow-2xl bg-black/30"
-          style={{ aspectRatio: '4/3' }}
+          style={{ aspectRatio: "4/3" }}
         />
 
         {/* Caption */}
@@ -457,15 +476,15 @@ const ExperienceCard = ({
 );
 
 // Enhanced Publication Card Component
-const EnhancedPublicationCard = ({ 
-  title, 
-  venue, 
-  year, 
-  authors, 
-  description, 
+const EnhancedPublicationCard = ({
+  title,
+  venue,
+  year,
+  authors,
+  description,
   thumbnail,
   tags = [],
-  links = {}
+  links = {},
 }) => (
   <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 enhanced-pub-card group cursor-pointer">
     <div className="flex gap-4">
@@ -473,17 +492,21 @@ const EnhancedPublicationCard = ({
       <div className="flex-shrink-0">
         <div className="w-24 h-24 rounded-lg pub-thumbnail bg-gray-100 dark:bg-gray-700">
           {thumbnail ? (
-            <img 
-              src={thumbnail} 
+            <img
+              src={thumbnail}
               alt={title}
               className="w-full h-full object-cover"
               onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'flex';
+                e.target.style.display = "none";
+                e.target.nextSibling.style.display = "flex";
               }}
             />
           ) : null}
-          <div className={`w-full h-full flex items-center justify-center ${thumbnail ? 'hidden' : 'flex'}`}>
+          <div
+            className={`w-full h-full flex items-center justify-center ${
+              thumbnail ? "hidden" : "flex"
+            }`}
+          >
             <FileText className="w-8 h-8 text-gray-400 dark:text-gray-500" />
           </div>
         </div>
@@ -497,7 +520,7 @@ const EnhancedPublicationCard = ({
             {title}
           </h4>
           {links.paper && (
-            <a 
+            <a
               href={links.paper}
               className="ml-2 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
               onClick={(e) => e.stopPropagation()}
@@ -521,7 +544,7 @@ const EnhancedPublicationCard = ({
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-1 mb-4">
             {tags.map((tag, index) => (
-              <span 
+              <span
                 key={index}
                 className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-md text-xs font-medium"
               >
@@ -534,7 +557,7 @@ const EnhancedPublicationCard = ({
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-2">
           {links.paper && (
-            <a 
+            <a
               href={links.paper}
               className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
               onClick={(e) => e.stopPropagation()}
@@ -544,7 +567,7 @@ const EnhancedPublicationCard = ({
             </a>
           )}
           {links.code && (
-            <a 
+            <a
               href={links.code}
               className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-gray-600 hover:bg-gray-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
               onClick={(e) => e.stopPropagation()}
@@ -554,7 +577,7 @@ const EnhancedPublicationCard = ({
             </a>
           )}
           {links.slides && (
-            <a 
+            <a
               href={links.slides}
               className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
               onClick={(e) => e.stopPropagation()}
@@ -564,7 +587,7 @@ const EnhancedPublicationCard = ({
             </a>
           )}
           {links.bibtex && (
-            <a 
+            <a
               href={links.bibtex}
               className="action-btn inline-flex items-center gap-1 px-3 py-1.5 bg-orange-600 hover:bg-orange-700 text-white text-xs font-medium rounded-lg transition-all duration-200"
               onClick={(e) => e.stopPropagation()}
@@ -626,12 +649,7 @@ const TalkEntry = ({ date, title, host, location, links = {} }) => (
 );
 
 // Award Entry Component - Clean Version (no icons)
-const AwardEntry = ({
-  date,
-  title,
-  organization,
-  description,
-}) => (
+const AwardEntry = ({ date, title, organization, description }) => (
   <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:shadow-sm hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200">
     <div className="flex items-start justify-between gap-3 mb-2">
       <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 leading-tight">
@@ -662,10 +680,10 @@ const TabContent = ({ activeTab }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPhotos, setCurrentPhotos] = useState([]);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  const [currentDestination, setCurrentDestination] = useState('');
+  const [currentDestination, setCurrentDestination] = useState("");
 
   // Modal handlers
-  const openModal = (photos, index = 0, destination = '') => {
+  const openModal = (photos, index = 0, destination = "") => {
     setCurrentPhotos(photos);
     setCurrentPhotoIndex(index);
     setCurrentDestination(destination);
@@ -676,7 +694,7 @@ const TabContent = ({ activeTab }) => {
     setIsModalOpen(false);
     setCurrentPhotos([]);
     setCurrentPhotoIndex(0);
-    setCurrentDestination('');
+    setCurrentDestination("");
   };
 
   const nextPhoto = () => {
@@ -684,7 +702,9 @@ const TabContent = ({ activeTab }) => {
   };
 
   const prevPhoto = () => {
-    setCurrentPhotoIndex((prev) => (prev - 1 + currentPhotos.length) % currentPhotos.length);
+    setCurrentPhotoIndex(
+      (prev) => (prev - 1 + currentPhotos.length) % currentPhotos.length
+    );
   };
 
   // Keyboard navigation for modal
@@ -693,13 +713,13 @@ const TabContent = ({ activeTab }) => {
       if (!isModalOpen) return;
 
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           closeModal();
           break;
-        case 'ArrowLeft':
+        case "ArrowLeft":
           prevPhoto();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           nextPhoto();
           break;
         default:
@@ -707,8 +727,8 @@ const TabContent = ({ activeTab }) => {
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen]);
 
   // Recent talks and presentations from CV
@@ -823,11 +843,10 @@ const TabContent = ({ activeTab }) => {
     switch (activeTab) {
       case "about":
         return (
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-x-12">
-            {/* Left Column - Text Content */}
-            <div className="flex-1 max-w-xl">
-              <div className="prose dark:prose-invert max-w-none">
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body text-left">
+          <div className="flex justify-center">
+            <div className="w-full max-w-3xl">
+              <div className="prose dark:prose-invert mx-auto text-center">
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-body">
                   I'm a{" "}
                   <span className="font-semibold text-gray-900 dark:text-gray-100">
                     PhD candidate in Computer Science
@@ -862,8 +881,6 @@ const TabContent = ({ activeTab }) => {
                 </p>
               </div>
             </div>
-
-            {/* Right Column intentionally removed to keep About text only */}
           </div>
         );
 
@@ -971,7 +988,7 @@ const TabContent = ({ activeTab }) => {
                       paper: "#",
                       code: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -985,7 +1002,7 @@ const TabContent = ({ activeTab }) => {
                     tags={["Zero Trust", "IoT", "Security"]}
                     links={{
                       paper: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -996,11 +1013,15 @@ const TabContent = ({ activeTab }) => {
                     authors="A. Esquivel, H. Nguyen, I. Clark"
                     description="Self-adapting Zero Trust architecture for networks with frequently changing topologies and device configurations."
                     thumbnail="/images/research/adaptive-zero-trust-thumb.jpg"
-                    tags={["Zero Trust", "Network Security", "Adaptive Systems"]}
+                    tags={[
+                      "Zero Trust",
+                      "Network Security",
+                      "Adaptive Systems",
+                    ]}
                     links={{
                       paper: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
                 </div>
@@ -1024,7 +1045,7 @@ const TabContent = ({ activeTab }) => {
                     links={{
                       paper: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -1035,10 +1056,14 @@ const TabContent = ({ activeTab }) => {
                     authors="A. Esquivel, T. Anderson, L. Wilson"
                     description="Comprehensive study on network management challenges and solutions for edge computing infrastructures."
                     thumbnail="/images/research/network-mgmt-thumb.jpg"
-                    tags={["Edge Computing", "Network Management", "Orchestration"]}
+                    tags={[
+                      "Edge Computing",
+                      "Network Management",
+                      "Orchestration",
+                    ]}
                     links={{
                       paper: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -1054,7 +1079,7 @@ const TabContent = ({ activeTab }) => {
                       paper: "#",
                       code: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
                 </div>
@@ -1077,7 +1102,7 @@ const TabContent = ({ activeTab }) => {
                     tags={["UAV Systems", "Security", "Privacy", "Survey"]}
                     links={{
                       paper: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -1092,7 +1117,7 @@ const TabContent = ({ activeTab }) => {
                     links={{
                       paper: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
 
@@ -1103,11 +1128,15 @@ const TabContent = ({ activeTab }) => {
                     authors="A. Esquivel, F. Lee, G. Brown"
                     description="Machine learning approaches for detecting network intrusions in mobile and wireless communication systems."
                     thumbnail="/images/research/intrusion-detection-thumb.jpg"
-                    tags={["Machine Learning", "Network Security", "Mobile Networks"]}
+                    tags={[
+                      "Machine Learning",
+                      "Network Security",
+                      "Mobile Networks",
+                    ]}
                     links={{
                       paper: "#",
                       slides: "#",
-                      bibtex: "#"
+                      bibtex: "#",
                     }}
                   />
                 </div>
@@ -1174,19 +1203,21 @@ const TabContent = ({ activeTab }) => {
                 </div>
 
                 <div className="space-y-3">
-                  {(showAllTalks ? talks : talks.slice(0, 4)).map((talk, index) => (
-                    <div key={index} className="timeline-item">
-                      <TalkEntry
-                        date={talk.date}
-                        title={talk.title}
-                        host={talk.host}
-                        location={talk.location}
-                        links={talk.links}
-                      />
-                    </div>
-                  ))}
+                  {(showAllTalks ? talks : talks.slice(0, 4)).map(
+                    (talk, index) => (
+                      <div key={index} className="timeline-item">
+                        <TalkEntry
+                          date={talk.date}
+                          title={talk.title}
+                          host={talk.host}
+                          location={talk.location}
+                          links={talk.links}
+                        />
+                      </div>
+                    )
+                  )}
                 </div>
-                
+
                 {/* Show More/Less Button */}
                 {talks.length > 4 && (
                   <div className="text-center pt-3">
@@ -1208,10 +1239,11 @@ const TabContent = ({ activeTab }) => {
                     </button>
                   </div>
                 )}
-                
+
                 <div className="text-center pt-2">
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    Selected presentations from 2022-2025 • NSF Student Travel Grant Recipient
+                    Selected presentations from 2022-2025 • NSF Student Travel
+                    Grant Recipient
                   </p>
                 </div>
               </div>
@@ -1499,14 +1531,19 @@ const TabContent = ({ activeTab }) => {
             </div>
 
             {/* Travel Adventures & Language Culture - Side by Side */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans" style={{ fontFamily: 'Inter, Poppins, SF Pro, sans-serif' }}>
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans"
+              style={{ fontFamily: "Inter, Poppins, SF Pro, sans-serif" }}
+            >
               {/* Travel Memories Card */}
               <div className="relative bg-gradient-to-br from-blue-50/80 via-sky-50/80 to-cyan-100/60 dark:from-blue-900/30 dark:via-sky-900/20 dark:to-cyan-900/30 rounded-2xl p-6 shadow-lg border border-blue-100 dark:border-blue-900/30 h-full overflow-hidden">
                 <h3 className="text-xl font-extrabold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-x-2 tracking-tight">
                   <span className="text-lg">🌎</span>
                   Travel Memories
                 </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">These are places I’ve visited</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                  These are places I’ve visited
+                </p>
                 {/* Decorative gradient blob */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-sky-200/40 to-blue-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
 
@@ -1515,9 +1552,15 @@ const TabContent = ({ activeTab }) => {
                   {/* Row 1 */}
                   <div className="grid gap-2">
                     {/* Honolulu, Hawaii */}
-                    <div 
+                    <div
                       className="group relative overflow-hidden rounded-xl border border-sky-100 dark:border-sky-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-sky-900/10"
-                      onClick={() => openModal(travelData.honolulu.memories, 0, travelData.honolulu.title)}
+                      onClick={() =>
+                        openModal(
+                          travelData.honolulu.memories,
+                          0,
+                          travelData.honolulu.title
+                        )
+                      }
                     >
                       <div
                         className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1536,9 +1579,15 @@ const TabContent = ({ activeTab }) => {
                     </div>
 
                     {/* Chicago */}
-                    <div 
+                    <div
                       className="group relative overflow-hidden rounded-xl border border-blue-100 dark:border-blue-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-blue-900/10"
-                      onClick={() => openModal(travelData.chicago.memories, 0, travelData.chicago.title)}
+                      onClick={() =>
+                        openModal(
+                          travelData.chicago.memories,
+                          0,
+                          travelData.chicago.title
+                        )
+                      }
                     >
                       <div
                         className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1559,9 +1608,15 @@ const TabContent = ({ activeTab }) => {
 
                   <div className="grid gap-2">
                     {/* Israel */}
-                    <div 
+                    <div
                       className="group relative overflow-hidden rounded-xl border border-amber-100 dark:border-amber-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-amber-900/10"
-                      onClick={() => openModal(travelData.israel.memories, 0, travelData.israel.title)}
+                      onClick={() =>
+                        openModal(
+                          travelData.israel.memories,
+                          0,
+                          travelData.israel.title
+                        )
+                      }
                     >
                       <div
                         className="h-16 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1580,9 +1635,15 @@ const TabContent = ({ activeTab }) => {
                     </div>
 
                     {/* Mexico */}
-                    <div 
+                    <div
                       className="group relative overflow-hidden rounded-xl border border-red-100 dark:border-red-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-red-900/10"
-                      onClick={() => openModal(travelData.mexico.memories, 0, travelData.mexico.title)}
+                      onClick={() =>
+                        openModal(
+                          travelData.mexico.memories,
+                          0,
+                          travelData.mexico.title
+                        )
+                      }
                     >
                       <div
                         className="h-20 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1605,9 +1666,15 @@ const TabContent = ({ activeTab }) => {
                 {/* Row 2 - Horizontal layout */}
                 <div className="grid grid-cols-3 gap-3 mb-4">
                   {/* Atlanta */}
-                  <div 
+                  <div
                     className="group relative overflow-hidden rounded-xl border border-emerald-100 dark:border-emerald-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-emerald-900/10"
-                    onClick={() => openModal(travelData.atlanta.memories, 0, travelData.atlanta.title)}
+                    onClick={() =>
+                      openModal(
+                        travelData.atlanta.memories,
+                        0,
+                        travelData.atlanta.title
+                      )
+                    }
                   >
                     <div
                       className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1626,9 +1693,15 @@ const TabContent = ({ activeTab }) => {
                   </div>
 
                   {/* Oregon */}
-                  <div 
+                  <div
                     className="group relative overflow-hidden rounded-xl border border-green-100 dark:border-green-900/30 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-green-900/10"
-                    onClick={() => openModal(travelData.oregon.memories, 0, travelData.oregon.title)}
+                    onClick={() =>
+                      openModal(
+                        travelData.oregon.memories,
+                        0,
+                        travelData.oregon.title
+                      )
+                    }
                   >
                     <div
                       className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1647,9 +1720,15 @@ const TabContent = ({ activeTab }) => {
                   </div>
 
                   {/* New York */}
-                  <div 
+                  <div
                     className="group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer bg-white/70 dark:bg-gray-900/10"
-                    onClick={() => openModal(travelData.nyc.memories, 0, travelData.nyc.title)}
+                    onClick={() =>
+                      openModal(
+                        travelData.nyc.memories,
+                        0,
+                        travelData.nyc.title
+                      )
+                    }
                   >
                     <div
                       className="h-12 bg-cover bg-center transition-all duration-300 group-hover:scale-105 rounded-xl"
@@ -1698,7 +1777,9 @@ const TabContent = ({ activeTab }) => {
                   <span className="text-lg">🗣️</span>
                   Language, Culture & Hobbies
                 </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Languages, learning, and fun activities</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
+                  Languages, learning, and fun activities
+                </p>
                 {/* Decorative gradient blob */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-orange-200/40 to-yellow-300/30 rounded-full blur-2xl opacity-40 pointer-events-none" />
 
@@ -1707,7 +1788,9 @@ const TabContent = ({ activeTab }) => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-base">🌐</span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Languages I Speak</h4>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+                        Languages I Speak
+                      </h4>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="tag-pill bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
@@ -1729,7 +1812,9 @@ const TabContent = ({ activeTab }) => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-base">📚</span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Languages I'm Learning</h4>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+                        Languages I'm Learning
+                      </h4>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-2">
                       <span className="tag-pill bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
@@ -1753,7 +1838,9 @@ const TabContent = ({ activeTab }) => {
                       Learning with Duolingo
                       <ExternalLink className="w-3 h-3" />
                     </a>
-                    <div className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">Powered by Duolingo</div>
+                    <div className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
+                      Powered by Duolingo
+                    </div>
                   </div>
 
                   {/* Divider */}
@@ -1763,7 +1850,9 @@ const TabContent = ({ activeTab }) => {
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-base">🎨</span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">Hobbies & Activities</h4>
+                      <h4 className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight">
+                        Hobbies & Activities
+                      </h4>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       <span className="tag-pill bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 border border-purple-200 dark:border-purple-800 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer">
@@ -1900,7 +1989,7 @@ const TabContent = ({ activeTab }) => {
   return (
     <div className="space-y-6">
       {renderContent()}
-      
+
       {/* Photo Modal */}
       <PhotoModal
         isOpen={isModalOpen}
