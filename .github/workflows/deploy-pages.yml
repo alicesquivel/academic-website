@@ -42,5 +42,5 @@ jobs:
         with:
           branch: main
           folder: dist
-          destination_dir: docs
+          target-folder: docs
           clean: true
