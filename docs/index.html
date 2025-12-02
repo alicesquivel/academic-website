@@ -8,6 +8,29 @@
   <title>Alicia Esquivel Morel</title>
   <script type="module" crossorigin src="/assets/index-COfFq8uI.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-mN-Jj4Pc.css">
+  <style>
+    /* Avatar tweaks: reduce zoom and ensure circular shape */
+    img[src="/profile.png"] {
+      object-fit: cover !important;
+      object-position: center !important;
+      width: 120px !important;
+      height: 120px !important;
+      max-width: none !important;
+      border-radius: 9999px !important;
+      transform-origin: center center !important;
+      transform: scale(0.88) !important; /* slightly reduce apparent zoom */
+      background-color: transparent !important;
+    }
+
+    /* Keep the avatar responsive on small screens */
+    @media (max-width: 640px) {
+      img[src="/profile.png"] {
+        width: 96px !important;
+        height: 96px !important;
+        transform: scale(0.9) !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
